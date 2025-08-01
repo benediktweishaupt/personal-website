@@ -15,17 +15,17 @@ const { currentPostId } = Astro.props;
 
 <!-- Navigation Overlay -->
 <div id="navigation-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
-	<div class="bg-white h-full overflow-y-auto">
+	<div class="bg-slate-50 h-full overflow-y-auto">
 		<div class="p-4">
 			<div class="flex justify-between items-center mb-6">
-				<h2 class="text-lg font-semibold text-gray-800">All Posts</h2>
+				<h2 class="text-base font-medium text-gray-800">All Posts</h2>
 				<button id="close-navigation" class="text-gray-500 hover:text-gray-700">
 					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
 					</svg>
 				</button>
 			</div>
-			<div class="grid gap-4 sm:grid-cols-2">
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 				{posts.map((post) => (
 					<article class="space-y-0">
 						<a href={`/blog/${post.id}/`} class="block hover:drop-shadow-md hover:border-slate-100 hover:bg-slate-50 rounded-lg p-4">
