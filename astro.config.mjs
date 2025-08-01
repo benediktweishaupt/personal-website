@@ -6,6 +6,10 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	site: 'http://360degre.es/',
+	output: 'static',
+	build: {
+		format: 'directory'
+	},
 	integrations: [mdx(), sitemap()],
 });
