@@ -1,16 +1,9 @@
 ---
 import { SITE_NAME } from '../consts';
-import HeaderLink from './HeaderLink.astro';
 ---
 
 <header class="border-b py-4 mb-8">
-	<nav class="flex justify-between items-center">
+	<nav class="flex justify-center">
 		<h1 class="text-xl font-bold"><a href="/" class="hover:opacity-80">{SITE_NAME}</a></h1>
-		<div class="flex gap-6">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/archive">Archive</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-		</div>
 	</nav>
 </header>
