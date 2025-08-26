@@ -14,30 +14,28 @@ const { currentPostId } = Astro.props;
 ---
 
 <!-- Navigation Overlay -->
-<div id="navigation-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
-	<div class="bg-slate-50 h-full overflow-y-auto">
-		<div class="p-4">
-			<div class="flex justify-between items-center mb-6">
-				<h2 class="text-base font-medium text-gray-800">All Posts</h2>
-				<button id="close-navigation" class="text-gray-500 hover:text-gray-700">
-					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-					</svg>
-				</button>
-			</div>
-			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-				{posts.map((post) => (
-					<article class="space-y-0">
-						<a href={`/blog/${post.id}/`} class="block hover:drop-shadow-md hover:border-slate-100 hover:bg-slate-50 rounded-lg p-4">
-							<h2 class="text-base font-medium text-gray-800">{post.data.title}</h2>
-							{post.data.excerpt && <p class="text-base text-gray-800">{post.data.excerpt}</p>}
-							<p class="text-base text-gray-800">
-								<FormattedDate date={post.data.pubDate} />
-							</p>
-						</a>
-					</article>
-				))}
-			</div>
+<div id="navigation-overlay" class="fixed inset-0 hidden z-50">
+	<div class="h-full overflow-y-auto flex flex-col ">
+		<div class="flex items-center justify-between px-4 py-3 bg-slate-100">
+			<h2 class="text-base font-medium text-gray-800">All Posts</h2>
+			<button id="close-navigation" class="text-gray-500 hover:text-gray-700">
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+				</svg>
+			</button>
+		</div>
+		<div class=" grow grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-slate-400 bg-opacity-50 backdrop-blur-2xl">
+			{posts.map((post) => (
+				<article class="space-y-0">
+					<a href={`/blog/${post.id}/`} class="block hover:drop-shadow-md hover:border-slate-100 hover:bg-slate-50 hover:bg-opacity-80 rounded-sm p-4">
+						<p class="text-sm font-medium text-gray-800 tracking-wide">
+							<FormattedDate date={post.data.pubDate} />
+						</p>
+						<h2 class="text-base font-medium text-gray-800">{post.data.title}</h2>
+						{post.data.excerpt && <p class="text-base font-medium text-gray-400">{post.data.excerpt}</p>}
+					</a>
+				</article>
+			))}
 		</div>
 	</div>
 </div>
