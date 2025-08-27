@@ -2,8 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+/* SangBleu Empire Font Faces */
+@font-face {
+  font-family: "SangBleu Empire";
+  src: url("/fonts/SangBleuEmpire-Regular-WebTrial.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SangBleu Empire";
+  src: url("/fonts/SangBleuEmpire-Medium-WebTrial.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SangBleu Empire";
+  src: url("/fonts/SangBleuEmpire-Bold-WebTrial.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SangBleu Republic Font Faces */
+@font-face {
+  font-family: "SangBleu Republic";
+  src: url("/fonts/SangBleuRepublic-Regular-WebTrial.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SangBleu Republic";
+  src: url("/fonts/SangBleuRepublic-Medium-WebTrial.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SangBleu Republic";
+  src: url("/fonts/SangBleuRepublic-Bold-WebTrial.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Blog post prose styles */
 @layer components {
+  /* Override all prose colors to gray-900 */
+  .prose {
+    --tw-prose-body: theme("colors.gray.900");
+    --tw-prose-headings: theme("colors.gray.900");
+    --tw-prose-lead: theme("colors.gray.900");
+    --tw-prose-links: theme("colors.gray.900");
+    --tw-prose-bold: theme("colors.gray.900");
+    --tw-prose-counters: theme("colors.gray.900");
+    --tw-prose-bullets: theme("colors.gray.900");
+    --tw-prose-quotes: theme("colors.gray.900");
+    --tw-prose-code: theme("colors.gray.900");
+  }
+
   /* Hide images in prose on desktop, show on mobile */
   @media (min-width: 1024px) {
     .prose img {
@@ -38,6 +101,14 @@
   .prose h2 {
     font-size: 1.25rem !important;
     line-height: 1.75rem !important;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.25rem;
+  }
+
+  /* First paragraph as lead text using Tailwind Typography variables */
+  .prose > p:first-child {
+    font-family: "SangBleu Empire", "SangBleu Republic", Georgia, Times, serif;
+    color: var(--tw-prose-lead);
+    font-size: 2em;
+    line-height: 1.2;
   }
 }

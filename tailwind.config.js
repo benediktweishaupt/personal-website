@@ -2,7 +2,12 @@
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'serif': ['"SangBleu Republic"', '"Old Standard TT"', 'Georgia', 'Times', 'serif'],
+        'serif-display': ['"SangBleu Empire"', '"SangBleu Republic"', 'Georgia', 'Times', 'serif'],
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),
