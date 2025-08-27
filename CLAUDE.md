@@ -71,3 +71,5 @@ The deployment workflow uses `SamKirkland/FTP-Deploy-Action` to upload the `./di
 - Are.na API client for build-time content fetching
 - Telegram bot service (runs separately, not in this repo)
 - GitHub Actions webhook triggers for automated rebuilds
+- ALWAYS use tailwind 3.4 defaults to write css. \
+Only if styling is not covered point it out to me that you have to use something else ask me before implementing it.

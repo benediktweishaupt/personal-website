@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Blog post prose styles */
+@layer components {
+  /* Hide images in prose on desktop, show on mobile */
+  @media (min-width: 1024px) {
+    .prose img {
+      display: none !important;
+    }
+  }
+
+  /* Show images in prose on mobile only */
+  @media (max-width: 1023px) {
+    .prose img {
+      display: block !important;
+      width: 100%;
+      height: auto;
+      margin: 1rem 0;
+    }
+  }
+
+  /* Custom heading styles - sans-serif with no margins */
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    text-transform: uppercase;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    font-weight: 400;
+  }
+
+  /* H2 same size as text-xl */
+  .prose h2 {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+    letter-spacing: 0.1rem;
+  }
+}

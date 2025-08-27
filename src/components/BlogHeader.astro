@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { SITE_NAME } from '../consts';
+import FormattedDate from './FormattedDate.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -18,16 +19,9 @@ const prevPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : nul
 const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
 ---
 
-<header class="border-b border-slate-200 bg-slate-50 sticky top-0 z-20">
-	<nav class="flex items-center justify-between px-4 py-3">
-		<div class="flex items-center space-x-4">
-			<!-- Navigation menu button -->
-			<button id="menu-btn" class="text-gray-600 hover:text-gray-800">
-				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-				</svg>
-			</button>
-
+<header class="max-w-screen-2xl mx-auto bg-white/70 sticky rounded-full z-20 top-2 p-1 backdrop-blur-lg">
+	<nav class="flex items-center justify-between ">
+		<div class="flex items-center space-x-4 pl-4">
 			<!-- Site title -->
 			<h1 class="text-base font-medium">
 				<a href="/" class="hover:opacity-80">{SITE_NAME}</a>
@@ -37,14 +31,14 @@ const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
 		<!-- Prev/Next Navigation -->
 		<div class="flex items-center space-x-2">
 			{prevPost ? (
-				<a href={`/blog/${prevPost.id}/`} class="flex items-center px-3 py-1 text-sm text-gray-600 hover:text-gray-800 hover:bg-slate-50 rounded-md" title={prevPost.data.title}>
+				<a href={`/blog/${prevPost.id}/`} class="flex items-center px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800 hover:bg-slate-50 rounded-md" title={prevPost.data.title}>
 					<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
 					</svg>
 					<span class="hidden sm:inline">Prev</span>
 				</a>
 			) : (
-				<span class="flex items-center px-3 py-1 text-sm text-gray-300 cursor-not-allowed">
+				<span class="flex items-center px-3 py-1.5 text-sm text-gray-300 cursor-not-allowed">
 					<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
 					</svg>
@@ -53,20 +47,81 @@ const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
 			)}
 
 			{nextPost ? (
-				<a href={`/blog/${nextPost.id}/`} class="flex items-center px-3 py-1 text-sm text-gray-600 hover:text-gray-800 hover:bg-slate-50 rounded-md" title={nextPost.data.title}>
+				<a href={`/blog/${nextPost.id}/`} class="flex items-center px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800 hover:bg-slate-50 rounded-md " title={nextPost.data.title}>
 					<span class="hidden sm:inline">Next</span>
 					<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
 					</svg>
 				</a>
 			) : (
-				<span class="flex items-center px-3 py-1 text-sm text-gray-300 cursor-not-allowed">
+				<span class="flex items-center px-3 py-1.5 text-sm text-gray-300 cursor-not-allowed">
 					<span class="hidden sm:inline">Next</span>
 					<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
 					</svg>
 				</span>
 			)}
+			<!-- Menu toggle button -->
+			<button id="menu-toggle" class="text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-full p-2.5">
+				<svg id="hamburger-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+				</svg>
+				<svg id="close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+				</svg>
+			</button>
 		</div>
 	</nav>
 </header>
+
+<!-- Navigation Overlay -->
+<div id="navigation-overlay" class="fixed inset-0 hidden z-50 top-16 bottom-2  overflow-y-auto max-w-screen-2xl mx-auto rounded-3xl">
+		<div class=" grow h-full grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-slate-400 bg-opacity-50 backdrop-blur-2xl">
+			{posts.map((post) => (
+				<article class="space-y-0">
+					<a href={`/blog/${post.id}/`} class="block hover:drop-shadow-md hover:border-slate-100 hover:bg-slate-50 hover:bg-opacity-80 rounded-sm p-4">
+						<p class="text-sm font-medium text-gray-800 tracking-wide">
+							<FormattedDate date={post.data.pubDate} />
+						</p>
+						<h2 class="text-base font-medium text-gray-800">{post.data.title}</h2>
+						{post.data.excerpt && <p class="text-base font-medium text-gray-400">{post.data.excerpt}</p>}
+					</a>
+				</article>
+			))}
+		</div>
+</div>
+
+<script>
+	// Toggle navigation overlay and burger/cross icon
+	const menuToggle = document.getElementById('menu-toggle');
+	const navigationOverlay = document.getElementById('navigation-overlay');
+	const hamburgerIcon = document.getElementById('hamburger-icon');
+	const closeIcon = document.getElementById('close-icon');
+	
+	let isMenuOpen = false;
+
+	function toggleMenu() {
+		isMenuOpen = !isMenuOpen;
+		
+		if (isMenuOpen) {
+			navigationOverlay?.classList.remove('hidden');
+			document.body.style.overflow = 'hidden';
+			hamburgerIcon?.classList.add('hidden');
+			closeIcon?.classList.remove('hidden');
+		} else {
+			navigationOverlay?.classList.add('hidden');
+			document.body.style.overflow = 'auto';
+			hamburgerIcon?.classList.remove('hidden');
+			closeIcon?.classList.add('hidden');
+		}
+	}
+
+	menuToggle?.addEventListener('click', toggleMenu);
+
+	// Close navigation when clicking outside
+	navigationOverlay?.addEventListener('click', (e) => {
+		if (e.target === navigationOverlay) {
+			toggleMenu();
+		}
+	});
+</script>
