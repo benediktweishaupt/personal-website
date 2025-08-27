@@ -19,11 +19,11 @@ const prevPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : nul
 const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
 ---
 
-<header class="max-w-screen-2xl mx-auto bg-white/70 sticky rounded-full z-20 top-2 p-1 backdrop-blur-lg">
+<header class="max-w-screen-2xl mx-auto sticky rounded-full z-20 top-2 p-1  bg-white/70 backdrop-blur-lg">
 	<nav class="flex items-center justify-between ">
 		<div class="flex items-center space-x-4 pl-4">
 			<!-- Site title -->
-			<h1 class="text-base font-medium">
+			<h1 class="text-base font-medium font-serif italic">
 				<a href="/" class="hover:opacity-80">{SITE_NAME}</a>
 			</h1>
 		</div>
@@ -76,7 +76,7 @@ const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
 
 <!-- Navigation Overlay -->
 <div id="navigation-overlay" class="fixed inset-0 hidden z-50 top-16 bottom-2  overflow-y-auto max-w-screen-2xl mx-auto rounded-3xl">
-		<div class=" grow h-full grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-slate-400 bg-opacity-50 backdrop-blur-2xl">
+		<div class=" grow h-full grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-white/70 backdrop-blur-lg">
 			{posts.map((post) => (
 				<article class="space-y-0">
 					<a href={`/blog/${post.id}/`} class="block hover:drop-shadow-md hover:border-slate-100 hover:bg-slate-50 hover:bg-opacity-80 rounded-sm p-4">
