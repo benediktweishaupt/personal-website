@@ -1,0 +1,107 @@
+---
+title: Reteach Design System
+status: draft
+order: 1
+cover:
+  image: projects/reteach/design-system-cover
+  alt: Legacy-System-Karte zeigt vier parallele Button-Implementierungen und Vue2-zu-Vue3-Migration-Blocker
+  caption: Von vier parallelen UI-Implementierungen zu einem einheitlichen System für drei Produkte
+meta:
+  category: clients
+  format: Design System
+  team: 5 Personen (Design Lead, 3 Frontend Engineers, PM)
+  institution: Reteach GmbH
+  year: 2024-2025
+---
+
+import ProjectSection from '../../../components/project/ProjectSection.astro';
+import ProjectDescription from '../../../components/project/ProjectDescription.astro';
+import ProjectTag from '../../../components/project/ProjectTag.astro';
+import ProjectTagList from '../../../components/project/ProjectTagList.astro';
+import ProjectSectionHeading from '../../../components/project/ProjectSectionHeading.astro';
+import ProjectTextBlock from '../../../components/project/ProjectTextBlock.astro';
+import ProjectMediaGrid from '../../../components/project/ProjectMediaGrid.astro';
+import ProjectImageGrid from '../../../components/project/ProjectImageGrid.astro';
+import ProjectFullWidthImage from '../../../components/project/ProjectFullWidthImage.astro';
+
+<ProjectSection variant="full" gap="10">
+  <ProjectDescription></ProjectDescription>
+  <ProjectTag variant="large">B2B SaaS LMS for 1,500+ companies</ProjectTag>
+</ProjectSection>
+
+<ProjectSection variant="simple" gap="2">
+  <ProjectSectionHeading>My Role</ProjectSectionHeading>
+  <ProjectTagList tags={["Lead Product Designer", "Steering Committee Member", "Design System Architect"]} />
+</ProjectSection>
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectTextBlock>
+    When I joined Reteach, the Vue-2-to-3 migration had been frozen for months. In practice, the UI layer was fragmented: four different button implementations, each created as a workaround for Bootstrap's limits. Nobody wanted to touch that codebase because the Bootstrap-Vue library was abandoned upstream and every change risked breaking something. A previous attempt at a full redesign had failed; trust in large-scale refactoring was low.
+    We agreed early that another big-bang refactor would only repeat the problem. Instead, we aimed for continuous progress that could be proven step by step. The question was not how to rebuild everything, but where to start so that the next improvement would become easier rather than harder.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectTextBlock>
+    The first decision was to establish a token foundation. Colors, typography, and spacing had been defined inconsistently across the three Reteach products. Functional colors replaced the scattered brand palettes, and semantic naming connected Tailwind's visual logic to our own variable system. The similarity to Tailwind class names initially caused confusion — a token like `--color-warning-500` looked identical to a Tailwind class but wasn't — which cost roughly two weeks of corrections. Once naming was clarified, design and engineering could finally use the same vocabulary, and implementation friction dropped noticeably.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectMediaGrid columns={2} items={[
+  { type: "video", src: "/video/projects/reteach/design-system/old-nav.mp4", caption: "Main navigation showing the untokenised layout" },
+  { type: "video", src: "/video/projects/reteach/design-system/new-nav.mp4", caption: "New tokenised admin app with colors which complied with Accessibility standards and Brand guidelines." },
+]} />
+
+<ProjectImageGrid columns={2} images={[
+  { src: "https://placehold.co/600x400", alt: "Token architecture diagram", caption: "Placeholder: Token mapping from functional to semantic" },
+  { src: "https://placehold.co/600x400", alt: "Token naming example", caption: "Placeholder: Token vs Tailwind class distinction" },
+]} />
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectTextBlock>
+    The token layer then became the base for addressing the two largest UX pain points identified through a support-ticket audit: table inconsistencies and the excessive use of modal dialogs. Tables had diverged in markup and behaviour; modals were used for nearly every interaction and blocked workflows. We built new atomic table components and replaced modal dialogs with a lighter drawer pattern that kept users in context. After rollout, a frontend engineer summarised the difference: "I can now estimate how long it takes to develop a modal pattern." Support tickets referencing UI inconsistencies fell from around 14% to below 3%. Feature estimates became reliable again because developers could scope work by component rather than by guesswork.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectMediaGrid columns={2} items={[
+  { type: "video", src: "/video/projects/reteach/design-system/old-modal.mp4", caption: "Modals had issues, especially with larger configurations" },
+  { type: "video", src: "/video/projects/reteach/design-system/new-drawer.mp4", caption: "We solved this by introducing the drawer pattern" },
+]} />
+
+<ProjectMediaGrid columns={2} items={[
+  { type: "image", src: "/image/projects/reteach/design-system/layout-frame.png", alt: "New Layout Frame", caption: "Designed a new Layout Frame, Header and Sidebar to steer focus on each page to the one most important action" },
+  { type: "video", src: "/video/projects/reteach/design-system/table-scroll.mp4", caption: "New table design allowed for horizontal scrolling and display of as many columns as needed. Tables were often restricted by the width before" },
+]} />
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectTextBlock>
+    To document and stabilise these components, we introduced Storybook as a single shared reference. The goal was not documentation in the traditional sense, but an environment where design, development, and product could check the same artefact. Designers could show variants directly, engineers could test states in isolation, and product managers could review scope without waiting for deployments. The component lifecycle stayed intentionally simple — Candidate, Implemented, Deprecated — which kept maintenance manageable. Review loops shortened, and discussions shifted from whether something existed to how it should behave.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectFullWidthImage src="https://placehold.co/1200x400" alt="Automation pipeline diagram" caption="Placeholder: Tool synchronization via Claude Code MCPs: Notion ↔ Figma ↔ Storybook ↔ Git" />
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectTextBlock>
+    Over time, the system expanded across the Marketing Website, the Client Academies, and the Client Admin Panel. Consistency became a question of shared behaviour rather than visual uniformity. When an issue appeared, we applied the Five Whys method to trace it back to the responsible component, fixed it once, and propagated the solution through all products. That process turned debugging into a source of learning.
+
+    For synchronisation across tools, we automated the pipeline between Notion, Figma, Storybook, and Git version control using Claude Code MCPs. This eliminated manual copy errors and ensured that documentation and implementation stayed aligned. Builds became faster and releases more predictable because information moved through automation rather than meetings.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectImageGrid columns={2} images={[
+  { src: "https://placehold.co/600x400", alt: "Quality loop diagram", caption: "Placeholder: Systematic prioritization via 5 Whys analysis" },
+  { src: "https://placehold.co/600x400", alt: "Timeline diagram", caption: "Placeholder: Evolution over Revolution — Continuous Delivery" },
+]} />
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectTextBlock>
+    Early on, some stakeholders questioned the investment. One C-level comment was: "You're just making it prettier." Since Reteach had no established monitoring or data-driven practice, we tried to find measurable indicators that could counter that assumption. Support-ticket trends, onboarding duration, and estimation reliability became our informal proxies for impact. Over several release cycles these signals began to show clear improvement, and the discussion gradually shifted from aesthetics to performance.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectTextBlock>
+    In retrospect, the decisive factor was not technology but method. By replacing uncertainty with predictable, verifiable progress, the design system regained momentum for the entire product organisation. Tokens reduced decision overhead, Storybook reduced assumptions, and shared ownership reduced friction. **Evolution proved more effective than ambition when outcomes had to be delivered.**
+  </ProjectTextBlock>
+</ProjectSection>

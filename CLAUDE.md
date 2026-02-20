@@ -1,75 +1,73 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+## What This Project Is
 
-## Project Overview
+Astro static site. Currently a blog at 360degre.es. Being extended into a portfolio with case studies, about page, and later a project archive.
 
-This is a research blog project designed to evolve through 3 phases:
-1. **Phase 1**: Static Astro blog with markdown content
-2. **Phase 2**: Are.na integration for content management
-3. **Phase 3**: Telegram bot for frictionless posting
+**Read `PRD.md` first** — it has the full technical spec for what needs to be built.
 
-The architecture prioritizes static site generation throughout all phases for deployment to Hostinger shared hosting.
+## Commands
 
-## Development Commands
-
-Based on typical Astro projects, use these commands:
-- `npm install` - Install dependencies
-- `npm run dev` - Start development server
-- `npm run build` - Build static site for production
-- `npm run preview` - Preview production build locally
-
-## Key Architecture Principles
-
-### Static-First Approach
-- **Output**: Always static HTML files (no SSR)
-- **Content**: Build-time fetching only (no runtime API calls)
-- **Deployment**: FTP to Hostinger via GitHub Actions
-- **Performance**: < 100KB pages, no required JavaScript
-
-### Hostinger Deployment Constraints
-- No Node.js runtime available
-- No server-side code execution
-- FTP deployment only
-- All routes must be static HTML files
-- Use `.htaccess` for clean URLs
-
-### Are.na Integration Pattern
-- Fetch content during build process only
-- Transform Are.na blocks to markdown files
-- Use Astro integration hooks for build-time operations
-- Trigger rebuilds via GitHub Actions repository_dispatch
-
-### Content Structure
-- Markdown files with frontmatter (title, date, tags, description)
-- Static pagination and tag filtering
-- RSS feed generation
-- Image optimization at build time
-
-## Deployment Architecture
-
-```
-GitHub → Actions → Build → FTP → Hostinger
-              ↑
-         Triggered by:
-         - Push to main
-         - Are.na webhook
-         - Telegram bot
+```bash
+npm install
+npm run dev       # dev server
+npm run build     # static build → ./dist/
+npm run preview   # preview production build
 ```
 
-The deployment workflow uses `SamKirkland/FTP-Deploy-Action` to upload the `./dist/` directory to Hostinger's `/public_html/research/` path.
+## Constraints
 
-## Important Files
+- **Static only.** `output: 'static'` in astro config. No SSR, no runtime JS.
+- **No Node.js on server.** Hostinger shared hosting, Apache, FTP deploy.
+- **Tailwind 3.4 only.** No custom CSS unless Tailwind can't cover it — flag it if so.
+- **No frameworks.** No React, no Vue. Astro components only.
+- **Preserve `/blog/*` routes.** They work and must not break.
 
-- `prd.txt` - Complete product requirements document with detailed specifications
-- `astro.config.mjs` - Must specify `output: 'static'` and `format: 'directory'`
-- `.github/workflows/deploy.yml` - Deployment automation
-- `.htaccess` - URL rewriting for clean URLs on shared hosting
+## Stack
 
-## Future Integration Points
+Astro 5 · Tailwind 3.4 · MDX · sharp · TypeScript
+Custom fonts: SangBleu Empire (display), SangBleu Republic (body)
+Deploy: GitHub Actions → FTP → Hostinger
 
-- Are.na API client for build-time content fetching
-- Telegram bot service (runs separately, not in this repo)
-- GitHub Actions webhook triggers for automated rebuilds
-- ALWAYS use tailwind 3.4 defaults to write css. \
-Only if styling is not covered point it out to me that you have to use something else ask me before implementing it.
+## Key Files
+
+- `PRD.md` — full spec for portfolio extension
+- `astro.config.mjs` — site config (static, directory format)
+- `src/content.config.ts` — content collection schemas
+- `tailwind.config.js` — font families + typography plugin
+- `.github/workflows/deploy.yml` — CI/CD pipeline
+- `public/.htaccess` — Apache URL rewrites
+
+## Migration Source
+
+The Nuxt project at `../Projects-Website/` has working implementations of:
+- Story/project content components (`components/content/`)
+- About page content (`content/about.md`)
+- Audience/auth system (`README_AUDIENCE_SYSTEM.md`)
+- Content schemas and types (`types/project.ts`, `content.config.ts`)
+
+Port the logic, not the framework. Vue → Astro components.
+
+## Content Structure
+
+```
+src/content/
+  blog/             → existing, untouched
+  projects/
+    clients/        → case study MDX files (new)
+  about.md          → bio + exhibitions + teaching + clients (new)
+
+public/
+  video/projects/   → .mp4 files per case study
+  image/projects/   → .png/.jpg files per case study
+```
+
+## Routes
+
+```
+/                    → landing page (project links)
+/projects            → project list
+/projects/[slug]     → case study / project detail
+/about               → bio + lists
+/blog/[slug]         → existing blog posts (untouched)
+```

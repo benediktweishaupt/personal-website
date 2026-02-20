@@ -1,0 +1,21 @@
+---
+import UiCaption from './UiCaption.astro';
+
+interface Props {
+  src: string;
+  alt?: string;
+  caption?: string;
+}
+
+const { src, alt, caption } = Astro.props;
+---
+
+<div class="w-full">
+  <img
+    src={src}
+    alt={alt ?? ''}
+    class="w-full h-auto rounded"
+    loading="lazy"
+  />
+  <UiCaption text={caption} />
+</div>

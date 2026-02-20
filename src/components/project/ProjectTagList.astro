@@ -1,0 +1,16 @@
+---
+import ProjectTag from './ProjectTag.astro';
+
+interface Props {
+  tags: string[];
+  variant?: 'default' | 'large';
+}
+
+const { tags, variant = 'default' } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-2">
+  {tags.map((tag) => (
+    <ProjectTag variant={variant}>{tag}</ProjectTag>
+  ))}
+</div>

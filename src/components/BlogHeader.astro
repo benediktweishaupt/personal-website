@@ -9,14 +9,28 @@ const posts = (await getCollection('blog')).sort(
 
 export interface Props {
 	currentPostId?: string;
+	prevHref?: string;
+	nextHref?: string;
+	prevTitle?: string;
+	nextTitle?: string;
 }
 
-const { currentPostId } = Astro.props;
+const { currentPostId, prevHref: customPrevHref, nextHref: customNextHref } = Astro.props;
 
-// Find current post index for prev/next navigation
-const currentIndex = posts.findIndex(post => post.id === currentPostId);
-const prevPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
-const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
+// Blog post navigation (currentPostId takes priority)
+const currentIndex = currentPostId !== undefined ? posts.findIndex(post => post.id === currentPostId) : -1;
+const blogPrevPost = currentPostId !== undefined && currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
+const blogNextPost = currentPostId !== undefined && currentIndex > 0 ? posts[currentIndex - 1] : null;
+
+// Resolved links — blog takes priority, then custom hrefs, then null (disabled)
+const prevHref = currentPostId !== undefined
+	? (blogPrevPost ? `/blog/${blogPrevPost.id}/` : null)
+	: (customPrevHref ?? null);
+const nextHref = currentPostId !== undefined
+	? (blogNextPost ? `/blog/${blogNextPost.id}/` : null)
+	: (customNextHref ?? null);
+
+const showNav = currentPostId !== undefined || customPrevHref !== undefined || customNextHref !== undefined;
 ---
 
 <header class="max-w-screen-2xl mx-auto sticky z-20 top-2 ">
@@ -30,8 +44,8 @@ const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
 
 		<!-- Prev/Next Navigation -->
 		<div class="flex items-center space-x-2">
-			{prevPost ? (
-				<a href={`/blog/${prevPost.id}/`} class="flex items-center px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800 hover:bg-slate-50 rounded-md" title={prevPost.data.title}>
+			{showNav && (prevHref ? (
+				<a href={prevHref} class="flex items-center px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800 hover:bg-slate-50 rounded-md">
 					<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
 					</svg>
@@ -44,10 +58,10 @@ const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
 					</svg>
 					<span class="hidden sm:inline">Prev</span>
 				</span>
-			)}
+			))}
 
-			{nextPost ? (
-				<a href={`/blog/${nextPost.id}/`} class="flex items-center px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800 hover:bg-slate-50 rounded-md " title={nextPost.data.title}>
+			{showNav && (nextHref ? (
+				<a href={nextHref} class="flex items-center px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800 hover:bg-slate-50 rounded-md">
 					<span class="hidden sm:inline">Next</span>
 					<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -60,7 +74,8 @@ const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
 					</svg>
 				</span>
-			)}
+			))}
+
 			<!-- Menu toggle button -->
 			<button id="menu-toggle" class="text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-full p-2.5">
 				<svg id="hamburger-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -97,12 +112,12 @@ const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
 	const navigationOverlay = document.getElementById('navigation-overlay');
 	const hamburgerIcon = document.getElementById('hamburger-icon');
 	const closeIcon = document.getElementById('close-icon');
-	
+
 	let isMenuOpen = false;
 
 	function toggleMenu() {
 		isMenuOpen = !isMenuOpen;
-		
+
 		if (isMenuOpen) {
 			navigationOverlay?.classList.remove('hidden');
 			document.body.style.overflow = 'hidden';

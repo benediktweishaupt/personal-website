@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { AUTHOR_NAME } from '../../consts';
+
+const projects = (await getCollection('projects', (p) => p.data.status !== 'hidden')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout title={`Projects — ${AUTHOR_NAME}`} description="Selected work across clients, research, and teaching.">
+  <main class="max-w-screen-2xl mx-auto px-7 pt-12 pb-20">
+    <ul class="flex flex-col divide-y divide-zinc-100">
+      {projects.map((project) => (
+        <li>
+          <a
+            href={`/projects/${project.id}`}
+            class="flex items-baseline justify-between gap-6 py-5 hover:text-zinc-500 transition-colors group"
+          >
+            <span class="font-serif-display text-xl md:text-2xl">{project.data.title}</span>
+            <span class="text-sm text-zinc-400 whitespace-nowrap group-hover:text-zinc-400">
+              {project.data.meta.institution ?? project.data.meta.category} · {project.data.meta.year}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </main>
+</BaseLayout>

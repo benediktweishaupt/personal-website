@@ -1,0 +1,26 @@
+---
+interface Props {
+  variant?: 'full' | 'centered' | 'simple';
+  gap?: '2' | '7' | '10';
+}
+
+const { variant = 'full', gap = '7' } = Astro.props;
+
+const innerClasses: Record<string, string> = {
+  full: 'col-span-12 md:col-span-11 flex flex-col items-start',
+  centered: 'col-span-12 md:col-start-2 md:col-span-10 lg:col-start-4 lg:col-span-8 xl:col-start-6 xl:col-span-6 flex flex-col',
+  simple: 'col-span-12 flex flex-col',
+};
+
+const gapClasses: Record<string, string> = {
+  '2': 'gap-2',
+  '7': 'gap-5 md:gap-7',
+  '10': 'gap-7 md:gap-10',
+};
+---
+
+<section class="grid grid-cols-12 gap-4">
+  <div class={`${innerClasses[variant]} ${gapClasses[gap]}`}>
+    <slot />
+  </div>
+</section>
