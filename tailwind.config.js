@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        'sans': ['"Relevant"', 'system-ui', 'sans-serif'],
         'serif': ['"SangBleu Republic"', '"Old Standard TT"', 'Georgia', 'Times', 'serif'],
         'serif-display': ['"SangBleu Empire"', '"SangBleu Republic"', 'Georgia', 'Times', 'serif'],
       },

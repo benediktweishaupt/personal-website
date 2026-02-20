@@ -21,11 +21,10 @@ import ProjectTagList from '../../../components/project/ProjectTagList.astro';
 import ProjectSectionHeading from '../../../components/project/ProjectSectionHeading.astro';
 import ProjectTextBlock from '../../../components/project/ProjectTextBlock.astro';
 import ProjectMediaGrid from '../../../components/project/ProjectMediaGrid.astro';
-import ProjectImageGrid from '../../../components/project/ProjectImageGrid.astro';
 import ProjectFullWidthImage from '../../../components/project/ProjectFullWidthImage.astro';
 
 <ProjectSection variant="full" gap="10">
-  <ProjectDescription></ProjectDescription>
+  <ProjectDescription>Von vier parallelen UI-Implementierungen zu einem einheitlichen System für drei Produkte.Von vier parallelen UI-Implementierungen zu einem einheitlichen System für drei Produkte.</ProjectDescription>
   <ProjectTag variant="large">B2B SaaS LMS for 1,500+ companies</ProjectTag>
 </ProjectSection>
 
@@ -52,9 +51,9 @@ import ProjectFullWidthImage from '../../../components/project/ProjectFullWidthI
   { type: "video", src: "/video/projects/reteach/design-system/new-nav.mp4", caption: "New tokenised admin app with colors which complied with Accessibility standards and Brand guidelines." },
 ]} />
 
-<ProjectImageGrid columns={2} images={[
-  { src: "https://placehold.co/600x400", alt: "Token architecture diagram", caption: "Placeholder: Token mapping from functional to semantic" },
-  { src: "https://placehold.co/600x400", alt: "Token naming example", caption: "Placeholder: Token vs Tailwind class distinction" },
+<ProjectMediaGrid columns={2} items={[
+  { type: "image", src: "https://placehold.co/600x400", alt: "Token architecture diagram", caption: "Placeholder: Token mapping from functional to semantic" },
+  { type: "image", src: "https://placehold.co/600x400", alt: "Token naming example", caption: "Placeholder: Token vs Tailwind class distinction" },
 ]} />
 
 <ProjectSection variant="centered" gap="7">
@@ -89,9 +88,9 @@ import ProjectFullWidthImage from '../../../components/project/ProjectFullWidthI
   </ProjectTextBlock>
 </ProjectSection>
 
-<ProjectImageGrid columns={2} images={[
-  { src: "https://placehold.co/600x400", alt: "Quality loop diagram", caption: "Placeholder: Systematic prioritization via 5 Whys analysis" },
-  { src: "https://placehold.co/600x400", alt: "Timeline diagram", caption: "Placeholder: Evolution over Revolution — Continuous Delivery" },
+<ProjectMediaGrid columns={2} items={[
+  { type: "image", src: "https://placehold.co/600x400", alt: "Quality loop diagram", caption: "Placeholder: Systematic prioritization via 5 Whys analysis" },
+  { type: "image", src: "https://placehold.co/600x400", alt: "Timeline diagram", caption: "Placeholder: Evolution over Revolution — Continuous Delivery" },
 ]} />
 
 <ProjectSection variant="centered" gap="7">

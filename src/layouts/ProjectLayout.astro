@@ -33,12 +33,12 @@ const currentIndex = allProjects.findIndex((p) => p.id === projectId);
 const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
 const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null;
 
-const metaParts = [meta.institution, meta.format, meta.year].filter(Boolean);
 ---
 
 <BaseLayout title={`${title} — ${AUTHOR_NAME}`} description={description ?? title}>
   <BlogHeader
     slot="header"
+    pageTitle={title}
     prevHref={prevProject ? `/projects/${prevProject.id}` : undefined}
     nextHref={nextProject ? `/projects/${nextProject.id}` : undefined}
   />
@@ -53,20 +53,10 @@ const metaParts = [meta.institution, meta.format, meta.year].filter(Boolean);
         onerror="this.style.display='none'"
       />
       {cover.caption && (
-        <p class="text-sm text-zinc-400 px-7 mt-2">{cover.caption}</p>
+        <p class="text-sm text-gray-400 px-7 mt-2">{cover.caption}</p>
       )}
     </div>
   )}
-
-  <div class="max-w-screen-2xl mx-auto px-7 pt-8 pb-4 border-b border-zinc-100">
-    <h1 class="font-serif-display text-4xl md:text-5xl lg:text-6xl mb-4">{title}</h1>
-    <div class="flex flex-wrap gap-x-6 gap-y-1 text-sm text-zinc-500">
-      {metaParts.map((part) => (
-        <span>{part}</span>
-      ))}
-    </div>
-  </div>
-
   <main class="max-w-screen-2xl mx-auto px-7 pt-8 pb-20 flex flex-col gap-12">
     <slot />
   </main>

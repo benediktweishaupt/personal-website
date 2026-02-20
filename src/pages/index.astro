@@ -1,17 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
-
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-
-// Redirect to the latest post
-const latestPost = posts[0];
-if (latestPost) {
-	return Astro.redirect(`/blog/${latestPost.id}/`);
-}
-
-// Fallback if no posts exist
-return Astro.redirect('/404');
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavigationContent from '../components/NavigationContent.astro';
+import { AUTHOR_NAME } from '../consts';
 ---
 
+<BaseLayout title={AUTHOR_NAME} description="Selected work across clients, research, and teaching.">
+  <main class="max-w-screen-2xl mx-auto px-7 pt-12 pb-20">
+    <NavigationContent />
+  </main>
+</BaseLayout>

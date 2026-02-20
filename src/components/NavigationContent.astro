@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+
+export interface Props {
+  filter?: 'all' | 'blog' | 'projects';
+}
+
+const { filter = 'all' } = Astro.props;
+
+const projects = filter !== 'blog'
+  ? (await getCollection('projects', (p) => p.data.status !== 'hidden'))
+      .sort((a, b) => a.data.order - b.data.order)
+  : [];
+
+const posts = filter !== 'projects'
+  ? (await getCollection('blog'))
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  : [];
+---
+
+<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+  {projects.map((project) => (
+    <article>
+      <a href={`/projects/${project.id}`} class="block hover:drop-shadow-md hover:bg-slate-50 rounded-sm p-4">
+        <p class="text-sm text-gray-400 tracking-wide">
+          {project.data.meta.institution ?? project.data.meta.category} · {project.data.meta.year}
+        </p>
+        <h2 class="text-base font-medium font-serif-display text-gray-800">{project.data.title}</h2>
+        {project.data.description && <p class="text-base text-gray-400">{project.data.description}</p>}
+      </a>
+    </article>
+  ))}
+
+  {posts.map((post) => (
+    <article>
+      <a href={`/blog/${post.id}/`} class="block hover:drop-shadow-md hover:bg-slate-50 rounded-sm p-4">
+        <p class="text-sm font-medium text-gray-800 tracking-wide">
+          <FormattedDate date={post.data.pubDate} />
+        </p>
+        <h2 class="text-base font-medium text-gray-800">{post.data.title}</h2>
+        {post.data.excerpt && <p class="text-base font-medium text-gray-400">{post.data.excerpt}</p>}
+      </a>
+    </article>
+  ))}
+</div>

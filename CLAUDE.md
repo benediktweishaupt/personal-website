@@ -17,7 +17,7 @@ npm run preview   # preview production build
 
 ## Constraints
 
-- **Static only.** `output: 'static'` in astro config. No SSR, no runtime JS.
+- **Static only.** `output: 'static'` in astro config. No SSR, no server-side JS. Client-side `<script>` and Astro Islands are fine.
 - **No Node.js on server.** Hostinger shared hosting, Apache, FTP deploy.
 - **Tailwind 3.4 only.** No custom CSS unless Tailwind can't cover it — flag it if so.
 - **No frameworks.** No React, no Vue. Astro components only.
