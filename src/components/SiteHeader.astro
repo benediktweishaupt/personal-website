@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { SITE_NAME } from '../consts';
-import NavigationContent from './NavigationContent.astro';
+import WorkIndex from './WorkIndex.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -90,7 +90,7 @@ const showNav = currentPostId !== undefined || customPrevHref !== undefined || c
 <!-- Navigation Overlay -->
 <div id="navigation-overlay" class="fixed inset-0 hidden z-50 top-16 bottom-2  overflow-y-auto max-w-screen-2xl mx-auto rounded-3xl">
 		<div class="bg-white/70 backdrop-blur-lg p-4">
-		<NavigationContent />
+		<WorkIndex />
 	</div>
 </div>
 

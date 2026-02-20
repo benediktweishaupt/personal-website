@@ -3,7 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import BlogHeader from '../components/BlogHeader.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & {
 	currentPostId?: string;
@@ -17,7 +17,7 @@ const { title, description, pubDate, updatedDate, heroImage, currentPostId } = A
 		<BaseHead title={title} description={description} />
 	</head>
 	<body class="min-h-screen text-gray-900 bg-slate-100">
-		<BlogHeader currentPostId={currentPostId} pageTitle={title} />
+		<SiteHeader currentPostId={currentPostId} pageTitle={title} />
 		<main class="max-w-screen-2xl mx-auto">
 			<article class="px-6 py-12">
 				<header class="pb-24">
@@ -33,10 +33,10 @@ const { title, description, pubDate, updatedDate, heroImage, currentPostId } = A
 								Last updated on <FormattedDate date={updatedDate} />
 							</p>
 						)
-					}			
+					}
 				</header>
 				<!-- {heroImage && <Image width={1020} height={510} src={heroImage} alt="" class="rounded mb-8" />} -->
-				
+
 				<!-- Two-column layout container -->
 				<section class="lg:flex lg:gap-8">
 					<!-- Text content column -->
@@ -45,7 +45,7 @@ const { title, description, pubDate, updatedDate, heroImage, currentPostId } = A
 							<slot />
 						</div>
 					</div>
-					
+
 					<!-- Images column - sticky on desktop, hidden on mobile -->
 					<div class="lg:w-1/2 lg:sticky lg:top-8 lg:self-start hidden lg:block ">
 						<div class="space-y-4" id="images-sidebar">
@@ -53,10 +53,10 @@ const { title, description, pubDate, updatedDate, heroImage, currentPostId } = A
 						</div>
 					</div>
 				</section>
-				
+
 			</article>
 		</main>
-		
+
 		<Footer />
 
 		<script>
@@ -64,9 +64,9 @@ const { title, description, pubDate, updatedDate, heroImage, currentPostId } = A
 			document.addEventListener('DOMContentLoaded', function() {
 				const sidebar = document.getElementById('images-sidebar');
 				const proseContent = document.querySelector('.prose');
-				
+
 				if (!sidebar || !proseContent) return;
-				
+
 				const images = proseContent.querySelectorAll('img');
 				images.forEach(img => {
 					const clone = img.cloneNode(true);

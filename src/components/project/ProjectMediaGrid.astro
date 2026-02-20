@@ -1,5 +1,5 @@
 ---
-import UiCaption from './UiCaption.astro';
+import ProjectCaption from './ProjectCaption.astro';
 
 interface MediaItem {
   type: 'video' | 'image';
@@ -42,7 +42,7 @@ const gridClasses: Record<number, string> = {
           loading="lazy"
         />
       )}
-      <UiCaption text={item.caption} />
+      <ProjectCaption text={item.caption} />
     </div>
   ))}
 </div>

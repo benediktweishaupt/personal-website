@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
+import * as projectComponents from '../../components/project/index.ts';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects', (p) => p.data.status !== 'hidden');
@@ -25,5 +26,5 @@ const { Content } = await render(project);
   meta={data.meta}
   description={data.description}
 >
-  <Content />
+  <Content components={projectComponents} />
 </ProjectLayout>

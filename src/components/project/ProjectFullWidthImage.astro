@@ -1,5 +1,5 @@
 ---
-import UiCaption from './UiCaption.astro';
+import ProjectCaption from './ProjectCaption.astro';
 
 interface Props {
   src: string;
@@ -17,5 +17,5 @@ const { src, alt, caption } = Astro.props;
     class="w-full h-auto rounded"
     loading="lazy"
   />
-  <UiCaption text={caption} />
+  <ProjectCaption text={caption} />
 </div>

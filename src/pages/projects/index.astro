@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import NavigationContent from '../../components/NavigationContent.astro';
+import WorkIndex from '../../components/WorkIndex.astro';
 import { AUTHOR_NAME } from '../../consts';
 ---
 
 <BaseLayout title={`Projects — ${AUTHOR_NAME}`} description="Selected work across clients, research, and teaching.">
   <main class="max-w-screen-2xl mx-auto px-7 pt-12 pb-20">
-    <NavigationContent filter="projects" />
+    <WorkIndex filter="projects" />
   </main>
 </BaseLayout>

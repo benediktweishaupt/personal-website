@@ -1,11 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import NavigationContent from '../../components/NavigationContent.astro';
+import WorkIndex from '../../components/WorkIndex.astro';
 import { AUTHOR_NAME } from '../../consts';
 ---
 
 <BaseLayout title={`Blog — ${AUTHOR_NAME}`} description="Writing on design, research, and technology.">
-  <main class="max-w-screen-2xl mx-auto px-7 pt-12 pb-20">
-    <NavigationContent filter="blog" />
-  </main>
+    <WorkIndex filter="blog" />
 </BaseLayout>
