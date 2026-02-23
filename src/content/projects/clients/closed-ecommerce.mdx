@@ -1,0 +1,91 @@
+---
+title: Closed E-Commerce
+status: draft
+order: 4
+cover:
+  image: projects/closed/cover-landscape
+  alt: Closed fashion webshop product detail page showing the Svelte-rebuilt interface
+  caption: From OXID PHP/Blade to a staged Svelte migration with an agnostic design system pipeline
+meta:
+  category: clients
+  format: Design System · E-Commerce
+  institution: Closed GmbH
+  year: "2022"
+description: How Closed rebuilt its OXID webshop through a staged Svelte migration and an agnostic design-system pipeline — aligning Brand, Sales, Analytics, and Product while quietly introducing accessibility and maintainability.
+---
+
+<ProjectSection variant="full" gap="10">
+  <ProjectDescription>How a fashion brand rebuilt its international webshop across multiple stakeholders, vendors, and two live sales cycles — through a staged migration, a brand-agnostic design system, and quiet accessibility integration.</ProjectDescription>
+  <ProjectTag variant="large">Fashion E-Commerce · International Markets</ProjectTag>
+</ProjectSection>
+
+<ProjectSection variant="simple" gap="2">
+  <ProjectSectionHeading>My Role</ProjectSectionHeading>
+  <ProjectTagList tags={["Lead Product Designer", "Design System Architect", "Stakeholder Coordination"]} />
+</ProjectSection>
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectTextBlock>
+    Closed develops its digital products in Hamburg while its webshop serves multiple international markets. At the time, the system still ran on an OXID PHP / Blade base. International checkout was handled by Global-e, and Adyen processed payments for DACH. Alongside the webshop, a B2B shop and an internal Closed Academy operated on separate front-ends. The ACNE Brand Agency was redefining the visual identity at the same time. Each stakeholder worked largely in isolation, which made coordinated change difficult.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectMediaGrid columns={1} items={[
+  { type: "image", src: "/image/projects/closed/figma-overview.png", alt: "Figma design system overview", caption: "Figma overview of the design system: Templates & Patterns across all product areas — Components, Checkout, PDP, Homepage, System Mail, and more." },
+]} />
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectSectionHeading>Context and Organisation</ProjectSectionHeading>
+  <ProjectTextBlock>
+    To coordinate across functions, a taskforce was created with members from Brand / Marketing, Data Analytics, Sales / Customer Support, and Product. Its goal was to rebuild the webshop in line with company strategy and analytics while improving internal collaboration. My responsibility was to introduce the concept of a design system, explain its process advantages, and embed that thinking in teams that had never used shared UI infrastructure before.
+
+    Several external and internal partners were involved: Global-e, Adyen, ACNE, the B2B division, and the Academy team. They were consulted when overlapping features required alignment, and the design system was planned to support all of them in the long run.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectSectionHeading>Process and Decisions</ProjectSectionHeading>
+  <ProjectTextBlock>
+    The project focused on performance, maintainability, and developer experience. A full rebuild was unrealistic while business operations continued, so the team implemented a staged migration — releasing one market at a time. Countries using Global-e launched first; the more complex Adyen checkout followed. During migration, the webshop remained live through two seasonal sales plus stock- and archive-sale events.
+
+    My role centred on the design-system architecture and token pipeline. We based it on Figma Token Studio → GitHub version control → a custom Node script → Tailwind theme → Storybook. This approach kept the system independent from ACNE's separately developed brand guidelines and provided engineering with a single technical source of truth. When brand values changed, tokens could be updated once and recompiled across all products.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectMediaGrid columns={2} items={[
+  { type: "image", src: "/image/projects/closed/storybook-buttons.png", alt: "Storybook button component documentation", caption: "Storybook documentation of the button system: Primary, Secondary, Outline, and Disabled states — the shared component language across all products." },
+  { type: "image", src: "/image/projects/closed/storybook-i18n.png", alt: "Internationalised tag components in Storybook", caption: "Internationalised tag components in Storybook: light/dark mode, multiple sizes, tested across en-US, zh-TW, and ar-AE locales." },
+]} />
+
+<ProjectMediaGrid columns={1} items={[
+  { type: "image", src: "/image/projects/closed/responsive-specs.png", alt: "Responsive image specification", caption: "Responsive image specification for the replatforming: breakpoint-based source declarations mapped to Tailwind's size system, defining picture types from thumbnail to full-width landing page." },
+]} />
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectSectionHeading>Managing Conflicts</ProjectSectionHeading>
+  <ProjectTextBlock>
+    Stakeholder priorities often conflicted. Sales wanted speed, while Brand aimed for a highly reduced interface that risked violating UX and accessibility principles. No stakeholder requested WCAG 2.1 AA compliance, so we introduced it quietly — integrated into reviews without formal discussion. Internally we referred to this as "smuggling it in." Convincing Brand required patience and concrete evidence: side-by-side UI examples, user-pain data, and conversion arguments. These small demonstrations built understanding and reduced friction.
+
+    Because the brand guidelines were owned entirely by ACNE, the design system had to remain brand-agnostic. It defined structure, spacing, and interaction patterns that could later be themed by Brand without changing logic. This separation allowed updates to happen safely while maintaining a consistent framework.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectSectionHeading>Implementation and Team Impact</ProjectSectionHeading>
+  <ProjectTextBlock>
+    The migration to Svelte modernised the front-end architecture and simplified maintenance compared with the legacy PHP / Blade templates. Tokens unified visual decisions, and components were documented in Storybook for reference. Qualitative feedback from developers showed clear improvement. After the first pages were built with Svelte components, the team described the process as unusually smooth and energising — an indicator of regained confidence.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectMediaGrid columns={2} items={[
+  { type: "image", src: "/image/projects/closed/pdp-product-card.png", alt: "Product Detail Page in the live Svelte webshop", caption: "Product Detail Page in the live Svelte webshop: 'Long Caban Jacket' with ECO-PRODUCT badge, colour swatches, and size selector." },
+  { type: "image", src: "/image/projects/closed/checkout-mobile.jpg", alt: "Mobile checkout flow", caption: "Mobile checkout flow with order summary. The checkout handled both Global-e (international) and Adyen (DACH) payment processing." },
+]} />
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectTextBlock>
+    The design-system rollout continued across two sales cycles. Because components followed defined token rules, updates became predictable, and parallel teams could reuse the same framework. The B2B and Academy teams were not yet fully migrated but were set up to benefit from the same system once their schedules allowed.
+
+    Fashion e-commerce combines fast branding cycles with complex technical dependencies. At Closed, success depended on coordinating multiple vendors and departments rather than any single redesign decision. The project worked because it balanced diplomacy and technical depth: clear architecture for engineers, evidence-based dialogue with Brand and Sales, and quiet integration of accessibility where it improved the product. The design system now serves as common ground between teams that previously worked in isolation.
+  </ProjectTextBlock>
+</ProjectSection>

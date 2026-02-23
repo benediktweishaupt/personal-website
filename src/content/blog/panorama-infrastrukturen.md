@@ -1,6 +1,7 @@
 ---
 title: "Digitale Panoramen als visuelle Infrastrukturen"
 description: "Eine Einführung in die Forschung zu 360°-Medien zwischen Totalität und Fragmentierung"
+status: public
 excerpt: "Das digitale Panorama hat sich von einer technischen Kuriosität zu einer allgegenwärtigen visuellen Form entwickelt. Street View, VR-Headsets und 360°-Kameras versprechen uns eine totale Sicht."
 pubDate: "01.08.2025"
 heroImage: "../../assets/blog-placeholder-1.jpg"

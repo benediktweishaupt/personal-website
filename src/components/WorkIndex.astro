@@ -14,27 +14,42 @@ const projects = filter !== 'blog'
   : [];
 
 const posts = filter !== 'projects'
-  ? (await getCollection('blog'))
+  ? (await getCollection('blog', (p) => p.data.status !== 'hidden'))
       .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   : [];
 ---
-<main class="max-w-screen-2xl mx-auto px-7 pt-12 pb-20">
-  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+<main class="max-w-screen-2xl mx-auto px-0 pt-0 pb-20">
+  <h1 class="pb-1">Case Studies</h1>
+
+  <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     {projects.map((project) => (
-      <article>
-        <a href={`/projects/${project.id}`} class="block hover:drop-shadow-md hover:bg-slate-50 rounded-sm p-4">
-          <p class="text-sm text-gray-400 tracking-wide">
-            {project.data.meta.institution ?? project.data.meta.category} · {project.data.meta.year}
-          </p>
-          <h2 class="text-base font-medium font-serif-display text-gray-800">{project.data.title}</h2>
-          {project.data.description && <p class="text-base text-gray-400">{project.data.description}</p>}
+      <article class="block bg-slate-50 rounded-sm hover:rounded-2xl overflow-hidden group">
+        <a href={`/projects/${project.id}`}>
+          <div class="aspect-[9/16] bg-gray-100 overflow-hidden">
+            <img
+              src={`/image/${project.data.cover.image}.jpg`}
+              alt={project.data.cover.alt ?? ''}
+              class="w-full h-full object-cover transition-transform duration-300"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="p-4">
+            <p class="text-sm text-gray-400 tracking-wide group-hover:text-gray-500">
+              {project.data.meta.institution ?? project.data.meta.category} · {project.data.meta.year}
+            </p>
+            <h2 class="text-base font-medium text-gray-600 group-hover:text-gray-700">{project.data.title}</h2>
+            {project.data.description && <p class="text-sm text-gray-400 group-hover:text-gray-500 mt-1">{project.data.description}</p>}
+          </div>
         </a>
       </article>
     ))}
+  </div>
+  <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 
     {posts.map((post) => (
       <article>
-        <a href={`/blog/${post.id}/`} class="block hover:drop-shadow-md hover:bg-slate-50 rounded-sm p-4">
+        <a href={`/blog/${post.id}/`} class="block hover:bg-slate-50 rounded-sm p-4">
           <p class="text-sm font-medium text-gray-800 tracking-wide">
             <FormattedDate date={post.data.pubDate} />
           </p>

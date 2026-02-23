@@ -153,6 +153,11 @@
     letter-spacing: 0.25rem;
   }
 
+  /* Inline code smaller than surrounding text */
+  code {
+    font-size: 0.85em;
+  }
+
   /* First paragraph as lead text using Tailwind Typography variables */
   .prose > p:first-child {
     font-family: "SangBleu Empire", "SangBleu Republic", Georgia, Times, serif;

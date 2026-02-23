@@ -1,0 +1,91 @@
+---
+title: Reteach AI Course Creation
+status: draft
+order: 2
+cover:
+  image: projects/reteach/ai-course-cover
+  alt: AI-assisted lesson editor showing review tag and editable draft content
+  caption: AI drafts, humans decide — an assistance layer that removes mechanical work while preserving author control
+meta:
+  category: clients
+  format: Product Design
+  institution: Reteach GmbH
+  year: "2024"
+description: How Reteach introduced an AI-assisted course builder with minimal infrastructure extension — removing the mechanical work of structuring unformatted material while keeping authors in full control.
+---
+
+<ProjectSection variant="full" gap="10">
+  <ProjectDescription>How Reteach reduced the mechanical cost of course creation without replacing author expertise. Instead of full automation, the team built an assistance layer that removes repetitive structuring work while keeping authors responsible for every decision.</ProjectDescription>
+  <ProjectTag variant="large">B2B SaaS LMS · 1,500+ companies</ProjectTag>
+</ProjectSection>
+
+<ProjectSection variant="simple" gap="2">
+  <ProjectSectionHeading>My Role</ProjectSectionHeading>
+  <ProjectTagList tags={["Lead Product Designer", "Product Strategy", "Feature Scoping"]} />
+</ProjectSection>
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectTextBlock>
+    When we examined how long course creation took, most of the time went into structuring unformatted material and rewriting existing documents. Writing itself was rarely the bottleneck. The real cost was turning scattered handbooks and PDFs into something that followed a coherent lesson structure. Our goal became clear: cut the mechanical work, not the expertise.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectSectionHeading>Options Evaluated</ProjectSectionHeading>
+  <ProjectTextBlock>
+    We evaluated three directions. Templates tested well at first — authors reacted positively to structure. But once they began filling them in, the template turned into a to-do list that created more stress than it resolved. Requirements varied too much, even within the same industry sector. External course-creation tools broke Reteach's platform logic; the strategic decision was to keep authors inside the product rather than routing them through third-party editors. Hiring instructional designers as a service layer didn't scale for the Mittelstand — too expensive, too slow, and external designers couldn't know the specific domain context of each customer's training content. The only viable path was an in-product assistant that kept authors in control.
+
+    The decision to use AI was not purely functional. Sales and the technical C-level favoured it partly because the company wanted to build competence in working with AI and stay competitive. If we could have reduced creation effort equally without AI, the organisation would still have chosen AI. That made it important to define boundaries early — so the feature would be useful on its own terms, not just as a label.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectSectionHeading>Scoping the Feature</ProjectSectionHeading>
+  <ProjectTextBlock>
+    We used risk-reward mapping to scope the feature. We listed every component of a full AI course-creation flow — PDF parsing, text generation, visualisation, quiz creation — and mapped each against development effort versus expected time savings for customers. Generating lesson titles and text from a PDF or text file scored highest. It covered the most common use case with the smallest engineering surface.
+
+    The hardest decision was whether to offer full-course generation or single-lesson generation. A complete course from one click looked impressive in demos, and Sales saw clear appeal in that offering. We chose single lessons instead, treating full-course generation as a future orchestration of individual steps. The reasoning was straightforward: single lessons shipped faster, tested earlier, and gave us real feedback before committing to the larger scope.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectMediaGrid columns={1} items={[
+  { type: "video", src: "/video/projects/reteach/ai-course/demo.mov", caption: "AI course generation — authors paste text or upload PDFs, and the system generates a structured lesson draft" },
+]} />
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectSectionHeading>Implementation</ProjectSectionHeading>
+  <ProjectTextBlock>
+    Technically, the implementation stayed modest. Reteach already had a working AI-powered quiz generator in production. We reused the same pipeline — LangChain for orchestration, OpenAI and Anthropic for text, prompt templates for consistency — and extended it with a PDF parser so authors could import source material directly. Every AI-generated lesson appears in the editor tagged "review required" and fully editable. That rule defined the interface: AI drafts, humans decide.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectMediaGrid columns={1} items={[
+  { type: "image", src: "/image/projects/reteach/ai-course/lesson-review-tag.png", alt: "AI-generated lesson in the editor with review tag", caption: "AI-generated lesson in the editor. The 'ERSTELLT BY AI' tag and 'Entwurf' status at the headline keep authorship and review state visible at all times. Content is fully editable — AI drafts, humans decide." },
+]} />
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectTextBlock>
+    For compliance-heavy customers, the explicit review tag mattered. It kept accountability clear: the AI suggests, the author approves. We embedded each customer's existing course catalogue as context for the language model, so generated text would match the terminology already established in their academy rather than producing generic output.
+
+    We framed the tool deliberately — not as automation that replaces expertise, but as a way to bundle content that was already scattered across documents into a coherent starting point. That framing proved important for adoption. Customers who understood the tool as an assistant used it confidently; those who expected magic were disappointed regardless of quality.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectMediaGrid columns={2} items={[
+  { type: "image", src: "/image/projects/reteach/ai-course/content-types.png", alt: "Manual lesson creation — authors choose content type", caption: "Before: Manual lesson creation — authors choose content type, then build from scratch" },
+  { type: "image", src: "/image/projects/reteach/ai-course/generation-input.png", alt: "AI-assisted flow with PDF input", caption: "After: AI-assisted flow — authors paste text or upload PDFs, the system generates a structured lesson draft" },
+]} />
+
+<ProjectMediaGrid columns={1} items={[
+  { type: "image", src: "/image/projects/reteach/ai-course/loading-state.png", alt: "Generation process steps", caption: "The generation process shows each step transparently: structure, objectives, content, engagement, review. Authors see exactly what the system is doing." },
+]} />
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectTextBlock>
+    Scope stayed narrow throughout the quarter. Visualisation features — technical diagrams, process flowcharts — were deprioritised early despite clear user interest, because the engineering effort was disproportionate to the time savings. The iterative approach validated assumptions early before committing to broader scope.
+
+    Because Reteach had no analytics framework, we had no quantitative way to measure adoption at scale. Feedback from ICP-near customers was positive, which gave enough signal to continue. Broader adoption across the full customer base remained an open question.
+
+    Looking back, the essential choice was not adopting AI but defining its boundaries early. Reuse what already worked, automate only the repetitive steps, keep authors responsible for their output, and resist the temptation to ship the impressive version before the useful one. Whether the builder becomes a core product feature or remains a small utility is still open. The infrastructure supports both.
+  </ProjectTextBlock>
+</ProjectSection>

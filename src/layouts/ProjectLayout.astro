@@ -44,11 +44,11 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
   />
 
   {cover.image && (
-    <div class="w-full">
+    <div class="w-full h-[75vh]">
       <img
         src={`/image/${cover.image}.jpg`}
         alt={cover.alt ?? ''}
-        class="w-full h-auto"
+        class="w-full h-full object-cover"
         loading="eager"
         onerror="this.style.display='none'"
       />

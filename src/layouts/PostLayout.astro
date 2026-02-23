@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 
@@ -9,74 +8,66 @@ type Props = CollectionEntry<'blog'>['data'] & {
 	currentPostId?: string;
 };
 
-const { title, description, pubDate, updatedDate, heroImage, currentPostId } = Astro.props;
+const { title, description, pubDate, updatedDate, currentPostId } = Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-	</head>
-	<body class="min-h-screen text-gray-900 bg-slate-100">
-		<SiteHeader currentPostId={currentPostId} pageTitle={title} />
-		<main class="max-w-screen-2xl mx-auto">
-			<article class="px-6 py-12">
-				<header class="pb-24">
-					<p class="inline text-base font-sans tracking-wide">
-						<FormattedDate date={pubDate} />
-					</p>
-					<h1 class="inline font-serif-display md:text-8xl lg:text-9xl text-7xl leading-none tracking-tighter font-normal text-gray-800 ml-4">
-						{title}
-					</h1>
-					{
-						updatedDate && (
-							<p class="text-sm italic mt-2">
-								Last updated on <FormattedDate date={updatedDate} />
-							</p>
-						)
-					}
-				</header>
-				<!-- {heroImage && <Image width={1020} height={510} src={heroImage} alt="" class="rounded mb-8" />} -->
+<BaseLayout title={title} description={description}>
+	<SiteHeader slot="header" currentPostId={currentPostId} pageTitle={title} />
 
-				<!-- Two-column layout container -->
-				<section class="lg:flex lg:gap-8">
-					<!-- Text content column -->
-					<div class="lg:w-1/2">
-						<div class="prose prose-lg max-w-none leading-relaxed font-sans">
-							<slot />
-						</div>
+	<main class="max-w-screen-2xl mx-auto bg-slate-100">
+		<article class="px-6 py-12">
+			<header class="pb-24">
+				<p class="inline text-base font-sans tracking-wide">
+					<FormattedDate date={pubDate} />
+				</p>
+				<h1 class="inline font-serif-display md:text-8xl lg:text-9xl text-7xl leading-none tracking-tighter font-normal text-gray-800 ml-4">
+					{title}
+				</h1>
+				{
+					updatedDate && (
+						<p class="text-sm italic mt-2">
+							Last updated on <FormattedDate date={updatedDate} />
+						</p>
+					)
+				}
+			</header>
+
+			<!-- Two-column layout container -->
+			<section class="lg:flex lg:gap-8">
+				<!-- Text content column -->
+				<div class="lg:w-1/2">
+					<div class="prose prose-lg max-w-none leading-relaxed font-sans">
+						<slot />
 					</div>
+				</div>
 
-					<!-- Images column - sticky on desktop, hidden on mobile -->
-					<div class="lg:w-1/2 lg:sticky lg:top-8 lg:self-start hidden lg:block ">
-						<div class="space-y-4" id="images-sidebar">
-							<!-- Images will be moved here dynamically -->
-						</div>
+				<!-- Images column - sticky on desktop, hidden on mobile -->
+				<div class="lg:w-1/2 lg:sticky lg:top-8 lg:self-start hidden lg:block ">
+					<div class="space-y-4" id="images-sidebar">
+						<!-- Images will be moved here dynamically -->
 					</div>
-				</section>
+				</div>
+			</section>
 
-			</article>
-		</main>
+		</article>
+	</main>
 
-		<Footer />
+	<script>
+		// Simply clone images to sidebar once on page load - CSS handles responsive visibility
+		document.addEventListener('DOMContentLoaded', function() {
+			const sidebar = document.getElementById('images-sidebar');
+			const proseContent = document.querySelector('.prose');
 
-		<script>
-			// Simply clone images to sidebar once on page load - CSS handles responsive visibility
-			document.addEventListener('DOMContentLoaded', function() {
-				const sidebar = document.getElementById('images-sidebar');
-				const proseContent = document.querySelector('.prose');
+			if (!sidebar || !proseContent) return;
 
-				if (!sidebar || !proseContent) return;
-
-				const images = proseContent.querySelectorAll('img');
-				images.forEach(img => {
-					const clone = img.cloneNode(true);
-					if (clone instanceof HTMLImageElement) {
-						clone.className = 'w-full h-auto rounded';
-						sidebar.appendChild(clone);
-					}
-				});
+			const images = proseContent.querySelectorAll('img');
+			images.forEach(img => {
+				const clone = img.cloneNode(true);
+				if (clone instanceof HTMLImageElement) {
+					clone.className = 'w-full h-auto rounded';
+					sidebar.appendChild(clone);
+				}
 			});
-		</script>
-
-	</body>
-</html>
+		});
+	</script>
+</BaseLayout>

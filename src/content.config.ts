@@ -7,6 +7,8 @@ const blog = defineCollection({
 		z.object({
 			title: z.string(),
 			description: z.string(),
+			status: z.enum(['public', 'draft', 'hidden']).default('draft'),
+			audience: z.enum(['all', 'clients', 'academic', 'family']).default('all'),
 			excerpt: z.string().optional(),
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
@@ -19,6 +21,7 @@ const projects = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		status: z.enum(['public', 'draft', 'hidden']).default('draft'),
+		audience: z.enum(['all', 'clients', 'academic', 'family']).default('all'),
 		order: z.number().default(99),
 		cover: z.object({
 			image: z.string(),
