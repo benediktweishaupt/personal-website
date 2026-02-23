@@ -1,0 +1,76 @@
+---
+interface ListItem {
+  year: string;
+  primary: string;
+  secondary?: string;
+}
+
+interface Props {
+  title?: string;
+  items: ListItem[];
+}
+
+const { title, items } = Astro.props;
+
+function getAnimationDuration(item: ListItem): number {
+  const fullText = `${item.primary} ${item.secondary || ''}`;
+  return Math.max(5, fullText.length * 0.1);
+}
+---
+
+<div class="text-xl px-2 pb-5">
+  {title && <h2 class="pb-2">{title}</h2>}
+  <ul>
+    {items.map((item) => (
+      <li class="group relative">
+        <div class="flex gap-4">
+          <span class="shrink-0">{item.year}</span>
+          <div class="overflow-hidden">
+            <div class="marquee-container">
+              <span
+                class="marquee-content"
+                data-text={`${item.primary} ${item.secondary || ''}`}
+                style={`--duration: ${getAnimationDuration(item)}s`}
+              >
+                <span>{item.primary}</span>
+                {item.secondary && (
+                  <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {' '}{item.secondary}
+                  </span>
+                )}
+              </span>
+            </div>
+          </div>
+        </div>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .marquee-container {
+    @apply relative whitespace-nowrap;
+  }
+
+  .marquee-content {
+    @apply inline-block;
+  }
+
+  .group:hover .marquee-content {
+    animation: marquee var(--duration, 15s) linear infinite;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .group:hover .marquee-content::after {
+    content: attr(data-text);
+    @apply absolute left-full pl-8;
+  }
+</style>

@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AboutTextSection from '../components/about/AboutTextSection.astro';
+import AboutItemList from '../components/about/AboutItemList.astro';
+import { AUTHOR_NAME } from '../consts';
+
+const exhibitions = [
+  { year: "2021", primary: "HTW Berlin School of Design and Culture.", secondary: '"Modern Talking." Lecture' },
+  { year: "2021", primary: "Edition Weissensee, Weissensee University of the Arts", secondary: '(Lisa Wilkens). "24 Ways to Mine Social Capital." Print' },
+  { year: "2020", primary: "Stroom Den Haag", secondary: '(Lua Vollaard). "False Colours: An Image Reading." Lecture' },
+  { year: "2020", primary: '"Jitsi Bitsi Spider" Lecture Series', secondary: "(with Matthias Hübner). Kunsthochschule Weißensee" },
+  { year: "2019", primary: "Symposium Fault Lines, Royal Academy of Art The Hague.", secondary: '"False Colours: An Image Reading." Lecture' },
+  { year: "2019", primary: "Video Vortex12: Streaming, Malta", secondary: '(Geert Lovink). "Moving Membranes: Aesthetic Functions of Image Operations at the EU\'s Borders." Lecture' },
+  { year: "2019", primary: "Brussels Gallery Weekend, Off Program", secondary: '(Merle Dammhayn). "Landing Platform for the Flir Systems Black Hornet Nano UAV." Nail Sculpture' },
+  { year: "2019", primary: "Forecast Forum Berlin", secondary: '(Paolo Cirio). "False Colours." Performance' },
+  { year: "2019", primary: "London College for Communication, UAL.", secondary: '"Moving Membranes" (with Susan Schuppli). Masterclass & Exhibition: "Pictures of an Exhibition"' },
+  { year: "2018", primary: "Dialogfelder Chemnitz.", secondary: '"Sanity is Something Better Outsourced." Solo exhibition and performance' },
+  { year: "2017", primary: "Embassy of the Netherlands, Berlin.", secondary: '"drie, three, drei – 100 Years de Stijl." Curation' },
+  { year: "2016", primary: "Graphic Design Festival Scotland.", secondary: '"No Exit" (Design Displacement Group). Multiscreen' },
+  { year: "2016", primary: "Brno Biennial, Prague.", secondary: '"No Exit" (Design Displacement Group). Multiscreen' },
+  { year: "2016", primary: "Royal College of Art, London.", secondary: '"Quantified Meditations" (Design Displacement Group). Lecture' },
+  { year: "2014", primary: "De Balie, Amsterdam.", secondary: "Visual Strategy for/with We Are Here. Movie screening and panel discussion" },
+  { year: "2014", primary: "Biennale internationale de design graphique, Chaumont, France.", secondary: '"Power of Mesh" (with Marthe Prins, Gilles de Brock). Exhibition' },
+];
+
+const teaching = [
+  { year: "2021", primary: "HTW Berlin School of Design and Culture.", secondary: '"Images in Disguise." 2-day workshop' },
+  { year: "2020", primary: "Kunsthochschule Weißensee.", secondary: '"All Watched Over by Machines of Loving Grace." Seminar with Prof. Barbara Junge (in collaboration with Rijksmuseum Amsterdam)' },
+  { year: "2020", primary: "BTK University of Europe Berlin.", secondary: '"Digital Design III." Seminar' },
+  { year: "2019", primary: "London College of Communication.", secondary: '"Pictures of an Exhibition." Masterclass (with Marthe Prins, guest lecturer Susan Schuppli)' },
+  { year: "2019", primary: "KABK Den Haag.", secondary: '"Event Horizon." Exhibition and seminar (with Marthe Prins)' },
+  { year: "2019", primary: "BTK University of Europe Berlin.", secondary: '"Digital Design II." Seminar' },
+  { year: "2018", primary: "Kunsthochschule Weißensee.", secondary: '"Modern Talking." Foundation class (guest lecturer Anja Grooten, Sandberg Instituut)' },
+  { year: "2018", primary: "Kunsthochschule Weißensee.", secondary: '"Orte." Exhibition and seminar with Prof. Barbara Junge' },
+  { year: "2017", primary: "Embassy of the Netherlands Berlin.", secondary: '"3 x 3 — 100 Jahre De Stijl." 1-week workshop (with Erwin Block, Prof. Wim Westerveld, HKU Utrecht)' },
+  { year: "2017", primary: "Kunsthochschule Weißensee.", secondary: '"Don\'t do it yourself → Department Catalog." Seminar (with Matthias Hübner, Prof. Barbara Junge, Prof. Wim Westerveld)' },
+  { year: "2016", primary: "Graphic Design Festival Glasgow.", secondary: '"Digital Campfire III." Workshop with Design Displacement Group' },
+  { year: "2016", primary: "Kunsthochschule Weißensee.", secondary: '"Archive for Youth Culture." Foundation class' },
+  { year: "2015", primary: "Jan van Eyck Academy Maastricht.", secondary: '"Digital Campfire II." Workshop with Design Displacement Group (with Marthe Prins, Gilles de Brock)' },
+  { year: "2014", primary: "École supérieure d'art Cambrai.", secondary: '"Digital Campfire I." Workshop with Design Displacement Group (with Marthe Prins, Gilles de Brock)' },
+];
+---
+
+<BaseLayout title={`About — ${AUTHOR_NAME}`} description="Benedikt Weishaupt — Product Designer.">
+  <div class="bg-gray-900 text-gray-200">
+    <article class="max-w-screen-md py-20 px-4">
+      <AboutTextSection>
+        <p>Benedikt Weishaupt</p>
+        <p>Product Designer</p>
+        <p><a href="mailto:mail@benediktweishaupt.de" class="underline">mail</a></p>
+      </AboutTextSection>
+
+      <AboutTextSection>
+        <p>Benedikt is a product designer. His projects move between early computational experiments and current tooling that lets design and development teams work towards a shared source of truth.</p>
+        <p>Most recently, he's been working with reteach, an education technology company, to future-proof their LMS solution for SMEs. Over the past year, he architected and built their design system and the infrastructure that bridges design decisions to running code.</p>
+        <p>Before that, he established product design at Closed in Hamburg, forming a cross-functional team to build their first design system following the rebrand—planning and implementing token pipelines that automate synchronization.</p>
+        <p>Benedikt has taught and lectured across European institutions on algorithmic design practices—encouraging designers to treat code as material to build systems and workflows that work for their communities.</p>
+      </AboutTextSection>
+
+      <AboutItemList title="Selected Exhibitions & Lectures" items={exhibitions} />
+
+      <AboutItemList title="Selected Teaching & Workshops" items={teaching} />
+
+      <AboutTextSection>
+        <p>Selected Clients</p>
+        <p>reteach, Closed GmbH, Museum Utopie und Alltag, Mister Spex, SunExpress, wirDesign, KABK (Royal Academy of Art, The Hague), Sandberg Institute Amsterdam, Schwules Museum Berlin, Metahaven, Renzo Martens, Oettinger Publishing House, Here to Support, We Are Here, Elke Uitentuis</p>
+      </AboutTextSection>
+    </article>
+  </div>
+</BaseLayout>

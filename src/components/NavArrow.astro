@@ -1,0 +1,43 @@
+---
+interface Props {
+	href: string | null;
+	direction: 'prev' | 'next';
+}
+
+const { href, direction } = Astro.props;
+const isPrev = direction === 'prev';
+const svgPath = isPrev ? 'M15 19l-7-7 7-7' : 'M9 5l7 7-7 7';
+const iconMargin = isPrev ? 'mr-0' : 'ml-0';
+const roundedSide = isPrev ? 'rounded-full' : 'rounded-full';
+const label = isPrev ? 'Prev' : 'Next';
+---
+
+{href ? (
+	<a href={href} class={`flex hover:bg-gray-100/20 items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-100 hover:text-gray-50 ${roundedSide}`}>
+		{isPrev && (
+			<svg class={`w-4 h-4 ${iconMargin}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={svgPath}></path>
+			</svg>
+		)}
+		<span class="hidden sm:inline">{label}</span>
+		{!isPrev && (
+			<svg class={`w-4 h-4 ${iconMargin}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={svgPath}></path>
+			</svg>
+		)}
+	</a>
+) : (
+	<span class="flex  items-center px-3 py-1.5 text-sm text-gray-300 cursor-not-allowed">
+		{isPrev && (
+			<svg class={`w-4 h-4 ${iconMargin}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={svgPath}></path>
+			</svg>
+		)}
+		<span class="hidden sm:inline">{label}</span>
+		{!isPrev && (
+			<svg class={`w-4 h-4 ${iconMargin}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={svgPath}></path>
+			</svg>
+		)}
+	</span>
+)}

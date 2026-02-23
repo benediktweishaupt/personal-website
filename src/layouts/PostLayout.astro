@@ -54,7 +54,7 @@ const { title, description, pubDate, updatedDate, currentPostId } = Astro.props;
 
 	<script>
 		// Simply clone images to sidebar once on page load - CSS handles responsive visibility
-		document.addEventListener('DOMContentLoaded', function() {
+		document.addEventListener('astro:page-load', () => {
 			const sidebar = document.getElementById('images-sidebar');
 			const proseContent = document.querySelector('.prose');
 

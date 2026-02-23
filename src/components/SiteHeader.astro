@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { SITE_NAME } from '../consts';
 import WorkIndex from './WorkIndex.astro';
+import NavArrow from './NavArrow.astro';
 
 const posts = (await getCollection('blog', (p) => p.data.status !== 'hidden')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -34,10 +35,10 @@ const nextHref = currentPostId !== undefined
 const showNav = currentPostId !== undefined || customPrevHref !== undefined || customNextHref !== undefined;
 ---
 
-<header class="max-w-screen-2xl mx-auto fixed z-20 top-2 ">
-	<nav class="flex items-stretch justify-between bg-white/50 backdrop-blur-md rounded-full mx-4 p-1">
+<header class="max-w-screen-2xl mx-auto fixed z-50 p-2">
+	<nav transition:name="site-nav" transition:animate="morph" class="flex items-stretch justify-between bg-black/70 backdrop-blur-md rounded-full p-1 w-fit">
 		<!-- Menu toggle button -->
-		<button id="menu-toggle" class="text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-full p-2.5 flex gap-2 items-center">
+		<button id="menu-toggle" class="text-gray-100 hover:bg-gray-100/20 rounded-full p-2.5 flex gap-2 items-center">
 			<svg id="hamburger-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
 			</svg>
@@ -48,80 +49,51 @@ const showNav = currentPostId !== undefined || customPrevHref !== undefined || c
 
 		</button>
 
-		<!-- Prev/Next Navigation -->
-		{showNav && (prevHref ? (
-			<a href={prevHref} class="flex items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-600 hover:text-gray-800 hover:bg-slate-50 rounded-md">
-				<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-				</svg>
-				<span class="hidden sm:inline">Prev</span>
-			</a>
-		) : (
-			<span class="flex items-center px-3 py-1.5 text-sm text-gray-300 cursor-not-allowed">
-				<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-				</svg>
-				<span class="hidden sm:inline">Prev</span>
-			</span>
-		))}
+		<a href="/about" class="flex items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-100 hover:hover:bg-gray-100/20 rounded-full">About</a>
 
-		{showNav && (nextHref ? (
-			<a href={nextHref} class="flex items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-600 hover:text-gray-800 hover:bg-slate-50 rounded-md">
-				<span class="hidden sm:inline">Next</span>
-				<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-				</svg>
-			</a>
-		) : (
-			<span class="flex items-center px-3 py-1.5 text-sm text-gray-300 cursor-not-allowed">
-				<span class="hidden sm:inline">Next</span>
-				<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-				</svg>
-			</span>
-		))}
+		<!-- Prev/Next Navigation -->
+		{showNav && <NavArrow href={prevHref} direction="prev" />}
+		{showNav && <NavArrow href={nextHref} direction="next" />}
 
 	</nav>
 </header>
 
 <!-- Navigation Overlay -->
-<div id="navigation-overlay" class="fixed inset-0 hidden z-50 top-16 bottom-2  overflow-y-auto max-w-screen-2xl mx-auto ">
-	<div class="bg-white/70 rounded-3xl m-4 px-6 py-3 backdrop-blur-lg">
-		<WorkIndex />
-	</div>
+<div id="navigation-overlay" class="fixed inset-0 hidden z-20 top-0 bottom-0  overflow-y-auto max-w-screen-2xl mx-auto ">
+	<WorkIndex />
 </div>
 
 <script>
-	// Toggle navigation overlay and burger/cross icon
-	const menuToggle = document.getElementById('menu-toggle');
-	const navigationOverlay = document.getElementById('navigation-overlay');
-	const hamburgerIcon = document.getElementById('hamburger-icon');
-	const closeIcon = document.getElementById('close-icon');
+	document.addEventListener('astro:page-load', () => {
+		const menuToggle = document.getElementById('menu-toggle');
+		const navigationOverlay = document.getElementById('navigation-overlay');
+		const hamburgerIcon = document.getElementById('hamburger-icon');
+		const closeIcon = document.getElementById('close-icon');
 
-	let isMenuOpen = false;
+		let isMenuOpen = false;
 
-	function toggleMenu() {
-		isMenuOpen = !isMenuOpen;
+		function toggleMenu() {
+			isMenuOpen = !isMenuOpen;
 
-		if (isMenuOpen) {
-			navigationOverlay?.classList.remove('hidden');
-			document.body.style.overflow = 'hidden';
-			hamburgerIcon?.classList.add('hidden');
-			closeIcon?.classList.remove('hidden');
-		} else {
-			navigationOverlay?.classList.add('hidden');
-			document.body.style.overflow = 'auto';
-			hamburgerIcon?.classList.remove('hidden');
-			closeIcon?.classList.add('hidden');
+			if (isMenuOpen) {
+				navigationOverlay?.classList.remove('hidden');
+				document.body.style.overflow = 'hidden';
+				hamburgerIcon?.classList.add('hidden');
+				closeIcon?.classList.remove('hidden');
+			} else {
+				navigationOverlay?.classList.add('hidden');
+				document.body.style.overflow = 'auto';
+				hamburgerIcon?.classList.remove('hidden');
+				closeIcon?.classList.add('hidden');
+			}
 		}
-	}
 
-	menuToggle?.addEventListener('click', toggleMenu);
+		menuToggle?.addEventListener('click', toggleMenu);
 
-	// Close navigation when clicking outside
-	navigationOverlay?.addEventListener('click', (e) => {
-		if (e.target === navigationOverlay) {
-			toggleMenu();
-		}
+		navigationOverlay?.addEventListener('click', (e) => {
+			if (e.target === navigationOverlay) {
+				toggleMenu();
+			}
+		});
 	});
 </script>
