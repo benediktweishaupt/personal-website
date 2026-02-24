@@ -1,10 +1,13 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
+import ProjectSimpleLayout from '../../layouts/ProjectSimpleLayout.astro';
 import * as projectComponents from '../../components/project/index.ts';
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects', (p) => p.data.status !== 'hidden');
+  const projects = await getCollection('projects', (p) =>
+    p.data.status !== 'hidden' && p.data.type !== 'entry'
+  );
   return projects.map((project) => ({
     params: { slug: project.id },
     props: project,
@@ -16,15 +19,31 @@ type Props = CollectionEntry<'projects'>;
 const project = Astro.props;
 const { data } = project;
 const { Content } = await render(project);
+const isCaseStudy = data.template === 'case-study';
 ---
 
-<ProjectLayout
-  title={data.title}
-  projectId={project.id}
-  status={data.status}
-  cover={data.cover}
-  meta={data.meta}
-  description={data.description}
->
-  <Content components={projectComponents} />
-</ProjectLayout>
+{isCaseStudy ? (
+  <ProjectLayout
+    title={data.title}
+    projectId={project.id}
+    status={data.status}
+    cover={data.cover}
+    meta={data.meta}
+    description={data.description}
+  >
+    <Content components={projectComponents} />
+  </ProjectLayout>
+) : (
+  <ProjectSimpleLayout
+    title={data.title}
+    projectId={project.id}
+    cover={data.cover}
+    meta={data.meta}
+    description={data.description}
+    description_de={data.description_de}
+    collaborators={data.collaborators}
+    student={data.student}
+  >
+    <Content />
+  </ProjectSimpleLayout>
+)}

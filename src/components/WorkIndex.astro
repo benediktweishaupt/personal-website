@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
-import FormattedDate from './FormattedDate.astro';
+import WorkIndexRow from './WorkIndexRow.astro';
+
+const GRID_COLS = 'grid-cols-[1fr_60px] sm:grid-cols-[1fr_90px_80px_60px] md:grid-cols-[1fr_90px_80px_120px_60px] lg:grid-cols-[1fr_90px_80px_120px_1fr_60px] xl:grid-cols-[1fr_90px_80px_120px_1fr_60px_60px_70px_30px_30px_30px]';
 
 export interface Props {
   filter?: 'all' | 'blog' | 'projects';
@@ -8,59 +10,178 @@ export interface Props {
 
 const { filter = 'all' } = Astro.props;
 
-const projects = filter !== 'blog'
+const allProjects = filter !== 'blog'
   ? (await getCollection('projects', (p) => p.data.status !== 'hidden'))
-      .sort((a, b) => a.data.order - b.data.order)
   : [];
 
-const posts = filter !== 'projects'
-  ? (await getCollection('blog', (p) => p.data.status !== 'hidden'))
-      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  : [];
+// Cards: case-study template items
+const cardProjects = allProjects
+  .filter((p) => p.data.template === 'case-study')
+  .sort((a, b) => a.data.order - b.data.order);
+
+// Sort weight: case-study template first, then project template, then entries
+function sortWeight(d: { type?: string; template?: string; student?: string }): number {
+  if (d.template === 'case-study') return 0;
+  if (d.type === 'project' && d.student) return 2; // graduation
+  if (d.type === 'project') return 1;
+  return 3; // entry
+}
+
+const tableProjects = [...allProjects].sort((a, b) => {
+  const yearA = a.data.meta.year ?? '0';
+  const yearB = b.data.meta.year ?? '0';
+  const numA = parseInt(yearA.match(/\d{4}/)?.[0] ?? '0');
+  const numB = parseInt(yearB.match(/\d{4}/)?.[0] ?? '0');
+  if (numB !== numA) return numB - numA;
+  return sortWeight(a.data) - sortWeight(b.data);
+});
 ---
 
-<main class="max-w-screen-2xl mx-auto px-6 py-20 bg-gray-200/70  backdrop-blur-lg">
-  <h1 class="pb-1">Case Studies</h1>
+<main class="max-w-screen-2xl mx-auto px-6 pt-20 pb-32 bg-white/70 backdrop-blur-xl">
 
-  <div class="flex gap-2 overflow-x-auto pb-4 -mx-6 px-6 snap-x snap-mandatory">
-    {projects.map((project) => (
-      <article class="shrink-0 w-64 sm:w-80 md:w-96 bg-slate-50 rounded-sm hover:rounded-2xl overflow-hidden group snap-start">
+  {/* ── Highlight Cards ── */}
+  <h1 class="text-sm uppercase tracking-widest text-gray-400 pb-3">Narratives & Case Studies</h1>
+
+  <div class="flex gap-3 overflow-x-auto pb-8 -mx-6 px-6 snap-x snap-mandatory">
+    {cardProjects.map((project) => (
+      <article class="shrink-0 w-64 sm:w-80 md:w-96 bg-white rounded-sm hover:rounded-2xl overflow-hidden group snap-start transition-all duration-200">
         <a href={`/projects/${project.id}`}>
-          <div class="aspect-[3/4] bg-gray-100 overflow-hidden">
-            <img
-              src={`/image/${project.data.cover.image}.jpg`}
-              alt={project.data.cover.alt ?? ''}
-              class="w-full h-full object-cover transition-transform duration-300"
-              loading="lazy"
-              onerror="this.style.display='none'"
-            />
-          </div>
+          {project.data.cover?.image && (
+            <div class="aspect-[3/4] bg-gray-100 overflow-hidden">
+              <img
+                src={`/image/${project.data.cover.image}.jpg`}
+                alt={project.data.cover.alt ?? ''}
+                class="w-full h-full object-cover transition-transform duration-300"
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+            </div>
+          )}
           <div class="p-4">
             <p class="text-sm text-gray-400 tracking-wide group-hover:text-gray-500">
               {project.data.meta.institution ?? project.data.meta.category} · {project.data.meta.year}
             </p>
             <h2 class="text-base font-medium text-gray-600 group-hover:text-gray-700">{project.data.title}</h2>
-            {project.data.description && <p class="text-sm text-gray-400 group-hover:text-gray-500 mt-1">{project.data.description}</p>}
+            {project.data.description && <p class="text-sm text-gray-400 group-hover:text-gray-500 mt-1 line-clamp-2">{project.data.description}</p>}
           </div>
         </a>
       </article>
     ))}
   </div>
-  <h1 class="pb-1">Project Lists</h1>
-  <h1 class="pb-1">Stories</h1>
 
-  <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+  {/* ── Project Table ── */}
+  <div class="mt-8">
+    <h1 class="text-sm uppercase text-gray-400 pb-3">All Projects</h1>
 
-    {posts.map((post) => (
-      <article>
-        <a href={`/blog/${post.id}/`} class="block hover:bg-slate-50 rounded-sm p-4">
-          <p class="text-sm font-medium text-gray-800 tracking-wide">
-            <FormattedDate date={post.data.pubDate} />
-          </p>
-          <h2 class="text-base font-medium text-gray-800">{post.data.title}</h2>
-          {post.data.excerpt && <p class="text-base font-medium text-gray-400">{post.data.excerpt}</p>}
-        </a>
-      </article>
-    ))}
+    {/* Filter pills */}
+    <div class="flex gap-2 pb-4 flex-wrap" id="filter-pills">
+      <button data-filter="all" class="filter-pill active rounded-full px-3 py-1 text-sm transition-colors">All</button>
+      <button data-filter="clients" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Clients</button>
+      <button data-filter="research" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Research</button>
+      <button data-filter="teaching" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Teaching</button>
+    </div>
+
+    {/* Table header */}
+    <div class:list={[
+      'grid gap-x-4 px-6 py-2 -mx-6 text-sm uppercase text-gray-600 border-b border-gray-600 sticky top-0 bg-white/90 backdrop-blur-sm z-10 select-none',
+      GRID_COLS,
+    ]}>
+      <button data-sort="title" class="sort-btn text-left hover:text-gray-600 transition-colors">Title</button>
+      <button data-sort="type" class="sort-btn text-left hover:text-gray-600 transition-colors hidden sm:block">Type</button>
+      <button data-sort="category" class="sort-btn text-left hover:text-gray-600 transition-colors hidden sm:block">Category</button>
+      <button data-sort="format" class="sort-btn text-left hover:text-gray-600 transition-colors hidden md:block">Format</button>
+      <button data-sort="institution" class="sort-btn text-left hover:text-gray-600 transition-colors hidden lg:block">Institution</button>
+      <button data-sort="year" data-dir="desc" class="sort-btn text-left hover:text-gray-600 transition-colors">Year <span class="sort-indicator">↓</span></button>
+      <button data-sort="status" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Status <span class="sort-indicator">↓</span></button>
+      <button data-sort="audience" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Aud. <span class="sort-indicator">↓</span></button>
+      <button data-sort="cover" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Cover <span class="sort-indicator">↓</span></button>
+      <button data-sort="desc" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Desc <span class="sort-indicator">↓</span></button>
+      <button data-sort="body" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Body <span class="sort-indicator">↓</span></button>
+    </div>
+
+    {/* Table rows */}
+    <div id="project-list">
+      {tableProjects.map((project) => <WorkIndexRow project={project} />)}
+    </div>
+
+    {/* Count */}
+    <p id="project-count" class="text-xs text-gray-400 mt-4 px-4">
+      {tableProjects.length} projects
+    </p>
   </div>
 </main>
+
+<style>
+  .filter-pill {
+    @apply text-gray-400 bg-transparent border border-gray-200;
+  }
+  .filter-pill:hover {
+    @apply text-gray-600 border-gray-300;
+  }
+  .filter-pill.active {
+    @apply text-gray-700 bg-white border-gray-300 shadow-sm;
+  }
+
+  .sort-indicator {
+    @apply text-gray-300 ml-0.5;
+  }
+  .sort-btn[data-dir="asc"] .sort-indicator,
+  .sort-btn[data-dir="desc"] .sort-indicator {
+    @apply text-gray-600;
+  }
+  .sort-btn:not([data-dir]) .sort-indicator { display: none; }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const list = document.getElementById('project-list');
+    const countEl = document.getElementById('project-count');
+    if (!list) return;
+
+    const rows = () => [...list.querySelectorAll<HTMLElement>('[data-row]')];
+
+    // ── Sort ──
+    document.querySelectorAll<HTMLElement>('.sort-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.sort;
+        if (!key) return;
+
+        const prev = btn.dataset.dir;
+        document.querySelectorAll<HTMLElement>('.sort-btn').forEach(b => delete b.dataset.dir);
+        const dir = prev === 'asc' ? 'desc' : 'asc';
+        btn.dataset.dir = dir;
+
+        const indicator = btn.querySelector('.sort-indicator');
+        if (indicator) indicator.textContent = dir === 'asc' ? '↑' : '↓';
+
+        const sorted = rows().sort((a, b) => {
+          const av = a.dataset[key] || '';
+          const bv = b.dataset[key] || '';
+          if (key === 'year') {
+            const na = parseInt(av.match(/\d{4}/)?.[0] ?? '0');
+            const nb = parseInt(bv.match(/\d{4}/)?.[0] ?? '0');
+            return dir === 'asc' ? na - nb : nb - na;
+          }
+          return dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+        });
+        sorted.forEach(r => list.appendChild(r));
+      });
+    });
+
+    // ── Filter ──
+    document.querySelectorAll<HTMLElement>('.filter-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.filter;
+        document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        let visible = 0;
+        rows().forEach(r => {
+          const show = cat === 'all' || r.dataset.category === cat;
+          r.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        if (countEl) countEl.textContent = `${visible} projects`;
+      });
+    });
+  });
+</script>

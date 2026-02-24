@@ -1,9 +1,11 @@
 ---
 title: Reteach Design System
 status: draft
+type: project
+template: case-study
 order: 1
 cover:
-  image: projects/reteach/design-system-cover
+  image: ""
   alt: Legacy system map showing four parallel button implementations and Vue 2-to-3 migration blockers
   caption: From four parallel UI implementations to a unified system across three products
 meta:
@@ -16,13 +18,23 @@ description: How Reteach's fragmented frontend was turned into a working design 
 ---
 
 <ProjectSection variant="full" gap="10">
-  <ProjectDescription>How a frozen migration and four competing button implementations became a unified system across three products — built through continuous, verifiable progress instead of another big-bang refactor.</ProjectDescription>
+  <ProjectDescription>
+    How a frozen migration and four competing button implementations became a
+    unified system across three products — built through continuous, verifiable
+    progress instead of another big-bang refactor.
+  </ProjectDescription>
   <ProjectTag variant="large">B2B SaaS LMS · 1,500+ companies</ProjectTag>
 </ProjectSection>
 
 <ProjectSection variant="simple" gap="2">
   {/* <ProjectSectionHeading>My Role</ProjectSectionHeading> */}
-  <ProjectTagList tags={["Lead Product Designer", "Design System Architect", "Steering Committee Member"]} />
+  <ProjectTagList
+    tags={[
+      "Lead Product Designer",
+      "Design System Architect",
+      "Steering Committee Member",
+    ]}
+  />
 </ProjectSection>
 
 <ProjectSection variant="centered" gap="7">
@@ -30,13 +42,26 @@ description: How Reteach's fragmented frontend was turned into a working design 
     When I joined Reteach, the Vue-2-to-3 migration had been frozen for months. In practice, the UI layer was fragmented: four different button implementations, each created as a workaround for Bootstrap's limits. Nobody wanted to touch that codebase because the Bootstrap-Vue library was abandoned upstream and every change risked breaking something. A previous attempt at a full redesign had failed; trust in large-scale refactoring was low.
 
     We agreed early that another big-bang refactor would only repeat the problem. Instead, we aimed for continuous progress that could be proven step by step. The question was not how to rebuild everything, but where to start so that the next improvement would become easier rather than harder.
+
   </ProjectTextBlock>
 </ProjectSection>
 
-<ProjectMediaGrid columns={2} items={[
-  { type: "video", src: "/video/projects/reteach/design-system/old-nav.mp4", caption: "Main navigation showing the untokenised layout" },
-  { type: "video", src: "/video/projects/reteach/design-system/new-nav.mp4", caption: "New tokenised admin app with colors compliant with accessibility standards and brand guidelines" },
-]} />
+<ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "video",
+      src: "/video/projects/reteach/design-system/old-nav.mp4",
+      caption: "Main navigation showing the untokenised layout",
+    },
+    {
+      type: "video",
+      src: "/video/projects/reteach/design-system/new-nav.mp4",
+      caption:
+        "New tokenised admin app with colors compliant with accessibility standards and brand guidelines",
+    },
+  ]}
+/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>Token Foundation</ProjectSectionHeading>
@@ -50,52 +75,134 @@ description: How Reteach's fragmented frontend was turned into a working design 
     { type: "image", src: "/image/projects/reteach/design-system/color-scale-check.png", alt: "Color scale check in Figma", caption: "A simple variant setup in Figma to check the overall appearance of the various color setups and combinations with the new color scale." },
     { type: "image", src: "/image/projects/reteach/design-system/color-tokens-scss.png", alt: "Color tokens SCSS setup", caption: "Setup of primary color tokens" },
 
-  ]} />
-</ProjectSection>
-
-<ProjectMediaGrid columns={1} items={[
-  { type: "image", src: "/image/projects/reteach/design-system/token-flow.png", alt: "Token consumption flow diagram", caption: "Token consumption flow" },
 ]} />
 
+</ProjectSection>
 
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: "/image/projects/reteach/design-system/token-flow.png",
+      alt: "Token consumption flow diagram",
+      caption: "Token consumption flow",
+    },
+  ]}
+/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>UX Improvements</ProjectSectionHeading>
   <ProjectTextBlock>
-    The token layer then became the base for addressing the two largest UX pain points identified through a support-ticket audit: table inconsistencies and the excessive use of modal dialogs. Tables had diverged in markup and behaviour; modals were used for nearly every interaction and blocked workflows. We built new atomic table components and replaced modal dialogs with a lighter drawer pattern that kept users in context. After rollout, a frontend engineer summarised the difference: "I can now estimate how long it takes to develop a modal pattern." Feature estimates became reliable again because developers could scope work by component rather than by guesswork.
+    The token layer then became the base for addressing the two largest UX pain
+    points identified through a support-ticket audit: table inconsistencies and
+    the excessive use of modal dialogs. Tables had diverged in markup and
+    behaviour; modals were used for nearly every interaction and blocked
+    workflows. We built new atomic table components and replaced modal dialogs
+    with a lighter drawer pattern that kept users in context. After rollout, a
+    frontend engineer summarised the difference: "I can now estimate how long it
+    takes to develop a modal pattern." Feature estimates became reliable again
+    because developers could scope work by component rather than by guesswork.
   </ProjectTextBlock>
-  <ProjectMediaGrid columns={2} items={[
-  { type: "image", src: "/image/projects/reteach/design-system/color-system-old.png", alt: "Old color system", caption: "While the brand, primary, and secondary colors were being unified and functional colors started to be consistently applied…" },
-  { type: "image", src: "/image/projects/reteach/design-system/color-system-new.png", alt: "New color system", caption: "…the long-term vision was already in the making: functional colors became more explicit, allowing for a more OS-like feel and an agnostic color system covering custom themes and dark themes." },
-]} />
+  <ProjectMediaGrid
+    columns={2}
+    items={[
+      {
+        type: "image",
+        src: "/image/projects/reteach/design-system/color-system-old.png",
+        alt: "Old color system",
+        caption:
+          "While the brand, primary, and secondary colors were being unified and functional colors started to be consistently applied…",
+      },
+      {
+        type: "image",
+        src: "/image/projects/reteach/design-system/color-system-new.png",
+        alt: "New color system",
+        caption:
+          "…the long-term vision was already in the making: functional colors became more explicit, allowing for a more OS-like feel and an agnostic color system covering custom themes and dark themes.",
+      },
+    ]}
+  />
 </ProjectSection>
 
-<ProjectMediaGrid columns={2} items={[
-  { type: "video", src: "/video/projects/reteach/design-system/old-modal.mp4", caption: "Modals had issues, especially with larger configurations" },
-  { type: "video", src: "/video/projects/reteach/design-system/new-drawer.mp4", caption: "We solved this by introducing the drawer pattern" },
-]} />
+<ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "video",
+      src: "/video/projects/reteach/design-system/old-modal.mp4",
+      caption: "Modals had issues, especially with larger configurations",
+    },
+    {
+      type: "video",
+      src: "/video/projects/reteach/design-system/new-drawer.mp4",
+      caption: "We solved this by introducing the drawer pattern",
+    },
+  ]}
+/>
 
-<ProjectMediaGrid columns={2} items={[
-  { type: "image", src: "/image/projects/reteach/design-system/layout-frame.png", alt: "New Layout Frame", caption: "Designed a new Layout Frame, Header and Sidebar to steer focus on each page to the one most important action" },
-  { type: "video", src: "/video/projects/reteach/design-system/table-scroll.mp4", caption: "New table design allowed for horizontal scrolling and display of as many columns as needed. Tables were often restricted by their own width before." },
-]} />
+<ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "image",
+      src: "/image/projects/reteach/design-system/layout-frame.png",
+      alt: "New Layout Frame",
+      caption:
+        "Designed a new Layout Frame, Header and Sidebar to steer focus on each page to the one most important action",
+    },
+    {
+      type: "video",
+      src: "/video/projects/reteach/design-system/table-scroll.mp4",
+      caption:
+        "New table design allowed for horizontal scrolling and display of as many columns as needed. Tables were often restricted by their own width before.",
+    },
+  ]}
+/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>Storybook as Shared Reference</ProjectSectionHeading>
   <ProjectTextBlock>
-    To document and stabilise these components, we introduced Storybook as a single shared reference. The goal was not documentation in the traditional sense, but an environment where design, development, and product could check the same artefact. Designers could show variants directly, engineers could test states in isolation, and product managers could review scope without waiting for deployments. The component lifecycle stayed intentionally simple — Candidate, Implemented, Deprecated — which kept maintenance manageable. Review loops shortened, and discussions shifted from whether something existed to how it should behave.
+    To document and stabilise these components, we introduced Storybook as a
+    single shared reference. The goal was not documentation in the traditional
+    sense, but an environment where design, development, and product could check
+    the same artefact. Designers could show variants directly, engineers could
+    test states in isolation, and product managers could review scope without
+    waiting for deployments. The component lifecycle stayed intentionally simple
+    — Candidate, Implemented, Deprecated — which kept maintenance manageable.
+    Review loops shortened, and discussions shifted from whether something
+    existed to how it should behave.
   </ProjectTextBlock>
-  <ProjectMediaGrid columns={1} items={[
-  { type: "image", src: "/image/projects/reteach/design-system/button-analysis.png", alt: "Button props and events analysis", caption: "A clear before image showing the clash of naming paradigms: 'btn' vs 'button', and different approaches to passing text or behaviour as props. We not only unified terminology but used the refactor to develop clear frontend conventions." },
-]} />
+  <ProjectMediaGrid
+    columns={1}
+    items={[
+      {
+        type: "image",
+        src: "/image/projects/reteach/design-system/button-analysis.png",
+        alt: "Button props and events analysis",
+        caption:
+          "A clear before image showing the clash of naming paradigms: 'btn' vs 'button', and different approaches to passing text or behaviour as props. We not only unified terminology but used the refactor to develop clear frontend conventions.",
+      },
+    ]}
+  />
 </ProjectSection>
 
-
-
-<ProjectMediaGrid columns={2} items={[
-  { type: "video", src: "/video/projects/reteach/design-system/storybook-old.mov", caption: "Grown Storybook — organically expanded without conventions" },
-  { type: "video", src: "/video/projects/reteach/design-system/storybook-new.mov", caption: "Storybook with introduced naming conventions and documented tokens" },
-]} />
+<ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "video",
+      src: "/video/projects/reteach/design-system/storybook-old.mov",
+      caption: "Grown Storybook — organically expanded without conventions",
+    },
+    {
+      type: "video",
+      src: "/video/projects/reteach/design-system/storybook-new.mov",
+      caption:
+        "Storybook with introduced naming conventions and documented tokens",
+    },
+  ]}
+/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>System Expansion and Automation</ProjectSectionHeading>
@@ -103,18 +210,34 @@ description: How Reteach's fragmented frontend was turned into a working design 
     Over time, the system expanded across the Marketing Website, the Client Academies, and the Client Admin Panel. Consistency became a question of shared behaviour rather than visual uniformity. When an issue appeared, we applied the Five Whys method to trace it back to the responsible component, fixed it once, and propagated the solution through all products. That process turned debugging into a source of learning.
 
     For synchronisation across tools, we automated the pipeline between Notion, Figma, Storybook, and Git version control using Claude Code MCPs. This eliminated manual copy errors and ensured that documentation and implementation stayed aligned. Builds became faster and releases more predictable because information moved through automation rather than meetings.
+
   </ProjectTextBlock>
 </ProjectSection>
 
-<ProjectMediaGrid columns={2} items={[
-  { type: "image", src: "/image/projects/reteach/design-system/dashboard-before.png", alt: "App when joining Reteach", caption: "The app as I found it when joining Reteach" },
-  { type: "image", src: "/image/projects/reteach/design-system/dashboard-after.png", alt: "Final app design", caption: "Final design — this change happened entirely by introducing conventions and changing values, without any explicit refactor for the design system" },
-]} />
+<ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "image",
+      src: "/image/projects/reteach/design-system/dashboard-before.png",
+      alt: "App when joining Reteach",
+      caption: "The app as I found it when joining Reteach",
+    },
+    {
+      type: "image",
+      src: "/image/projects/reteach/design-system/dashboard-after.png",
+      alt: "Final app design",
+      caption:
+        "Final design — this change happened entirely by introducing conventions and changing values, without any explicit refactor for the design system",
+    },
+  ]}
+/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectTextBlock>
     Early on, some stakeholders questioned the investment. One C-level comment was: "You're just making it prettier." Since Reteach had no established monitoring or data-driven practice, we relied on informal proxies — support-ticket trends, onboarding duration, estimation reliability — to make progress visible. Over several release cycles the discussion gradually shifted from aesthetics to performance.
 
     In retrospect, the decisive factor was not technology but method. Tokens reduced decision overhead, Storybook reduced assumptions, and shared ownership reduced friction. The system now holds across three products, and new components follow the same lifecycle. **Evolution proved more effective than ambition when outcomes had to be delivered.**
+
   </ProjectTextBlock>
 </ProjectSection>

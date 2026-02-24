@@ -1,0 +1,15 @@
+---
+title: Item to Item
+status: draft
+type: entry
+order: 99
+meta:
+  category: research
+  format: Algorithm, Installation
+  institution: Sandberg Instituut
+  year: "2015"
+description: "How smart and seductive are algorithms on the internet who are made to sell products to us? \"Any intelligence is prediction\" says Yann LeCun Director of AI Research, Facebook. This predictive Intelligence is mostly used to analyze our behavior and turn it into semiotic capital – into \"big data\". Item to item is an experiment which turns this process around. It uses recommendations – the predictions of our future consumption – to render a person. The question hereby is what is the intelligence of algorithms who run our daily life on the internet and how far are they biased towards certain kinds of target groups? Item to Item uses the most advanced intelligent products from Amazon, Youtube, Walmart or Ikea to render average people and their daily routines."
+collaborators: Gilles de Brock
+---
+
+How smart and seductive are algorithms on the internet who are made to sell products to us? "Any intelligence is prediction" says Yann LeCun Director of AI Research, Facebook. This predictive Intelligence is mostly used to analyze our behavior and turn it into semiotic capital – into "big data". Item to item is an experiment which turns this process around. It uses recommendations – the predictions of our future consumption – to render a person. The question hereby is what is the intelligence of algorithms who run our daily life on the internet and how far are they biased towards certain kinds of target groups? Item to Item uses the most advanced intelligent products from Amazon, Youtube, Walmart or Ikea to render average people and their daily routines.

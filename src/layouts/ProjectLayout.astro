@@ -8,7 +8,7 @@ interface Props {
   title: string;
   projectId: string;
   status?: string;
-  cover: {
+  cover?: {
     image: string;
     alt?: string;
     caption?: string;
@@ -26,7 +26,7 @@ interface Props {
 const { title, projectId, cover, meta, description } = Astro.props;
 
 // Compute project prev/next for header navigation
-const allProjects = (await getCollection('projects', (p) => p.data.status !== 'hidden'))
+const allProjects = (await getCollection('projects', (p) => p.data.status !== 'hidden' && p.data.type !== 'entry'))
   .sort((a, b) => a.data.order - b.data.order);
 
 const currentIndex = allProjects.findIndex((p) => p.id === projectId);
@@ -43,7 +43,7 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
     nextHref={nextProject ? `/projects/${nextProject.id}` : undefined}
   />
 
-  {cover.image && (
+  {cover?.image && (
     <div class="w-full h-[75vh]">
       <img
         src={`/image/${cover.image}.jpg`}

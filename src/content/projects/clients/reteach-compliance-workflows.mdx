@@ -1,27 +1,36 @@
 ---
 title: Reteach Compliance Workflows
 status: draft
+type: project
+template: case-study
 order: 3
 cover:
-  image: projects/reteach/compliance-cover
+  image: ""
   alt: Compliance workflow module showing timeline visualisation and certificate status badges
   caption: From opaque wizard to five clearly scoped modules — making compliance rules readable
 meta:
   category: clients
   format: Product Design
+  team: "4 Personen (Design, Frontend, PM, CS)"
   institution: Reteach GmbH
   year: "2024"
 description: How Reteach restructured its most complex LMS module. An opaque compliance wizard was replaced by five clearly scoped modules, making workflows predictable and reducing dependency on customer support.
 ---
 
 <ProjectSection variant="full" gap="10">
-  <ProjectDescription>How an opaque compliance wizard with a "9999 years" workaround became a modular, predictable system. Five clearly scoped modules, smart defaults, and a timeline visualisation replaced confusion with confidence.</ProjectDescription>
+  <ProjectDescription>
+    How an opaque compliance wizard with a "9999 years" workaround became a
+    modular, predictable system. Five clearly scoped modules, smart defaults,
+    and a timeline visualisation replaced confusion with confidence.
+  </ProjectDescription>
   <ProjectTag variant="large">B2B SaaS LMS · 1,500+ companies</ProjectTag>
 </ProjectSection>
 
 <ProjectSection variant="simple" gap="2">
   <ProjectSectionHeading>My Role</ProjectSectionHeading>
-  <ProjectTagList tags={["Lead Product Designer", "UX Systems", "Stakeholder Alignment"]} />
+  <ProjectTagList
+    tags={["Lead Product Designer", "UX Systems", "Stakeholder Alignment"]}
+  />
 </ProjectSection>
 
 <ProjectSection variant="centered" gap="7">
@@ -29,23 +38,49 @@ description: How Reteach restructured its most complex LMS module. An opaque com
     Our compliance feature had grown by client requests. It combined mandatory-training logic, reminders, enrolment, and certificates into a single screen that gave users no feedback at all. Support calls and improvised workarounds followed — the most common being the "9999 years" recurrence trick to stop auto-enrolment. It had become a feature nobody fully trusted.
 
     German compliance law added another layer of complexity. Between DSGVO, Arbeitsschutzgesetz, and sector-specific safety rules, every client needed slightly different logic. We served small organisations and 5,000-employee enterprises on the same codebase. From the start we agreed on one rule for ourselves: Reteach doesn't interpret law; it communicates logic. The system's job was to describe what will happen, not to decide what is legally correct.
+
   </ProjectTextBlock>
 </ProjectSection>
 
-<ProjectMediaGrid columns={1} items={[
-  { type: "image", src: "/image/projects/reteach/compliance/form-exploration.png", alt: "Three iterations of compliance form fields", caption: "Design exploration: three iterations of the compliance form fields — from the existing multi-screen settings (top) through checkbox-based simplification (middle) to explicit 'never' selects replacing ambiguous empty states (bottom). Each iteration reduced cognitive load while preserving the same configuration power." },
-]} />
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: "/image/projects/reteach/compliance/form-exploration.png",
+      alt: "Three iterations of compliance form fields",
+      caption:
+        "Design exploration: three iterations of the compliance form fields — from the existing multi-screen settings (top) through checkbox-based simplification (middle) to explicit 'never' selects replacing ambiguous empty states (bottom). Each iteration reduced cognitive load while preserving the same configuration power.",
+    },
+  ]}
+/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>Five Modules</ProjectSectionHeading>
   <ProjectTextBlock>
-    To make that possible, we rebuilt the feature from the ground up. Instead of one opaque wizard, it became five clearly scoped modules: Mandatory Courses, Recurrence Rules, Auto-Enrollment, Notifications, and Certificates. Each handled a single responsibility and exposed its configuration directly. No hidden dependencies, no side-effects across modules. During early testing, a customer-success colleague noted that for the first time she could explain the feature without sketching diagrams. That was the first sign that structure was starting to make sense.
+    To make that possible, we rebuilt the feature from the ground up. Instead of
+    one opaque wizard, it became five clearly scoped modules: Mandatory Courses,
+    Recurrence Rules, Auto-Enrollment, Notifications, and Certificates. Each
+    handled a single responsibility and exposed its configuration directly. No
+    hidden dependencies, no side-effects across modules. During early testing, a
+    customer-success colleague noted that for the first time she could explain
+    the feature without sketching diagrams. That was the first sign that
+    structure was starting to make sense.
   </ProjectTextBlock>
 </ProjectSection>
 
-<ProjectMediaGrid columns={1} items={[
-  { type: "image", src: "/image/projects/reteach/compliance/modular-user-stories.png", alt: "Modular compliance requirements as user stories", caption: "Modular compliance requirements mapped as user stories. Each module — one-time deadlines, relative deadlines, recurring rules, recurring-relative rules — was scoped, designed, and tested independently." },
-]} />
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: "/image/projects/reteach/compliance/modular-user-stories.png",
+      alt: "Modular compliance requirements as user stories",
+      caption:
+        "Modular compliance requirements mapped as user stories. Each module — one-time deadlines, relative deadlines, recurring rules, recurring-relative rules — was scoped, designed, and tested independently.",
+    },
+  ]}
+/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>Smart Defaults and Timeline</ProjectSectionHeading>
@@ -53,16 +88,34 @@ description: How Reteach restructured its most complex LMS module. An opaque com
     Next we analysed anonymised customer data to establish smart defaults. Most organisations repeated safety courses annually, sent reminders thirty days before expiry, and enrolled new employees automatically when they joined a group. We encoded those patterns as default values. As a result, the 9999-year hack disappeared overnight, replaced by an explicit "once on group-join" rule that matched actual practice.
 
     Because users still needed to understand temporal logic, we introduced a timeline visualisation. It translates configuration parameters into a readable sequence: employee joins → enrolment within 14 days → reminder at 11 months → renewal at 12. That small change replaced trial-and-error with immediate feedback. Compliance work began to feel like managing a schedule instead of programming a system.
+
   </ProjectTextBlock>
 </ProjectSection>
 
-<ProjectMediaGrid columns={1} items={[
-  { type: "image", src: "/image/projects/reteach/compliance/certificate-badges.png", alt: "Certificate status badges", caption: "Certificate status visualisation: colour-coded badges show validity at a glance — GÜLTIG (green), expiring soon (yellow), ABGELAUFEN (red), NICHT ERHALTEN (grey). This replaced the previous state where users had no visual feedback on compliance status." },
-]} />
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: "/image/projects/reteach/compliance/certificate-badges.png",
+      alt: "Certificate status badges",
+      caption:
+        "Certificate status visualisation: colour-coded badges show validity at a glance — GÜLTIG (green), expiring soon (yellow), ABGELAUFEN (red), NICHT ERHALTEN (grey). This replaced the previous state where users had no visual feedback on compliance status.",
+    },
+  ]}
+/>
 
-<ProjectMediaGrid columns={1} items={[
-  { type: "video", src: "/video/projects/reteach/compliance/demo.mov", caption: "Compliance workflow demo — the complete module flow from configuration to certificate status" },
-]} />
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "video",
+      src: "/video/projects/reteach/compliance/demo.mov",
+      caption:
+        "Compliance workflow demo — the complete module flow from configuration to certificate status",
+    },
+  ]}
+/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectTextBlock>
@@ -73,5 +126,6 @@ description: How Reteach restructured its most complex LMS module. An opaque com
     We had no telemetry in place, so qualitative feedback from customer success remained the main signal. Explanations no longer required escalation to engineering, and the nature of incoming questions confirmed that users were operating the feature with more confidence than before.
 
     Looking back, the breakthrough was clarity, not automation. By exposing the system's logic directly and linking it to realistic defaults, we replaced opaque behaviour with predictable outcomes. The compliance section still carries the most complex logic in the product. The difference is that users can now read it.
+
   </ProjectTextBlock>
 </ProjectSection>

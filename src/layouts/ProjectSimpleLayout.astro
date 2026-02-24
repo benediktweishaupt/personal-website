@@ -1,0 +1,92 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { AUTHOR_NAME } from '../consts';
+
+interface Props {
+  title: string;
+  projectId: string;
+  cover?: {
+    image: string;
+    alt?: string;
+    caption?: string;
+  };
+  meta: {
+    category: string;
+    format?: string;
+    team?: string;
+    institution?: string;
+    year?: string;
+  };
+  description?: string;
+  description_de?: string;
+  collaborators?: string;
+  student?: string;
+}
+
+const { title, projectId, cover, meta, description, description_de, collaborators, student } = Astro.props;
+
+// Compute project prev/next for header navigation
+const allProjects = (await getCollection('projects', (p) => p.data.status !== 'hidden' && p.data.type !== 'entry'))
+  .sort((a, b) => a.data.order - b.data.order);
+
+const currentIndex = allProjects.findIndex((p) => p.id === projectId);
+const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
+const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null;
+
+// Meta items for the header
+const metaItems = [
+  meta.format,
+  meta.institution,
+  meta.team,
+  collaborators && `with ${collaborators}`,
+  student && `Student: ${student}`,
+  meta.year,
+].filter(Boolean);
+---
+
+<BaseLayout title={`${title} — ${AUTHOR_NAME}`} description={description ?? title}>
+  <SiteHeader
+    slot="header"
+    pageTitle={title}
+    prevHref={prevProject ? `/projects/${prevProject.id}` : undefined}
+    nextHref={nextProject ? `/projects/${nextProject.id}` : undefined}
+  />
+
+  <main class="max-w-screen-2xl mx-auto px-7 pt-12 pb-20">
+    {/* Header */}
+    <div class="max-w-2xl">
+      <h1 class="text-2xl font-medium text-gray-800">{title}</h1>
+      <p class="text-sm text-gray-400 mt-2">{metaItems.join(' · ')}</p>
+    </div>
+
+    {/* Description */}
+    {description && (
+      <div class="max-w-2xl mt-8">
+        <p class="text-base text-gray-600 leading-relaxed">{description}</p>
+      </div>
+    )}
+
+    {/* Cover image */}
+    {cover?.image && (
+      <div class="mt-10">
+        <img
+          src={`/image/${cover.image}.jpg`}
+          alt={cover.alt ?? ''}
+          class="w-full max-h-[60vh] object-cover rounded-sm"
+          loading="eager"
+          onerror="this.style.display='none'"
+        />
+        {cover.caption && (
+          <p class="text-xs text-gray-400 mt-2">{cover.caption}</p>
+        )}
+      </div>
+    )}
+
+    {/* MDX body content (if any) */}
+    <div class="max-w-2xl mt-10 prose prose-gray">
+      <slot />
+    </div>
+  </main>
+</BaseLayout>

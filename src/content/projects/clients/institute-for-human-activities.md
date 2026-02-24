@@ -1,0 +1,17 @@
+---
+title: Institute for Human Activities
+status: draft
+type: project
+template: project
+order: 99
+meta:
+  category: clients
+  format: Website
+  institution: Renzo Martens
+  year: "2015"
+description: "The \"Institute for Human Activities\" is an art project by Renzo Martens. To underline the accelerationist approach of his work, a news website was created for the publication of his research that also sells products by artist friends of the IHA through a small webshop."
+description_de: "Das „Institut for Human Activities\" ist ein Kunstprojekt von Renzo Martens. Um dem akzelerationistischen Ansatz seiner Arbeit zu unterstreichen, wurde für die Publikation seiner Untersuchungen eine News-Website erstellt, die auch über einen kleinen Webshop Produkte von befreundeten Künstlern des IHA verkauft."
+collaborators: Metahaven
+---
+
+The "Institute for Human Activities" is an art project by Renzo Martens. To underline the accelerationist approach of his work, a news website was created for the publication of his research that also sells products by artist friends of the IHA through a small webshop.
