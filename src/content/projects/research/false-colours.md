@@ -4,6 +4,8 @@ status: draft
 type: project
 template: project
 order: 99
+cover:
+  image: "projects/false-colours/cover"
 meta:
   category: research
   format: Installation

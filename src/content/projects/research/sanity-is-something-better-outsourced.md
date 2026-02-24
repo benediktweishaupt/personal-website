@@ -4,6 +4,8 @@ status: draft
 type: project
 template: project
 order: 99
+cover:
+  image: "projects/sanity-outsourced/cover"
 meta:
   category: research
   format: Installation, Performance

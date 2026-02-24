@@ -4,6 +4,8 @@ status: draft
 type: project
 template: project
 order: 99
+cover:
+  image: "projects/die-unsichtbaren-staedte/cover"
 meta:
   category: teaching
   format: Foundation Project

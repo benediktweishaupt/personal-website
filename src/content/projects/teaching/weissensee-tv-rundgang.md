@@ -4,6 +4,8 @@ status: draft
 type: project
 template: project
 order: 99
+cover:
+  image: "projects/weissensee-tv-rundgang/cover"
 meta:
   category: teaching
   format: Identity, Interaction Design, Semester Project

@@ -4,6 +4,8 @@ status: draft
 type: project
 template: project
 order: 99
+cover:
+  image: "projects/the-power-of-mesh/cover"
 meta:
   category: research
   format: Installation, Interaction Design, Poster

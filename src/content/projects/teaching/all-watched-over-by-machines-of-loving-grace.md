@@ -4,6 +4,8 @@ status: draft
 type: project
 template: project
 order: 99
+cover:
+  image: "projects/all-watched-over/cover"
 meta:
   category: teaching
   format: Exhibition, Semester Project

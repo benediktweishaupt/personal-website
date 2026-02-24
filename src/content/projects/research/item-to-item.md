@@ -3,6 +3,8 @@ title: Item to Item
 status: draft
 type: entry
 order: 99
+cover:
+  image: "projects/item-to-item/cover"
 meta:
   category: research
   format: Algorithm, Installation

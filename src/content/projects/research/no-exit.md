@@ -4,6 +4,8 @@ status: draft
 type: project
 template: project
 order: 99
+cover:
+  image: "projects/no-exit/cover"
 meta:
   category: research
   format: Installation, Movie

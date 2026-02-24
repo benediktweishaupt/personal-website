@@ -4,6 +4,8 @@ status: draft
 type: project
 template: project
 order: 99
+cover:
+  image: "projects/kabk-graduation-festival/cover"
 meta:
   category: clients
   format: Identity
