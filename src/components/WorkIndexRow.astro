@@ -5,7 +5,7 @@ interface Props {
   project: CollectionEntry<'projects'>;
 }
 
-const GRID_COLS = 'grid-cols-[1fr_60px] sm:grid-cols-[1fr_90px_80px_60px] md:grid-cols-[1fr_90px_80px_120px_60px] lg:grid-cols-[1fr_90px_80px_120px_1fr_60px] xl:grid-cols-[1fr_90px_80px_120px_1fr_60px_60px_70px_30px_30px_30px]';
+const GRID_COLS = 'grid-cols-[54px_1fr_60px] sm:grid-cols-[54px_1fr_90px_80px_60px] md:grid-cols-[54px_1fr_90px_80px_120px_60px] lg:grid-cols-[54px_1fr_90px_80px_120px_1fr_60px] xl:grid-cols-[54px_1fr_90px_80px_120px_1fr_60px_60px_70px_30px_30px_30px]';
 
 const { project } = Astro.props;
 const d = project.data;
@@ -24,7 +24,7 @@ const hasBody = !!(project.body?.trim());
 
 <div
   class:list={[
-    'project-row grid relative -mx-6 gap-x-4 px-6 py-2.5 border-b border-gray-600',
+    'project-row group grid relative -mx-6 gap-x-4 px-6 py-2.5 border-b border-gray-600',
     isClickable && 'transition-colors hover:bg-gray-50',
     GRID_COLS,
   ]}
@@ -41,6 +41,18 @@ const hasBody = !!(project.body?.trim());
   data-desc={hasDesc ? '1' : '0'}
   data-body={hasBody ? '1' : '0'}
 >
+  {/* Cover thumbnail */}
+  <div class="flex items-center">
+    {hasCover && (
+      <img
+        src={`/image/${d.cover!.image}.jpg`}
+        alt=""
+        class="w-full aspect-[4/3] object-cover rounded-sm grayscale group-hover:grayscale-0 transition-[filter] duration-300"
+        loading="lazy"
+      />
+    )}
+  </div>
+
   {/* Title */}
   <div class="min-w-0">
     {isClickable ? (

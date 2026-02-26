@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import WorkIndexRow from './WorkIndexRow.astro';
 
-const GRID_COLS = 'grid-cols-[1fr_60px] sm:grid-cols-[1fr_90px_80px_60px] md:grid-cols-[1fr_90px_80px_120px_60px] lg:grid-cols-[1fr_90px_80px_120px_1fr_60px] xl:grid-cols-[1fr_90px_80px_120px_1fr_60px_60px_70px_30px_30px_30px]';
+const GRID_COLS = 'grid-cols-[54px_1fr_60px] sm:grid-cols-[54px_1fr_90px_80px_60px] md:grid-cols-[54px_1fr_90px_80px_120px_60px] lg:grid-cols-[54px_1fr_90px_80px_120px_1fr_60px] xl:grid-cols-[54px_1fr_90px_80px_120px_1fr_60px_60px_70px_30px_30px_30px]';
 
 export interface Props {
   filter?: 'all' | 'blog' | 'projects';
@@ -44,10 +44,10 @@ const tableProjects = [...allProjects].sort((a, b) => {
 
   <div class="flex gap-3 overflow-x-auto pb-8 -mx-6 px-6 snap-x snap-mandatory">
     {cardProjects.map((project) => (
-      <article class="shrink-0 w-64 sm:w-80 md:w-96 bg-white rounded-sm hover:rounded-2xl overflow-hidden group snap-start transition-all duration-200">
+      <article class="shrink-0 w-64 sm:w-80 md:w-96 bg-white rounded-sm  overflow-hidden group snap-start transition-all duration-200">
         <a href={`/projects/${project.id}`}>
           {project.data.cover?.image && (
-            <div class="aspect-[3/4] bg-gray-100 overflow-hidden">
+            <div class="aspect-[3/4] bg-gray-100 overflow-hidden opacity-80 group-hover:opacity-100">
               <img
                 src={`/image/${project.data.cover.image}.jpg`}
                 alt={project.data.cover.alt ?? ''}
@@ -86,6 +86,7 @@ const tableProjects = [...allProjects].sort((a, b) => {
       'grid gap-x-4 px-6 py-2 -mx-6 text-sm uppercase text-gray-600 border-b border-gray-600 sticky top-0 bg-white/90 backdrop-blur-sm z-10 select-none',
       GRID_COLS,
     ]}>
+      <div></div>
       <button data-sort="title" class="sort-btn text-left hover:text-gray-600 transition-colors">Title</button>
       <button data-sort="type" class="sort-btn text-left hover:text-gray-600 transition-colors hidden sm:block">Type</button>
       <button data-sort="category" class="sort-btn text-left hover:text-gray-600 transition-colors hidden sm:block">Category</button>

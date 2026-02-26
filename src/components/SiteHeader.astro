@@ -1,99 +1,21 @@
 ---
-import { getCollection } from 'astro:content';
 import { SITE_NAME } from '../consts';
-import WorkIndex from './WorkIndex.astro';
-import NavArrow from './NavArrow.astro';
-
-const posts = (await getCollection('blog', (p) => p.data.status !== 'hidden')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
 
 export interface Props {
-	currentPostId?: string;
-	prevHref?: string;
-	nextHref?: string;
-	prevTitle?: string;
-	nextTitle?: string;
 	pageTitle?: string;
 }
 
-const { currentPostId, prevHref: customPrevHref, nextHref: customNextHref, pageTitle } = Astro.props;
-
-// Blog post navigation (currentPostId takes priority)
-const currentIndex = currentPostId !== undefined ? posts.findIndex(post => post.id === currentPostId) : -1;
-const blogPrevPost = currentPostId !== undefined && currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
-const blogNextPost = currentPostId !== undefined && currentIndex > 0 ? posts[currentIndex - 1] : null;
-
-// Resolved links — blog takes priority, then custom hrefs, then null (disabled)
-const prevHref = currentPostId !== undefined
-	? (blogPrevPost ? `/blog/${blogPrevPost.id}/` : null)
-	: (customPrevHref ?? null);
-const nextHref = currentPostId !== undefined
-	? (blogNextPost ? `/blog/${blogNextPost.id}/` : null)
-	: (customNextHref ?? null);
-
-const showNav = currentPostId !== undefined || customPrevHref !== undefined || customNextHref !== undefined;
+const { pageTitle } = Astro.props;
+const path = Astro.url.pathname;
+const onProjects = path === '/projects' || path === '/projects/';
+const onAbout = path.startsWith('/about');
+const hideTitle = onProjects || onAbout;
 ---
 
-<header class="max-w-screen-2xl mx-auto fixed z-50 p-2">
-	<nav transition:name="site-nav" transition:animate="morph" class="flex items-stretch justify-between bg-black/70 backdrop-blur-md rounded-full p-1 w-fit">
-		<!-- Menu toggle button -->
-		<button id="menu-toggle" class="text-gray-100 hover:bg-gray-100/20 rounded-full p-2.5 flex gap-2 items-center">
-			<svg id="hamburger-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-			</svg>
-			<svg id="close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-			</svg>
-			<span class="text-sm font-medium font-sans">{pageTitle ?? SITE_NAME}</span>
-
-		</button>
-
-		<a href="/about" class="flex items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-100 hover:hover:bg-gray-100/20 rounded-full">About</a>
-
-		<!-- Prev/Next Navigation -->
-		{showNav && <NavArrow href={prevHref} direction="prev" />}
-		{showNav && <NavArrow href={nextHref} direction="next" />}
-
+<header class="fixed z-50 inset-x-0 top-0 flex justify-center p-2">
+	<nav transition:name="site-nav" transition:animate="morph" class="flex items-stretch bg-black/70 backdrop-blur-md rounded-full p-1">
+		<span class="flex items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-100 max-w-[200px] sm:max-w-[300px] truncate">{hideTitle ? SITE_NAME : (pageTitle ?? SITE_NAME)}</span>
+		<a href="/projects" class:list={["flex items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-100 hover:bg-gray-100/20 rounded-full", onProjects && "bg-gray-100/20"]}>Index</a>
+		<a href="/about" class:list={["flex items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-100 hover:bg-gray-100/20 rounded-full", onAbout && "bg-gray-100/20"]}>About</a>
 	</nav>
 </header>
-
-<!-- Navigation Overlay -->
-<div id="navigation-overlay" class="fixed inset-0 hidden z-20 top-0 bottom-0  overflow-y-auto max-w-screen-2xl mx-auto ">
-	<WorkIndex />
-</div>
-
-<script>
-	document.addEventListener('astro:page-load', () => {
-		const menuToggle = document.getElementById('menu-toggle');
-		const navigationOverlay = document.getElementById('navigation-overlay');
-		const hamburgerIcon = document.getElementById('hamburger-icon');
-		const closeIcon = document.getElementById('close-icon');
-
-		let isMenuOpen = false;
-
-		function toggleMenu() {
-			isMenuOpen = !isMenuOpen;
-
-			if (isMenuOpen) {
-				navigationOverlay?.classList.remove('hidden');
-				document.body.style.overflow = 'hidden';
-				hamburgerIcon?.classList.add('hidden');
-				closeIcon?.classList.remove('hidden');
-			} else {
-				navigationOverlay?.classList.add('hidden');
-				document.body.style.overflow = 'auto';
-				hamburgerIcon?.classList.remove('hidden');
-				closeIcon?.classList.add('hidden');
-			}
-		}
-
-		menuToggle?.addEventListener('click', toggleMenu);
-
-		navigationOverlay?.addEventListener('click', (e) => {
-			if (e.target === navigationOverlay) {
-				toggleMenu();
-			}
-		});
-	});
-</script>

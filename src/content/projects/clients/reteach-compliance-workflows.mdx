@@ -5,7 +5,7 @@ type: project
 template: case-study
 order: 3
 cover:
-  image: ""
+  image: "projects/reteach/compliance/cover"
   alt: Compliance workflow module showing timeline visualisation and certificate status badges
   caption: From opaque wizard to five clearly scoped modules — making compliance rules readable
 meta:
@@ -41,6 +41,19 @@ description: How Reteach restructured its most complex LMS module. An opaque com
 
   </ProjectTextBlock>
 </ProjectSection>
+
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: "/image/projects/reteach/compliance/Screenshot 2026-02-26 at 12.45.30.png",
+      alt: "Compliance workflow flowchart showing user and admin interactions",
+      caption:
+        "System map: user interactions (notifications, escalation, completion) and admin configuration (rules, timing, enrollment) converge into a renewal cycle with certificate status tracking.",
+    },
+  ]}
+/>
 
 <ProjectMediaGrid
   columns={1}
@@ -97,10 +110,30 @@ description: How Reteach restructured its most complex LMS module. An opaque com
   items={[
     {
       type: "image",
-      src: "/image/projects/reteach/compliance/certificate-badges.png",
-      alt: "Certificate status badges",
+      src: "/image/projects/reteach/compliance/Screenshot 2026-02-26 at 13.10.30.png",
+      alt: "Timeline visualisation of a compliance workflow over one year",
       caption:
-        "Certificate status visualisation: colour-coded badges show validity at a glance — GÜLTIG (green), expiring soon (yellow), ABGELAUFEN (red), NICHT ERHALTEN (grey). This replaced the previous state where users had no visual feedback on compliance status.",
+        "Timeline visualisation: a full compliance cycle — from admin assignment through auto-enrollment, participant completion, reminder, escalation, and renewal — mapped across four swim lanes over one year.",
+    },
+  ]}
+/>
+
+<ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "image",
+      src: "/image/projects/reteach/compliance/certificate-badges.png",
+      alt: "Certificate status badges in the app",
+      caption:
+        "Certificate status in production: colour-coded badges show validity at a glance — replacing the previous state where users had no visual feedback on compliance status.",
+    },
+    {
+      type: "image",
+      src: "/image/projects/reteach/compliance/Zertifikat Status.png",
+      alt: "Certificate status badge design spec",
+      caption:
+        "Design spec: four certificate states — GÜLTIG (valid), GÜLTIG with expiry warning, ABGELAUFEN (expired), NICHT ERHALTEN (not received) — each with compact and expanded variants.",
     },
   ]}
 />

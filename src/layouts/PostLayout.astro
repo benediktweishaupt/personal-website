@@ -12,7 +12,7 @@ const { title, description, pubDate, updatedDate, currentPostId } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
-	<SiteHeader slot="header" currentPostId={currentPostId} pageTitle={title} />
+	<SiteHeader slot="header" pageTitle={title} />
 
 	<main class="max-w-screen-2xl mx-auto bg-slate-100">
 		<article class="px-6 py-12">

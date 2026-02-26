@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import { AUTHOR_NAME } from '../consts';
@@ -27,14 +26,6 @@ interface Props {
 
 const { title, projectId, cover, meta, description, description_de, collaborators, student } = Astro.props;
 
-// Compute project prev/next for header navigation
-const allProjects = (await getCollection('projects', (p) => p.data.status !== 'hidden' && p.data.type !== 'entry'))
-  .sort((a, b) => a.data.order - b.data.order);
-
-const currentIndex = allProjects.findIndex((p) => p.id === projectId);
-const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
-const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null;
-
 // Meta items for the header
 const metaItems = [
   meta.format,
@@ -47,12 +38,7 @@ const metaItems = [
 ---
 
 <BaseLayout title={`${title} — ${AUTHOR_NAME}`} description={description ?? title}>
-  <SiteHeader
-    slot="header"
-    pageTitle={title}
-    prevHref={prevProject ? `/projects/${prevProject.id}` : undefined}
-    nextHref={nextProject ? `/projects/${nextProject.id}` : undefined}
-  />
+  <SiteHeader slot="header" pageTitle={title} />
 
   <main class="max-w-screen-2xl mx-auto px-7 pt-12 pb-20">
     {/* Header */}
