@@ -1,7 +1,7 @@
 ---
 title: Sandberg Announcements
 status: draft
-type: entry
+projectAudience: family
 order: 99
 meta:
   category: clients

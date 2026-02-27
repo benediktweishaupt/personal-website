@@ -1,7 +1,7 @@
 ---
 title: Mister Spex
 status: draft
-type: entry
+projectAudience: family
 order: 99
 meta:
   category: clients

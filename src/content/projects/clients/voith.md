@@ -1,7 +1,7 @@
 ---
 title: Voith
 status: draft
-type: entry
+projectAudience: family
 order: 99
 cover:
   image: ../../../assets/projects/voith/cover.jpg

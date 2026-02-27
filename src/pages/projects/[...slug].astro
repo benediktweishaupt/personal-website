@@ -6,7 +6,7 @@ import * as projectComponents from '../../components/project/index.ts';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects', (p) =>
-    p.data.status !== 'hidden' && p.data.type !== 'entry' &&
+    p.data.status !== 'hidden' &&
     !(import.meta.env.PROD && p.data.status === 'draft')
   );
   return projects.map((project) => ({
@@ -28,6 +28,7 @@ const isCaseStudy = data.template === 'case-study';
     title={data.title}
     projectId={project.id}
     status={data.status}
+    projectAudience={data.projectAudience}
     cover={data.cover}
     meta={data.meta}
     description={data.description}
@@ -38,6 +39,7 @@ const isCaseStudy = data.template === 'case-study';
   <ProjectSimpleLayout
     title={data.title}
     projectId={project.id}
+    projectAudience={data.projectAudience}
     cover={data.cover}
     meta={data.meta}
     description={data.description}

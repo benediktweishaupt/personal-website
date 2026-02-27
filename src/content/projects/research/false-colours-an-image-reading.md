@@ -1,7 +1,7 @@
 ---
 title: "False Colours: An Image Reading"
 status: draft
-type: entry
+projectAudience: family
 order: 99
 meta:
   category: research

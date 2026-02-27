@@ -9,6 +9,7 @@ interface Props {
   title: string;
   projectId: string;
   status?: string;
+  projectAudience?: string;
   cover?: {
     image: ImageMetadata;
     alt?: string;
@@ -24,7 +25,7 @@ interface Props {
   description?: string;
 }
 
-const { title, projectId, cover, meta, description } = Astro.props;
+const { title, projectId, projectAudience, cover, meta, description } = Astro.props;
 
 ---
 
@@ -45,4 +46,11 @@ const { title, projectId, cover, meta, description } = Astro.props;
   <main class="max-w-screen-2xl mx-auto px-7 pt-8 pb-20 flex flex-col gap-12">
     <slot />
   </main>
+  <script is:inline define:vars={{ projectAudience }}>
+    document.addEventListener('astro:page-load', function() {
+      var aud = localStorage.getItem('portfolio-audience') || 'all';
+      if (aud === 'family' || projectAudience === 'all' || projectAudience === aud) return;
+      window.location.replace('/projects');
+    });
+  </script>
 </BaseLayout>

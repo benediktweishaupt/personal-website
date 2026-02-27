@@ -1,7 +1,7 @@
 ---
 title: Out in the Open
 status: draft
-type: entry
+projectAudience: family
 order: 99
 meta:
   category: research

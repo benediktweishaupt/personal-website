@@ -1,7 +1,7 @@
 ---
 title: "Digital Campfire I: Digital vs. Archaic"
 status: draft
-type: project
+projectAudience: family
 template: project
 order: 99
 cover:

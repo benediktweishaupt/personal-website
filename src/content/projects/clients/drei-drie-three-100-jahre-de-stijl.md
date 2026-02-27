@@ -1,7 +1,7 @@
 ---
 title: "Drei, Drie, Three — 100 Jahre De Stijl"
 status: draft
-type: project
+projectAudience: family
 template: project
 order: 99
 cover:

@@ -1,7 +1,7 @@
 ---
 title: Studio Achtviertel
 status: draft
-type: entry
+projectAudience: family
 order: 99
 meta:
   category: clients

@@ -1,7 +1,7 @@
 ---
 title: Talk to Us — Corona Awareness Campaign
 status: draft
-type: project
+projectAudience: family
 template: project
 order: 99
 meta:

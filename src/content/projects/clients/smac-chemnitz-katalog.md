@@ -1,7 +1,7 @@
 ---
 title: SMAC Chemnitz Katalog
 status: draft
-type: entry
+projectAudience: family
 order: 99
 meta:
   category: clients

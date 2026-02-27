@@ -1,7 +1,7 @@
 ---
 title: The Power of Mesh
 status: draft
-type: project
+projectAudience: family
 template: project
 order: 99
 cover:

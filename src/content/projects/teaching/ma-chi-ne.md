@@ -1,7 +1,7 @@
 ---
 title: MA(CHI)NE
 status: draft
-type: project
+projectAudience: family
 template: project
 order: 99
 meta:

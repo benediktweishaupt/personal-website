@@ -1,7 +1,7 @@
 ---
 title: All Watched Over by Machines of Loving Grace
 status: draft
-type: project
+projectAudience: family
 template: project
 order: 99
 cover:

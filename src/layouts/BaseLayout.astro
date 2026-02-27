@@ -23,5 +23,19 @@ const { title, description } = Astro.props;
     </slot>
     <slot />
     <Footer />
+    <script is:inline>
+      (function() {
+        var map = {
+          'just-tell-me-what-you-want': 'clients',
+          'say-my-name-say-my-name': 'academic',
+          'words-dont-come-easy-to-me': 'family',
+        };
+        var v = new URLSearchParams(window.location.search).get('v');
+        if (v && map[v]) {
+          localStorage.setItem('portfolio-audience', map[v]);
+          history.replaceState(null, '', window.location.pathname);
+        }
+      })();
+    </script>
   </body>
 </html>

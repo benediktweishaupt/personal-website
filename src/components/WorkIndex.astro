@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import WorkIndexRow from './WorkIndexRow.astro';
 
-const GRID_COLS = 'grid-cols-[54px_1fr_60px] sm:grid-cols-[54px_1fr_90px_80px_60px] md:grid-cols-[54px_1fr_90px_80px_120px_60px] lg:grid-cols-[54px_1fr_90px_80px_120px_1fr_60px] xl:grid-cols-[54px_1fr_90px_80px_120px_1fr_60px_60px_70px_30px_30px_30px]';
+const GRID_COLS = 'grid-cols-[54px_1fr_60px] sm:grid-cols-[54px_1fr_80px_60px] md:grid-cols-[54px_1fr_80px_120px_60px] lg:grid-cols-[54px_1fr_80px_120px_1fr_60px] xl:grid-cols-[54px_1fr_80px_120px_1fr_60px_60px_70px_30px_30px_30px]';
 
 export interface Props {
   filter?: 'all' | 'blog' | 'projects';
@@ -22,12 +22,11 @@ const cardProjects = allProjects
   .filter((p) => p.data.template === 'case-study')
   .sort((a, b) => a.data.order - b.data.order);
 
-// Sort weight: case-study template first, then project template, then entries
-function sortWeight(d: { type?: string; template?: string; student?: string }): number {
+// Sort weight: case-study first, then graduation, then rest
+function sortWeight(d: { template?: string; student?: string }): number {
   if (d.template === 'case-study') return 0;
-  if (d.type === 'project' && d.student) return 2; // graduation
-  if (d.type === 'project') return 1;
-  return 3; // entry
+  if (d.student) return 2;
+  return 1;
 }
 
 const tableProjects = [...allProjects].sort((a, b) => {
@@ -47,7 +46,7 @@ const tableProjects = [...allProjects].sort((a, b) => {
 
   <div class="flex gap-3 overflow-x-auto pb-8 -mx-6 px-6 snap-x snap-mandatory">
     {cardProjects.map((project) => (
-      <article class="shrink-0 w-64 sm:w-80 md:w-96 bg-white rounded-sm  overflow-hidden group snap-start transition-all duration-200">
+      <article class="shrink-0 w-64 sm:w-80 md:w-96 bg-white rounded-sm  overflow-hidden group snap-start transition-all duration-200" data-card data-thumbnail-audience={project.data.thumbnailAudience ?? 'all'}>
         <a href={`/projects/${project.id}`}>
           {project.data.cover?.image && (
             <div class="aspect-[3/4] bg-gray-100 overflow-hidden opacity-80 group-hover:opacity-100">
@@ -91,13 +90,12 @@ const tableProjects = [...allProjects].sort((a, b) => {
     ]}>
       <div></div>
       <button data-sort="title" class="sort-btn text-left hover:text-gray-600 transition-colors">Title</button>
-      <button data-sort="type" class="sort-btn text-left hover:text-gray-600 transition-colors hidden sm:block">Type</button>
       <button data-sort="category" class="sort-btn text-left hover:text-gray-600 transition-colors hidden sm:block">Category</button>
       <button data-sort="format" class="sort-btn text-left hover:text-gray-600 transition-colors hidden md:block">Format</button>
       <button data-sort="institution" class="sort-btn text-left hover:text-gray-600 transition-colors hidden lg:block">Institution</button>
       <button data-sort="year" data-dir="desc" class="sort-btn text-left hover:text-gray-600 transition-colors">Year <span class="sort-indicator">↓</span></button>
       <button data-sort="status" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Status <span class="sort-indicator">↓</span></button>
-      <button data-sort="audience" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Aud. <span class="sort-indicator">↓</span></button>
+      <button data-sort="projectAudience" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Access <span class="sort-indicator">↓</span></button>
       <button data-sort="cover" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Cover <span class="sort-indicator">↓</span></button>
       <button data-sort="desc" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Desc <span class="sort-indicator">↓</span></button>
       <button data-sort="body" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Body <span class="sort-indicator">↓</span></button>
@@ -172,19 +170,40 @@ const tableProjects = [...allProjects].sort((a, b) => {
       });
     });
 
+    // ── Audience ──
+    const audience = localStorage.getItem('portfolio-audience') || 'all';
+
+    function canSee(thumbAud: string) {
+      return audience === 'family' || thumbAud === 'all' || thumbAud === audience;
+    }
+
+    // Filter cards by audience
+    document.querySelectorAll<HTMLElement>('[data-card]').forEach(card => {
+      if (!canSee(card.dataset.thumbnailAudience || 'all')) card.style.display = 'none';
+    });
+
     // ── Filter ──
+    function applyFilters() {
+      const activePill = document.querySelector('.filter-pill.active') as HTMLElement | null;
+      const cat = activePill?.dataset.filter || 'all';
+      let visible = 0;
+      rows().forEach(r => {
+        const catMatch = cat === 'all' || r.dataset.category === cat;
+        const audMatch = canSee(r.dataset.thumbnailAudience || 'all');
+        r.style.display = catMatch && audMatch ? '' : 'none';
+        if (catMatch && audMatch) visible++;
+      });
+      if (countEl) countEl.textContent = `${visible} projects`;
+    }
+
+    // Initial audience filter
+    applyFilters();
+
     document.querySelectorAll<HTMLElement>('.filter-pill').forEach(btn => {
       btn.addEventListener('click', () => {
-        const cat = btn.dataset.filter;
         document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        let visible = 0;
-        rows().forEach(r => {
-          const show = cat === 'all' || r.dataset.category === cat;
-          r.style.display = show ? '' : 'none';
-          if (show) visible++;
-        });
-        if (countEl) countEl.textContent = `${visible} projects`;
+        applyFilters();
       });
     });
   });

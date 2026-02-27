@@ -1,7 +1,7 @@
 ---
 title: Piggy Poof
 status: draft
-type: entry
+projectAudience: family
 order: 99
 meta:
   category: clients

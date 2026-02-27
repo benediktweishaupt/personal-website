@@ -1,7 +1,7 @@
 ---
 title: Item to Item
 status: draft
-type: entry
+projectAudience: family
 order: 99
 cover:
   image: ../../../assets/projects/item-to-item/cover.jpg

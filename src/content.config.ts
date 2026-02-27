@@ -21,8 +21,8 @@ const projects = defineCollection({
 	schema: ({ image }) => z.object({
 		title: z.string(),
 		status: z.enum(['public', 'draft', 'hidden']).default('draft'),
-		audience: z.enum(['all', 'clients', 'academic', 'family']).default('all'),
-		type: z.enum(['project', 'entry']).default('entry'),
+		thumbnailAudience: z.enum(['all', 'clients', 'academic', 'family']).default('all'),
+		projectAudience: z.enum(['all', 'clients', 'academic', 'family']).default('all'),
 		template: z.enum(['case-study', 'project']).optional(),
 		order: z.number().default(99),
 		cover: z.object({

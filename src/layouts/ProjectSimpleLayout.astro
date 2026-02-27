@@ -8,6 +8,7 @@ import { AUTHOR_NAME } from '../consts';
 interface Props {
   title: string;
   projectId: string;
+  projectAudience?: string;
   cover?: {
     image: ImageMetadata;
     alt?: string;
@@ -26,7 +27,7 @@ interface Props {
   student?: string;
 }
 
-const { title, projectId, cover, meta, description, description_de, collaborators, student } = Astro.props;
+const { title, projectId, projectAudience, cover, meta, description, description_de, collaborators, student } = Astro.props;
 
 // Meta items for the header
 const metaItems = [
@@ -77,4 +78,11 @@ const metaItems = [
       <slot />
     </div>
   </main>
+  <script is:inline define:vars={{ projectAudience }}>
+    document.addEventListener('astro:page-load', function() {
+      var aud = localStorage.getItem('portfolio-audience') || 'all';
+      if (aud === 'family' || projectAudience === 'all' || projectAudience === aud) return;
+      window.location.replace('/projects');
+    });
+  </script>
 </BaseLayout>

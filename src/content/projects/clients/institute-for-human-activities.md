@@ -1,7 +1,7 @@
 ---
 title: Institute for Human Activities
 status: draft
-type: project
+projectAudience: family
 template: project
 order: 99
 cover:

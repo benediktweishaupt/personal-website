@@ -1,7 +1,7 @@
 ---
 title: Landing Platform for the Flir Systems Black Hornet Nano UAV
 status: draft
-type: project
+projectAudience: family
 template: project
 order: 99
 meta:

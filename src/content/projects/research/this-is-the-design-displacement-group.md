@@ -1,7 +1,7 @@
 ---
 title: This is the Design Displacement Group
 status: draft
-type: entry
+projectAudience: family
 order: 99
 meta:
   category: research
