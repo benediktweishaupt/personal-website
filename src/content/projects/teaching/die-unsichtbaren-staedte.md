@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/die-unsichtbaren-staedte/cover"
+  image: ../../../assets/projects/die-unsichtbaren-staedte/cover.jpg
 meta:
   category: teaching
   format: Foundation Project

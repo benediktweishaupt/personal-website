@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/sanity-outsourced/cover"
+  image: ../../../assets/projects/sanity-outsourced/cover.jpg
 meta:
   category: research
   format: Installation, Performance

@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/kabk-graduation-festival/cover"
+  image: ../../../assets/projects/kabk-graduation-festival/cover.jpg
 meta:
   category: clients
   format: Identity

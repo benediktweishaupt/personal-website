@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import BaseLayout from './BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import { AUTHOR_NAME } from '../consts';
@@ -7,7 +9,7 @@ interface Props {
   title: string;
   projectId: string;
   cover?: {
-    image: string;
+    image: ImageMetadata;
     alt?: string;
     caption?: string;
   };
@@ -57,12 +59,12 @@ const metaItems = [
     {/* Cover image */}
     {cover?.image && (
       <div class="mt-10">
-        <img
-          src={`/image/${cover.image}.jpg`}
+        <Image
+          src={cover.image}
           alt={cover.alt ?? ''}
           class="w-full max-h-[60vh] object-cover rounded-sm"
           loading="eager"
-          onerror="this.style.display='none'"
+          fetchpriority="high"
         />
         {cover.caption && (
           <p class="text-xs text-gray-400 mt-2">{cover.caption}</p>

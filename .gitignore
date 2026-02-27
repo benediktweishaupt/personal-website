@@ -23,5 +23,6 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# local docs / image staging
-docs/
+# image staging (large unprocessed files)
+docs/images-to-place/
+docs/reference-data/

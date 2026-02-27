@@ -4,7 +4,7 @@ status: draft
 type: entry
 order: 99
 cover:
-  image: "projects/item-to-item/cover"
+  image: ../../../assets/projects/item-to-item/cover.jpg
 meta:
   category: research
   format: Algorithm, Installation

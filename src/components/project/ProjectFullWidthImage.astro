@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import ProjectCaption from './ProjectCaption.astro';
 
 interface Props {
-  src: string;
+  src: string | ImageMetadata;
   alt?: string;
   caption?: string;
 }
@@ -11,11 +13,20 @@ const { src, alt, caption } = Astro.props;
 ---
 
 <div class="w-full">
-  <img
-    src={src}
-    alt={alt ?? ''}
-    class="w-full h-auto rounded"
-    loading="lazy"
-  />
+  {typeof src === 'string' ? (
+    <img
+      src={src}
+      alt={alt ?? ''}
+      class="w-full h-auto rounded"
+      loading="lazy"
+    />
+  ) : (
+    <Image
+      src={src}
+      alt={alt ?? ''}
+      class="w-full h-auto rounded"
+      loading="lazy"
+    />
+  )}
   <ProjectCaption text={caption} />
 </div>

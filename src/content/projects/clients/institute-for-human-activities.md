@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/institute-for-human-activities/cover"
+  image: ../../../assets/projects/institute-for-human-activities/cover.jpg
 meta:
   category: clients
   format: Website

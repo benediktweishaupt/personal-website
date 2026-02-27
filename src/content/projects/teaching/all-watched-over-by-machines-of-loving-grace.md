@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/all-watched-over/cover"
+  image: ../../../assets/projects/all-watched-over/cover.jpg
 meta:
   category: teaching
   format: Exhibition, Semester Project

@@ -18,7 +18,7 @@ const blog = defineCollection({
 
 const projects = defineCollection({
 	loader: glob({ base: './src/content/projects', pattern: '**/*.{md,mdx}' }),
-	schema: z.object({
+	schema: ({ image }) => z.object({
 		title: z.string(),
 		status: z.enum(['public', 'draft', 'hidden']).default('draft'),
 		audience: z.enum(['all', 'clients', 'academic', 'family']).default('all'),
@@ -26,7 +26,7 @@ const projects = defineCollection({
 		template: z.enum(['case-study', 'project']).optional(),
 		order: z.number().default(99),
 		cover: z.object({
-			image: z.string(),
+			image: image(),
 			alt: z.string().optional(),
 			caption: z.string().optional(),
 		}).optional(),

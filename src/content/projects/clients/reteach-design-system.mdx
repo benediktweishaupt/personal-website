@@ -5,7 +5,7 @@ type: project
 template: case-study
 order: 1
 cover:
-  image: "projects/reteach/design-system/cover"
+  image: ../../../assets/projects/reteach/design-system/cover.jpg
   alt: Legacy system map showing four parallel button implementations and Vue 2-to-3 migration blockers
   caption: From four parallel UI implementations to a unified system across three products
 meta:
@@ -16,6 +16,18 @@ meta:
   year: 2024–2025
 description: How Reteach's fragmented frontend was turned into a working design system step by step — from token foundation to modular components to automated documentation pipelines.
 ---
+
+import colorAccessibility from '../../../assets/projects/reteach/design-system/color-accessibility-check.png';
+import colorScale from '../../../assets/projects/reteach/design-system/color-scale-check.png';
+import colorTokens from '../../../assets/projects/reteach/design-system/color-tokens-scss.png';
+import tokenFlow from '../../../assets/projects/reteach/design-system/token-flow.png';
+import colorSystemOld from '../../../assets/projects/reteach/design-system/color-system-old.png';
+import colorSystemNew from '../../../assets/projects/reteach/design-system/color-system-new.png';
+import layoutFrame from '../../../assets/projects/reteach/design-system/layout-frame.png';
+import buttonAnalysis from '../../../assets/projects/reteach/design-system/button-analysis.png';
+import dashboardBefore from '../../../assets/projects/reteach/design-system/dashboard-before.png';
+import dashboardAfter from '../../../assets/projects/reteach/design-system/dashboard-after.png';
+
 
 <ProjectSection variant="full" gap="10">
   <ProjectDescription>
@@ -69,11 +81,11 @@ description: How Reteach's fragmented frontend was turned into a working design 
     The first decision was to establish a token foundation. Colors, typography, and spacing had been defined inconsistently across the three Reteach products. Functional colors replaced the scattered brand palettes, and semantic naming connected Tailwind's visual logic to our own variable system. The similarity to Tailwind class names initially caused confusion — a token like `--color-warning-500` looked identical to a Tailwind class but wasn't — which cost roughly two weeks of corrections. Once naming was clarified, design and engineering could finally use the same vocabulary, and implementation friction dropped noticeably.
   </ProjectTextBlock>
   <ProjectMediaGrid columns={1} items={[
-  { type: "image", src: "/image/projects/reteach/design-system/color-accessibility-check.png", alt: "Primary color accessibility check", caption: "First we checked the current primary button color — only used for the primary button, not in marketing or as a secondary color. The brand color didn't perform well on WCAG ratings, so we settled on a darker tone for primary app actions." },
+  { type: "image", src: colorAccessibility, alt: "Primary color accessibility check", caption: "First we checked the current primary button color — only used for the primary button, not in marketing or as a secondary color. The brand color didn't perform well on WCAG ratings, so we settled on a darker tone for primary app actions." },
   ]} />
   <ProjectMediaGrid columns={2} items={[
-    { type: "image", src: "/image/projects/reteach/design-system/color-scale-check.png", alt: "Color scale check in Figma", caption: "A simple variant setup in Figma to check the overall appearance of the various color setups and combinations with the new color scale." },
-    { type: "image", src: "/image/projects/reteach/design-system/color-tokens-scss.png", alt: "Color tokens SCSS setup", caption: "Setup of primary color tokens" },
+    { type: "image", src: colorScale, alt: "Color scale check in Figma", caption: "A simple variant setup in Figma to check the overall appearance of the various color setups and combinations with the new color scale." },
+    { type: "image", src: colorTokens, alt: "Color tokens SCSS setup", caption: "Setup of primary color tokens" },
 
 ]} />
 
@@ -84,7 +96,7 @@ description: How Reteach's fragmented frontend was turned into a working design 
   items={[
     {
       type: "image",
-      src: "/image/projects/reteach/design-system/token-flow.png",
+      src: tokenFlow,
       alt: "Token consumption flow diagram",
       caption: "Token consumption flow",
     },
@@ -109,14 +121,14 @@ description: How Reteach's fragmented frontend was turned into a working design 
     items={[
       {
         type: "image",
-        src: "/image/projects/reteach/design-system/color-system-old.png",
+        src: colorSystemOld,
         alt: "Old color system",
         caption:
           "While the brand, primary, and secondary colors were being unified and functional colors started to be consistently applied…",
       },
       {
         type: "image",
-        src: "/image/projects/reteach/design-system/color-system-new.png",
+        src: colorSystemNew,
         alt: "New color system",
         caption:
           "…the long-term vision was already in the making: functional colors became more explicit, allowing for a more OS-like feel and an agnostic color system covering custom themes and dark themes.",
@@ -146,7 +158,7 @@ description: How Reteach's fragmented frontend was turned into a working design 
   items={[
     {
       type: "image",
-      src: "/image/projects/reteach/design-system/layout-frame.png",
+      src: layoutFrame,
       alt: "New Layout Frame",
       caption:
         "Designed a new Layout Frame, Header and Sidebar to steer focus on each page to the one most important action",
@@ -178,7 +190,7 @@ description: How Reteach's fragmented frontend was turned into a working design 
     items={[
       {
         type: "image",
-        src: "/image/projects/reteach/design-system/button-analysis.png",
+        src: buttonAnalysis,
         alt: "Button props and events analysis",
         caption:
           "A clear before image showing the clash of naming paradigms: 'btn' vs 'button', and different approaches to passing text or behaviour as props. We not only unified terminology but used the refactor to develop clear frontend conventions.",
@@ -192,12 +204,12 @@ description: How Reteach's fragmented frontend was turned into a working design 
   items={[
     {
       type: "video",
-      src: "/video/projects/reteach/design-system/storybook-old.mov",
+      src: "/video/projects/reteach/design-system/storybook-old.mp4",
       caption: "Grown Storybook — organically expanded without conventions",
     },
     {
       type: "video",
-      src: "/video/projects/reteach/design-system/storybook-new.mov",
+      src: "/video/projects/reteach/design-system/storybook-new.mp4",
       caption:
         "Storybook with introduced naming conventions and documented tokens",
     },
@@ -219,13 +231,13 @@ description: How Reteach's fragmented frontend was turned into a working design 
   items={[
     {
       type: "image",
-      src: "/image/projects/reteach/design-system/dashboard-before.png",
+      src: dashboardBefore,
       alt: "App when joining Reteach",
       caption: "The app as I found it when joining Reteach",
     },
     {
       type: "image",
-      src: "/image/projects/reteach/design-system/dashboard-after.png",
+      src: dashboardAfter,
       alt: "Final app design",
       caption:
         "Final design — this change happened entirely by introducing conventions and changing values, without any explicit refactor for the design system",

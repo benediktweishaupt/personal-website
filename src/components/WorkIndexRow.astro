@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -44,11 +45,12 @@ const hasBody = !!(project.body?.trim());
   {/* Cover thumbnail */}
   <div class="flex items-center">
     {hasCover && (
-      <img
-        src={`/image/${d.cover!.image}.jpg`}
+      <Image
+        src={d.cover!.image}
         alt=""
         class="w-full aspect-[4/3] object-cover rounded-sm grayscale group-hover:grayscale-0 transition-[filter] duration-300"
         loading="lazy"
+        width={108}
       />
     )}
   </div>

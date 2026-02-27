@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/the-power-of-mesh/cover"
+  image: ../../../assets/projects/the-power-of-mesh/cover.jpg
 meta:
   category: research
   format: Installation, Interaction Design, Poster

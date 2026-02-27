@@ -5,7 +5,7 @@ type: project
 template: case-study
 order: 2
 cover:
-  image: "projects/reteach/ai-course/cover"
+  image: ../../../assets/projects/reteach/ai-course/cover.jpg
   alt: AI-assisted lesson editor showing review tag and editable draft content
   caption: AI drafts, humans decide — an assistance layer that removes mechanical work while preserving author control
 meta:
@@ -16,6 +16,14 @@ meta:
   year: "2024-2025"
 description: How Reteach introduced an AI-assisted course builder with minimal infrastructure extension — removing the mechanical work of structuring unformatted material while keeping authors in full control.
 ---
+
+import userSurvey from "../../../assets/projects/reteach/ai-course/user-survey-time-allocation.png";
+import riskReward from "../../../assets/projects/reteach/ai-course/risk-reward-mapping.png";
+import entryPointVariants from "../../../assets/projects/reteach/ai-course/entry-point-variants.png";
+import lessonReviewTag from "../../../assets/projects/reteach/ai-course/lesson-review-tag.png";
+import contentTypes from "../../../assets/projects/reteach/ai-course/content-types.png";
+import generationInput from "../../../assets/projects/reteach/ai-course/generation-input.png";
+import loadingState from "../../../assets/projects/reteach/ai-course/loading-state.png";
 
 <ProjectSection variant="full" gap="10">
   <ProjectDescription>
@@ -42,20 +50,19 @@ description: How Reteach introduced an AI-assisted course builder with minimal i
     handbooks and PDFs into something that followed a coherent lesson structure.
     Our goal became clear: cut the mechanical work, not the expertise.
   </ProjectTextBlock>
+  <ProjectMediaGrid
+    columns={1}
+    items={[
+      {
+        type: "image",
+        src: userSurvey,
+        alt: "User survey results showing time allocation in course creation",
+        caption:
+          "User survey results: 64% of course creation time goes to mechanical tasks — collecting documents, reading source material, and formatting text. This is the work the AI feature targets.",
+      },
+    ]}
+  />
 </ProjectSection>
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "image",
-      src: "/image/projects/reteach/ai-course/Screenshot 2026-02-26 at 14.49.07.png",
-      alt: "User survey results showing time allocation in course creation",
-      caption:
-        "User survey results: 64% of course creation time goes to mechanical tasks — collecting documents, reading source material, and formatting text. This is the work the AI feature targets.",
-    },
-  ]}
-/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>Options Evaluated</ProjectSectionHeading>
@@ -68,6 +75,18 @@ description: How Reteach introduced an AI-assisted course builder with minimal i
 </ProjectSection>
 
 <ProjectSection variant="centered" gap="7">
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: riskReward,
+      alt: "Risk-reward mapping of AI feature candidates",
+      caption:
+        "Risk-reward mapping: each AI feature candidate plotted by effort versus impact on the key result. Green items were selected for the first iteration; yellow items moved to the parking lot.",
+    },
+  ]}
+/>
   <ProjectSectionHeading>Scoping the Feature</ProjectSectionHeading>
   <ProjectTextBlock>
     We used risk-reward mapping to scope the feature. We listed every component of a full AI course-creation flow — PDF parsing, text generation, visualisation, quiz creation — and mapped each against development effort versus expected time savings for customers. Generating lesson titles and text from a PDF or text file scored highest. It covered the most common use case with the smallest engineering surface.
@@ -78,39 +97,28 @@ description: How Reteach introduced an AI-assisted course builder with minimal i
 </ProjectSection>
 
 <ProjectMediaGrid
-  columns={1}
+  columns={3}
   items={[
     {
       type: "image",
-      src: "/image/projects/reteach/ai-course/Screenshot 2026-02-26 at 14.16.10.png",
-      alt: "Risk-reward mapping of AI feature candidates",
+      src: contentTypes,
+      alt: "Manual lesson creation — authors choose content type",
       caption:
-        "Risk-reward mapping: each AI feature candidate plotted by effort versus impact on the key result. Green items were selected for the first iteration; yellow items moved to the parking lot.",
+        "Before: Manual lesson creation — authors choose content type, then build from scratch",
     },
-  ]}
-/>
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
     {
       type: "image",
-      src: "/image/projects/reteach/ai-course/Screenshot 2026-02-26 at 14.38.03.png",
+      src: entryPointVariants,
       alt: "Four variants for integrating AI lesson creation into the course page",
       caption:
         "Design exploration: four variants for surfacing AI lesson creation — from course-page integration to modal-based flows. Variant 02 was selected for balancing visibility with minimal disruption to the existing creation flow.",
     },
-  ]}
-/>
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
     {
-      type: "video",
-      src: "/video/projects/reteach/ai-course/demo.mov",
+      type: "image",
+      src: generationInput,
+      alt: "AI-assisted flow with PDF input",
       caption:
-        "AI course generation — authors paste text or upload PDFs, and the system generates a structured lesson draft",
+        "After: AI-assisted flow — authors paste text or upload PDFs, the system generates a structured lesson draft",
     },
   ]}
 />
@@ -126,22 +134,32 @@ description: How Reteach introduced an AI-assisted course builder with minimal i
     tagged "review required" and fully editable. That rule defined the
     interface: AI drafts, humans decide.
   </ProjectTextBlock>
-</ProjectSection>
 
 <ProjectMediaGrid
   columns={1}
   items={[
     {
       type: "image",
-      src: "/image/projects/reteach/ai-course/lesson-review-tag.png",
+      src: lessonReviewTag,
       alt: "AI-generated lesson in the editor with review tag",
       caption:
         "AI-generated lesson in the editor. The 'ERSTELLT BY AI' tag and 'Entwurf' status at the headline keep authorship and review state visible at all times. Content is fully editable — AI drafts, humans decide.",
     },
   ]}
 />
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: loadingState,
+      alt: "Generation process steps",
+      caption:
+        "The generation process shows each step transparently: structure, objectives, content, engagement, review. Authors see exactly what the system is doing.",
+    },
+  ]}
+/>
 
-<ProjectSection variant="centered" gap="7">
   <ProjectTextBlock>
     For compliance-heavy customers, the explicit review tag mattered. It kept accountability clear: the AI suggests, the author approves. We embedded each customer's existing course catalogue as context for the language model, so generated text would match the terminology already established in their academy rather than producing generic output.
 
@@ -151,38 +169,16 @@ description: How Reteach introduced an AI-assisted course builder with minimal i
 </ProjectSection>
 
 <ProjectMediaGrid
-  columns={2}
-  items={[
-    {
-      type: "image",
-      src: "/image/projects/reteach/ai-course/content-types.png",
-      alt: "Manual lesson creation — authors choose content type",
-      caption:
-        "Before: Manual lesson creation — authors choose content type, then build from scratch",
-    },
-    {
-      type: "image",
-      src: "/image/projects/reteach/ai-course/generation-input.png",
-      alt: "AI-assisted flow with PDF input",
-      caption:
-        "After: AI-assisted flow — authors paste text or upload PDFs, the system generates a structured lesson draft",
-    },
-  ]}
-/>
-
-<ProjectMediaGrid
   columns={1}
   items={[
     {
-      type: "image",
-      src: "/image/projects/reteach/ai-course/loading-state.png",
-      alt: "Generation process steps",
+      type: "video",
+      src: "/video/projects/reteach/ai-course/demo.mp4",
       caption:
-        "The generation process shows each step transparently: structure, objectives, content, engagement, review. Authors see exactly what the system is doing.",
+        "AI course generation — authors paste text or upload PDFs, and the system generates a structured lesson draft",
     },
   ]}
 />
-
 <ProjectSection variant="centered" gap="7">
   <ProjectTextBlock>
     Scope stayed narrow throughout the quarter. Visualisation features — technical diagrams, process flowcharts — were deprioritised early despite clear user interest, because the engineering effort was disproportionate to the time savings. The iterative approach validated assumptions early before committing to broader scope.

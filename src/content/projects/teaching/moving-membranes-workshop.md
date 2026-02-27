@@ -4,7 +4,7 @@ status: draft
 type: entry
 order: 99
 cover:
-  image: "projects/moving-membranes-workshop/cover"
+  image: ../../../assets/projects/moving-membranes-workshop/cover.jpg
 meta:
   category: teaching
   format: Workshop

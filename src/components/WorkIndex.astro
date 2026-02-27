@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import WorkIndexRow from './WorkIndexRow.astro';
 
@@ -11,7 +12,9 @@ export interface Props {
 const { filter = 'all' } = Astro.props;
 
 const allProjects = filter !== 'blog'
-  ? (await getCollection('projects', (p) => p.data.status !== 'hidden'))
+  ? (await getCollection('projects', (p) =>
+      p.data.status !== 'hidden' && !(import.meta.env.PROD && p.data.status === 'draft')
+    ))
   : [];
 
 // Cards: case-study template items
@@ -48,12 +51,12 @@ const tableProjects = [...allProjects].sort((a, b) => {
         <a href={`/projects/${project.id}`}>
           {project.data.cover?.image && (
             <div class="aspect-[3/4] bg-gray-100 overflow-hidden opacity-80 group-hover:opacity-100">
-              <img
-                src={`/image/${project.data.cover.image}.jpg`}
+              <Image
+                src={project.data.cover.image}
                 alt={project.data.cover.alt ?? ''}
                 class="w-full h-full object-cover transition-transform duration-300"
                 loading="lazy"
-                onerror="this.style.display='none'"
+                widths={[320, 640]}
               />
             </div>
           )}

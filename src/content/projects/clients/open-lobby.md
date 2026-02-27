@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/open-lobby/cover"
+  image: ../../../assets/projects/open-lobby/cover.jpg
 meta:
   category: clients
   format: Installation, Performance

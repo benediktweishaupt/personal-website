@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/sandberg-manifesto/cover"
+  image: ../../../assets/projects/sandberg-manifesto/cover.jpg
 meta:
   category: clients
   format: Catalogue

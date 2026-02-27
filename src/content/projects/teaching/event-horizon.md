@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/event-horizon/cover"
+  image: ../../../assets/projects/event-horizon/cover.jpg
 meta:
   category: teaching
   format: Exhibition, Semester Project

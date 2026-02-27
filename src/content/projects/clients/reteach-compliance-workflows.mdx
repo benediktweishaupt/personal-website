@@ -5,7 +5,7 @@ type: project
 template: case-study
 order: 3
 cover:
-  image: "projects/reteach/compliance/cover"
+  image: ../../../assets/projects/reteach/compliance/cover.jpg
   alt: Compliance workflow module showing timeline visualisation and certificate status badges
   caption: From opaque wizard to five clearly scoped modules — making compliance rules readable
 meta:
@@ -16,6 +16,17 @@ meta:
   year: "2024"
 description: How Reteach restructured its most complex LMS module. An opaque compliance wizard was replaced by five clearly scoped modules, making workflows predictable and reducing dependency on customer support.
 ---
+
+import systemFlowchart from "../../../assets/projects/reteach/compliance/compliance-system-flowchart.png";
+import formExploration from "../../../assets/projects/reteach/compliance/form-exploration.png";
+import drawerVariant1 from "../../../assets/projects/reteach/compliance/drawer-variant-1.png";
+import drawerVariant2 from "../../../assets/projects/reteach/compliance/drawer-variant-2.png";
+import drawerVariant3 from "../../../assets/projects/reteach/compliance/drawer-variant-3.png";
+import drawerVariant4 from "../../../assets/projects/reteach/compliance/drawer-variant-4.png";
+import modularUserStories from "../../../assets/projects/reteach/compliance/modular-user-stories.png";
+import timelineSwimlanes from "../../../assets/projects/reteach/compliance/compliance-timeline-swimlanes.png";
+import certificateBadges from "../../../assets/projects/reteach/compliance/certificate-badges.png";
+import certificateStatusBadges from "../../../assets/projects/reteach/compliance/certificate-status-badges.png";
 
 <ProjectSection variant="full" gap="10">
   <ProjectDescription>
@@ -40,33 +51,20 @@ description: How Reteach restructured its most complex LMS module. An opaque com
     German compliance law added another layer of complexity. Between DSGVO, Arbeitsschutzgesetz, and sector-specific safety rules, every client needed slightly different logic. We served small organisations and 5,000-employee enterprises on the same codebase. From the start we agreed on one rule for ourselves: Reteach doesn't interpret law; it communicates logic. The system's job was to describe what will happen, not to decide what is legally correct.
 
   </ProjectTextBlock>
+
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: timelineSwimlanes,
+      alt: "Timeline visualisation of a compliance workflow over one year",
+      caption:
+        "Timeline visualisation: a full compliance cycle — from admin assignment through auto-enrollment, participant completion, reminder, escalation, and renewal — mapped across four swim lanes over one year.",
+    },
+  ]}
+/>
 </ProjectSection>
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "image",
-      src: "/image/projects/reteach/compliance/Screenshot 2026-02-26 at 12.45.30.png",
-      alt: "Compliance workflow flowchart showing user and admin interactions",
-      caption:
-        "System map: user interactions (notifications, escalation, completion) and admin configuration (rules, timing, enrollment) converge into a renewal cycle with certificate status tracking.",
-    },
-  ]}
-/>
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "image",
-      src: "/image/projects/reteach/compliance/form-exploration.png",
-      alt: "Three iterations of compliance form fields",
-      caption:
-        "Design exploration: three iterations of the compliance form fields — from the existing multi-screen settings (top) through checkbox-based simplification (middle) to explicit 'never' selects replacing ambiguous empty states (bottom). Each iteration reduced cognitive load while preserving the same configuration power.",
-    },
-  ]}
-/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>Five Modules</ProjectSectionHeading>
@@ -80,20 +78,20 @@ description: How Reteach restructured its most complex LMS module. An opaque com
     the feature without sketching diagrams. That was the first sign that
     structure was starting to make sense.
   </ProjectTextBlock>
-</ProjectSection>
+  <ProjectMediaGrid
+    columns={1}
+    items={[
+      {
+        type: "image",
+        src: systemFlowchart,
+        alt: "Compliance workflow flowchart showing user and admin interactions",
+        caption:
+          "System map: user interactions (notifications, escalation, completion) and admin configuration (rules, timing, enrollment) converge into a renewal cycle with certificate status tracking.",
+      },
+    ]}
+  />
 
-<ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "image",
-      src: "/image/projects/reteach/compliance/modular-user-stories.png",
-      alt: "Modular compliance requirements as user stories",
-      caption:
-        "Modular compliance requirements mapped as user stories. Each module — one-time deadlines, relative deadlines, recurring rules, recurring-relative rules — was scoped, designed, and tested independently.",
-    },
-  ]}
-/>
+</ProjectSection>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>Smart Defaults and Timeline</ProjectSectionHeading>
@@ -104,53 +102,64 @@ description: How Reteach restructured its most complex LMS module. An opaque com
 
   </ProjectTextBlock>
 </ProjectSection>
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "image",
-      src: "/image/projects/reteach/compliance/Screenshot 2026-02-26 at 13.10.30.png",
-      alt: "Timeline visualisation of a compliance workflow over one year",
+    <ProjectMediaGrid
+      columns={2}
+      items={[
+            {
+      type: "video",
+      src: "/video/projects/reteach/compliance/timeline-visualisation.mp4",
       caption:
-        "Timeline visualisation: a full compliance cycle — from admin assignment through auto-enrollment, participant completion, reminder, escalation, and renewal — mapped across four swim lanes over one year.",
+        "Timeline visualisation in action — configuration parameters translate into a readable temporal sequence",
     },
-  ]}
-/>
+    {
+          type: "image",
+          src: certificateStatusBadges,
+          alt: "Certificate status badge design spec",
+          caption:
+            "Design spec: four certificate states — GÜLTIG (valid), GÜLTIG with expiry warning, ABGELAUFEN (expired), NICHT ERHALTEN (not received) — each with compact and expanded variants.",
+        },
+      ]}
+    />
+<ProjectSection variant="centered" gap="7">
+  <ProjectSectionHeading>Testing the form fields</ProjectSectionHeading>
 
+  <ProjectTextBlock>
+  After establishing basic flows and data models. We invited users for testing of various form field designs. here it was essential to have on the one side pro users texting if their workflows are still easily accessible as well as if the form is easy to set up and intuitive for new users.
+  </ProjectTextBlock>
 <ProjectMediaGrid
   columns={2}
   items={[
     {
       type: "image",
-      src: "/image/projects/reteach/compliance/certificate-badges.png",
-      alt: "Certificate status badges in the app",
-      caption:
-        "Certificate status in production: colour-coded badges show validity at a glance — replacing the previous state where users had no visual feedback on compliance status.",
+      src: drawerVariant1,
+      alt: "Compliance workflow drawer — variant 1",
+      caption: "Variant 1",
     },
     {
       type: "image",
-      src: "/image/projects/reteach/compliance/Zertifikat Status.png",
-      alt: "Certificate status badge design spec",
-      caption:
-        "Design spec: four certificate states — GÜLTIG (valid), GÜLTIG with expiry warning, ABGELAUFEN (expired), NICHT ERHALTEN (not received) — each with compact and expanded variants.",
+      src: drawerVariant2,
+      alt: "Compliance workflow drawer — variant 2",
+      caption: "Variant 2",
     },
-  ]}
-/>
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
     {
-      type: "video",
-      src: "/video/projects/reteach/compliance/demo.mov",
-      caption:
-        "Compliance workflow demo — the complete module flow from configuration to certificate status",
+      type: "image",
+      src: drawerVariant3,
+      alt: "Compliance workflow drawer — variant 3",
+      caption: "Variant 3",
+    },
+    {
+      type: "image",
+      src: drawerVariant4,
+      alt: "Compliance workflow drawer — variant 4",
+      caption: "Variant 4",
     },
   ]}
 />
+</ProjectSection>
 
 <ProjectSection variant="centered" gap="7">
+  <ProjectSectionHeading>Post Release</ProjectSectionHeading>
+
   <ProjectTextBlock>
     After release, the questions that arrived through customer success shifted in character — from "How do I make this work?" to confirmation and edge cases. One HR manager summed it up simply: "I finally know what will happen before it happens." That sentence became a useful proxy for understanding: people could now predict outcomes without external help.
 
@@ -158,6 +167,28 @@ description: How Reteach restructured its most complex LMS module. An opaque com
 
     We had no telemetry in place, so qualitative feedback from customer success remained the main signal. Explanations no longer required escalation to engineering, and the nature of incoming questions confirmed that users were operating the feature with more confidence than before.
 
+  </ProjectTextBlock>
+
+</ProjectSection>
+<ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "video",
+      src: "/video/projects/reteach/compliance/demo.mp4",
+      caption:
+        "Compliance workflow demo — the complete module flow from configuration to certificate status",
+    },
+        {
+      type: "video",
+      src: "",
+      caption:
+        "NEW DESIGN",
+    },
+  ]}
+/>
+<ProjectSection variant="centered" gap="7">
+  <ProjectTextBlock> 
     Looking back, the breakthrough was clarity, not automation. By exposing the system's logic directly and linking it to realistic defaults, we replaced opaque behaviour with predictable outcomes. The compliance section still carries the most complex logic in the product. The difference is that users can now read it.
 
   </ProjectTextBlock>

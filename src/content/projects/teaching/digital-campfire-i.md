@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/digital-campfire-i/cover"
+  image: ../../../assets/projects/digital-campfire-i/cover.jpg
 meta:
   category: teaching
   format: Workshop

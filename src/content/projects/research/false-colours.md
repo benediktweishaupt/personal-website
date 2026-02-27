@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/false-colours/cover"
+  image: ../../../assets/projects/false-colours/cover.jpg
 meta:
   category: research
   format: Installation

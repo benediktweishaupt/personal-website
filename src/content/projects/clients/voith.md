@@ -4,7 +4,7 @@ status: draft
 type: entry
 order: 99
 cover:
-  image: "projects/voith/cover"
+  image: ../../../assets/projects/voith/cover.jpg
 meta:
   category: clients
   format: Interaction Design

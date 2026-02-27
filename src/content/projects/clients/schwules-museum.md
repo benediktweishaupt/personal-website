@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/schwules-museum/cover"
+  image: ../../../assets/projects/schwules-museum/cover.jpg
 meta:
   category: clients
   format: Website

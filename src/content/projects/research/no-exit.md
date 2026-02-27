@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/no-exit/cover"
+  image: ../../../assets/projects/no-exit/cover.jpg
 meta:
   category: research
   format: Installation, Movie

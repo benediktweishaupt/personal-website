@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/drei-drie-three/cover"
+  image: ../../../assets/projects/drei-drie-three/cover.jpg
 meta:
   category: clients
   format: Exhibition, Curation

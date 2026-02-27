@@ -4,7 +4,7 @@ status: draft
 type: entry
 order: 99
 cover:
-  image: "projects/expand-all/cover"
+  image: ../../../assets/projects/expand-all/cover.jpg
 meta:
   category: clients
   format: Website

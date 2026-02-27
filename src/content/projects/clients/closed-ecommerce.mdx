@@ -5,7 +5,7 @@ type: project
 template: case-study
 order: 4
 cover:
-  image: projects/closed/cover
+  image: ../../../assets/projects/closed/cover.jpg
   alt: Closed fashion webshop product detail page showing the Svelte-rebuilt interface
   caption: From OXID PHP/Blade to a staged Svelte migration with an agnostic design system pipeline
 meta:
@@ -16,6 +16,13 @@ meta:
   year: "2022-2024"
 description: How Closed rebuilt its OXID webshop through a staged Svelte migration and an agnostic design-system pipeline — aligning Brand, Sales, Analytics, and Product while quietly introducing accessibility and maintainability.
 ---
+import figmaOverview from "../../../assets/projects/closed/figma-overview.png";
+import storybookButtons from "../../../assets/projects/closed/storybook-buttons.png";
+import storybookI18n from "../../../assets/projects/closed/storybook-i18n.png";
+import responsiveSpecs from "../../../assets/projects/closed/responsive-specs.png";
+import pdpProductCard from "../../../assets/projects/closed/pdp-product-card.png";
+import checkoutMobile from "../../../assets/projects/closed/checkout-mobile.jpg";
+
 
 <ProjectSection variant="full" gap="10">
   <ProjectDescription>How a fashion brand rebuilt its international webshop across multiple stakeholders, vendors, and two live sales cycles — through a staged migration, a brand-agnostic design system, and quiet accessibility integration.</ProjectDescription>
@@ -34,7 +41,7 @@ description: How Closed rebuilt its OXID webshop through a staged Svelte migrati
 </ProjectSection>
 
 <ProjectMediaGrid columns={1} items={[
-  { type: "image", src: "/image/projects/closed/figma-overview.png", alt: "Figma design system overview", caption: "Figma overview of the design system: Templates & Patterns across all product areas — Components, Checkout, PDP, Homepage, System Mail, and more." },
+  { type: "image", src: figmaOverview, alt: "Figma design system overview", caption: "Figma overview of the design system: Templates & Patterns across all product areas — Components, Checkout, PDP, Homepage, System Mail, and more." },
 ]} />
 
 {/* TODO: Before/After GIF — old OXID webshop PLP+PDP vs. new Svelte rebuild */}
@@ -78,12 +85,12 @@ description: How Closed rebuilt its OXID webshop through a staged Svelte migrati
 ]} />
 
 <ProjectMediaGrid columns={2} items={[
-  { type: "image", src: "/image/projects/closed/storybook-buttons.png", alt: "Storybook button component documentation", caption: "Storybook documentation of the button system: Primary, Secondary, Outline, and Disabled states — the shared component language across all products." },
-  { type: "image", src: "/image/projects/closed/storybook-i18n.png", alt: "Internationalised tag components in Storybook", caption: "Internationalised tag components in Storybook: light/dark mode, multiple sizes, tested across en-US, zh-TW, and ar-AE locales." },
+  { type: "image", src: storybookButtons, alt: "Storybook button component documentation", caption: "Storybook documentation of the button system: Primary, Secondary, Outline, and Disabled states — the shared component language across all products." },
+  { type: "image", src: storybookI18n, alt: "Internationalised tag components in Storybook", caption: "Internationalised tag components in Storybook: light/dark mode, multiple sizes, tested across en-US, zh-TW, and ar-AE locales." },
 ]} />
 
 <ProjectMediaGrid columns={1} items={[
-  { type: "image", src: "/image/projects/closed/responsive-specs.png", alt: "Responsive image specification", caption: "Responsive image specification for the replatforming: breakpoint-based source declarations mapped to Tailwind's size system, defining picture types from thumbnail to full-width landing page." },
+  { type: "image", src: responsiveSpecs, alt: "Responsive image specification", caption: "Responsive image specification for the replatforming: breakpoint-based source declarations mapped to Tailwind's size system, defining picture types from thumbnail to full-width landing page." },
 ]} />
 
 <ProjectSection variant="centered" gap="7">
@@ -119,8 +126,8 @@ description: How Closed rebuilt its OXID webshop through a staged Svelte migrati
 ]} />
 
 <ProjectMediaGrid columns={2} items={[
-  { type: "image", src: "/image/projects/closed/pdp-product-card.png", alt: "Product Detail Page in the live Svelte webshop", caption: "Product Detail Page in the live Svelte webshop: 'Long Caban Jacket' with ECO-PRODUCT badge, colour swatches, and size selector." },
-  { type: "image", src: "/image/projects/closed/checkout-mobile.jpg", alt: "Mobile checkout flow", caption: "Mobile checkout flow with order summary. The checkout handled both Global-e (international) and Adyen (DACH) payment processing." },
+  { type: "image", src: pdpProductCard, alt: "Product Detail Page in the live Svelte webshop", caption: "Product Detail Page in the live Svelte webshop: 'Long Caban Jacket' with ECO-PRODUCT badge, colour swatches, and size selector." },
+  { type: "image", src: checkoutMobile, alt: "Mobile checkout flow", caption: "Mobile checkout flow with order summary. The checkout handled both Global-e (international) and Adyen (DACH) payment processing." },
 ]} />
 
 {/* TODO: One-pager checkout vs. old 4-step checkout */}

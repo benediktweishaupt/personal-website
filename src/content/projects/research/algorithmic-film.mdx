@@ -5,7 +5,7 @@ type: project
 template: case-study
 order: 5
 cover:
-  image: projects/algorithmic-film/cover
+  image: ../../../assets/projects/algorithmic-film/cover.jpg
   alt: Three-channel projection installation showing algorithmically assembled film sequences
   caption: From API experiments to collective generative systems — algorithmic structures as filmic order
 meta:
@@ -16,6 +16,17 @@ meta:
   year: 2014–2016
 description: From early API experiments with Gilles de Brock to DDG's evolving No Exit system — how algorithmic structures can assemble filmic narratives without predefining meaning.
 ---
+
+import itemToItem01 from "../../../assets/projects/algorithmic-film/item-to-item-01.png";
+import itemToItem02 from "../../../assets/projects/algorithmic-film/item-to-item-02.png";
+import itemToItem03 from "../../../assets/projects/algorithmic-film/item-to-item-03.png";
+import noExitGlasgow from "../../../assets/projects/algorithmic-film/no-exit-glasgow.jpg";
+import noExitDialogue from "../../../assets/projects/algorithmic-film/no-exit-dialogue.jpg";
+import ddgQuilts from "../../../assets/projects/algorithmic-film/ddg-quilts.png";
+import workshopScreenshot from "../../../assets/projects/algorithmic-film/workshop-screenshot.png";
+import workshopScreenshot2 from "../../../assets/projects/algorithmic-film/workshop-screenshot-2.png";
+import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen-biennale.png";
+
 
 <ProjectSection variant="full" gap="10">
   <ProjectDescription>Between 2014 and 2016, a series of projects explored how algorithmic structures could create filmic order without predefining meaning — from public API experiments to collective generative systems shown at Glasgow, Brno, and the Shenzhen Biennale.</ProjectDescription>
@@ -41,12 +52,12 @@ description: From early API experiments with Gilles de Brock to DDG's evolving N
 </ProjectSection>
 
 <ProjectMediaGrid columns={1} items={[
-  { type: "image", src: "/image/projects/algorithmic-film/item-to-item-01.png", alt: "Item to Item installation view", caption: "Item to Item (2015) — Installation view. Screens on medical stands display algorithmically assembled sequences from Facebook, Instagram, Amazon, YouTube, and AirBnB recommendation engines. Each screen follows a different API traversal path." },
+  { type: "image", src: itemToItem01, alt: "Item to Item installation view", caption: "Item to Item (2015) — Installation view. Screens on medical stands display algorithmically assembled sequences from Facebook, Instagram, Amazon, YouTube, and AirBnB recommendation engines. Each screen follows a different API traversal path." },
 ]} />
 
 <ProjectMediaGrid columns={2} items={[
-  { type: "image", src: "/image/projects/algorithmic-film/item-to-item-02.png", alt: "Algorithmically generated characters", caption: "Algorithmically generated 'characters' — 3D collages assembled from API-scraped content. Each object represents a persona built from recommendation chains across platforms like ArtRank, Capture, and others." },
-  { type: "image", src: "/image/projects/algorithmic-film/item-to-item-03.png", alt: "Further Item to Item outputs", caption: "Further Item to Item outputs. The visual language emerged entirely from the algorithm's traversal logic — no manual composition, only structural rules applied to found material." },
+  { type: "image", src: itemToItem02, alt: "Algorithmically generated characters", caption: "Algorithmically generated 'characters' — 3D collages assembled from API-scraped content. Each object represents a persona built from recommendation chains across platforms like ArtRank, Capture, and others." },
+  { type: "image", src: itemToItem03, alt: "Further Item to Item outputs", caption: "Further Item to Item outputs. The visual language emerged entirely from the algorithm's traversal logic — no manual composition, only structural rules applied to found material." },
 ]} />
 
 <ProjectSection variant="centered" gap="7">
@@ -59,12 +70,12 @@ description: From early API experiments with Gilles de Brock to DDG's evolving N
 </ProjectSection>
 
 <ProjectMediaGrid columns={1} items={[
-  { type: "image", src: "/image/projects/algorithmic-film/no-exit-glasgow.jpg", alt: "No Exit three-channel projection in Glasgow", caption: "No Exit — Three-channel projection at the Graphic Design Festival Scotland, Glasgow. The algorithm assembles aerial cityscapes, subtitles from scraped librettos, and found footage into a continuous generative film. Each screen runs independently, synchronised only by structural timing rules." },
+  { type: "image", src: noExitGlasgow, alt: "No Exit three-channel projection in Glasgow", caption: "No Exit — Three-channel projection at the Graphic Design Festival Scotland, Glasgow. The algorithm assembles aerial cityscapes, subtitles from scraped librettos, and found footage into a continuous generative film. Each screen runs independently, synchronised only by structural timing rules." },
 ]} />
 
 <ProjectMediaGrid columns={2} items={[
-  { type: "image", src: "/image/projects/algorithmic-film/no-exit-dialogue.jpg", alt: "No Exit dialogue screens", caption: "No Exit screening detail — two projected channels showing algorithmically assembled sequences with generated dialogue subtitles. The visual language shifts constantly as new material enters the system." },
-  { type: "image", src: "/image/projects/algorithmic-film/ddg-quilts.png", alt: "Five quilts collectively designed by DDG members", caption: "Five quilts collectively designed by DDG members — each quilt represents one of the five opera acts, physically encoding the same structure that drives the algorithmic film." },
+  { type: "image", src: noExitDialogue, alt: "No Exit dialogue screens", caption: "No Exit screening detail — two projected channels showing algorithmically assembled sequences with generated dialogue subtitles. The visual language shifts constantly as new material enters the system." },
+  { type: "image", src: ddgQuilts, alt: "Five quilts collectively designed by DDG members", caption: "Five quilts collectively designed by DDG members — each quilt represents one of the five opera acts, physically encoding the same structure that drives the algorithmic film." },
 ]} />
 
 <ProjectSection variant="centered" gap="7">
@@ -75,8 +86,8 @@ description: From early API experiments with Gilles de Brock to DDG's evolving N
 </ProjectSection>
 
 <ProjectMediaGrid columns={2} items={[
-  { type: "image", src: "/image/projects/algorithmic-film/workshop-screenshot.png", alt: "Workshop system screenshot", caption: "Workshop system running — students' uploaded clips recombined by the algorithm in real time" },
-  { type: "image", src: "/image/projects/algorithmic-film/workshop-screenshot-2.png", alt: "Workshop system output", caption: "Output from a workshop session — structural rhythm from unrelated fragments" },
+  { type: "image", src: workshopScreenshot, alt: "Workshop system screenshot", caption: "Workshop system running — students' uploaded clips recombined by the algorithm in real time" },
+  { type: "image", src: workshopScreenshot2, alt: "Workshop system output", caption: "Output from a workshop session — structural rhythm from unrelated fragments" },
 ]} />
 
 <ProjectSection variant="centered" gap="7">
@@ -87,7 +98,7 @@ description: From early API experiments with Gilles de Brock to DDG's evolving N
 </ProjectSection>
 
 <ProjectMediaGrid columns={1} items={[
-  { type: "image", src: "/image/projects/algorithmic-film/shenzhen-biennale.png", alt: "Rise & Shine at Shenzhen Biennale", caption: "Rise & Shine News Channel at the Shenzhen Biennale — a live editorial system reassembling reporter clips into a continuous exhibition newsfeed" },
+  { type: "image", src: shenzhenBiennale, alt: "Rise & Shine at Shenzhen Biennale", caption: "Rise & Shine News Channel at the Shenzhen Biennale — a live editorial system reassembling reporter clips into a continuous exhibition newsfeed" },
 ]} />
 
 <ProjectSection variant="centered" gap="7">

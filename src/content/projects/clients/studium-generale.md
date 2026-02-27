@@ -5,7 +5,7 @@ type: project
 template: project
 order: 99
 cover:
-  image: "projects/studium-generale/cover"
+  image: ../../../assets/projects/studium-generale/cover.jpg
 meta:
   category: clients
   format: Website

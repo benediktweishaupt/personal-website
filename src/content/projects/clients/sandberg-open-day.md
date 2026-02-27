@@ -4,7 +4,7 @@ status: draft
 type: entry
 order: 99
 cover:
-  image: "projects/sandberg-open-day/cover"
+  image: ../../../assets/projects/sandberg-open-day/cover.jpg
 meta:
   category: clients
   format: Identity
