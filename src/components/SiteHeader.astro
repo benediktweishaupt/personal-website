@@ -7,15 +7,15 @@ export interface Props {
 
 const { pageTitle } = Astro.props;
 const path = Astro.url.pathname;
-const onProjects = path === '/projects' || path === '/projects/';
+const onIndex = path === '/' || path === '';
 const onAbout = path.startsWith('/about');
-const hideTitle = onProjects || onAbout;
+const hideTitle = onIndex || onAbout;
 ---
 
 <header class="fixed z-50 inset-x-0 top-0 flex justify-center p-2">
 	<nav transition:name="site-nav" transition:animate="morph" class="flex items-stretch bg-black/70 backdrop-blur-md rounded-full p-1">
 		<span class="flex items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-100 max-w-[200px] sm:max-w-[300px] truncate">{hideTitle ? SITE_NAME : (pageTitle ?? SITE_NAME)}</span>
-		<a href="/projects" class:list={["flex items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-100 hover:bg-gray-100/20 rounded-full", onProjects && "bg-gray-100/20"]}>Index</a>
+		<a href="/" class:list={["flex items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-100 hover:bg-gray-100/20 rounded-full", onIndex && "bg-gray-100/20"]}>Index</a>
 		<a href="/about" class:list={["flex items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-100 hover:bg-gray-100/20 rounded-full", onAbout && "bg-gray-100/20"]}>About</a>
 	</nav>
 </header>

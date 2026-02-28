@@ -1,10 +1,20 @@
 # Changelog
 
-Development history of the portfolio site (benediktweishaupt.com, formerly 360degre.es).
+Development history of the portfolio site (benediktweishaupt.de und bewe.is formerly 360degre.es).
 
 ---
 
-## Feb 28 — Audience system & publishing (`b9e8153`, pending)
+## Feb 28 — Root index & route consolidation
+
+- Root `/` is now the project index (WorkIndex with case study cards + sortable table)
+- Deleted separate `/projects` and `/blog` index pages
+- `/projects` and `/blog` redirect to `/` via meta-refresh (works on any static host)
+- SiteHeader "Index" link points to `/` with active state on root
+- Audience denial redirects to `/` instead of `/projects`
+- Removed unused `filter` prop from WorkIndex
+- Updated routes table in `how-the-website-works.md`
+
+## Feb 28 — Audience system & publishing (`b9e8153`)
 
 **Audience system**
 

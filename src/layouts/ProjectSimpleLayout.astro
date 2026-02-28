@@ -82,7 +82,7 @@ const metaItems = [
     document.addEventListener('astro:page-load', function() {
       var aud = localStorage.getItem('portfolio-audience') || 'all';
       if (aud === 'family' || projectAudience === 'all' || projectAudience === aud) return;
-      window.location.replace('/projects');
+      window.location.replace('/');
     });
   </script>
 </BaseLayout>

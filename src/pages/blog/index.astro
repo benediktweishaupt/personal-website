@@ -1,9 +1,4 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import WorkIndex from '../../components/WorkIndex.astro';
-import { AUTHOR_NAME } from '../../consts';
+// Redirect /blog → /
 ---
-
-<BaseLayout title={`Blog — ${AUTHOR_NAME}`} description="Writing on design, research, and technology.">
-    <WorkIndex filter="blog" />
-</BaseLayout>
+<html><head><meta http-equiv="refresh" content="0;url=/" /><link rel="canonical" href="/" /></head><body></body></html>

@@ -5,17 +5,9 @@ import WorkIndexRow from './WorkIndexRow.astro';
 
 const GRID_COLS = 'grid-cols-[54px_1fr_60px] sm:grid-cols-[54px_1fr_1fr_60px]';
 
-export interface Props {
-  filter?: 'all' | 'blog' | 'projects';
-}
-
-const { filter = 'all' } = Astro.props;
-
-const allProjects = filter !== 'blog'
-  ? (await getCollection('projects', (p) =>
-      p.data.status !== 'hidden' && !(import.meta.env.PROD && p.data.status === 'draft')
-    ))
-  : [];
+const allProjects = await getCollection('projects', (p) =>
+  p.data.status !== 'hidden' && !(import.meta.env.PROD && p.data.status === 'draft')
+);
 
 // Cards: case-study template items (only if they have a linkable page)
 const cardProjects = allProjects

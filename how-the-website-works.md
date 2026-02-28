@@ -10,12 +10,12 @@ Astro 5 static site. Originally a blog, extended into a full portfolio with case
 
 | Route              | Template                   | Notes                                        |
 | ------------------ | -------------------------- | -------------------------------------------- |
-| `/`                | `index.astro`              | Landing page                                 |
-| `/projects`        | `projects/index.astro`     | WorkIndex: cards + sortable/filterable table  |
+| `/`                | `index.astro`              | WorkIndex: cards + sortable/filterable table  |
 | `/projects/[slug]` | `projects/[...slug].astro` | Case study or simple project layout           |
-| `/blog`            | `blog/index.astro`         | Blog index                                    |
 | `/blog/[slug]`     | `blog/[...slug].astro`     | Blog post (two-column prose + sticky images)  |
 | `/about`           | `about.astro`              | Bio, exhibitions, teaching, clients           |
+
+`/projects` and `/blog` redirect to `/` via `.htaccess` (301).
 
 ---
 
