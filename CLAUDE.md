@@ -22,7 +22,7 @@ npm run preview   # preview production build
 ## Constraints
 
 - **Static only.** `output: 'static'` in astro config. No SSR, no server-side JS. Client-side `<script>` and Astro Islands are fine.
-- **No Node.js on server.** Hostinger shared hosting, Apache, FTP deploy.
+- **No server-side processing.** GitHub Pages serves static files only.
 - **Tailwind 3.4 only.** No custom CSS unless Tailwind can't cover it — flag it if so.
 - **No frameworks.** No React, no Vue. Astro components only.
 - **Preserve `/blog/*` routes.** They work and must not break.
@@ -31,4 +31,4 @@ npm run preview   # preview production build
 
 Astro 5 · Tailwind 3.4 · MDX · sharp · TypeScript
 Custom fonts: Relevant (sans), SangBleu Empire (display), SangBleu Republic (body)
-Deploy: GitHub Actions → FTP → Hostinger
+Deploy: GitHub Actions → GitHub Pages (bewe.is)

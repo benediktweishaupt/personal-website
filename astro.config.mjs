@@ -7,7 +7,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'http://360degre.es/',
+	site: 'https://bewe.is',
 	output: 'static',
 	build: {
 		format: 'directory'

@@ -4,6 +4,14 @@ Development history of the portfolio site (benediktweishaupt.de und bewe.is form
 
 ---
 
+## Feb 28 — GitHub Pages migration
+
+- Replaced Hostinger FTP deployment with GitHub Pages (`withastro/action`)
+- Site URL changed from `http://360degre.es/` to `https://bewe.is`
+- Added `public/CNAME` for custom domain
+- Repo renamed from `research-blog` to `personal-website`, set to public
+- DNS: bewe.is → GitHub Pages A records (united-domains), domain redirects for benediktweishaupt.de and 360degre.es (Hostinger)
+
 ## Feb 28 — Root index & route consolidation
 
 - Root `/` is now the project index (WorkIndex with case study cards + sortable table)

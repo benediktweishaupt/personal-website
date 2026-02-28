@@ -188,20 +188,21 @@ Conventions documented in `docs/conventions/media-assets.md`.
 ## Deployment
 
 ```
-GitHub push → Actions (npm ci + npm run build) → FTP → Hostinger
+GitHub push → Actions (withastro/action) → GitHub Pages
 ```
 
 - Config: `.github/workflows/deploy.yml`
 - Output: `./dist/`
-- Hosting: Hostinger shared hosting, Apache, no Node.js on server
-- `.htaccess` in `public/` handles clean URL rewrites
+- Hosting: GitHub Pages (static CDN, auto-HTTPS)
+- Custom domain: `bewe.is` (via `public/CNAME`)
+- Redirects: `benediktweishaupt.de` → `bewe.is`, `360degre.es` → `bewe.is`
 
 ---
 
 ## Constraints
 
 - **Static only.** `output: 'static'` in Astro config. No SSR, no server-side JS. Client-side `<script>` and Astro Islands are fine.
-- **No Node.js on server.** Hostinger shared hosting, Apache, FTP deploy.
+- **No server-side processing.** GitHub Pages serves static files only. No `.htaccess`, no server rewrites.
 - **Tailwind 3.4 only.** No custom CSS unless Tailwind can't cover it.
 - **No frameworks.** No React, no Vue. Astro components only.
 - **Preserve `/blog/*` routes.** They work and must not break.
