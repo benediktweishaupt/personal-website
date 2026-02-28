@@ -2,9 +2,13 @@
 
 ## What This Project Is
 
-Astro static site. Currently a blog at 360degre.es. Being extended into a portfolio with case studies, about page, and later a project archive.
+Astro static site. Portfolio with case studies, project archive, about page, and blog.
 
-**Read `PRD.md` first** — it has the full technical spec for what needs to be built.
+**Key docs:**
+- `how-the-website-works.md` — architecture, components, conventions
+- `PRD.md` — planned work (next steps + backlog)
+- `CHANGELOG.md` — development history
+- `docs/conventions/` — content status system, media assets
 
 ## Commands
 
@@ -26,48 +30,5 @@ npm run preview   # preview production build
 ## Stack
 
 Astro 5 · Tailwind 3.4 · MDX · sharp · TypeScript
-Custom fonts: SangBleu Empire (display), SangBleu Republic (body)
+Custom fonts: Relevant (sans), SangBleu Empire (display), SangBleu Republic (body)
 Deploy: GitHub Actions → FTP → Hostinger
-
-## Key Files
-
-- `PRD.md` — full spec for portfolio extension
-- `astro.config.mjs` — site config (static, directory format)
-- `src/content.config.ts` — content collection schemas
-- `tailwind.config.js` — font families + typography plugin
-- `.github/workflows/deploy.yml` — CI/CD pipeline
-- `public/.htaccess` — Apache URL rewrites
-
-## Migration Source
-
-The Nuxt project at `../Projects-Website/` has working implementations of:
-- Story/project content components (`components/content/`)
-- About page content (`content/about.md`)
-- Audience/auth system (`README_AUDIENCE_SYSTEM.md`)
-- Content schemas and types (`types/project.ts`, `content.config.ts`)
-
-Port the logic, not the framework. Vue → Astro components.
-
-## Content Structure
-
-```
-src/content/
-  blog/             → existing, untouched
-  projects/
-    clients/        → case study MDX files (new)
-  about.md          → bio + exhibitions + teaching + clients (new)
-
-public/
-  video/projects/   → .mp4 files per case study
-  image/projects/   → .png/.jpg files per case study
-```
-
-## Routes
-
-```
-/                    → landing page (project links)
-/projects            → project list
-/projects/[slug]     → case study / project detail
-/about               → bio + lists
-/blog/[slug]         → existing blog posts (untouched)
-```
