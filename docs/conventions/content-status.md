@@ -23,11 +23,19 @@ Enforced at build time in:
 
 ```ts
 thumbnailAudience: z.enum(['all', 'clients', 'academic', 'family']).default('all')
-projectAudience: z.enum(['all', 'clients', 'academic', 'family']).default('all')
+projectAudience: z.enum(['none', 'all', 'clients', 'academic', 'family']).default('none')
 ```
 
 - `thumbnailAudience` — who sees the row/card on the index page
 - `projectAudience` — who can open the full project page
+
+| `projectAudience` | Page generated? | Link in table? | Card in case studies? |
+| --- | --- | --- | --- |
+| `none` | No | No (plain text) | No |
+| `all` | Yes | Yes | Yes (if case-study) |
+| `clients` | Yes | Yes | Yes (if case-study) |
+| `academic` | Yes | Yes | Yes (if case-study) |
+| `family` | Yes | Yes | Yes (if case-study) |
 
 ### Hierarchy
 
@@ -63,6 +71,7 @@ Stored in `localStorage` — sticky across sessions. Detected in `src/layouts/Ba
 
 | Use case | `thumbnailAudience` | `projectAudience` |
 |---|---|---|
+| Thumbnail only, no page | `all` | `none` |
 | Fully public | `all` | `all` |
 | Thumbnail visible, page restricted to clients | `all` | `clients` |
 | Only visible to family (old "entry") | `family` | `family` |
@@ -70,7 +79,7 @@ Stored in `localStorage` — sticky across sessions. Detected in `src/layouts/Ba
 
 ## Workflow
 
-1. New content starts as `status: draft`, `projectAudience: family`
+1. New content starts as `status: draft`, `projectAudience: none`
 2. Set `status: public` when ready for the live site
 3. Set `projectAudience` to control who can open the page
 4. Set `thumbnailAudience` to control who sees it in the index

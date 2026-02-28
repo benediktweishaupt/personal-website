@@ -1,7 +1,7 @@
 ---
 title: Expand All
-status: draft
-projectAudience: family
+status: public
+projectAudience: none
 order: 99
 cover:
   image: ../../../assets/projects/expand-all/cover.jpg

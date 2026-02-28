@@ -6,43 +6,36 @@ interface Props {
   project: CollectionEntry<'projects'>;
 }
 
-const GRID_COLS = 'grid-cols-[54px_1fr_60px] sm:grid-cols-[54px_1fr_80px_60px] md:grid-cols-[54px_1fr_80px_120px_60px] lg:grid-cols-[54px_1fr_80px_120px_1fr_60px] xl:grid-cols-[54px_1fr_80px_120px_1fr_60px_60px_70px_30px_30px_30px]';
+const GRID_COLS = 'grid-cols-[54px_1fr_60px] sm:grid-cols-[54px_1fr_1fr_60px]';
 
 const { project } = Astro.props;
 const d = project.data;
 
 const isCaseStudy = d.template === 'case-study';
 const isGraduation = !!d.student;
+const isClickable = d.projectAudience !== 'none';
 const href = `/projects/${project.id}`;
-
-const hasCover = !!(d.cover?.image);
-const hasDesc = !!d.description;
-const hasBody = !!(project.body?.trim());
 ---
 
 <div
   class:list={[
-    'project-row group grid relative -mx-6 gap-x-4 px-6 py-2.5 border-b border-gray-600 transition-colors hover:bg-gray-50',
+    'project-row group grid relative -mx-6 gap-x-4 px-6 py-2.5 border-b border-gray-600 transition-colors',
+    isClickable && 'hover:bg-gray-50',
     GRID_COLS,
   ]}
   data-row
   data-title={d.title.toLowerCase()}
   data-year={d.meta.year ?? ''}
   data-category={d.meta.category}
-  data-format={(d.meta.format ?? '').toLowerCase()}
   data-institution={(d.meta.institution ?? '').toLowerCase()}
-  data-status={d.status}
   data-thumbnail-audience={d.thumbnailAudience ?? 'all'}
   data-project-audience={d.projectAudience ?? 'all'}
-  data-cover={hasCover ? '1' : '0'}
-  data-desc={hasDesc ? '1' : '0'}
-  data-body={hasBody ? '1' : '0'}
 >
   {/* Cover thumbnail */}
   <div class="flex items-center">
-    {hasCover && (
+    {d.cover?.image && (
       <Image
-        src={d.cover!.image}
+        src={d.cover.image}
         alt=""
         class="w-full aspect-[4/3] object-cover rounded-sm grayscale group-hover:grayscale-0 transition-[filter] duration-300"
         loading="lazy"
@@ -53,40 +46,25 @@ const hasBody = !!(project.body?.trim());
 
   {/* Title */}
   <div class="min-w-0">
-    <a href={href} class="stretched-link block truncate text-sm text-gray-600">
-      {d.title}{isGraduation && d.student && ` (${d.student})`}
-    </a>
+    {isClickable ? (
+      <a href={href} class="stretched-link block truncate text-sm text-gray-600">
+        {d.title}{isGraduation && d.student && ` (${d.student})`}
+      </a>
+    ) : (
+      <span class="block truncate text-sm text-gray-400">
+        {d.title}{isGraduation && d.student && ` (${d.student})`}
+      </span>
+    )}
     {isCaseStudy && d.description && (
-      <p class="text-sm text-gray-400 truncate mt-0.5 hidden lg:block">{d.description}</p>
+      <p class="text-sm text-gray-400 truncate mt-0.5 hidden sm:block">{d.description}</p>
     )}
   </div>
 
-  {/* Category */}
-  <div class="text-sm text-gray-600 hidden sm:flex items-start capitalize">{d.meta.category}</div>
-
-  {/* Format */}
-  <div class="text-sm text-gray-600 truncate hidden md:flex items-start">{d.meta.format ?? ''}</div>
-
   {/* Institution */}
-  <div class="text-sm text-gray-600 truncate hidden lg:flex items-start">{d.meta.institution ?? ''}</div>
+  <div class="text-sm text-gray-600 truncate hidden sm:flex items-start">{d.meta.institution ?? ''}</div>
 
   {/* Year */}
   <div class="text-sm text-gray-600 tabular-nums flex items-start">{d.meta.year ?? ''}</div>
-
-  {/* Status */}
-  <div class="text-sm text-gray-600 hidden xl:flex items-start">{d.status}</div>
-
-  {/* Access */}
-  <div class="text-sm text-gray-600 hidden xl:flex items-start">{d.projectAudience ?? 'all'}</div>
-
-  {/* Cover */}
-  <div class="text-sm text-gray-600 hidden xl:flex items-start">{hasCover ? '+' : ''}</div>
-
-  {/* Desc */}
-  <div class="text-sm text-gray-600 hidden xl:flex items-start">{hasDesc ? '+' : ''}</div>
-
-  {/* Body */}
-  <div class="text-sm text-gray-600 hidden xl:flex items-start">{hasBody ? '+' : ''}</div>
 </div>
 
 <style>

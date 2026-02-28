@@ -1,7 +1,7 @@
 ---
 title: Figure of Teach
-status: draft
-projectAudience: family
+status: public
+projectAudience: none
 template: project
 order: 99
 meta:

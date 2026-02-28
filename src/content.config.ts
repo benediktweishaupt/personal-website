@@ -22,7 +22,7 @@ const projects = defineCollection({
 		title: z.string(),
 		status: z.enum(['public', 'draft', 'hidden']).default('draft'),
 		thumbnailAudience: z.enum(['all', 'clients', 'academic', 'family']).default('all'),
-		projectAudience: z.enum(['all', 'clients', 'academic', 'family']).default('all'),
+		projectAudience: z.enum(['none', 'all', 'clients', 'academic', 'family']).default('none'),
 		template: z.enum(['case-study', 'project']).optional(),
 		order: z.number().default(99),
 		cover: z.object({

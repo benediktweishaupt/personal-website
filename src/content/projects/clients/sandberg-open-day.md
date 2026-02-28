@@ -1,7 +1,7 @@
 ---
 title: Sandberg Open Day
-status: draft
-projectAudience: family
+status: public
+projectAudience: none
 order: 99
 cover:
   image: ../../../assets/projects/sandberg-open-day/cover.jpg

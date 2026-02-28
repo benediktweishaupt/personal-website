@@ -1,7 +1,7 @@
 ---
 title: Moving Membranes Workshop
-status: draft
-projectAudience: family
+status: public
+projectAudience: none
 order: 99
 cover:
   image: ../../../assets/projects/moving-membranes-workshop/cover.jpg

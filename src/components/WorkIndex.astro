@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import WorkIndexRow from './WorkIndexRow.astro';
 
-const GRID_COLS = 'grid-cols-[54px_1fr_60px] sm:grid-cols-[54px_1fr_80px_60px] md:grid-cols-[54px_1fr_80px_120px_60px] lg:grid-cols-[54px_1fr_80px_120px_1fr_60px] xl:grid-cols-[54px_1fr_80px_120px_1fr_60px_60px_70px_30px_30px_30px]';
+const GRID_COLS = 'grid-cols-[54px_1fr_60px] sm:grid-cols-[54px_1fr_1fr_60px]';
 
 export interface Props {
   filter?: 'all' | 'blog' | 'projects';
@@ -17,9 +17,9 @@ const allProjects = filter !== 'blog'
     ))
   : [];
 
-// Cards: case-study template items
+// Cards: case-study template items (only if they have a linkable page)
 const cardProjects = allProjects
-  .filter((p) => p.data.template === 'case-study')
+  .filter((p) => p.data.template === 'case-study' && p.data.projectAudience !== 'none')
   .sort((a, b) => a.data.order - b.data.order);
 
 // Sort weight: case-study first, then graduation, then rest
@@ -89,16 +89,9 @@ const tableProjects = [...allProjects].sort((a, b) => {
       GRID_COLS,
     ]}>
       <div></div>
-      <button data-sort="title" class="sort-btn text-left hover:text-gray-600 transition-colors">Title</button>
-      <button data-sort="category" class="sort-btn text-left hover:text-gray-600 transition-colors hidden sm:block">Category</button>
-      <button data-sort="format" class="sort-btn text-left hover:text-gray-600 transition-colors hidden md:block">Format</button>
-      <button data-sort="institution" class="sort-btn text-left hover:text-gray-600 transition-colors hidden lg:block">Institution</button>
+      <button data-sort="title" class="sort-btn text-left hover:text-gray-600 transition-colors">Title <span class="sort-indicator"></span></button>
+      <button data-sort="institution" class="sort-btn text-left hover:text-gray-600 transition-colors hidden sm:block">Institution <span class="sort-indicator"></span></button>
       <button data-sort="year" data-dir="desc" class="sort-btn text-left hover:text-gray-600 transition-colors">Year <span class="sort-indicator">↓</span></button>
-      <button data-sort="status" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Status <span class="sort-indicator">↓</span></button>
-      <button data-sort="projectAudience" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Access <span class="sort-indicator">↓</span></button>
-      <button data-sort="cover" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Cover <span class="sort-indicator">↓</span></button>
-      <button data-sort="desc" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Desc <span class="sort-indicator">↓</span></button>
-      <button data-sort="body" class="sort-btn text-left hover:text-gray-600 transition-colors hidden xl:block">Body <span class="sort-indicator">↓</span></button>
     </div>
 
     {/* Table rows */}

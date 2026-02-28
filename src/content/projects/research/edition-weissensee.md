@@ -1,7 +1,7 @@
 ---
 title: Edition Weissensee
-status: draft
-projectAudience: family
+status: public
+projectAudience: none
 order: 99
 meta:
   category: research
