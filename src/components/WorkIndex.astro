@@ -34,14 +34,15 @@ const tableProjects = [...allProjects].sort((a, b) => {
 <main class="max-w-screen-2xl mx-auto px-6 pt-20 pb-32 bg-white/70 backdrop-blur-xl">
 
   {/* ── Highlight Cards ── */}
-  <h1 class="text-sm uppercase tracking-widest text-gray-400 pb-3">Case Studies</h1>
+  <h1 class="text-sm uppercase tracking-widest text-gray-400 pb-1">Case Studies</h1>
+  <p class="text-sm text-gray-400 pb-4">Selected client projects with detailed process documentation.</p>
 
   <div class="flex gap-3 overflow-x-auto pb-8 -mx-6 px-6 snap-x snap-mandatory">
     {cardProjects.map((project) => (
       <article class="shrink-0 w-64 sm:w-80 md:w-96 bg-white rounded-sm  overflow-hidden group snap-start transition-all duration-200" data-card data-thumbnail-audience={project.data.thumbnailAudience ?? 'all'}>
         <a href={`/projects/${project.id}`}>
           {project.data.cover?.image && (
-            <div class="aspect-[3/4] bg-gray-100 overflow-hidden opacity-80 group-hover:opacity-100">
+            <div class="aspect-[3/4] bg-gray-100 overflow-hidden">
               <Image
                 src={project.data.cover.image}
                 alt={project.data.cover.alt ?? ''}
@@ -65,7 +66,8 @@ const tableProjects = [...allProjects].sort((a, b) => {
 
   {/* ── Project Table ── */}
   <div class="mt-8">
-    <h1 class="text-sm uppercase text-gray-400 pb-3">All Projects</h1>
+    <h1 class="text-sm uppercase text-gray-400 pb-1">All Projects</h1>
+    <p class="text-sm text-gray-400 pb-4">Complete archive across client work, research, and teaching.</p>
 
     {/* Filter pills */}
     <div class="flex gap-2 pb-4 flex-wrap" id="filter-pills">

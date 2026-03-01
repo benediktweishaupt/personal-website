@@ -33,7 +33,7 @@ const href = `/projects/${project.id}`;
 >
   {/* Cover thumbnail */}
   <div class="flex items-center">
-    {d.cover?.image && (
+    {isClickable && d.cover?.image && (
       <Image
         src={d.cover.image}
         alt=""
@@ -61,10 +61,10 @@ const href = `/projects/${project.id}`;
   </div>
 
   {/* Institution */}
-  <div class="text-sm text-gray-600 truncate hidden sm:flex items-start">{d.meta.institution ?? ''}</div>
+  <div class:list={["text-sm truncate hidden sm:flex items-start", isClickable ? "text-gray-600" : "text-gray-400"]}>{d.meta.institution ?? ''}</div>
 
   {/* Year */}
-  <div class="text-sm text-gray-600 tabular-nums flex items-start">{d.meta.year ?? ''}</div>
+  <div class:list={["text-sm tabular-nums flex items-start", isClickable ? "text-gray-600" : "text-gray-400"]}>{d.meta.year ?? ''}</div>
 </div>
 
 <style>
