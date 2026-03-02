@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import WorkIndexRow from './WorkIndexRow.astro';
 
-const GRID_COLS = 'grid-cols-[54px_1fr_60px] sm:grid-cols-[54px_1fr_1fr_60px]';
+const GRID_COLS = 'grid-cols-[54px_1fr_54px] sm:grid-cols-[54px_1fr_1fr_1fr_54px]';
 
 const allProjects = await getCollection('projects', (p) =>
   p.data.status !== 'hidden' && !(import.meta.env.PROD && p.data.status === 'draft')
@@ -31,18 +31,18 @@ const tableProjects = [...allProjects].sort((a, b) => {
 });
 ---
 
-<main class="max-w-screen-2xl mx-auto px-6 pt-20 pb-32 bg-white/70 backdrop-blur-xl">
+<main class="max-w-screen-2xl mx-auto px-6 pt-8 pb-32 bg-white/70 backdrop-blur-xl">
 
   {/* ── Highlight Cards ── */}
   <h1 class="text-xl text-gray-900">Case Studies</h1>
   <p class="text-xl text-gray-400 pb-6">Selected client projects with detailed process documentation.</p>
 
-  <div class="flex gap-0 overflow-x-auto pb-8 -mx-6 snap-x snap-mandatory">
-    {cardProjects.map((project, i) => (
-      <article class:list={["shrink-0 w-64 sm:w-80 md:w-96 bg-white rounded-sm overflow-hidden group snap-start transition-all duration-200", i === 0 && "ml-6"]} data-card data-thumbnail-audience={project.data.thumbnailAudience ?? 'all'}>
+  <div class="flex gap-0.5 overflow-x-auto pb-8 -mx-6 pl-6 scroll-pl-6 snap-x snap-mandatory">
+    {cardProjects.map((project) => (
+      <article class:list={["shrink-0 w-64 sm:w-80 md:w-96 bg-white overflow-hidden group snap-start transition-all duration-200"]} data-card data-thumbnail-audience={project.data.thumbnailAudience ?? 'all'}>
         <a href={`/projects/${project.id}`}>
           {project.data.cover?.image && (
-            <div class="aspect-[3/4] bg-gray-100 overflow-hidden">
+            <div class="aspect-[3/4] bg-gray-200 overflow-hidden">
               <Image
                 src={project.data.cover.image}
                 alt={project.data.cover.alt ?? ''}
@@ -52,8 +52,8 @@ const tableProjects = [...allProjects].sort((a, b) => {
               />
             </div>
           )}
-          <div class="pl-0.5 pb-12 text-xl">
-            <p class="text-gray-400">{project.data.meta.year}</p>
+          <div class="px-2 py-1 pb-12 text-xl bg-gray-300">
+            <p class="text-white">{project.data.meta.year}</p>
             <p class="text-gray-900">{project.data.title}</p>
           </div>
         </a>
@@ -76,11 +76,12 @@ const tableProjects = [...allProjects].sort((a, b) => {
 
     {/* Table header */}
     <div class:list={[
-      'grid gap-x-4 px-6 py-2 -mx-6 text-sm text-gray-900 border-b border-gray-900 sticky top-0 bg-white/90 backdrop-blur-sm z-10 select-none',
+      'grid gap-x-4 px-6 py-2 -mx-6 text-sm text-gray-900 border-b border-gray-900 sticky top-12 bg-white/90 backdrop-blur-sm z-10 select-none',
       GRID_COLS,
     ]}>
       <div></div>
       <button data-sort="title" class="sort-btn text-left transition-colors">Title <span class="sort-indicator"></span></button>
+      <div class="hidden sm:block text-left text-gray-900">Description</div>
       <button data-sort="institution" class="sort-btn text-left transition-colors hidden sm:block">Institution <span class="sort-indicator"></span></button>
       <button data-sort="year" data-dir="desc" class="sort-btn text-left transition-colors">Year <span class="sort-indicator">↓</span></button>
     </div>

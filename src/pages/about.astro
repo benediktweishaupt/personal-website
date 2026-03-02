@@ -43,12 +43,16 @@ const teaching = [
 
 <BaseLayout title={`About — ${AUTHOR_NAME}`} description="Benedikt Weishaupt — Product Designer.">
   <div class="bg-white text-gray-900">
-    <article class="max-w-screen-md py-20 px-6">
-      <AboutTextSection>
-        <p>Benedikt Weishaupt</p>
-        <p>Product Designer</p>
-        <p><a href="mailto:mail@benediktweishaupt.de" class="underline">mail</a></p>
-      </AboutTextSection>
+    <article class="max-w-screen-md pt-8 pb-20 px-6">
+      <div class="text-xl pb-5 grid grid-cols-2 gap-4">
+        <div>
+          <p>Benedikt Weishaupt</p>
+          <p class="text-gray-400">Product Designer</p>
+        </div>
+        <div>
+          <a href="mailto:mail@benediktweishaupt.de" class="underline underline-offset-4 decoration-gray-400 hover:decoration-gray-900 transition-colors">mail@benediktweishaupt.de</a>
+        </div>
+      </div>
 
       <AboutTextSection>
         <p>Benedikt is a product designer. His projects move between early computational experiments and current tooling that lets design and development teams work towards a shared source of truth.</p>

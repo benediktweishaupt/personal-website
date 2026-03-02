@@ -6,7 +6,7 @@ interface Props {
   project: CollectionEntry<'projects'>;
 }
 
-const GRID_COLS = 'grid-cols-[54px_1fr_60px] sm:grid-cols-[54px_1fr_1fr_60px]';
+const GRID_COLS = 'grid-cols-[54px_1fr_54px] sm:grid-cols-[54px_1fr_1fr_1fr_54px]';
 
 const { project } = Astro.props;
 const d = project.data;
@@ -55,9 +55,11 @@ const href = `/projects/${project.id}`;
         {d.title}{isGraduation && d.student && ` (${d.student})`}
       </span>
     )}
-    {isCaseStudy && d.description && (
-      <p class:list={["text-sm truncate hidden sm:block", isClickable ? "text-gray-900" : "text-gray-400"]}>{d.description}</p>
-    )}
+  </div>
+
+  {/* Description */}
+  <div class:list={["text-sm hidden sm:block", isClickable ? "text-gray-900" : "text-gray-400"]}>
+    <span class="desc-clamp">{d.description ?? ''}</span>
   </div>
 
   {/* Institution */}
@@ -73,5 +75,11 @@ const href = `/projects/${project.id}`;
     inset: 0;
     content: '';
     z-index: 1;
+  }
+  .desc-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
   }
 </style>

@@ -9,13 +9,35 @@ const { pageTitle } = Astro.props;
 const path = Astro.url.pathname;
 const onIndex = path === '/' || path === '';
 const onAbout = path.startsWith('/about');
-const hideTitle = onIndex || onAbout;
+const onSubpage = !onIndex && !onAbout;
+const inactiveTab = "bg-gray-200 text-gray-400 hover:text-gray-900 shadow-[inset_0_-4px_8px_rgba(0,0,0,0.06)]";
+const activeTab = "text-gray-900 bg-white";
 ---
 
-<header class="fixed z-50 inset-x-0 top-0 flex justify-center p-2">
-	<nav transition:name="site-nav" transition:animate="morph" class="flex items-stretch bg-black/70 backdrop-blur-md rounded-full p-1">
-		<span class="flex items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-100 max-w-[200px] sm:max-w-[300px] truncate">{hideTitle ? SITE_NAME : (pageTitle ?? SITE_NAME)}</span>
-		<a href="/" class:list={["flex items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-100 hover:bg-gray-100/20 rounded-full", onIndex && "bg-gray-100/20"]}>Index</a>
-		<a href="/about" class:list={["flex items-center px-3 py-1.5 text-sm font-medium font-sans text-gray-100 hover:bg-gray-100/20 rounded-full", onAbout && "bg-gray-100/20"]}>About</a>
-	</nav>
-</header>
+<div class="sticky top-0 z-50">
+	<header class="h-10 flex items-center justify-between px-6 bg-gray-100 shadow-[inset_0_-4px_8px_rgba(0,0,0,0.06)]">
+		<nav transition:name="site-nav" transition:animate="morph" class="flex items-center h-full gap-0.5 pt-1">
+			<a href="/" class:list={[
+				"flex items-center h-full px-4 text-sm rounded-t-xl transition-colors",
+				onIndex ? activeTab : inactiveTab
+			]}>Index</a>
+			<a href="/about" class:list={[
+				"flex items-center h-full px-4 text-sm rounded-t-xl transition-colors",
+				onAbout ? activeTab : inactiveTab
+			]}>About</a>
+			{onSubpage && pageTitle && (
+				<span class:list={[
+					"flex items-center h-full pl-4 pr-3 text-sm rounded-t-xl gap-2 max-w-[200px] sm:max-w-[300px]",
+					activeTab
+				]}>
+					<span class="truncate">{pageTitle}</span>
+					<a href="/" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="Close tab">&times;</a>
+				</span>
+			)}
+		</nav>
+		<span class="text-sm text-gray-400 truncate max-w-[200px] sm:max-w-[300px]">
+			{SITE_NAME}
+		</span>
+	</header>
+	<div class="h-2 bg-white"></div>
+</div>
