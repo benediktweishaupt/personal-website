@@ -6,7 +6,7 @@
   --page-px: 1rem; /* 24px — global page side margin */
 }
 
-/* Relevant Font Faces */
+/* Relevant — only Normal 400 available */
 @font-face {
   font-family: "Relevant";
   src: url("/fonts/RelevantTrial-Normal.otf") format("opentype");
@@ -15,92 +15,11 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Relevant";
-  src: url("/fonts/RelevantTrial-Italic.otf") format("opentype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Relevant";
-  src: url("/fonts/RelevantTrial-Medium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Relevant";
-  src: url("/fonts/RelevantTrial-MediumItalic.otf") format("opentype");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Relevant";
-  src: url("/fonts/RelevantTrial-Bold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Relevant";
-  src: url("/fonts/RelevantTrial-BoldItalic.otf") format("opentype");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* SangBleu Empire Font Faces */
+/* SangBleu Empire — only Regular 400 available */
 @font-face {
   font-family: "SangBleu Empire";
   src: url("/fonts/SangBleuEmpire-Regular-WebTrial.woff2") format("woff2");
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "SangBleu Empire";
-  src: url("/fonts/SangBleuEmpire-Medium-WebTrial.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "SangBleu Empire";
-  src: url("/fonts/SangBleuEmpire-Bold-WebTrial.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* SangBleu Republic Font Faces */
-@font-face {
-  font-family: "SangBleu Republic";
-  src: url("/fonts/SangBleuRepublic-Regular-WebTrial.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "SangBleu Republic";
-  src: url("/fonts/SangBleuRepublic-Medium-WebTrial.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "SangBleu Republic";
-  src: url("/fonts/SangBleuRepublic-Bold-WebTrial.woff2") format("woff2");
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
