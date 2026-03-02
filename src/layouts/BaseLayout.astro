@@ -17,7 +17,7 @@ const { title, description } = Astro.props;
     <BaseHead title={title} description={description} />
     <ClientRouter />
   </head>
-  <body class="bg-white text-gray-900 font-sans">
+  <body class="bg-white text-gray-900 font-sans antialiased">
     <slot name="header">
       <SiteHeader pageTitle={title} />
     </slot>

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --page-px: 1rem; /* 24px — global page side margin */
+}
+
 /* Relevant Font Faces */
 @font-face {
   font-family: "Relevant";

@@ -4,6 +4,43 @@ Development history of the portfolio site (benediktweishaupt.de und bewe.is form
 
 ---
 
+## Mar 2 — Tab navigation, Swiss typography, table grid, layout refinements
+
+**Swiss typography system** (`13b202d`)
+
+- Strict 2-size system: text-xl (prose) and text-sm (data) only
+- Strict 2-color system: gray-900 (active) and gray-400 (disabled/inactive)
+- Removed all uppercase, letter-spacing, and font-medium from index and about pages
+- Case study cards: title gray-900, metadata and description gray-400
+- Table rows: conditional coloring — gray-900 for clickable, gray-400 for non-clickable
+- Section subheadlines ("Selected client projects…") in gray-400
+
+**Header redesign** (`61a2fc7`)
+
+- Replaced floating dark pill with sticky tab bar (40px, bg-gray-100, inner shadow)
+- Active tab: white background, inactive: gray-200 with gray-400 text
+- Subpage tab with × close button for project/blog pages
+- 8px white strip below header (sticky as part of header wrapper)
+- SITE_NAME always shown right-aligned
+
+**Warm gray palette** (`61a2fc7`)
+
+- Remapped Tailwind `gray` to `stone` in config (warmer tones site-wide)
+
+**Table grid redesign** (`61a2fc7`)
+
+- Split title and description into separate grid columns
+- 5-column grid: thumbnail (72px) | title (1fr) | description (1fr) | institution (1fr) | year (48px)
+- Description allows up to 3 lines (line-clamp-3 via CSS `-webkit-box`)
+- Thumbnail aligned top with pt-1, aspect-[4/3], rounded-none
+- Row padding: py-1 pb-6
+
+**Hero image & layout** (`61a2fc7`)
+
+- Case study hero: 8px margin on sides and bottom, rounded corners
+- About page: pt-8, two-column grid header (name + email), gray job title
+- Horizontal scroll: `pl-6 scroll-pl-6` replaces conditional ml-6 (pure CSS fix)
+
 ## Mar 1 — Index styling, case study cards & cover updates
 
 - Linkless project rows: all text grayed out, thumbnails hidden

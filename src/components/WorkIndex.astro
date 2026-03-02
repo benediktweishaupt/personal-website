@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import WorkIndexRow from './WorkIndexRow.astro';
 
-const GRID_COLS = 'grid-cols-[54px_1fr_54px] sm:grid-cols-[54px_1fr_1fr_1fr_54px]';
+const GRID_COLS = 'grid-cols-[72px_1fr_48px] sm:grid-cols-[72px_1fr_1fr_1fr_48px]';
 
 const allProjects = await getCollection('projects', (p) =>
   p.data.status !== 'hidden' && !(import.meta.env.PROD && p.data.status === 'draft')
@@ -31,15 +31,15 @@ const tableProjects = [...allProjects].sort((a, b) => {
 });
 ---
 
-<main class="max-w-screen-2xl mx-auto px-6 pt-8 pb-32 bg-white/70 backdrop-blur-xl">
+<main class="max-w-screen-2xl mx-auto px-page pt-8 pb-32 bg-white/70 backdrop-blur-xl">
 
   {/* ── Highlight Cards ── */}
   <h1 class="text-xl text-gray-900">Case Studies</h1>
   <p class="text-xl text-gray-400 pb-6">Selected client projects with detailed process documentation.</p>
 
-  <div class="flex gap-0.5 overflow-x-auto pb-8 -mx-6 pl-6 scroll-pl-6 snap-x snap-mandatory">
+  <div class="flex gap-2 overflow-x-auto pb-8  -mx-page pl-page scroll-pl-page snap-x snap-mandatory">
     {cardProjects.map((project) => (
-      <article class:list={["shrink-0 w-64 sm:w-80 md:w-96 bg-white overflow-hidden group snap-start transition-all duration-200"]} data-card data-thumbnail-audience={project.data.thumbnailAudience ?? 'all'}>
+      <article class:list={["shrink-0 w-64 rounded-md sm:w-80 md:w-96 bg-white overflow-hidden group snap-start transition-all duration-200"]} data-card data-thumbnail-audience={project.data.thumbnailAudience ?? 'all'}>
         <a href={`/projects/${project.id}`}>
           {project.data.cover?.image && (
             <div class="aspect-[3/4] bg-gray-200 overflow-hidden">
@@ -76,7 +76,7 @@ const tableProjects = [...allProjects].sort((a, b) => {
 
     {/* Table header */}
     <div class:list={[
-      'grid gap-x-4 px-6 py-2 -mx-6 text-sm text-gray-900 border-b border-gray-900 sticky top-12 bg-white/90 backdrop-blur-sm z-10 select-none',
+      'grid gap-x-4 px-page py-2 -mx-page text-sm text-gray-900 border-b border-gray-900 sticky top-12 bg-white/90 backdrop-blur-sm z-10 select-none',
       GRID_COLS,
     ]}>
       <div></div>
@@ -92,9 +92,9 @@ const tableProjects = [...allProjects].sort((a, b) => {
     </div>
 
     {/* Count */}
-    <p id="project-count" class="text-sm text-gray-400 mt-4 px-4">
+    <!-- <p id="project-count" class="text-sm text-gray-400 mt-2 px-0">
       {tableProjects.length} projects
-    </p>
+    </p> -->
   </div>
 </main>
 
