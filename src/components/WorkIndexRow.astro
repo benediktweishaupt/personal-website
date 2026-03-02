@@ -47,7 +47,7 @@ const href = `/projects/${project.id}`;
   {/* Title */}
   <div class="min-w-0">
     {isClickable ? (
-      <a href={href} class="stretched-link block truncate text-sm text-gray-600">
+      <a href={href} class="stretched-link block truncate text-sm text-gray-900">
         {d.title}{isGraduation && d.student && ` (${d.student})`}
       </a>
     ) : (
@@ -56,15 +56,15 @@ const href = `/projects/${project.id}`;
       </span>
     )}
     {isCaseStudy && d.description && (
-      <p class="text-sm text-gray-400 truncate mt-0.5 hidden sm:block">{d.description}</p>
+      <p class:list={["text-sm truncate hidden sm:block", isClickable ? "text-gray-900" : "text-gray-400"]}>{d.description}</p>
     )}
   </div>
 
   {/* Institution */}
-  <div class:list={["text-sm truncate hidden sm:flex items-start", isClickable ? "text-gray-600" : "text-gray-400"]}>{d.meta.institution ?? ''}</div>
+  <div class:list={["text-sm truncate hidden sm:flex items-start", isClickable ? "text-gray-900" : "text-gray-400"]}>{d.meta.institution ?? ''}</div>
 
   {/* Year */}
-  <div class:list={["text-sm tabular-nums flex items-start", isClickable ? "text-gray-600" : "text-gray-400"]}>{d.meta.year ?? ''}</div>
+  <div class:list={["text-sm tabular-nums flex items-start", isClickable ? "text-gray-900" : "text-gray-400"]}>{d.meta.year ?? ''}</div>
 </div>
 
 <style>

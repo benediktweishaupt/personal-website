@@ -34,12 +34,12 @@ const tableProjects = [...allProjects].sort((a, b) => {
 <main class="max-w-screen-2xl mx-auto px-6 pt-20 pb-32 bg-white/70 backdrop-blur-xl">
 
   {/* ── Highlight Cards ── */}
-  <h1 class="text-sm uppercase tracking-widest text-gray-400 pb-1">Case Studies</h1>
-  <p class="text-sm text-gray-400 pb-4">Selected client projects with detailed process documentation.</p>
+  <h1 class="text-xl text-gray-900">Case Studies</h1>
+  <p class="text-xl text-gray-400 pb-6">Selected client projects with detailed process documentation.</p>
 
-  <div class="flex gap-3 overflow-x-auto pb-8 -mx-6 px-6 snap-x snap-mandatory">
-    {cardProjects.map((project) => (
-      <article class="shrink-0 w-64 sm:w-80 md:w-96 bg-white rounded-sm  overflow-hidden group snap-start transition-all duration-200" data-card data-thumbnail-audience={project.data.thumbnailAudience ?? 'all'}>
+  <div class="flex gap-0 overflow-x-auto pb-8 -mx-6 snap-x snap-mandatory">
+    {cardProjects.map((project, i) => (
+      <article class:list={["shrink-0 w-64 sm:w-80 md:w-96 bg-white rounded-sm overflow-hidden group snap-start transition-all duration-200", i === 0 && "ml-6"]} data-card data-thumbnail-audience={project.data.thumbnailAudience ?? 'all'}>
         <a href={`/projects/${project.id}`}>
           {project.data.cover?.image && (
             <div class="aspect-[3/4] bg-gray-100 overflow-hidden">
@@ -52,12 +52,9 @@ const tableProjects = [...allProjects].sort((a, b) => {
               />
             </div>
           )}
-          <div class="p-4">
-            <p class="text-sm text-gray-400 tracking-wide group-hover:text-gray-500">
-              {project.data.meta.institution ?? project.data.meta.category} · {project.data.meta.year}
-            </p>
-            <h2 class="text-base font-medium text-gray-600 group-hover:text-gray-700">{project.data.title}</h2>
-            {project.data.description && <p class="text-sm text-gray-400 group-hover:text-gray-500 mt-1 line-clamp-2">{project.data.description}</p>}
+          <div class="pl-0.5 pb-12 text-xl">
+            <p class="text-gray-400">{project.data.meta.year}</p>
+            <p class="text-gray-900">{project.data.title}</p>
           </div>
         </a>
       </article>
@@ -66,11 +63,11 @@ const tableProjects = [...allProjects].sort((a, b) => {
 
   {/* ── Project Table ── */}
   <div class="mt-8">
-    <h1 class="text-sm uppercase text-gray-400 pb-1">All Projects</h1>
-    <p class="text-sm text-gray-400 pb-4">Complete archive across client work, research, and teaching.</p>
+    <h1 class="text-xl text-gray-900">All Projects</h1>
+    <p class="text-xl text-gray-400 pb-3">Complete archive across client work, research, and teaching.</p>
 
     {/* Filter pills */}
-    <div class="flex gap-2 pb-4 flex-wrap" id="filter-pills">
+    <div class="flex gap-2 pb-6 flex-wrap" id="filter-pills">
       <button data-filter="all" class="filter-pill active rounded-full px-3 py-1 text-sm transition-colors">All</button>
       <button data-filter="clients" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Clients</button>
       <button data-filter="research" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Research</button>
@@ -79,13 +76,13 @@ const tableProjects = [...allProjects].sort((a, b) => {
 
     {/* Table header */}
     <div class:list={[
-      'grid gap-x-4 px-6 py-2 -mx-6 text-sm uppercase text-gray-600 border-b border-gray-600 sticky top-0 bg-white/90 backdrop-blur-sm z-10 select-none',
+      'grid gap-x-4 px-6 py-2 -mx-6 text-sm text-gray-900 border-b border-gray-900 sticky top-0 bg-white/90 backdrop-blur-sm z-10 select-none',
       GRID_COLS,
     ]}>
       <div></div>
-      <button data-sort="title" class="sort-btn text-left hover:text-gray-600 transition-colors">Title <span class="sort-indicator"></span></button>
-      <button data-sort="institution" class="sort-btn text-left hover:text-gray-600 transition-colors hidden sm:block">Institution <span class="sort-indicator"></span></button>
-      <button data-sort="year" data-dir="desc" class="sort-btn text-left hover:text-gray-600 transition-colors">Year <span class="sort-indicator">↓</span></button>
+      <button data-sort="title" class="sort-btn text-left transition-colors">Title <span class="sort-indicator"></span></button>
+      <button data-sort="institution" class="sort-btn text-left transition-colors hidden sm:block">Institution <span class="sort-indicator"></span></button>
+      <button data-sort="year" data-dir="desc" class="sort-btn text-left transition-colors">Year <span class="sort-indicator">↓</span></button>
     </div>
 
     {/* Table rows */}
@@ -94,7 +91,7 @@ const tableProjects = [...allProjects].sort((a, b) => {
     </div>
 
     {/* Count */}
-    <p id="project-count" class="text-xs text-gray-400 mt-4 px-4">
+    <p id="project-count" class="text-sm text-gray-400 mt-4 px-4">
       {tableProjects.length} projects
     </p>
   </div>
@@ -102,21 +99,21 @@ const tableProjects = [...allProjects].sort((a, b) => {
 
 <style>
   .filter-pill {
-    @apply text-gray-400 bg-transparent border border-gray-200;
+    @apply text-gray-400 bg-transparent border border-gray-400;
   }
   .filter-pill:hover {
-    @apply text-gray-600 border-gray-300;
+    @apply text-gray-900 border-gray-900;
   }
   .filter-pill.active {
-    @apply text-gray-700 bg-white border-gray-300 shadow-sm;
+    @apply text-gray-900 bg-white border-gray-900;
   }
 
   .sort-indicator {
-    @apply text-gray-300 ml-0.5;
+    @apply text-gray-400 ml-0.5;
   }
   .sort-btn[data-dir="asc"] .sort-indicator,
   .sort-btn[data-dir="desc"] .sort-indicator {
-    @apply text-gray-600;
+    @apply text-gray-900;
   }
   .sort-btn:not([data-dir]) .sort-indicator { display: none; }
 </style>

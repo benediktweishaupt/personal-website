@@ -14,7 +14,7 @@ meta:
   team: "14 internationale Designer (Design Displacement Group)"
   institution: Design Displacement Group
   year: 2014–2016
-description: From early API experiments with Gilles de Brock to DDG's evolving No Exit system — how algorithmic structures can assemble filmic narratives without predefining meaning.
+description: From early API experiments to DDG's evolving No Exit system — how algorithmic structures can assemble filmic narratives without predefining meaning.
 ---
 
 import itemToItem01 from "../../../assets/projects/algorithmic-film/item-to-item-01.png";
@@ -27,38 +27,88 @@ import workshopScreenshot from "../../../assets/projects/algorithmic-film/worksh
 import workshopScreenshot2 from "../../../assets/projects/algorithmic-film/workshop-screenshot-2.png";
 import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen-biennale.png";
 
-
 <ProjectSection variant="full" gap="10">
-  <ProjectDescription>Between 2014 and 2016, a series of projects explored how algorithmic structures could create filmic order without predefining meaning — from public API experiments to collective generative systems shown at Glasgow, Brno, and the Shenzhen Biennale.</ProjectDescription>
-  <ProjectTag variant="large">Research · Generative Systems · Installation</ProjectTag>
+  <ProjectDescription>
+    Between 2014 and 2016, a series of projects explored how algorithmic
+    structures could create filmic order without predefining meaning — from
+    public API experiments to collective generative systems shown at Glasgow,
+    Brno, and the Shenzhen Biennale.
+  </ProjectDescription>
+  <ProjectTag variant="large">
+    Research · Generative Systems · Installation
+  </ProjectTag>
 </ProjectSection>
 
 <ProjectSection variant="simple" gap="2">
   <ProjectSectionHeading>My Role</ProjectSectionHeading>
-  <ProjectTagList tags={["Researcher", "System Architect", "Artist (Design Displacement Group)"]} />
+  <ProjectTagList
+    tags={[
+      "Researcher",
+      "System Architect",
+      "Artist (Design Displacement Group)",
+    ]}
+  />
 </ProjectSection>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectTextBlock>
-    Between 2014 and 2016, we explored how algorithmic structures could create filmic order without predefining meaning. The work began as a studio experiment and evolved into a set of collective systems under the Design Displacement Group (DDG). Each project extended the same question: how far can algorithmic organisation replace direct artistic control while still producing coherent cinematic experience?
+    Between 2014 and 2016, we explored how algorithmic structures could create
+    filmic order without predefining meaning. The work began as a studio
+    experiment and evolved into a set of collective systems under the Design
+    Displacement Group (DDG). Each project extended the same question: how far
+    can algorithmic organisation replace direct artistic control while still
+    producing coherent cinematic experience?
   </ProjectTextBlock>
 </ProjectSection>
 
 <ProjectSection variant="centered" gap="7">
-  <ProjectSectionHeading>1 — Item to Item (with Gilles de Brock)</ProjectSectionHeading>
+  <ProjectSectionHeading>
+    1 — Item to Item (with Gilles de Brock)
+  </ProjectSectionHeading>
   <ProjectTextBlock>
-    The first experiments, developed together with Gilles de Brock, tested whether public APIs could drive filmic sequence. We treated services like Amazon and YouTube as narrative engines rather than data sources. Scripts followed their recommendation paths, pulling stills and clips to form associative chains — one item leading to the next. The result was less a film than a moving diagram of networked taste. It revealed how algorithmic logic already performs montage at scale. That architecture — access → traversal → assembly → output — became the foundation for later systems.
+    The first experiments, developed together with Gilles de Brock, tested
+    whether public APIs could drive filmic sequence. We treated services like
+    Amazon and YouTube as narrative engines rather than data sources. Scripts
+    followed their recommendation paths, pulling stills and clips to form
+    associative chains — one item leading to the next. The result was less a
+    film than a moving diagram of networked taste. It revealed how algorithmic
+    logic already performs montage at scale. That architecture — access →
+    traversal → assembly → output — became the foundation for later systems.
   </ProjectTextBlock>
 </ProjectSection>
 
-<ProjectMediaGrid columns={1} items={[
-  { type: "image", src: itemToItem01, alt: "Item to Item installation view", caption: "Item to Item (2015) — Installation view. Screens on medical stands display algorithmically assembled sequences from Facebook, Instagram, Amazon, YouTube, and AirBnB recommendation engines. Each screen follows a different API traversal path." },
-]} />
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: itemToItem01,
+      alt: "Item to Item installation view",
+      caption:
+        "Item to Item (2015) — Installation view. Screens on medical stands display algorithmically assembled sequences from Facebook, Instagram, Amazon, YouTube, and AirBnB recommendation engines. Each screen follows a different API traversal path.",
+    },
+  ]}
+/>
 
-<ProjectMediaGrid columns={2} items={[
-  { type: "image", src: itemToItem02, alt: "Algorithmically generated characters", caption: "Algorithmically generated 'characters' — 3D collages assembled from API-scraped content. Each object represents a persona built from recommendation chains across platforms like ArtRank, Capture, and others." },
-  { type: "image", src: itemToItem03, alt: "Further Item to Item outputs", caption: "Further Item to Item outputs. The visual language emerged entirely from the algorithm's traversal logic — no manual composition, only structural rules applied to found material." },
-]} />
+<ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "image",
+      src: itemToItem02,
+      alt: "Algorithmically generated characters",
+      caption:
+        "Algorithmically generated 'characters' — 3D collages assembled from API-scraped content. Each object represents a persona built from recommendation chains across platforms like ArtRank, Capture, and others.",
+    },
+    {
+      type: "image",
+      src: itemToItem03,
+      alt: "Further Item to Item outputs",
+      caption:
+        "Further Item to Item outputs. The visual language emerged entirely from the algorithm's traversal logic — no manual composition, only structural rules applied to found material.",
+    },
+  ]}
+/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>2 — No Exit (Design Displacement Group)</ProjectSectionHeading>
@@ -66,40 +116,105 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
     When the Design Displacement Group formed, the focus shifted from revealing relations to obscuring them. The project No Exit reused the early orchestration logic but replaced public data with material from group members. Footage, text, and sound files were uploaded to a shared Dropbox, each placed into folders named after the five acts of a classical opera: Exposition, Rising Action, Climax, Falling Action, and Resolution. Contributors never saw how their files would connect; the algorithm decided that.
 
     The system built new sequences by combining files across these acts, erasing stylistic continuity and authorship. What held the film together was timing and metadata, not narrative intent. The software was deliberately simple — written in JavaScript / Node, using lightweight HTML playback — but could run for days without restart. Each screening used a different dataset, creating a new cut every time. Versions of No Exit were shown in Glasgow, Brno, and other venues, always under changing conditions. The algorithm stayed constant; the material kept evolving.
+
   </ProjectTextBlock>
 </ProjectSection>
 
-<ProjectMediaGrid columns={1} items={[
-  { type: "image", src: noExitGlasgow, alt: "No Exit three-channel projection in Glasgow", caption: "No Exit — Three-channel projection at the Graphic Design Festival Scotland, Glasgow. The algorithm assembles aerial cityscapes, subtitles from scraped librettos, and found footage into a continuous generative film. Each screen runs independently, synchronised only by structural timing rules." },
-]} />
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: noExitGlasgow,
+      alt: "No Exit three-channel projection in Glasgow",
+      caption:
+        "No Exit — Three-channel projection at the Graphic Design Festival Scotland, Glasgow. The algorithm assembles aerial cityscapes, subtitles from scraped librettos, and found footage into a continuous generative film. Each screen runs independently, synchronised only by structural timing rules.",
+    },
+  ]}
+/>
 
-<ProjectMediaGrid columns={2} items={[
-  { type: "image", src: noExitDialogue, alt: "No Exit dialogue screens", caption: "No Exit screening detail — two projected channels showing algorithmically assembled sequences with generated dialogue subtitles. The visual language shifts constantly as new material enters the system." },
-  { type: "image", src: ddgQuilts, alt: "Five quilts collectively designed by DDG members", caption: "Five quilts collectively designed by DDG members — each quilt represents one of the five opera acts, physically encoding the same structure that drives the algorithmic film." },
-]} />
+<ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "image",
+      src: noExitDialogue,
+      alt: "No Exit dialogue screens",
+      caption:
+        "No Exit screening detail — two projected channels showing algorithmically assembled sequences with generated dialogue subtitles. The visual language shifts constantly as new material enters the system.",
+    },
+    {
+      type: "image",
+      src: ddgQuilts,
+      alt: "Five quilts collectively designed by DDG members",
+      caption:
+        "Five quilts collectively designed by DDG members — each quilt represents one of the five opera acts, physically encoding the same structure that drives the algorithmic film.",
+    },
+  ]}
+/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>3 — Workshop System (DDG)</ProjectSectionHeading>
   <ProjectTextBlock>
-    A later version translated the same framework into a teaching system. Students produced short clips and uploaded them into the same opera-based folder structure. Once the files were in place, control shifted entirely to the algorithm. Participants could watch how the system recombined their work but had no influence on the outcome. The goal was not collaboration but observation: to see how unrelated fragments could form something resembling narrative simply through structural rhythm. The engine ran locally, without network dependencies, to remain robust in classroom conditions.
+    A later version translated the same framework into a teaching system.
+    Students produced short clips and uploaded them into the same opera-based
+    folder structure. Once the files were in place, control shifted entirely to
+    the algorithm. Participants could watch how the system recombined their work
+    but had no influence on the outcome. The goal was not collaboration but
+    observation: to see how unrelated fragments could form something resembling
+    narrative simply through structural rhythm. The engine ran locally, without
+    network dependencies, to remain robust in classroom conditions.
   </ProjectTextBlock>
 </ProjectSection>
 
-<ProjectMediaGrid columns={2} items={[
-  { type: "image", src: workshopScreenshot, alt: "Workshop system screenshot", caption: "Workshop system running — students' uploaded clips recombined by the algorithm in real time" },
-  { type: "image", src: workshopScreenshot2, alt: "Workshop system output", caption: "Output from a workshop session — structural rhythm from unrelated fragments" },
-]} />
+<ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "image",
+      src: workshopScreenshot,
+      alt: "Workshop system screenshot",
+      caption:
+        "Workshop system running — students' uploaded clips recombined by the algorithm in real time",
+    },
+    {
+      type: "image",
+      src: workshopScreenshot2,
+      alt: "Workshop system output",
+      caption:
+        "Output from a workshop session — structural rhythm from unrelated fragments",
+    },
+  ]}
+/>
 
 <ProjectSection variant="centered" gap="7">
-  <ProjectSectionHeading>4 — Rise & Shine News Channel (Shenzhen Biennale)</ProjectSectionHeading>
+  <ProjectSectionHeading>
+    4 — Rise & Shine News Channel (Shenzhen Biennale)
+  </ProjectSectionHeading>
   <ProjectTextBlock>
-    For the Shenzhen Biennale, we reconfigured the framework into a live editorial system called Rise & Shine. Artists and designers acting as "reporters" uploaded short clips about the exhibited works. The algorithm selected, sequenced, and reassembled these fragments into a continuous newsfeed projected in the exhibition. The installation restarted automatically each morning and required no manual intervention. Like No Exit, it blurred the boundary between contribution and authorship: content entered through human choice, structure through code.
+    For the Shenzhen Biennale, we reconfigured the framework into a live
+    editorial system called Rise & Shine. Artists and designers acting as
+    "reporters" uploaded short clips about the exhibited works. The algorithm
+    selected, sequenced, and reassembled these fragments into a continuous
+    newsfeed projected in the exhibition. The installation restarted
+    automatically each morning and required no manual intervention. Like No
+    Exit, it blurred the boundary between contribution and authorship: content
+    entered through human choice, structure through code.
   </ProjectTextBlock>
 </ProjectSection>
 
-<ProjectMediaGrid columns={1} items={[
-  { type: "image", src: shenzhenBiennale, alt: "Rise & Shine at Shenzhen Biennale", caption: "Rise & Shine News Channel at the Shenzhen Biennale — a live editorial system reassembling reporter clips into a continuous exhibition newsfeed" },
-]} />
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: shenzhenBiennale,
+      alt: "Rise & Shine at Shenzhen Biennale",
+      caption:
+        "Rise & Shine News Channel at the Shenzhen Biennale — a live editorial system reassembling reporter clips into a continuous exhibition newsfeed",
+    },
+  ]}
+/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>Process and Principles</ProjectSectionHeading>
@@ -109,5 +224,6 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
     These constraints made the framework adaptable to different contexts without redesign. It could perform as artwork, teaching tool, or curatorial device simply by changing its input source.
 
     Across four projects, the work evolved from curiosity about algorithmic montage into a method for producing open narrative systems. Each step reduced authorship and increased structural autonomy. Instead of designing images, we designed conditions for images to relate. The code still runs. The method — input, parameters, output — turned out to be more durable than any single project that used it.
+
   </ProjectTextBlock>
 </ProjectSection>

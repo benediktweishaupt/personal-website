@@ -4,6 +4,15 @@ Development history of the portfolio site (benediktweishaupt.de und bewe.is form
 
 ---
 
+## Mar 1 — Index styling, case study cards & cover updates
+
+- Linkless project rows: all text grayed out, thumbnails hidden
+- Removed opacity overlay on case study card images
+- Added subheadline descriptions under "Case Studies" and "All Projects"
+- Reordered case studies: Compliance Workflows now second
+- Renamed institutions: Reteach GmbH → Reteach, Closed GmbH → Closed (frontmatter + about page)
+- Replaced AI course and design system cover images (new PNGs)
+
 ## Feb 28 — GitHub Pages migration
 
 - Replaced Hostinger FTP deployment with GitHub Pages (`withastro/action`)
