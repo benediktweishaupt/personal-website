@@ -29,27 +29,30 @@ import { AUTHOR_NAME } from '../consts';
         <p>When I'm not building component libraries, I make films about image stitching and inpainting algorithms.</p>
       </div>
 
-      {/* ── Toggle ── */}
+      <!-- {/* ── Toggle ── */}
       <div class="flex gap-2 pb-6" id="about-toggle">
-        <button data-view="product" class="about-pill rounded-full px-3 py-1 text-sm transition-colors cursor-pointer">Product</button>
+        <button data-view="clients" class="about-pill rounded-full px-3 py-1 text-sm transition-colors cursor-pointer">Clients</button>
         <button data-view="research" class="about-pill rounded-full px-3 py-1 text-sm transition-colors cursor-pointer">Research</button>
+        <button data-view="teaching" class="about-pill rounded-full px-3 py-1 text-sm transition-colors cursor-pointer">Teaching</button>
       </div>
 
-      {/* ── Expandable: Product ── */}
-      <div id="about-product" class="text-xl pb-6 hidden">
-        <p>At Reteach I built the design system and Vue component infrastructure for an LMS serving 1,500 companies. At Closed I set up the first design system after the rebrand — tokens, Storybook, automated pipeline. I like the moment when a tech stack breaks apart and everything has to be renegotiated.</p>
+      {/* ── Expandable: Clients ── */}
+      <div id="about-clients" class="text-xl pb-6 space-y-4 hidden">
+        <p>I tend to join companies during transitions — rebrands, tech stack migrations, the moment when what worked before stops scaling. At Reteach I built the design system and Vue component infrastructure that turned a single-engineer bottleneck into shared ownership across four frontend developers. At Closed I set up design from scratch after the rebrand: token pipelines syncing Figma decisions through GitHub Actions to Storybook, WCAG 2.1 AA across all interfaces.</p>
+        <p>Before that: Museum Utopie und Alltag (funded by Kulturstiftung des Bundes), SunExpress (Lufthansa Group), Mister Spex, wirDesign, Schwules Museum Berlin. I work best when there's a mess to untangle and a team willing to build infrastructure together.</p>
       </div>
 
       {/* ── Expandable: Research ── */}
-      <div id="about-research" class="text-xl pb-6 hidden">
-        <p>Moving Membranes investigated how the EU border agency produces and circulates images, funded by Creative Industries Fund NL. At Weißensee I taught courses on generative design, web scraping as research method, and collective authorship. I'm interested in what systems produce when nobody is looking.</p>
+      <div id="about-research" class="text-xl pb-6 space-y-4 hidden">
+        <p>Moving Membranes (2018–2020) investigated how the European Border and Coast Guard Agency produces, circulates, and legitimises images — funded by Creative Industries Fund NL, presented at Video Vortex Malta (Geert Lovink), Forecast Forum Berlin (Paolo Cirio), and London College of Communication (with Susan Schuppli). With the Design Displacement Group I built multi-screen installations for the Brno Biennial, Graphic Design Festival Scotland, and the Biennale de Chaumont.</p>
+        <p>The work sits between media forensics and graphic design — scripts that scrape, sort, and recombine institutional image archives into new readings.</p>
       </div>
 
-      {/* ── Clients ── */}
-      <div class="text-xl">
-        <p>Selected Clients</p>
-        <p class="text-gray-400">reteach, Closed, Museum Utopie und Alltag, Mister Spex, SunExpress, wirDesign, KABK (Royal Academy of Art, The Hague), Sandberg Institute Amsterdam, Schwules Museum Berlin, Metahaven, Renzo Martens, Oettinger Publishing House, Here to Support, We Are Here, Elke Uitentuis</p>
-      </div>
+      {/* ── Expandable: Teaching ── */}
+      <div id="about-teaching" class="text-xl pb-6 space-y-4 hidden">
+        <p>Five years at Weißensee Academy of Art Berlin (2016–2021), plus workshops and seminars at Jan van Eyck Academy Maastricht, KABK Den Haag, London College of Communication, BTK Berlin, and École supérieure d'art Cambrai. I teach designers to treat code as material: web scraping as research method, generative layout as argument, collective authorship as default.</p>
+        <p>Courses ranged from "All Watched Over by Machines of Loving Grace" (with Prof. Barbara Junge and Rijksmuseum Amsterdam) to the "Digital Campfire" workshop series across four European countries. Over 50 supervised thesis projects. Teaching and designing are the same activity — you build a system and then watch what people do with it.</p>
+      </div> -->
 
     </article>
   </div>
@@ -70,10 +73,11 @@ import { AUTHOR_NAME } from '../consts';
 <script>
   document.addEventListener('astro:page-load', () => {
     const pills = document.querySelectorAll<HTMLElement>('.about-pill');
-    const product = document.getElementById('about-product');
-    const research = document.getElementById('about-research');
-
-    if (!product || !research) return;
+    const sections: Record<string, HTMLElement | null> = {
+      clients: document.getElementById('about-clients'),
+      research: document.getElementById('about-research'),
+      teaching: document.getElementById('about-teaching'),
+    };
 
     pills.forEach(pill => {
       pill.addEventListener('click', () => {
@@ -82,14 +86,12 @@ import { AUTHOR_NAME } from '../consts';
 
         // Reset all
         pills.forEach(p => p.classList.remove('active'));
-        product.classList.add('hidden');
-        research.classList.add('hidden');
+        Object.values(sections).forEach(s => s?.classList.add('hidden'));
 
         // Toggle: click active pill to close, click inactive to open
-        if (!wasActive && view) {
+        if (!wasActive && view && sections[view]) {
           pill.classList.add('active');
-          if (view === 'product') product.classList.remove('hidden');
-          if (view === 'research') research.classList.remove('hidden');
+          sections[view]!.classList.remove('hidden');
         }
       });
     });
