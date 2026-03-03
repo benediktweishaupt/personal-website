@@ -1,74 +1,97 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import AboutTextSection from '../components/about/AboutTextSection.astro';
-import AboutItemList from '../components/about/AboutItemList.astro';
 import { AUTHOR_NAME } from '../consts';
-
-const exhibitions = [
-  { year: "2021", primary: "HTW Berlin School of Design and Culture.", secondary: '"Modern Talking." Lecture' },
-  { year: "2021", primary: "Edition Weissensee, Weissensee University of the Arts", secondary: '(Lisa Wilkens). "24 Ways to Mine Social Capital." Print' },
-  { year: "2020", primary: "Stroom Den Haag", secondary: '(Lua Vollaard). "False Colours: An Image Reading." Lecture' },
-  { year: "2020", primary: '"Jitsi Bitsi Spider" Lecture Series', secondary: "(with Matthias Hübner). Kunsthochschule Weißensee" },
-  { year: "2019", primary: "Symposium Fault Lines, Royal Academy of Art The Hague.", secondary: '"False Colours: An Image Reading." Lecture' },
-  { year: "2019", primary: "Video Vortex12: Streaming, Malta", secondary: '(Geert Lovink). "Moving Membranes: Aesthetic Functions of Image Operations at the EU\'s Borders." Lecture' },
-  { year: "2019", primary: "Brussels Gallery Weekend, Off Program", secondary: '(Merle Dammhayn). "Landing Platform for the Flir Systems Black Hornet Nano UAV." Nail Sculpture' },
-  { year: "2019", primary: "Forecast Forum Berlin", secondary: '(Paolo Cirio). "False Colours." Performance' },
-  { year: "2019", primary: "London College for Communication, UAL.", secondary: '"Moving Membranes" (with Susan Schuppli). Masterclass & Exhibition: "Pictures of an Exhibition"' },
-  { year: "2018", primary: "Dialogfelder Chemnitz.", secondary: '"Sanity is Something Better Outsourced." Solo exhibition and performance' },
-  { year: "2017", primary: "Embassy of the Netherlands, Berlin.", secondary: '"drie, three, drei – 100 Years de Stijl." Curation' },
-  { year: "2016", primary: "Graphic Design Festival Scotland.", secondary: '"No Exit" (Design Displacement Group). Multiscreen' },
-  { year: "2016", primary: "Brno Biennial, Prague.", secondary: '"No Exit" (Design Displacement Group). Multiscreen' },
-  { year: "2016", primary: "Royal College of Art, London.", secondary: '"Quantified Meditations" (Design Displacement Group). Lecture' },
-  { year: "2014", primary: "De Balie, Amsterdam.", secondary: "Visual Strategy for/with We Are Here. Movie screening and panel discussion" },
-  { year: "2014", primary: "Biennale internationale de design graphique, Chaumont, France.", secondary: '"Power of Mesh" (with Marthe Prins, Gilles de Brock). Exhibition' },
-];
-
-const teaching = [
-  { year: "2021", primary: "HTW Berlin School of Design and Culture.", secondary: '"Images in Disguise." 2-day workshop' },
-  { year: "2020", primary: "Kunsthochschule Weißensee.", secondary: '"All Watched Over by Machines of Loving Grace." Seminar with Prof. Barbara Junge (in collaboration with Rijksmuseum Amsterdam)' },
-  { year: "2020", primary: "BTK University of Europe Berlin.", secondary: '"Digital Design III." Seminar' },
-  { year: "2019", primary: "London College of Communication.", secondary: '"Pictures of an Exhibition." Masterclass (with Marthe Prins, guest lecturer Susan Schuppli)' },
-  { year: "2019", primary: "KABK Den Haag.", secondary: '"Event Horizon." Exhibition and seminar (with Marthe Prins)' },
-  { year: "2019", primary: "BTK University of Europe Berlin.", secondary: '"Digital Design II." Seminar' },
-  { year: "2018", primary: "Kunsthochschule Weißensee.", secondary: '"Modern Talking." Foundation class (guest lecturer Anja Grooten, Sandberg Instituut)' },
-  { year: "2018", primary: "Kunsthochschule Weißensee.", secondary: '"Orte." Exhibition and seminar with Prof. Barbara Junge' },
-  { year: "2017", primary: "Embassy of the Netherlands Berlin.", secondary: '"3 x 3 — 100 Jahre De Stijl." 1-week workshop (with Erwin Block, Prof. Wim Westerveld, HKU Utrecht)' },
-  { year: "2017", primary: "Kunsthochschule Weißensee.", secondary: '"Don\'t do it yourself → Department Catalog." Seminar (with Matthias Hübner, Prof. Barbara Junge, Prof. Wim Westerveld)' },
-  { year: "2016", primary: "Graphic Design Festival Glasgow.", secondary: '"Digital Campfire III." Workshop with Design Displacement Group' },
-  { year: "2016", primary: "Kunsthochschule Weißensee.", secondary: '"Archive for Youth Culture." Foundation class' },
-  { year: "2015", primary: "Jan van Eyck Academy Maastricht.", secondary: '"Digital Campfire II." Workshop with Design Displacement Group (with Marthe Prins, Gilles de Brock)' },
-  { year: "2014", primary: "École supérieure d'art Cambrai.", secondary: '"Digital Campfire I." Workshop with Design Displacement Group (with Marthe Prins, Gilles de Brock)' },
-];
 ---
 
 <BaseLayout title={`About — ${AUTHOR_NAME}`} description="Benedikt Weishaupt — Product Designer.">
   <div class="bg-white text-gray-900">
     <article class="max-w-screen-md pt-8 pb-20 px-page">
+
+      {/* ── Header ── */}
       <div class="text-xl pb-6 grid sm:grid-cols-2 gap-4">
         <div>
           <p>Benedikt Weishaupt</p>
           <p class="text-gray-400">Product Designer</p>
         </div>
-        <div>
-          <a href="mailto:mail@benediktweishaupt.de" class="underline underline-offset-4 decoration-gray-400 hover:decoration-gray-900 transition-colors">mail@benediktweishaupt.de</a>
+        <div class="space-y-1">
+          <p><a href="mailto:mail@benediktweishaupt.de" class="underline underline-offset-4 decoration-gray-400 hover:decoration-gray-900 transition-colors">mail@benediktweishaupt.de</a></p>
+          <p class="text-sm text-gray-400 flex gap-3">
+            <a href="https://linkedin.com/in/benedikt-weishaupt" target="_blank" rel="noopener" class="underline underline-offset-4 decoration-gray-400 hover:decoration-gray-900 hover:text-gray-900 transition-colors">LinkedIn</a>
+            <a href="https://github.com/benediktweishaupt" target="_blank" rel="noopener" class="underline underline-offset-4 decoration-gray-400 hover:decoration-gray-900 hover:text-gray-900 transition-colors">GitHub</a>
+          </p>
         </div>
       </div>
 
-      <AboutTextSection>
-        <p>Benedikt is a product designer. His projects move between early computational experiments and current tooling that lets design and development teams work towards a shared source of truth.</p>
-        <p>Most recently, he's been working with reteach, an education technology company, to future-proof their LMS solution for SMEs. Over the past year, he architected and built their design system and the infrastructure that bridges design decisions to running code.</p>
-        <p>Before that, he established product design at Closed in Hamburg, forming a cross-functional team to build their first design system following the rebrand—planning and implementing token pipelines that automate synchronization.</p>
-        <p>Benedikt has taught and lectured across European institutions on algorithmic design practices—encouraging designers to treat code as material to build systems and workflows that work for their communities.</p>
-      </AboutTextSection>
+      {/* ── Core text — always visible ── */}
+      <div class="text-xl pb-6 space-y-4">
+        <p>I build design systems and help teams make them their own. Currently at the learning platform Reteach. Before that for the German fashion brand Closed.</p>
+        <p>I've been preaching and questioning algorithmic design at European institutions for over a decade.</p>
+        <p>When I'm not building component libraries, I make films about image stitching and inpainting algorithms.</p>
+      </div>
 
-      <AboutItemList title="Selected Exhibitions & Lectures" items={exhibitions} />
+      {/* ── Toggle ── */}
+      <div class="flex gap-2 pb-6" id="about-toggle">
+        <button data-view="product" class="about-pill rounded-full px-3 py-1 text-sm transition-colors cursor-pointer">Product</button>
+        <button data-view="research" class="about-pill rounded-full px-3 py-1 text-sm transition-colors cursor-pointer">Research</button>
+      </div>
 
-      <AboutItemList title="Selected Teaching & Workshops" items={teaching} />
+      {/* ── Expandable: Product ── */}
+      <div id="about-product" class="text-xl pb-6 hidden">
+        <p>At Reteach I built the design system and Vue component infrastructure for an LMS serving 1,500 companies. At Closed I set up the first design system after the rebrand — tokens, Storybook, automated pipeline. I like the moment when a tech stack breaks apart and everything has to be renegotiated.</p>
+      </div>
 
-      <AboutTextSection>
+      {/* ── Expandable: Research ── */}
+      <div id="about-research" class="text-xl pb-6 hidden">
+        <p>Moving Membranes investigated how the EU border agency produces and circulates images, funded by Creative Industries Fund NL. At Weißensee I taught courses on generative design, web scraping as research method, and collective authorship. I'm interested in what systems produce when nobody is looking.</p>
+      </div>
+
+      {/* ── Clients ── */}
+      <div class="text-xl">
         <p>Selected Clients</p>
-        <p>reteach, Closed, Museum Utopie und Alltag, Mister Spex, SunExpress, wirDesign, KABK (Royal Academy of Art, The Hague), Sandberg Institute Amsterdam, Schwules Museum Berlin, Metahaven, Renzo Martens, Oettinger Publishing House, Here to Support, We Are Here, Elke Uitentuis</p>
-      </AboutTextSection>
+        <p class="text-gray-400">reteach, Closed, Museum Utopie und Alltag, Mister Spex, SunExpress, wirDesign, KABK (Royal Academy of Art, The Hague), Sandberg Institute Amsterdam, Schwules Museum Berlin, Metahaven, Renzo Martens, Oettinger Publishing House, Here to Support, We Are Here, Elke Uitentuis</p>
+      </div>
+
     </article>
   </div>
 </BaseLayout>
+
+<style>
+  .about-pill {
+    @apply text-gray-400 bg-transparent border border-gray-400;
+  }
+  .about-pill:hover {
+    @apply text-gray-900 border-gray-900;
+  }
+  .about-pill.active {
+    @apply text-gray-900 bg-white border-gray-900;
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const pills = document.querySelectorAll<HTMLElement>('.about-pill');
+    const product = document.getElementById('about-product');
+    const research = document.getElementById('about-research');
+
+    if (!product || !research) return;
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const view = pill.dataset.view;
+        const wasActive = pill.classList.contains('active');
+
+        // Reset all
+        pills.forEach(p => p.classList.remove('active'));
+        product.classList.add('hidden');
+        research.classList.add('hidden');
+
+        // Toggle: click active pill to close, click inactive to open
+        if (!wasActive && view) {
+          pill.classList.add('active');
+          if (view === 'product') product.classList.remove('hidden');
+          if (view === 'research') research.classList.remove('hidden');
+        }
+      });
+    });
+  });
+</script>
