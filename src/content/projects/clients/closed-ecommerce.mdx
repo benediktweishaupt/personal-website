@@ -1,7 +1,7 @@
 ---
 title: Design System for e-commerce
 status: public
-projectAudience: none
+projectAudience: all
 template: case-study
 order: 4
 cover:
@@ -17,12 +17,22 @@ meta:
 description: How Closed rebuilt its OXID webshop through a staged Svelte migration and an agnostic design-system pipeline — aligning Brand, Sales, Analytics, and Product while quietly introducing accessibility and maintainability.
 ---
 
-import figmaOverview from "../../../assets/projects/closed/figma-overview.png";
-import storybookButtons from "../../../assets/projects/closed/storybook-buttons.png";
-import storybookI18n from "../../../assets/projects/closed/storybook-i18n.png";
-import responsiveSpecs from "../../../assets/projects/closed/responsive-specs.png";
-import pdpProductCard from "../../../assets/projects/closed/pdp-product-card.png";
-import checkoutMobile from "../../../assets/projects/closed/checkout-mobile.jpg";
+import lpBefore from "../../../assets/projects/closed/lp-before.png";
+import lpAfter from "../../../assets/projects/closed/lp-after.png";
+import tokenFlow from "../../../assets/projects/closed/token-flow.png";
+import userFlowLogin from "../../../assets/projects/closed/user-flow-login.png";
+import userFlowFilter from "../../../assets/projects/closed/user-flow-filter.png";
+import typographyTokens from "../../../assets/projects/closed/typography-tokens.png";
+import responsiveImageSpecs from "../../../assets/projects/closed/responsive-image-specs.png";
+import formComponents from "../../../assets/projects/closed/form-components.png";
+import buttonVariants from "../../../assets/projects/closed/button-variants.png";
+import megaNavigation from "../../../assets/projects/closed/mega-navigation.png";
+import navCompetitorAnalysis from "../../../assets/projects/closed/nav-competitor-analysis.png";
+
+import deviceBreakdown from "../../../assets/projects/closed/device-breakdown.png";
+import mixpanelFlow from "../../../assets/projects/closed/mixpanel-flow.png";
+import figmaAnalytics from "../../../assets/projects/closed/figma-analytics.png";
+import responsiveDevices from "../../../assets/projects/closed/responsive-devices.png";
 
 <ProjectSection variant="full" gap="10">
   <ProjectDescription>
@@ -46,155 +56,185 @@ import checkoutMobile from "../../../assets/projects/closed/checkout-mobile.jpg"
     ]}
   />
 </ProjectSection>
-
 <ProjectSection variant="centered" gap="7">
   <ProjectTextBlock>
     Closed develops its digital products in Hamburg while its webshop serves
     multiple international markets. At the time, the system still ran on an OXID
     PHP / Blade base. International checkout was handled by Global-e, and Adyen
     processed payments for DACH. Alongside the webshop, a B2B shop and an
-    internal Closed Academy operated on separate front-ends. The ACNE Brand
+    internal Closed Academy operated on separate environments. The ACNE Brand
     Agency was redefining the visual identity at the same time. Each stakeholder
     worked largely in isolation, which made coordinated change difficult.
   </ProjectTextBlock>
 </ProjectSection>
 
 <ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "image",
-      src: figmaOverview,
-      alt: "Figma design system overview",
-      caption:
-        "Figma overview of the design system: Templates & Patterns across all product areas — Components, Checkout, PDP, Homepage, System Mail, and more.",
-    },
-  ]}
-/>
-
-{/* TODO: Before/After GIF — old OXID webshop PLP+PDP vs. new Svelte rebuild */}
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "image",
-      src: "/image/projects/closed/TODO-before-after-plp-pdp.gif",
-      alt: "Before/after comparison: OXID PHP webshop vs. Svelte rebuild — Product Listing Page and Product Detail Page",
-      caption:
-        "[PLACEHOLDER] Animated comparison of the old OXID/Blade webshop and the rebuilt Svelte front-end — PLP and PDP side by side.",
-    },
-  ]}
-/>
-
-<ProjectSection variant="centered" gap="7">
-  <ProjectSectionHeading>Context and Organisation</ProjectSectionHeading>
-  <ProjectTextBlock>
-    To coordinate across functions, a taskforce was created with members from Brand / Marketing, Data Analytics, Sales / Customer Support, and Product. Its goal was to rebuild the webshop in line with company strategy and analytics while improving internal collaboration. My responsibility was to introduce the concept of a design system, explain its process advantages, and embed that thinking in teams that had never used shared UI infrastructure before.
-
-    Several external and internal partners were involved: Global-e, Adyen, ACNE, the B2B division, and the Academy team. They were consulted when overlapping features required alignment, and the design system was planned to support all of them in the long run.
-
-  </ProjectTextBlock>
-</ProjectSection>
-
-{/* TODO: Sitemap before/after + Personas */}
-
-<ProjectMediaGrid
   columns={2}
   items={[
     {
       type: "image",
-      src: "/image/projects/closed/TODO-sitemap-before-after.png",
-      alt: "Sitemap comparison: before and after the restructuring",
-      caption:
-        "[PLACEHOLDER] Sitemap before and after — showing the simplification of the information architecture across markets.",
+      src: lpBefore,
+      alt: "Landing page before the migration",
+      caption: "Landing page before the migration — OXID PHP/Blade frontend.",
     },
     {
       type: "image",
-      src: "/image/projects/closed/TODO-personas.png",
-      alt: "Persona definitions used for the redesign",
+      src: lpAfter,
+      alt: "Landing page after the migration",
       caption:
-        "[PLACEHOLDER] Key personas guiding the redesign decisions across Brand, Sales, and Product.",
+        "Landing page after — Svelte components, tokenised layout, unified grid.",
     },
   ]}
 />
+<ProjectSection variant="centered" gap="7">
+  <ProjectCallout label="Disclaimer">
+    On the left you see the product as I joined, on the right as I left. If you
+    expect a visual big-bang refactor, this isn't for you — it's about changing
+    the table while people are eating at it.
+  </ProjectCallout>
+</ProjectSection>
 
+<ProjectSection variant="centered" gap="7">
+  <ProjectSectionHeading>Context and Organisation</ProjectSectionHeading>
+  <ProjectTextBlock>
+    To coordinate across functions, a taskforce was created with members from
+    Brand / Marketing, Data Analytics, Sales / Customer Support, and Product.
+    Its goal was to rebuild the webshop in line with company strategy and
+    analytics while improving internal collaboration. My responsibility was to
+    introduce the concept of a design system, explain its process advantages,
+    and embed that thinking in teams that had never used shared UI
+    infrastructure before. Several external and internal partners were involved:
+    Global-e, Adyen, ACNE, the B2B division, and the Academy team. They were
+    consulted when overlapping features required alignment, and the design
+    system was planned to support all of them in the long run.
+  </ProjectTextBlock>
+</ProjectSection>
+
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: tokenFlow,
+      alt: "Token consumption flow across applications",
+      caption:
+        "Token consumption flow across all four applications — webshop, B2B shop, Academy, and marketing site.",
+    },
+  ]}
+/>
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>Process and Decisions</ProjectSectionHeading>
   <ProjectTextBlock>
-    The project focused on performance, maintainability, and developer experience. A full rebuild was unrealistic while business operations continued, so the team implemented a staged migration — releasing one market at a time. Countries using Global-e launched first; the more complex Adyen checkout followed. During migration, the webshop remained live through two seasonal sales plus stock- and archive-sale events.
+    The project focused on performance, maintainability, and developer experience. A full rebuild was unrealistic while business operations continued, so the team implemented a staged big-bang migration — releasing one market at a time. Countries using Global-e launched first; the more complex Adyen checkout followed. During migration, the webshop remained live through two seasonal sales plus stock- and archive-sale events.
 
     My role centred on the design-system architecture and token pipeline. We based it on Figma Token Studio → GitHub version control → a custom Node script → Tailwind theme → Storybook. This approach kept the system independent from ACNE's separately developed brand guidelines and provided engineering with a single technical source of truth. When brand values changed, tokens could be updated once and recompiled across all products.
 
   </ProjectTextBlock>
 </ProjectSection>
+  <ProjectMediaGrid
+    columns={3}
+    items={[
+      {
+        type: "image",
+        src: typographyTokens,
+        alt: "Typography token mapping",
+        caption:
+          "Typography token mapping: Tailwind size classes mapped to headline and body text scales across mobile and desktop.",
+      },
+      {
+        type: "image",
+        src: responsiveImageSpecs,
+        alt: "Responsive image specification",
+        caption:
+          "Responsive image specification for the replatforming: breakpoint-based source declarations mapped to Tailwind's size system, from thumbnail to full-width landing page.",
+        span: 2,
+      },
+    ]}
+  />
+<ProjectSection variant="centered" gap="7">
+  <ProjectSectionHeading>Scoping the System</ProjectSectionHeading>
+  <ProjectTextBlock>
+    Before defining components, we interviewed future users of the design system — developers and brand designers alike. Three recurring areas of uncertainty emerged: typography, whitespace, and image ratios. Both groups described these as constant sources of friction. The most pressing concern was responsive behaviour — no one knew how elements should adapt across breakpoints, because the old PHP templates had never required it.
 
-{/* TODO: Design system flow diagram */}
+    We used the interviews to build consensus. With Sales and Brand we reviewed a wide range of existing page layouts to identify which directions felt right for the brand. With frontend we worked backwards from browser capabilities — designing image handling around native source-set behaviour rather than imposing arbitrary crops. Typography and colour turned out to be straightforward mapping exercises. The real design challenge was spacing: enforcing an 8 pt grid across an interface built entirely on ad-hoc values.
 
-<ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "image",
-      src: "/image/projects/closed/TODO-design-system-flow.png",
-      alt: "Design system token pipeline: Figma Token Studio → GitHub → Node → Tailwind → Storybook",
-      caption:
-        "[PLACEHOLDER] The agnostic token pipeline: Figma Token Studio → GitHub version control → custom Node script → Tailwind theme → Storybook. One source, multiple products.",
-    },
-  ]}
-/>
+  </ProjectTextBlock>
 
-{/* TODO: SALE landingpages vs. SALE filter analysis */}
+</ProjectSection>
+
+<ProjectSection variant="centered" gap="7">  <ProjectMediaGrid
+    columns={2}
+    items={[
+      {
+        type: "image",
+        src: formComponents,
+        alt: "Form field components in Figma",
+        caption:
+          "Form field components in Figma: default, error, and success states with validation messages for inputs, selects, and codes.",
+      },
+      {
+        type: "image",
+        src: buttonVariants,
+        alt: "Button component variants",
+        caption:
+          "Button component variants: default, segmented, and split layouts in default and full-width modes — the unified system replacing four separate implementations.",
+      },
+    ]}
+  />
+  <ProjectSectionHeading>Base Components</ProjectSectionHeading>
+  <ProjectTextBlock>
+    Using the collectively defined layout principles — the typography mapping, the 8 pt grid, the image specifications — I built the first set of base components. They stayed close to the existing visual language on purpose. The point was not to redesign the interface but to give it a structural backbone: a small, reliable set of tokens that every future decision could reference.
+
+    Form fields came first — inputs, selects, validation states — because they touched every flow in the webshop. Buttons followed: the old codebase had four separate implementations, so unifying them into a single component with default, segmented, and split variants removed an entire class of inconsistency. Both components were documented in Figma and Storybook simultaneously to keep design and engineering aligned from the start.
+
+    For stakeholder meetings I prepared large numbers of assembled page views rather than isolated components. The goal was to demonstrate that we were not choosing a fixed layout but building a system — one that could express different compositions while maintaining a consistent look and feel.
+
+  </ProjectTextBlock>
+</ProjectSection>
 
 <ProjectMediaGrid
   columns={2}
   items={[
     {
-      type: "image",
-      src: "/image/projects/closed/TODO-sale-landing-vs-filter.png",
-      alt: "Analysis: dedicated SALE landing pages vs. SALE filter on PLP",
+      type: "video",
+      src: "/video/projects/closed/plp-recording.mp4",
+      alt: "Product listing page after migration",
       caption:
-        "[PLACEHOLDER] Analysis comparing dedicated SALE landing pages against integrating a SALE filter directly into the existing Product Listing Page.",
+        "Product listing page after migration — Svelte components with tokenised grid layout.",
     },
     {
-      type: "image",
-      src: "/image/projects/closed/TODO-plp-filter-competitor-analysis.png",
-      alt: "PLP filter competitor analysis",
+      type: "video",
+      src: "/video/projects/closed/pdp-recording.mp4",
+      alt: "Product detail page after migration",
       caption:
-        "[PLACEHOLDER] Competitor analysis of PLP filter patterns across fashion e-commerce — benchmarking filter UX for the new architecture.",
+        "Product detail page after migration — responsive image specs, size selection, and add-to-cart flow.",
     },
   ]}
 />
+<ProjectSection variant="centered" gap="7">
+  <ProjectSectionHeading>Svelte as Catalyst</ProjectSectionHeading>
+  <ProjectTextBlock>
+    The migration from PHP/Blade to Svelte did more than modernise the stack — it gave the team a tangible reason to care about the design system. Responsiveness, which had been impractical with server-rendered templates, suddenly became possible. The product manager saw an opportunity: use the pre-checkout sign-up dialog and the size selector — two of the most interaction-heavy flows — as proof that a JavaScript-enriched frontend could visibly improve the user experience.
 
+    The demonstrations landed well. Developers saw what reactive components could do for form validation and state management. Stakeholders outside engineering saw smoother interactions and faster page transitions. The refactor stopped being an abstract technical project and became something people across the company could point to. That shift in perception — from "engineering wants to rewrite things" to "the product is getting better" — was as important as any architectural decision.
+  </ProjectTextBlock>
+</ProjectSection>
 <ProjectMediaGrid
   columns={2}
   items={[
     {
       type: "image",
-      src: storybookButtons,
-      alt: "Storybook button component documentation",
+      src: userFlowLogin,
+      alt: "User flow: login and registration pathways",
       caption:
-        "Storybook documentation of the button system: Primary, Secondary, Outline, and Disabled states — the shared component language across all products.",
+        "User flow: login and registration pathways with decision nodes for password reset and email confirmation.",
     },
     {
       type: "image",
-      src: storybookI18n,
-      alt: "Internationalised tag components in Storybook",
+      src: userFlowFilter,
+      alt: "User journey: filter and size selection",
       caption:
-        "Internationalised tag components in Storybook: light/dark mode, multiple sizes, tested across en-US, zh-TW, and ar-AE locales.",
-    },
-  ]}
-/>
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "image",
-      src: responsiveSpecs,
-      alt: "Responsive image specification",
-      caption:
-        "Responsive image specification for the replatforming: breakpoint-based source declarations mapped to Tailwind's size system, defining picture types from thumbnail to full-width landing page.",
+        "User journey: filter and size selection screens with branching paths leading to product display outcomes.",
     },
   ]}
 />
@@ -207,37 +247,38 @@ import checkoutMobile from "../../../assets/projects/closed/checkout-mobile.jpg"
     Because the brand guidelines were owned entirely by ACNE, the design system had to remain brand-agnostic. It defined structure, spacing, and interaction patterns that could later be themed by Brand without changing logic. This separation allowed updates to happen safely while maintaining a consistent framework.
 
   </ProjectTextBlock>
+  <ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: navCompetitorAnalysis,
+      alt: "Competitor analysis of the navigation structure",
+      caption:
+        "Competitor analysis of navigation structures — used to demonstrate the overload in our own navigation to stakeholders.",
+    },
+  ]}
+/>
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: deviceBreakdown,
+      alt: "Google Analytics device breakdown",
+      caption:
+        "Google Analytics device breakdown: 61% mobile, 36% desktop, 3% tablet. Mobile-first was not a preference but a requirement.",
+    },
+    {
+      type: "image",
+      src: mixpanelFlow,
+      alt: "Mixpanel user flow from the Cart page",
+      caption:
+        "Mixpanel user flow from the Cart page: 36.6% return to homepage, 9.2% open menu, 8.2% view Sale PDP — data that informed navigation and conversion decisions.",
+    },
+  ]}
+/>
 </ProjectSection>
-
-{/* TODO: PDP Design exploration GIF */}
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "image",
-      src: "/image/projects/closed/TODO-pdp-design-exploration.gif",
-      alt: "PDP design exploration — iterating on the product detail page layout",
-      caption:
-        "[PLACEHOLDER] Design exploration for the Product Detail Page — animated walkthrough of layout iterations from initial concepts to final implementation.",
-    },
-  ]}
-/>
-
-{/* TODO: Dark themed customer area */}
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "image",
-      src: "/image/projects/closed/TODO-dark-customer-area.png",
-      alt: "Dark themed customer account area",
-      caption:
-        "[PLACEHOLDER] The dark-themed customer account area — a distinct visual layer separating the personal account experience from the bright product-facing webshop.",
-    },
-  ]}
-/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>Implementation and Team Impact</ProjectSectionHeading>
@@ -250,86 +291,19 @@ import checkoutMobile from "../../../assets/projects/closed/checkout-mobile.jpg"
     process as unusually smooth and energising — an indicator of regained
     confidence.
   </ProjectTextBlock>
+  <ProjectMediaGrid
+    columns={1}
+    items={[
+      {
+        type: "image",
+        src: figmaAnalytics,
+        alt: "Figma Library Analytics showing component adoption",
+        caption:
+          "Figma Library Analytics: CLSD-Styles component insertions grew from near zero to 400 within one month — adoption happened through use, not mandate.",
+      },
+    ]}
+  />
 </ProjectSection>
-
-{/* TODO: Responsive buttons — sign in + size selection */}
-
-<ProjectMediaGrid
-  columns={2}
-  items={[
-    {
-      type: "image",
-      src: "/image/projects/closed/TODO-responsive-buttons-signin.png",
-      alt: "Responsive button design for sign-in flow",
-      caption:
-        "[PLACEHOLDER] Responsive button system for the sign-in flow — adapting from full-width mobile to inline desktop.",
-    },
-    {
-      type: "image",
-      src: "/image/projects/closed/TODO-responsive-buttons-size-select.png",
-      alt: "Responsive size selector buttons",
-      caption:
-        "[PLACEHOLDER] Size selection buttons across breakpoints — balancing touch targets on mobile with compact desktop layout.",
-    },
-  ]}
-/>
-
-<ProjectMediaGrid
-  columns={2}
-  items={[
-    {
-      type: "image",
-      src: pdpProductCard,
-      alt: "Product Detail Page in the live Svelte webshop",
-      caption:
-        "Product Detail Page in the live Svelte webshop: 'Long Caban Jacket' with ECO-PRODUCT badge, colour swatches, and size selector.",
-    },
-    {
-      type: "image",
-      src: checkoutMobile,
-      alt: "Mobile checkout flow",
-      caption:
-        "Mobile checkout flow with order summary. The checkout handled both Global-e (international) and Adyen (DACH) payment processing.",
-    },
-  ]}
-/>
-
-{/* TODO: One-pager checkout vs. old 4-step checkout */}
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "image",
-      src: "/image/projects/closed/TODO-checkout-comparison.png",
-      alt: "Checkout redesign: one-page checkout vs. old 4-step process",
-      caption:
-        "[PLACEHOLDER] The checkout consolidation — from a 4-step wizard to a single-page checkout, reducing drop-off while maintaining payment provider requirements (Global-e + Adyen).",
-    },
-  ]}
-/>
-
-{/* TODO: Global-e international checkout screenshots */}
-
-<ProjectMediaGrid
-  columns={2}
-  items={[
-    {
-      type: "image",
-      src: "/image/projects/closed/TODO-global-e-01.png",
-      alt: "Global-e international checkout integration",
-      caption:
-        "[PLACEHOLDER] Global-e checkout integration — handling currency conversion, international shipping, and localized payment methods.",
-    },
-    {
-      type: "image",
-      src: "/image/projects/closed/TODO-global-e-02.png",
-      alt: "Global-e market-specific checkout view",
-      caption:
-        "[PLACEHOLDER] Market-specific checkout view via Global-e — different payment options and tax handling per country.",
-    },
-  ]}
-/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectTextBlock>
@@ -339,3 +313,16 @@ import checkoutMobile from "../../../assets/projects/closed/checkout-mobile.jpg"
 
   </ProjectTextBlock>
 </ProjectSection>
+
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: responsiveDevices,
+      alt: "Responsive design across devices",
+      caption:
+        "Responsive design across devices: tablet lookbook, mobile product detail, desktop landing page — one design system serving all formats.",
+    },
+  ]}
+/>

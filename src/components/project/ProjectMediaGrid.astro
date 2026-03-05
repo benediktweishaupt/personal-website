@@ -8,6 +8,7 @@ interface MediaItem {
   src: string | ImageMetadata;
   alt?: string;
   caption?: string;
+  span?: number;
 }
 
 interface Props {
@@ -27,7 +28,7 @@ const gridClasses: Record<number, string> = {
 
 <div class={gridClasses[columns]}>
   {items.map((item) => (
-    <div>
+    <div class={item.span === 2 ? 'md:col-span-2' : item.span === 3 ? 'md:col-span-3' : undefined}>
       {item.type === 'video' ? (
         <video
           src={item.src as string}

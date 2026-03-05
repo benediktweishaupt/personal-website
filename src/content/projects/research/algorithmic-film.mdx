@@ -7,7 +7,7 @@ order: 5
 cover:
   image: ../../../assets/projects/algorithmic-film/cover.jpg
   alt: Three-channel projection installation showing algorithmically assembled film sequences
-  caption: From API experiments to collective generative systems — algorithmic structures as filmic order
+  caption: No Exit — three-channel video installation, Glasgow. Algorithmically assembled projections with scraped libretto subtitles.
 meta:
   category: research
   format: Research · Installation
@@ -17,12 +17,20 @@ meta:
 description: From early API experiments to DDG's evolving No Exit system — how algorithmic structures can assemble filmic narratives without predefining meaning.
 ---
 
-import itemToItem01 from "../../../assets/projects/algorithmic-film/item-to-item-01.png";
-import itemToItem02 from "../../../assets/projects/algorithmic-film/item-to-item-02.png";
-import itemToItem03 from "../../../assets/projects/algorithmic-film/item-to-item-03.png";
+import itemToItemApi from "../../../assets/projects/algorithmic-film/item-to-item-api.jpg";
+import youtubeTraversal from "../../../assets/projects/algorithmic-film/youtube-api-traversal.png";
+import founderPortrait from "../../../assets/projects/algorithmic-film/founder-portrait.jpg";
+import scraperInterface from "../../../assets/projects/algorithmic-film/scraper-interface.png";
+import cardFilling from "../../../assets/projects/algorithmic-film/card-filling.png";
+import botMonitor from "../../../assets/projects/algorithmic-film/bot-monitor.jpg";
+import itemToItemLandscape from "../../../assets/projects/algorithmic-film/item-to-item-landscape.jpg";
+import installationOriginal from "../../../assets/projects/algorithmic-film/installation-original.jpg";
+import installationCleaned from "../../../assets/projects/algorithmic-film/installation-cleaned.png";
+import beTheFirst from "../../../assets/projects/algorithmic-film/be-the-first.png";
 import noExitGlasgow from "../../../assets/projects/algorithmic-film/no-exit-glasgow.jpg";
-import noExitDialogue from "../../../assets/projects/algorithmic-film/no-exit-dialogue.jpg";
-import ddgQuilts from "../../../assets/projects/algorithmic-film/ddg-quilts.png";
+import brnoBiennale from "../../../assets/projects/algorithmic-film/brno-biennale.jpg";
+import dividerScreen from "../../../assets/projects/algorithmic-film/divider-screen.jpg";
+import dialogueScreens from "../../../assets/projects/algorithmic-film/dialogue-screens.jpg";
 import workshopScreenshot from "../../../assets/projects/algorithmic-film/workshop-screenshot.png";
 import workshopScreenshot2 from "../../../assets/projects/algorithmic-film/workshop-screenshot-2.png";
 import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen-biennale.png";
@@ -78,14 +86,34 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
 </ProjectSection>
 
 <ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "image",
+      src: itemToItemApi,
+      alt: "Early experiments with API-driven narratives",
+      caption:
+        "Early experiments with API-driven narratives — Dribbble, YouTube, Amazon, Getty Images. Each API returned a different visual grammar.",
+    },
+    {
+      type: "image",
+      src: youtubeTraversal,
+      alt: "Detail view of a YouTube API traversal",
+      caption:
+        "Detail view of a YouTube API traversal. Extracted keywords steer the next query, building an associative chain across videos.",
+    },
+  ]}
+/>
+
+<ProjectMediaGrid
   columns={1}
   items={[
     {
       type: "image",
-      src: itemToItem01,
-      alt: "Item to Item installation view",
+      src: founderPortrait,
+      alt: "Working on the Item to Item prototype",
       caption:
-        "Item to Item (2015) — Installation view. Screens on medical stands display algorithmically assembled sequences from Facebook, Instagram, Amazon, YouTube, and AirBnB recommendation engines. Each screen follows a different API traversal path.",
+        "Founder portrait. Working on the Item to Item prototype — laptops, cables, borrowed monitors, and not much sleep.",
     },
   ]}
 />
@@ -95,23 +123,82 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
   items={[
     {
       type: "image",
-      src: itemToItem02,
-      alt: "Algorithmically generated characters",
+      src: scraperInterface,
+      alt: "First setup combining multiple scrapers into one interface",
       caption:
-        "Algorithmically generated 'characters' — 3D collages assembled from API-scraped content. Each object represents a persona built from recommendation chains across platforms like ArtRank, Capture, and others.",
+        "First setup combining multiple scrapers into one interface. Zalando, Amazon, and image search results rendered as a Mondrian-like grid.",
     },
     {
       type: "image",
-      src: itemToItem03,
-      alt: "Further Item to Item outputs",
+      src: cardFilling,
+      alt: "Filling cards with interdependent API content",
       caption:
-        "Further Item to Item outputs. The visual language emerged entirely from the algorithm's traversal logic — no manual composition, only structural rules applied to found material.",
+        "Filling the cards with content that depends on each other — one API's output triggers the next query. Maps, product images, and text fragments side by side.",
+    },
+  ]}
+/>
+
+<ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "image",
+      src: botMonitor,
+      alt: "Close-up of a monitor running the Item to Item bot",
+      caption:
+        "Close-up of a monitor running the Item to Item bot. The title bar reads the current traversal — \"bot-1 — new interior added to collection.\"",
+    },
+    {
+      type: "image",
+      src: itemToItemLandscape,
+      alt: "Algorithmically generated characters from recommendation chains",
+      caption:
+        "Algorithmically generated \"characters\" — 3D collages assembled from recommendation chains across ArtRank, Capture, and others. No manual composition, only structural rules applied to found material.",
+    },
+  ]}
+/>
+
+<ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "image",
+      src: installationOriginal,
+      alt: "Installation view, original",
+      caption:
+        "Installation view, original. Monitors on medical stands, tangled cables, 3D-printed collages on the wall. The mess was part of the show — but distracting enough that I Photoshopped it out in 2015.",
+    },
+    {
+      type: "image",
+      src: installationCleaned,
+      alt: "Installation view, cleaned up",
+      caption:
+        "Installation view, cleaned up. Same space, cables and clutter removed.",
     },
   ]}
 />
 
 <ProjectSection variant="centered" gap="7">
-  <ProjectSectionHeading>2 — No Exit (Design Displacement Group)</ProjectSectionHeading>
+  <ProjectSectionHeading>
+    2 — Experiments in data-driven narratives
+  </ProjectSectionHeading>
+</ProjectSection>
+
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: beTheFirst,
+      alt: "Be the First Person to Like This — word chain from YouTube videos",
+      caption:
+        "Be the First Person to Like This — built a word chain from two YouTube videos with zero views but similarities in title or description.",
+    },
+  ]}
+/>
+
+<ProjectSection variant="centered" gap="7">
+  <ProjectSectionHeading>3 — No Exit (Design Displacement Group)</ProjectSectionHeading>
   <ProjectTextBlock>
     When the Design Displacement Group formed, the focus shifted from revealing relations to obscuring them. The project No Exit reused the early orchestration logic but replaced public data with material from group members. Footage, text, and sound files were uploaded to a shared Dropbox, each placed into folders named after the five acts of a classical opera: Exposition, Rising Action, Climax, Falling Action, and Resolution. Contributors never saw how their files would connect; the algorithm decided that.
 
@@ -128,7 +215,20 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
       src: noExitGlasgow,
       alt: "No Exit three-channel projection in Glasgow",
       caption:
-        "No Exit — Three-channel projection at the Graphic Design Festival Scotland, Glasgow. The algorithm assembles aerial cityscapes, subtitles from scraped librettos, and found footage into a continuous generative film. Each screen runs independently, synchronised only by structural timing rules.",
+        "No Exit — three-channel projection, Graphic Design Festival Scotland, Glasgow. Aerial cityscapes, scraped libretto subtitles, and found footage. Each screen runs independently, synchronised only by structural timing. The subtitle reads: \"Twelve o'clock noon. An ordinary scene, an ordinary city.\"",
+    },
+  ]}
+/>
+
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: brnoBiennale,
+      alt: "First installation at the Brno Design Biennale",
+      caption:
+        "First installation at the Brno Design Biennale, 2015. Quilts on mannequin stands, screens glowing in a vaulted hall — the physical and the algorithmic side by side.",
     },
   ]}
 />
@@ -138,23 +238,23 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
   items={[
     {
       type: "image",
-      src: noExitDialogue,
-      alt: "No Exit dialogue screens",
+      src: dividerScreen,
+      alt: "Divider screen — RESURRECTION, part 5",
       caption:
-        "No Exit screening detail — two projected channels showing algorithmically assembled sequences with generated dialogue subtitles. The visual language shifts constantly as new material enters the system.",
+        "Divider screen — \"RESURRECTION, part 5.\" Generated title cards break the continuous feed into acts, giving the film a rhythm the algorithm doesn't otherwise provide.",
     },
     {
       type: "image",
-      src: ddgQuilts,
-      alt: "Five quilts collectively designed by DDG members",
+      src: dialogueScreens,
+      alt: "Dialogue screens with scraped libretto fragments",
       caption:
-        "Five quilts collectively designed by DDG members — each quilt represents one of the five opera acts, physically encoding the same structure that drives the algorithmic film.",
+        "Dialogue screens. Scraped libretto fragments layered over collaged landscapes: \"So? Who are you thinking about?\" — \"I'm thinking about the others.\"",
     },
   ]}
 />
 
 <ProjectSection variant="centered" gap="7">
-  <ProjectSectionHeading>3 — Workshop System (DDG)</ProjectSectionHeading>
+  <ProjectSectionHeading>4 — Workshop System (DDG)</ProjectSectionHeading>
   <ProjectTextBlock>
     A later version translated the same framework into a teaching system.
     Students produced short clips and uploaded them into the same opera-based
@@ -173,23 +273,23 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
     {
       type: "image",
       src: workshopScreenshot,
-      alt: "Workshop system screenshot",
+      alt: "Workshop interface with topic filters",
       caption:
-        "Workshop system running — students' uploaded clips recombined by the algorithm in real time",
+        "Workshop interface. Topic filters — History, Camouflage, Propaganda, Provocation, Currencies — and quantity sliders let participants shape the input without controlling the output.",
     },
     {
       type: "image",
       src: workshopScreenshot2,
-      alt: "Workshop system output",
+      alt: "Digital Campfire workshop",
       caption:
-        "Output from a workshop session — structural rhythm from unrelated fragments",
+        "Digital Campfire workshop — 15 designers building one poster collaboratively in Google Sheets. Each cell is a design decision.",
     },
   ]}
 />
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>
-    4 — Rise & Shine News Channel (Shenzhen Biennale)
+    5 — Rise & Shine News Channel (Shenzhen Biennale)
   </ProjectSectionHeading>
   <ProjectTextBlock>
     For the Shenzhen Biennale, we reconfigured the framework into a live
@@ -211,7 +311,7 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
       src: shenzhenBiennale,
       alt: "Rise & Shine at Shenzhen Biennale",
       caption:
-        "Rise & Shine News Channel at the Shenzhen Biennale — a live editorial system reassembling reporter clips into a continuous exhibition newsfeed",
+        "Rise & Shine News Channel — the website running at the Bi-City Biennale of Urbanism/Architecture, Shenzhen, 2015. A performative newsroom where DDG members acted as live reporters.",
     },
   ]}
 />

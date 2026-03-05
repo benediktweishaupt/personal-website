@@ -6,3 +6,4 @@ export { default as ProjectSectionHeading } from './ProjectSectionHeading.astro'
 export { default as ProjectTextBlock } from './ProjectTextBlock.astro';
 export { default as ProjectMediaGrid } from './ProjectMediaGrid.astro';
 export { default as ProjectFullWidthImage } from './ProjectFullWidthImage.astro';
+export { default as ProjectCallout } from './ProjectCallout.astro';
