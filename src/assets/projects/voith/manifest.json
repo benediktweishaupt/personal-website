@@ -1,0 +1,48 @@
+{
+  "project": "Voith",
+  "slug": "voith",
+  "pages": "44-45",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 737,
+      "height": 1094,
+      "pdf_page": 22,
+      "portfolio_pages": "43-44"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 277,
+      "height": 453,
+      "pdf_page": 22,
+      "portfolio_pages": "43-44"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 455,
+      "height": 277,
+      "pdf_page": 22,
+      "portfolio_pages": "43-44"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 2330,
+      "height": 1406,
+      "pdf_page": 23,
+      "portfolio_pages": "45-46"
+    }
+  ],
+  "captions": [
+    "SEMINARS",
+    "Education: Seminars: Event/Horizon",
+    "Event/Horizon",
+    "Event/Horizon explores the limitless hunger for the calculation of “future” —",
+    "future-price, future-crime, future-climate, future-use, future-wish, and so on —",
+    "within an epoch supposedly marked by the impossibility of scientific forecasts.",
+    "Taking place in Turrell’s Celestial Vault, the sky collapses onto the earth: a negative",
+    "space, blind to Mercator’s projection, in which vectors lose their capacity for",
+    "territorial navigation. Within this off-shore vault, students hallucinate models for",
+    "investment, cast pictorial, anachronistic divinations and render scientific models",
+    "into vessels for cheerful superstition."
+  ]
+}

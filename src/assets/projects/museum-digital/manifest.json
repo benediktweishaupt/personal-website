@@ -1,0 +1,31 @@
+{
+  "project": "Museum Utopie und Alltag Digital",
+  "slug": "museum-digital",
+  "pages": "36-39",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 2329,
+      "height": 1406,
+      "pdf_page": 18,
+      "portfolio_pages": "35-36"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 2330,
+      "height": 1405,
+      "pdf_page": 19,
+      "portfolio_pages": "37-38"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 2325,
+      "height": 1405,
+      "pdf_page": 20,
+      "portfolio_pages": "39-40"
+    }
+  ],
+  "captions": [
+    "Museum Utopie und Alltag Digital"
+  ]
+}

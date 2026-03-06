@@ -1,0 +1,88 @@
+{
+  "project": "More Free Wifi",
+  "slug": "more-free-wifi",
+  "pages": "137-139",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 456,
+      "height": 341,
+      "pdf_page": 69,
+      "portfolio_pages": "137-138"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 830,
+      "height": 1105,
+      "pdf_page": 69,
+      "portfolio_pages": "137-138"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 456,
+      "height": 341,
+      "pdf_page": 69,
+      "portfolio_pages": "137-138"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 1108,
+      "height": 685,
+      "pdf_page": 70,
+      "portfolio_pages": "139-140"
+    },
+    {
+      "filename": "portfolio-05.png",
+      "width": 303,
+      "height": 481,
+      "pdf_page": 70,
+      "portfolio_pages": "139-140"
+    },
+    {
+      "filename": "portfolio-06.png",
+      "width": 303,
+      "height": 481,
+      "pdf_page": 70,
+      "portfolio_pages": "139-140"
+    },
+    {
+      "filename": "portfolio-07.png",
+      "width": 303,
+      "height": 481,
+      "pdf_page": 70,
+      "portfolio_pages": "139-140"
+    },
+    {
+      "filename": "portfolio-08.png",
+      "width": 549,
+      "height": 413,
+      "pdf_page": 70,
+      "portfolio_pages": "139-140"
+    }
+  ],
+  "captions": [
+    "Generated Posters posing questions towards the usage and control of Network Infrastructure",
+    "Wifi Dish",
+    "More Free Wifi",
+    "“More Free Wifi” is an investigation into alternative forms of network-based",
+    "communication. As a group, we started our investigation by acquiring the",
+    "knowledge to build our own mesh network. To do this, we met with various",
+    "freifunk associations in Germany and the Netherlands. Questions and",
+    "answers that arose from the dialogue with the associations were transmitted",
+    "to a neighbouring building with the help of the self-built antennas and visually",
+    "displayed there.",
+    "Cloud-suits we used while conducting workshops",
+    "Research: False Colours",
+    "False Colours",
+    "False Colours is an installation consisting of four performances, a glass membrane",
+    "and a picture frame holding two reproduced documents.",
+    "The first document in the picture frame is an image produced by a European",
+    "border guard. It was submitted to the 2014 photo competition of the European",
+    "Border and Coast Guard Agency (Frontex). The second document is the awardcertificate for the image, handed out during the competitions award ceremony.",
+    "The four performances relate this image to four documents from core areas of",
+    "Frontex’s image production and expose Frontex’s linguistic and rhetorical handling",
+    "of (operational) image material.",
+    "Four Performantive-Readings, glass panel, felt-tip-pen, performer: Andrea Karch, 2019.",
+    "Photographs by Emilia Clark."
+  ]
+}

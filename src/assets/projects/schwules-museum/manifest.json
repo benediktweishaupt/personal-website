@@ -1,0 +1,22 @@
+{
+  "project": "schwulesmuseum.de",
+  "slug": "schwules-museum",
+  "pages": "34-35",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 1904,
+      "height": 1312,
+      "pdf_page": 17,
+      "portfolio_pages": "33-34"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 2329,
+      "height": 1406,
+      "pdf_page": 18,
+      "portfolio_pages": "35-36"
+    }
+  ],
+  "captions": []
+}

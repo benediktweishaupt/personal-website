@@ -1,0 +1,60 @@
+{
+  "project": "Sandberg Institute",
+  "slug": "sandberg-open-day",
+  "pages": "16-19",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 1406,
+      "height": 2330,
+      "pdf_page": 8,
+      "portfolio_pages": "15-16"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 2330,
+      "height": 1406,
+      "pdf_page": 9,
+      "portfolio_pages": "17-18"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 555,
+      "height": 351,
+      "pdf_page": 10,
+      "portfolio_pages": "19-20"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 363,
+      "height": 494,
+      "pdf_page": 10,
+      "portfolio_pages": "19-20"
+    },
+    {
+      "filename": "portfolio-05.png",
+      "width": 362,
+      "height": 498,
+      "pdf_page": 10,
+      "portfolio_pages": "19-20"
+    },
+    {
+      "filename": "portfolio-06.png",
+      "width": 1110,
+      "height": 685,
+      "pdf_page": 10,
+      "portfolio_pages": "19-20"
+    }
+  ],
+  "captions": [
+    "Sandberg Institute",
+    "For one and a half years I was in charge of the Sandberg Institute as a designer.",
+    "The tasks included the creation of all advertising materials and guidance systems",
+    "for the open day, the graduate exhibition and other public events of the university.",
+    "Open day brochure and signage system",
+    "Poster: Call for admission",
+    "Open Day announcement poster.",
+    "Open Day Floor plan",
+    "Closed Design System"
+  ]
+}

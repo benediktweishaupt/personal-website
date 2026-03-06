@@ -1,0 +1,80 @@
+{
+  "project": "Digital vs. Archaic ESAC Cambrai",
+  "slug": "digital-campfire-esac",
+  "pages": "118-119",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 960,
+      "height": 536,
+      "pdf_page": 59,
+      "portfolio_pages": "117-118"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 736,
+      "height": 413,
+      "pdf_page": 59,
+      "portfolio_pages": "117-118"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 451,
+      "height": 617,
+      "pdf_page": 59,
+      "portfolio_pages": "117-118"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 455,
+      "height": 617,
+      "pdf_page": 59,
+      "portfolio_pages": "117-118"
+    },
+    {
+      "filename": "portfolio-05.png",
+      "width": 469,
+      "height": 627,
+      "pdf_page": 60,
+      "portfolio_pages": "119-120"
+    },
+    {
+      "filename": "portfolio-06.png",
+      "width": 455,
+      "height": 613,
+      "pdf_page": 60,
+      "portfolio_pages": "119-120"
+    },
+    {
+      "filename": "portfolio-07.png",
+      "width": 549,
+      "height": 345,
+      "pdf_page": 60,
+      "portfolio_pages": "119-120"
+    },
+    {
+      "filename": "portfolio-08.png",
+      "width": 549,
+      "height": 345,
+      "pdf_page": 60,
+      "portfolio_pages": "119-120"
+    }
+  ],
+  "captions": [
+    "Research: Digital vs. Archaic ESAC Cambrai",
+    "Digital vs. Archaic ESAC Cambrai",
+    "The seven-day workshop with 90 undergraduate students from ESAC Cambrai,",
+    "focused on the transitions from analogue to digital in relation to communication.",
+    "For this, we divided the students into five groups that dealt with the transition from",
+    "the archaic to the digital in the areas of belief, propaganda, cryptography, history",
+    "and capital.",
+    "Each group also had collective tasks to complete, such as designing an evening",
+    "program, preparing a meal, and documenting work processes. These tasks were",
+    "also related to the group theme.",
+    "Over painting music videos",
+    "Printing wraps",
+    "Poster for the workshop",
+    "Daily dinners themed by the workshop groups",
+    "Printing with glow in the dark ink"
+  ]
+}

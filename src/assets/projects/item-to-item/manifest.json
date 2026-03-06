@@ -1,0 +1,88 @@
+{
+  "project": "Item to Item",
+  "slug": "item-to-item",
+  "pages": "150-153",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 731,
+      "height": 481,
+      "pdf_page": 75,
+      "portfolio_pages": "149-150"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 549,
+      "height": 751,
+      "pdf_page": 75,
+      "portfolio_pages": "149-150"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 757,
+      "height": 407,
+      "pdf_page": 76,
+      "portfolio_pages": "151-152"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 757,
+      "height": 400,
+      "pdf_page": 76,
+      "portfolio_pages": "151-152"
+    },
+    {
+      "filename": "portfolio-05.png",
+      "width": 761,
+      "height": 404,
+      "pdf_page": 76,
+      "portfolio_pages": "151-152"
+    },
+    {
+      "filename": "portfolio-06.png",
+      "width": 761,
+      "height": 407,
+      "pdf_page": 76,
+      "portfolio_pages": "151-152"
+    },
+    {
+      "filename": "portfolio-07.png",
+      "width": 758,
+      "height": 402,
+      "pdf_page": 76,
+      "portfolio_pages": "151-152"
+    },
+    {
+      "filename": "portfolio-08.png",
+      "width": 759,
+      "height": 407,
+      "pdf_page": 76,
+      "portfolio_pages": "151-152"
+    },
+    {
+      "filename": "portfolio-09.png",
+      "width": 2330,
+      "height": 1405,
+      "pdf_page": 77,
+      "portfolio_pages": "153-154"
+    }
+  ],
+  "captions": [
+    "Research: Item to Item",
+    "Personas generated on the screen based on multiple APIs",
+    "Personas generated on the screen based on multiple APIs",
+    "Installation View during the Exhibition “Somewhere between cats ans ruin“",
+    "Item to Item",
+    "How smart and seductive are algorithms on the internet who are made to",
+    "sell products to us? This predictive Intelligence is mostly used to analyse our",
+    "behaviour. Item to item is an experiment which turns this process around. It uses",
+    "recommendations – the predictions of our future consumption – to render a",
+    "person. The question hereby is what is the intelligence of algorithms who run our",
+    "daily life on the internet and how far are they biased towards certain kinds of target",
+    "groups?",
+    "Item to Item uses the most advanced intelligent products from Amazon, Youtube,",
+    "Walmart or Ikea to render average people and their daily routines.",
+    "Packaging for the divers Algorithms",
+    "Packaging for the divers Algorithms"
+  ]
+}

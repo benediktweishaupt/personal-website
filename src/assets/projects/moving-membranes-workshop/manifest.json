@@ -1,0 +1,79 @@
+{
+  "project": "Green Screen",
+  "slug": "moving-membranes-workshop",
+  "pages": "92-95",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 451,
+      "height": 617,
+      "pdf_page": 46,
+      "portfolio_pages": "91-92"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 736,
+      "height": 481,
+      "pdf_page": 46,
+      "portfolio_pages": "91-92"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 517,
+      "height": 662,
+      "pdf_page": 46,
+      "portfolio_pages": "91-92"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 1210,
+      "height": 727,
+      "pdf_page": 47,
+      "portfolio_pages": "93-94"
+    },
+    {
+      "filename": "portfolio-05.png",
+      "width": 455,
+      "height": 683,
+      "pdf_page": 48,
+      "portfolio_pages": "95-96"
+    },
+    {
+      "filename": "portfolio-06.png",
+      "width": 455,
+      "height": 685,
+      "pdf_page": 48,
+      "portfolio_pages": "95-96"
+    },
+    {
+      "filename": "portfolio-07.png",
+      "width": 362,
+      "height": 277,
+      "pdf_page": 48,
+      "portfolio_pages": "95-96"
+    },
+    {
+      "filename": "portfolio-08.png",
+      "width": 1105,
+      "height": 617,
+      "pdf_page": 48,
+      "portfolio_pages": "95-96"
+    }
+  ],
+  "captions": [
+    "Education: Seminars: Green Screen",
+    "spectating and commenting images in front of green screen",
+    "First read out of a script infront of green screen",
+    "Green Screen",
+    "we used a green screen studio as tool of ideation to build a narrative. Starting from",
+    "one inititial image a set of images was produced. In the studio students started",
+    "interacting with the image material in a performative way.",
+    "Goal was to produce Gestures, Words, Signals and Sentences which combine",
+    "into a overarching narrative. Over the course of the workshop these narratives",
+    "circulated among all the participants and by doing so got enriched with",
+    "metanarratives. On the last day we practiced one-take recordings of the stories.",
+    "Two cameras in dialogue",
+    "GRADUATION WORKS",
+    "Education: Graduation Works: Open the Black Box"
+  ]
+}

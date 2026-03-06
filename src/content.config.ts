@@ -35,6 +35,8 @@ const projects = defineCollection({
 			format: z.string().optional(),
 			team: z.string().optional(),
 			institution: z.string().optional(),
+			client: z.string().optional(),
+			funding: z.string().optional(),
 			year: z.string().optional(),
 			role: z.string().optional(),
 		}),
@@ -43,6 +45,7 @@ const projects = defineCollection({
 		collaborators: z.string().optional(),
 		curators: z.string().optional(),
 		credits_image: z.string().optional(),
+		credits_video: z.string().optional(),
 		student: z.string().optional(),
 	}),
 });

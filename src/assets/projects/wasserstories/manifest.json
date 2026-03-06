@@ -1,0 +1,72 @@
+{
+  "project": "Water Stories",
+  "slug": "wasserstories",
+  "pages": "106-107",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 923,
+      "height": 1093,
+      "pdf_page": 53,
+      "portfolio_pages": "105-106"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 455,
+      "height": 341,
+      "pdf_page": 53,
+      "portfolio_pages": "105-106"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 455,
+      "height": 341,
+      "pdf_page": 53,
+      "portfolio_pages": "105-106"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 732,
+      "height": 481,
+      "pdf_page": 54,
+      "portfolio_pages": "107-108"
+    },
+    {
+      "filename": "portfolio-05.png",
+      "width": 547,
+      "height": 345,
+      "pdf_page": 54,
+      "portfolio_pages": "107-108"
+    },
+    {
+      "filename": "portfolio-06.png",
+      "width": 360,
+      "height": 489,
+      "pdf_page": 54,
+      "portfolio_pages": "107-108"
+    },
+    {
+      "filename": "portfolio-07.png",
+      "width": 359,
+      "height": 547,
+      "pdf_page": 54,
+      "portfolio_pages": "107-108"
+    }
+  ],
+  "captions": [
+    "Water Stories",
+    "“Water stories” comprises an exhibition concept that addresses the water crisis",
+    "and the closely related privatization. The exhibition pieces highlight privatization",
+    "stories from various countries around the world, which are mirrored onto",
+    "German locations via a fiction and presented as if they had happened there. By",
+    "interweaving content from the stories that actually happened and real and current",
+    "facts about the German mirror locations, absurd-realistic future scenarios are",
+    "created.",
+    "Map with violent incidents related to the shortage",
+    "of drinkable water. By Caroline Breidenbach.",
+    "Three screens with fictional camera footage. Reporting about demonstrations",
+    "against the privatization of water. By Caroline Breidenbach.",
+    "Exhibition mock up. By Caroline Breidenbach.",
+    "Exhibition Prototype setup. By Caroline Breidenbach."
+  ]
+}

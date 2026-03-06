@@ -1,0 +1,131 @@
+{
+  "project": "False Colours",
+  "slug": "false-colours",
+  "pages": "140-148",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 1108,
+      "height": 685,
+      "pdf_page": 70,
+      "portfolio_pages": "139-140"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 303,
+      "height": 481,
+      "pdf_page": 70,
+      "portfolio_pages": "139-140"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 303,
+      "height": 481,
+      "pdf_page": 70,
+      "portfolio_pages": "139-140"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 303,
+      "height": 481,
+      "pdf_page": 70,
+      "portfolio_pages": "139-140"
+    },
+    {
+      "filename": "portfolio-05.png",
+      "width": 549,
+      "height": 413,
+      "pdf_page": 70,
+      "portfolio_pages": "139-140"
+    },
+    {
+      "filename": "portfolio-06.png",
+      "width": 2330,
+      "height": 1405,
+      "pdf_page": 71,
+      "portfolio_pages": "141-142"
+    },
+    {
+      "filename": "portfolio-07.png",
+      "width": 736,
+      "height": 481,
+      "pdf_page": 72,
+      "portfolio_pages": "143-144"
+    },
+    {
+      "filename": "portfolio-08.png",
+      "width": 1106,
+      "height": 685,
+      "pdf_page": 72,
+      "portfolio_pages": "143-144"
+    },
+    {
+      "filename": "portfolio-09.png",
+      "width": 1108,
+      "height": 617,
+      "pdf_page": 73,
+      "portfolio_pages": "145-146"
+    },
+    {
+      "filename": "portfolio-10.png",
+      "width": 753,
+      "height": 507,
+      "pdf_page": 73,
+      "portfolio_pages": "145-146"
+    }
+  ],
+  "captions": [
+    "Research: False Colours",
+    "False Colours",
+    "False Colours is an installation consisting of four performances, a glass membrane",
+    "and a picture frame holding two reproduced documents.",
+    "The first document in the picture frame is an image produced by a European",
+    "border guard. It was submitted to the 2014 photo competition of the European",
+    "Border and Coast Guard Agency (Frontex). The second document is the awardcertificate for the image, handed out during the competitions award ceremony.",
+    "The four performances relate this image to four documents from core areas of",
+    "Frontex’s image production and expose Frontex’s linguistic and rhetorical handling",
+    "of (operational) image material.",
+    "Four Performantive-Readings, glass panel, felt-tip-pen, performer: Andrea Karch, 2019.",
+    "Photographs by Emilia Clark.",
+    "False Colors, Training, Forecast Forum Berlin, 2019",
+    "Training",
+    "False Colors, Exhibition view, Forecast Forum Berlin, 2019",
+    "In the performance, a trainer of Flir Systems (industry leader in thermal imaging)",
+    "explains operational considerations for different colour palettes used for imaging",
+    "thermal data. On a plexiglass membrane she lists; IronBow, Lava, Fusion, Sepia,",
+    "Arctic, BlackHot and White hot.",
+    "Research: False Colours",
+    "False Colors, S.T.A.R.T.U.P., Forecast Forum Berlin, 2019",
+    "False Colors, In the Field, Forecast Forum Berlin, 2019",
+    "S.T.A.R.T.U.P.",
+    "The performance exposes the absurdly persistent use of acronyms in EU funded",
+    "research and development projects, such as “SUNNY: Smart UNmanned aerial",
+    "vehicle sensor Network for detection of border crossing and illegal entrY”.",
+    "In the Field",
+    "The performance highlights the dramatic rhetoric used by RoBorder, an EU funded",
+    "project. In a fictional case-story, RoBorder imagines the operational benefits for",
+    "interoperable infrared sensors to anticipate counter surveillance at a Hungarian",
+    "Border.",
+    "False Colours, In the Field, script excerpt",
+    "Research: False Colours",
+    "False Colors, The Jury, Forecast Forum Berlin, 2019",
+    "The Jury",
+    "The performance highlights how a jury, consisting of Frontex employees, judges",
+    "the “creativity expressed” in the photograph, as described in the competitions",
+    "Terms and Conditions.",
+    "False Colors, Membrane, Forecast Forum Berlin 2019",
+    "Membrane: Prop for the performance False Colours. Four pieces are performed",
+    "around a plexiglass membrane, with a two-way speaker grill. The membrane",
+    "quotes from typical environments of seamless transit, acts as protection",
+    "from infrared sensorial capture and is used to draw out didactic graphs with a",
+    "whiteboard marker.",
+    "Acrylic-glass, metal screws. 200 cm × 110 cm.",
+    "Research: False Colours: An Image Reading",
+    "01 — 06: 6 slides of keynote presentation False Colors, an Image Reading, 2020",
+    "False Colours: An Image Reading",
+    "In a 15 Minute talk, we ponder how and why a thermal image was made by a",
+    "European border guard and argue that the operational power of the image moves",
+    "guards along the lines of borders, directs EU funding into the security sector and",
+    "plays part in border crime predictions."
+  ]
+}

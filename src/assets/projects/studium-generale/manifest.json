@@ -1,0 +1,48 @@
+{
+  "project": "Studium Generale",
+  "slug": "studium-generale",
+  "pages": "14-15",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 545,
+      "height": 341,
+      "pdf_page": 7,
+      "portfolio_pages": "13-14"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 547,
+      "height": 345,
+      "pdf_page": 7,
+      "portfolio_pages": "13-14"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 1106,
+      "height": 683,
+      "pdf_page": 7,
+      "portfolio_pages": "13-14"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 545,
+      "height": 345,
+      "pdf_page": 7,
+      "portfolio_pages": "13-14"
+    },
+    {
+      "filename": "portfolio-05.png",
+      "width": 1406,
+      "height": 2330,
+      "pdf_page": 8,
+      "portfolio_pages": "15-16"
+    }
+  ],
+  "captions": [
+    "Sandberg Institute",
+    "For one and a half years I was in charge of the Sandberg Institute as a designer.",
+    "The tasks included the creation of all advertising materials and guidance systems",
+    "for the open day, the graduate exhibition and other public events of the university."
+  ]
+}

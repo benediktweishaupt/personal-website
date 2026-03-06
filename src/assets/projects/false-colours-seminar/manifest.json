@@ -1,0 +1,75 @@
+{
+  "project": "False Colours (seminar)",
+  "slug": "false-colours-seminar",
+  "pages": "86-87",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 549,
+      "height": 345,
+      "pdf_page": 43,
+      "portfolio_pages": "85-86"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 549,
+      "height": 345,
+      "pdf_page": 43,
+      "portfolio_pages": "85-86"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 547,
+      "height": 345,
+      "pdf_page": 43,
+      "portfolio_pages": "85-86"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 1108,
+      "height": 685,
+      "pdf_page": 43,
+      "portfolio_pages": "85-86"
+    }
+  ],
+  "captions": [
+    "Education: Seminars: False Colours",
+    "UNDERSTAND",
+    "WEEK 1 & 2",
+    "personas",
+    "company",
+    "product",
+    "users",
+    "documentation",
+    "False Colours",
+    "WEEK 5, 8, 11",
+    "False Colours is an installation consisting of four performances, a glass membrane",
+    "WEEK and a picture frame holding two reproduced documents.",
+    "conceptual map",
+    "7 - 13 The first document in the picture frame is an image produced by a European",
+    "border guard. It was submitted to the 2014 photo competition of the European",
+    "Border and Coast Guard Agency (Frontex). The second document is the awardcertificate for the image, handed out during the competitions award ceremony.",
+    "The four performances relate this image to four documents from core areas of",
+    "Frontex’s image production and expose Frontex’s linguistic and rhetorical handling",
+    "of (operational) image material.",
+    "TEST",
+    "user testing",
+    "IDEA",
+    "steakholder testing",
+    "SPECULATE",
+    "site map",
+    "Four Performantive-Readings, glass panel, felt-tip-pen, performer: Andrea Karch, 2019.",
+    "Photographs by Emilia Clark.",
+    "WEEK 6",
+    "wireframes",
+    "WEEK 4 & 5",
+    "storyboard",
+    "design sprints",
+    "GUI / NUI",
+    "physical prototyping",
+    "video prototyping",
+    "paper prototyping",
+    "creative brief",
+    "WEEK 3"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "project": "MA(CHI)NE",
+  "slug": "ma-chi-ne",
+  "pages": "100-101",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 1110,
+      "height": 683,
+      "pdf_page": 50,
+      "portfolio_pages": "99-100"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 306,
+      "height": 481,
+      "pdf_page": 50,
+      "portfolio_pages": "99-100"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 306,
+      "height": 481,
+      "pdf_page": 50,
+      "portfolio_pages": "99-100"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 306,
+      "height": 481,
+      "pdf_page": 50,
+      "portfolio_pages": "99-100"
+    },
+    {
+      "filename": "portfolio-05.png",
+      "width": 549,
+      "height": 345,
+      "pdf_page": 50,
+      "portfolio_pages": "99-100"
+    },
+    {
+      "filename": "portfolio-06.png",
+      "width": 362,
+      "height": 207,
+      "pdf_page": 51,
+      "portfolio_pages": "101-102"
+    },
+    {
+      "filename": "portfolio-07.png",
+      "width": 362,
+      "height": 205,
+      "pdf_page": 51,
+      "portfolio_pages": "101-102"
+    },
+    {
+      "filename": "portfolio-08.png",
+      "width": 362,
+      "height": 205,
+      "pdf_page": 51,
+      "portfolio_pages": "101-102"
+    },
+    {
+      "filename": "portfolio-09.png",
+      "width": 734,
+      "height": 483,
+      "pdf_page": 51,
+      "portfolio_pages": "101-102"
+    },
+    {
+      "filename": "portfolio-10.png",
+      "width": 545,
+      "height": 345,
+      "pdf_page": 51,
+      "portfolio_pages": "101-102"
+    }
+  ],
+  "captions": [
+    "Stills from diagnostic screens, explaining",
+    "the analysis. By Carolin Lei",
+    "Installation view. By Carolin Lei",
+    "MA(CHI)NE",
+    "MA(CHI)NE imagines a future scenario is in which artificial intelligences heal with",
+    "the help of ancient Chinese medicine. The boundaries between intimacy and",
+    "technological distance, between past and future, between “East” and “West” are",
+    "deliberately blurred.",
+    "The structure of the installation includes three screens, as well as an audio track,",
+    "which represent the “treating AI” and a life-size model of the body on which with",
+    "the help of a beamer is projected.",
+    "Projection mapping, showing energy streams in the Body. By Carolin Lei",
+    "Education: Graduation Works: Wir müssen reden"
+  ]
+}

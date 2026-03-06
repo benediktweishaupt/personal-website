@@ -1,0 +1,52 @@
+{
+  "project": "Closed Design System",
+  "slug": "closed",
+  "pages": "20-23",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 555,
+      "height": 351,
+      "pdf_page": 10,
+      "portfolio_pages": "19-20"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 363,
+      "height": 494,
+      "pdf_page": 10,
+      "portfolio_pages": "19-20"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 362,
+      "height": 498,
+      "pdf_page": 10,
+      "portfolio_pages": "19-20"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 1110,
+      "height": 685,
+      "pdf_page": 10,
+      "portfolio_pages": "19-20"
+    },
+    {
+      "filename": "portfolio-05.png",
+      "width": 2329,
+      "height": 1405,
+      "pdf_page": 11,
+      "portfolio_pages": "21-22"
+    },
+    {
+      "filename": "portfolio-06.png",
+      "width": 2325,
+      "height": 1401,
+      "pdf_page": 12,
+      "portfolio_pages": "23-24"
+    }
+  ],
+  "captions": [
+    "Closed Design System"
+  ]
+}

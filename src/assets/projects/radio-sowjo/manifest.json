@@ -1,0 +1,87 @@
+{
+  "project": "Radiosowjo",
+  "slug": "radio-sowjo",
+  "pages": "76-77",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 642,
+      "height": 1161,
+      "pdf_page": 38,
+      "portfolio_pages": "75-76"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 263,
+      "height": 373,
+      "pdf_page": 38,
+      "portfolio_pages": "75-76"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 264,
+      "height": 373,
+      "pdf_page": 38,
+      "portfolio_pages": "75-76"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 358,
+      "height": 481,
+      "pdf_page": 38,
+      "portfolio_pages": "75-76"
+    },
+    {
+      "filename": "portfolio-05.png",
+      "width": 643,
+      "height": 1161,
+      "pdf_page": 39,
+      "portfolio_pages": "77-78"
+    },
+    {
+      "filename": "portfolio-06.png",
+      "width": 975,
+      "height": 273,
+      "pdf_page": 39,
+      "portfolio_pages": "77-78"
+    },
+    {
+      "filename": "portfolio-07.png",
+      "width": 451,
+      "height": 345,
+      "pdf_page": 39,
+      "portfolio_pages": "77-78"
+    },
+    {
+      "filename": "portfolio-08.png",
+      "width": 453,
+      "height": 345,
+      "pdf_page": 39,
+      "portfolio_pages": "77-78"
+    }
+  ],
+  "captions": [
+    "Education: Seminars: Radiosowjo",
+    "Radiosowjo",
+    "Radiosowjo is a temporary radio station, which students of the department of",
+    "visual communication of the Kunsthochschule Weißensee in the context of a study",
+    "trip to Sauen for four days.",
+    "Every day in the evening we released a previously produced radio program,",
+    "consisting of six broadcasts. It was broadcasted via the website weissensee.blog.",
+    "Daily tuning-in in the former Ice-Depot at the Gutshof Sauen. The Round arch produced excellent acoustics.",
+    "Invitation to the People of Sauen for collective tuning in",
+    "Website featuring all episodes",
+    "Late night production",
+    "Education: Seminars: The Invisible Cities",
+    "The Invisible Cities",
+    "“The Invisible Cities” by Italo Calvino is a mosaic of 55 portraits of cities that",
+    "Marco Polo reported to the Chinese emperor Kublai Khan. The portraits are",
+    "wonderful poetic symbols of the paradoxes of human existence. Based on selected",
+    "cities of the book, full-spherical 360° illustrations for mobile phones and tablet",
+    "computers are to be developed, which interpret and narrate the respective city with",
+    "animations, minimal interaction and sound in a playful and exciting way. The plan",
+    "is to publish a digital publication of the results. We will accompany each project",
+    "creatively and technically and provide ready-made solutions that answer the",
+    "programming questions as far as possible. We will work in Unity."
+  ]
+}

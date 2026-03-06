@@ -1,0 +1,74 @@
+{
+  "project": "Open Lobby",
+  "slug": "open-lobby",
+  "pages": "10-13",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 2330,
+      "height": 1405,
+      "pdf_page": 5,
+      "portfolio_pages": "9-10"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 2330,
+      "height": 1406,
+      "pdf_page": 6,
+      "portfolio_pages": "11-12"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 545,
+      "height": 341,
+      "pdf_page": 7,
+      "portfolio_pages": "13-14"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 547,
+      "height": 345,
+      "pdf_page": 7,
+      "portfolio_pages": "13-14"
+    },
+    {
+      "filename": "portfolio-05.png",
+      "width": 1106,
+      "height": 683,
+      "pdf_page": 7,
+      "portfolio_pages": "13-14"
+    },
+    {
+      "filename": "portfolio-06.png",
+      "width": 545,
+      "height": 345,
+      "pdf_page": 7,
+      "portfolio_pages": "13-14"
+    }
+  ],
+  "captions": [
+    "Open Lobby",
+    "“Open Lobby” is a participatory project with refugees from “We are here” in",
+    "Amsterdam. For the Open Studios at the Jan van Eyck Academy in 2014, an office was",
+    "set up that allowed visitors to independently create dialogues on the refugee situation.",
+    "The dialogues were based on text fragments from public statements of various",
+    "personalities on different aspects of the refugee situation in the Netherlands.",
+    "The graphics of the exhibition as well as the logo were developed in cooperation with",
+    "the refugees. Press pictures of “Frontex” were used as visual material.",
+    "Postcards offering insight into several Dutch theme parks",
+    "which have been re purposed into refugee camps.",
+    "Welcome-Desk and Information-Wall of the Open Lobby at the Jan van Eyck academy.",
+    "Elke Uitenthuis researching legal documents concerned",
+    "with the refugee situation in the Netherlands",
+    "Open Lobby",
+    "“Open Lobby” is a participatory project with refugees from “We are here” in",
+    "Amsterdam. For the Open Studios at the Jan van Eyck Academy in 2014, an office was",
+    "set up that allowed visitors to independently create dialogues on the refugee situation.",
+    "The dialogues were based on text fragments from public statements of various",
+    "personalities on different aspects of the refugee situation in the Netherlands.",
+    "The graphics of the exhibition as well as the logo were developed in cooperation with",
+    "the refugees. Press pictures of “Frontex” were used as visual material.",
+    "Leaflet for visitors to assemble researched documents",
+    "Studium Generale"
+  ]
+}

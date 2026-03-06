@@ -1,0 +1,66 @@
+{
+  "project": "Power of Mesh",
+  "slug": "the-power-of-mesh",
+  "pages": "133-136",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 303,
+      "height": 205,
+      "pdf_page": 67,
+      "portfolio_pages": "133-134"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 303,
+      "height": 205,
+      "pdf_page": 67,
+      "portfolio_pages": "133-134"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 549,
+      "height": 345,
+      "pdf_page": 67,
+      "portfolio_pages": "133-134"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 549,
+      "height": 345,
+      "pdf_page": 67,
+      "portfolio_pages": "133-134"
+    },
+    {
+      "filename": "portfolio-05.png",
+      "width": 549,
+      "height": 341,
+      "pdf_page": 67,
+      "portfolio_pages": "133-134"
+    },
+    {
+      "filename": "portfolio-06.png",
+      "width": 2330,
+      "height": 1406,
+      "pdf_page": 68,
+      "portfolio_pages": "135-136"
+    }
+  ],
+  "captions": [
+    "Research: Power of Mesh",
+    "Power of Mesh",
+    "Starting from the ideal of a decentralized alternative internet based on “wireless",
+    "networks”, “The Power of Mesh” deals with companies, states and NGOs that use",
+    "this infrastructure for their own programs.",
+    "During the “Festival du Graphisme Chaumont”, a local mesh network presented a",
+    "non-linear story that showed the interdependencies between DIY activists, data",
+    "collectors, cultural colonists, hardware providers and decentralization advocates.",
+    "Using a smart phone, people could log into various hotspots on the festival",
+    "grounds to do so. A poster installation provided additional information about the",
+    "five actors.",
+    "Poster detail and wifi range extender",
+    "Posters about US AID and AWMN Athens",
+    "Installation View. Front: Poster about Ubiquity — one mayor Hardware supplier for mesh technology",
+    "Research: More Free Wifi"
+  ]
+}

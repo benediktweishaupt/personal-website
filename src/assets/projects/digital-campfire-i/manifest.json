@@ -1,0 +1,79 @@
+{
+  "project": "Digital Campfire van Eyck",
+  "slug": "digital-campfire-i",
+  "pages": "116-117",
+  "images": [
+    {
+      "filename": "portfolio-01.png",
+      "width": 546,
+      "height": 345,
+      "pdf_page": 58,
+      "portfolio_pages": "115-116"
+    },
+    {
+      "filename": "portfolio-02.png",
+      "width": 549,
+      "height": 341,
+      "pdf_page": 58,
+      "portfolio_pages": "115-116"
+    },
+    {
+      "filename": "portfolio-03.png",
+      "width": 545,
+      "height": 345,
+      "pdf_page": 58,
+      "portfolio_pages": "115-116"
+    },
+    {
+      "filename": "portfolio-04.png",
+      "width": 1110,
+      "height": 748,
+      "pdf_page": 58,
+      "portfolio_pages": "115-116"
+    },
+    {
+      "filename": "portfolio-05.png",
+      "width": 960,
+      "height": 536,
+      "pdf_page": 59,
+      "portfolio_pages": "117-118"
+    },
+    {
+      "filename": "portfolio-06.png",
+      "width": 736,
+      "height": 413,
+      "pdf_page": 59,
+      "portfolio_pages": "117-118"
+    },
+    {
+      "filename": "portfolio-07.png",
+      "width": 451,
+      "height": 617,
+      "pdf_page": 59,
+      "portfolio_pages": "117-118"
+    },
+    {
+      "filename": "portfolio-08.png",
+      "width": 455,
+      "height": 617,
+      "pdf_page": 59,
+      "portfolio_pages": "117-118"
+    }
+  ],
+  "captions": [
+    "Workshop results ready to be assembled for the brochure",
+    "Analog montage of silk screen motive",
+    "Digital Campfire van Eyck Academy",
+    "The Summer School of the van Eyck Academy in Maastricht dealt with the design",
+    "of universal and timeless sign systems. For this we gave the participants the task",
+    "to think about the possibilities of a warning system for a nuclear repository, i.e. a",
+    "sign system that works both now and in 100,000 years. Over the seven days of",
+    "the workshop, the age for which the warning system should be designed became",
+    "shorter and shorter (100,000 on the first day, 10,000 on the second, etc.) until it",
+    "reached zero hour on the last day - the day of the presentation. The results of the",
+    "workshop were documented in a publication and buried in a time capsule in the",
+    "garden of the Jan van Eyck Academy.",
+    "Watch designs out of memory",
+    "Logos to be printed over all print results with invisible ink. By Amy Sudo Wu."
+  ]
+}
