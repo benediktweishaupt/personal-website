@@ -48,7 +48,10 @@ const tableProjects = [...allProjects].sort((a, b) => {
                 alt={project.data.cover.alt ?? ''}
                 class="w-full h-full object-cover transition-transform duration-300"
                 loading="lazy"
-                widths={[320, 640]}
+                widths={[320, 640, 960]}
+                sizes="(min-width: 768px) 384px, 256px"
+                quality={80}
+                format="webp"
               />
             </div>
           )}
@@ -217,5 +220,6 @@ const tableProjects = [...allProjects].sort((a, b) => {
         applyFilters();
       });
     });
+
   });
 </script>

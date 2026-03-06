@@ -51,6 +51,10 @@ const gridClasses: Record<number, string> = {
           alt={item.alt ?? ''}
           class="w-full h-auto rounded outline outline-1 outline-gray-200"
           loading="lazy"
+          widths={[480, 768, 1024, 1536]}
+          sizes={columns === 1 ? '100vw' : '(min-width: 768px) 50vw, 100vw'}
+          quality={80}
+          format="webp"
         />
       )}
       <ProjectCaption text={item.caption} />

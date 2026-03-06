@@ -1,11 +1,11 @@
 ---
 title: Event Horizon
 status: public
-projectAudience: all
+projectAudience: none
 template: project
 order: 99
 cover:
-  image: ../../../assets/projects/event-horizon/cover.jpg
+  image: ../../../assets/projects/event-horizon/event-horizon-cover.jpg
 meta:
   category: teaching
   format: Exhibition, Semester Project
@@ -15,8 +15,11 @@ description: "Event/Horizon explores the limitless hunger for the calculation of
 collaborators: Marthe Prins
 ---
 
-import img01 from "../../../assets/projects/event-horizon/portfolio-01.png";
-import img02 from "../../../assets/projects/event-horizon/portfolio-02.png";
+import img01 from "../../../assets/projects/event-horizon/event-horizon-02.png";
+import img02 from "../../../assets/projects/event-horizon/event-horizon-03.png";
+import img03 from "../../../assets/projects/event-horizon/event-horizon-01.png";
+import img04 from "../../../assets/projects/event-horizon/event-horizon-04.png";
+import img05 from "../../../assets/projects/event-horizon/event-horizon-05.png";
 
 <ProjectFullWidthImage src={img01} alt="" />
 
@@ -24,3 +27,11 @@ import img02 from "../../../assets/projects/event-horizon/portfolio-02.png";
   { type: "image", src: img02, alt: "intersect?", caption: "intersect?" },
 ]} />
 
+<ProjectMediaGrid
+  columns={2}
+  items={[
+    { type: "image", src: img03, alt: "" },
+    { type: "image", src: img04, alt: "" },
+    { type: "image", src: img05, alt: "" },
+  ]}
+/>

@@ -12,5 +12,8 @@ export default defineConfig({
 	build: {
 		format: 'directory'
 	},
+	prefetch: {
+		defaultStrategy: 'hover',
+	},
 	integrations: [mdx(), sitemap(), tailwind()],
 });
