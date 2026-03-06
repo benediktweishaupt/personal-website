@@ -9,14 +9,8 @@
       "height": 1408,
       "pdf_page": 4,
       "portfolio_pages": "7-8"
-    },
-    {
-      "filename": "portfolio-02.png",
-      "width": 2330,
-      "height": 1405,
-      "pdf_page": 5,
-      "portfolio_pages": "9-10"
     }
   ],
-  "captions": []
+  "captions": [],
+  "captions_by_pdf_page": {}
 }

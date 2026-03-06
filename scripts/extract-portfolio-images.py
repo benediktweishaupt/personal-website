@@ -124,7 +124,7 @@ def portfolio_page_to_pdf_page(portfolio_page):
     return (portfolio_page - 1) // 2
 
 
-def extract_images_for_project(doc, start_page, end_page, slug, project_name, captions_by_page):
+def extract_images_for_project(doc, start_page, end_page, slug, project_name, captions_by_page, global_seen_xrefs):
     """Extract images from a page range and save to project directory."""
     output_dir = os.path.join(ASSETS_DIR, slug)
     os.makedirs(output_dir, exist_ok=True)
@@ -136,19 +136,48 @@ def extract_images_for_project(doc, start_page, end_page, slug, project_name, ca
     pdf_start = portfolio_page_to_pdf_page(start_page)
     pdf_end = portfolio_page_to_pdf_page(end_page)
 
-    seen_xrefs = set()  # avoid duplicate images across pages
+    # Determine which PDF pages are boundaries (shared with another project)
+    # start_page is odd → left side of spread → pdf_start is NOT a leading boundary
+    # start_page is even → right side of spread → pdf_start IS a leading boundary
+    is_start_boundary = (start_page % 2 == 0)  # project starts on right half
+    is_end_boundary = (end_page % 2 == 1)      # project ends on left half
+
     for pdf_page_idx in range(pdf_start, pdf_end + 1):
         if pdf_page_idx >= doc.page_count:
             break
         page = doc[pdf_page_idx]
+        page_width = page.rect.width
         image_list = page.get_images(full=True)
 
         for img_index, img_info in enumerate(image_list):
             xref = img_info[0]
 
-            if xref in seen_xrefs:
+            if xref in global_seen_xrefs:
                 continue
-            seen_xrefs.add(xref)
+
+            # On boundary pages, check image position to assign to correct project
+            if (pdf_page_idx == pdf_start and is_start_boundary) or \
+               (pdf_page_idx == pdf_end and is_end_boundary):
+                try:
+                    rects = page.get_image_rects(xref)
+                    if rects:
+                        img_center_x = (rects[0].x0 + rects[0].x1) / 2
+                        on_right_half = img_center_x > page_width / 2
+                        spans_full = (rects[0].x0 < page_width * 0.1 and
+                                      rects[0].x1 > page_width * 0.9)
+                        if spans_full:
+                            # Full-bleed hero → belongs to the project STARTING here
+                            if pdf_page_idx == pdf_end and is_end_boundary:
+                                continue  # Skip: hero introduces the next project
+                        else:
+                            if pdf_page_idx == pdf_start and is_start_boundary and not on_right_half:
+                                continue  # Image is on left half, belongs to previous project
+                            if pdf_page_idx == pdf_end and is_end_boundary and on_right_half:
+                                continue  # Image is on right half, belongs to next project
+                except Exception:
+                    pass
+
+            global_seen_xrefs.add(xref)
 
             try:
                 base_image = doc.extract_image(xref)
@@ -183,10 +212,15 @@ def extract_images_for_project(doc, start_page, end_page, slug, project_name, ca
             })
             img_counter += 1
 
-    # Collect captions for this project's page range
+    # Collect captions for this project's page range, grouped by PDF page
     project_captions = []
+    captions_by_pdf = {}
     for page_num in range(start_page, end_page + 1):
         if page_num in captions_by_page:
+            pdf_page = portfolio_page_to_pdf_page(page_num) + 1  # 1-indexed like images
+            if pdf_page not in captions_by_pdf:
+                captions_by_pdf[pdf_page] = []
+            captions_by_pdf[pdf_page].extend(captions_by_page[page_num])
             project_captions.extend(captions_by_page[page_num])
 
     # Write manifest
@@ -196,6 +230,7 @@ def extract_images_for_project(doc, start_page, end_page, slug, project_name, ca
         "pages": f"{start_page}-{end_page}",
         "images": images,
         "captions": project_captions,
+        "captions_by_pdf_page": {str(k): v for k, v in captions_by_pdf.items()},
     }
 
     manifest_path = os.path.join(output_dir, "manifest.json")
@@ -218,8 +253,9 @@ def main():
     print(f"Parsed captions for {len(captions_by_page)} pages")
 
     total_images = 0
+    global_seen_xrefs = set()  # shared across projects to prevent boundary duplicates
     for start, end, slug, name in PROJECTS:
-        count = extract_images_for_project(doc, start, end, slug, name, captions_by_page)
+        count = extract_images_for_project(doc, start, end, slug, name, captions_by_page, global_seen_xrefs)
         total_images += count
         print(f"  {name}: {count} images (pages {start}-{end}) → {slug}/")
 

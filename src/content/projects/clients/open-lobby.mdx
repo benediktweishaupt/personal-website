@@ -12,26 +12,24 @@ meta:
   institution: Jan van Eyck Academy Maastricht
   year: "2014"
   team: confusion of tongues
-description: "escape-tours.eu is a participatory project with refugees from \"We are here\" in Amsterdam. For the Open Studios at the Jan van Eyck Academy in 2014, an office was set up that allowed visitors to independently create dialogues on the refugee situation. The dialogues were based on text fragments from public statements of various personalities on different aspects of the refugee situation in the Netherlands."
-description_de: "escape-tours.eu ist ein partizipatives Projekt mit Geflüchteten von \"We are here\" aus Amsterdam. Für die Open Studios an der Jan van Eyk Akademie in 2014 wurde ein Büro eingerichtet, welches es Besuchern ermöglichte, eigenständig Dialoge zur Flüchtlingssituation zu erstellen."
+description: 'escape-tours.eu is a participatory project with refugees from "We are here" in Amsterdam. For the Open Studios at the Jan van Eyck Academy in 2014, an office was set up that allowed visitors to independently create dialogues on the refugee situation. The dialogues were based on text fragments from public statements of various personalities on different aspects of the refugee situation in the Netherlands.'
+description_de: 'escape-tours.eu ist ein partizipatives Projekt mit Geflüchteten von "We are here" aus Amsterdam. Für die Open Studios an der Jan van Eyk Akademie in 2014 wurde ein Büro eingerichtet, welches es Besuchern ermöglichte, eigenständig Dialoge zur Flüchtlingssituation zu erstellen.'
 collaborators: Elke Uitentuis, We are here
 ---
 
-import img01 from "../../../assets/projects/open-lobby/portfolio-01.png";
-import img02 from "../../../assets/projects/open-lobby/portfolio-02.png";
 import img03 from "../../../assets/projects/open-lobby/portfolio-03.png";
-import img04 from "../../../assets/projects/open-lobby/portfolio-04.png";
-import img05 from "../../../assets/projects/open-lobby/portfolio-05.png";
-import img06 from "../../../assets/projects/open-lobby/portfolio-06.png";
 
-<ProjectFullWidthImage src={img01} alt="" />
+<ProjectMediaGrid
+  columns={1}
+  items={[
 
-<ProjectFullWidthImage src={img02} alt="" />
+    {
+      type: "image",
+      src: img03,
+      alt: "Postcards offering insight into several Dutch theme parks which have been re purposed into refugee camps.",
+      caption:
+        "Postcards offering insight into several Dutch theme parks which have been re purposed into refugee camps.",
+    },
 
-<ProjectMediaGrid columns={2} items={[
-  { type: "image", src: img03, alt: "" },
-  { type: "image", src: img04, alt: "" },
-  { type: "image", src: img05, alt: "" },
-  { type: "image", src: img06, alt: "" },
-]} />
-
+]}
+/>

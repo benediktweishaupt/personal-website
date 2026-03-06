@@ -5,62 +5,27 @@
   "images": [
     {
       "filename": "portfolio-01.png",
-      "width": 362,
-      "height": 544,
-      "pdf_page": 28,
-      "portfolio_pages": "55-56"
-    },
-    {
-      "filename": "portfolio-02.png",
-      "width": 454,
-      "height": 276,
-      "pdf_page": 28,
-      "portfolio_pages": "55-56"
-    },
-    {
-      "filename": "portfolio-03.png",
       "width": 345,
       "height": 549,
       "pdf_page": 28,
       "portfolio_pages": "55-56"
     },
     {
-      "filename": "portfolio-04.png",
+      "filename": "portfolio-02.png",
       "width": 1110,
       "height": 685,
       "pdf_page": 28,
       "portfolio_pages": "55-56"
     },
     {
-      "filename": "portfolio-05.png",
+      "filename": "portfolio-03.png",
       "width": 2330,
       "height": 1406,
       "pdf_page": 29,
       "portfolio_pages": "57-58"
     },
     {
-      "filename": "portfolio-06.png",
-      "width": 549,
-      "height": 345,
-      "pdf_page": 30,
-      "portfolio_pages": "59-60"
-    },
-    {
-      "filename": "portfolio-07.png",
-      "width": 545,
-      "height": 345,
-      "pdf_page": 30,
-      "portfolio_pages": "59-60"
-    },
-    {
-      "filename": "portfolio-08.png",
-      "width": 547,
-      "height": 345,
-      "pdf_page": 30,
-      "portfolio_pages": "59-60"
-    },
-    {
-      "filename": "portfolio-09.png",
+      "filename": "portfolio-04.png",
       "width": 1107,
       "height": 685,
       "pdf_page": 30,
@@ -89,5 +54,34 @@
     "delimitations, in their history or in many other contexts.",
     "Exhibited in the Künstlerhaus Bethanien under the name of “Sichtweisen”.",
     "Website about city strolls analyzed with various parameters by Caroline Breidenbach"
-  ]
+  ],
+  "captions_by_pdf_page": {
+    "28": [
+      "Orte",
+      "The participants of the project chose a place to make the subject of their",
+      "investigation. This investigation could take place freely or according to previously",
+      "conceived methods. The places could be represented in themselves, in their",
+      "function, in their meaning as a possibility for social processes, in their poetic and",
+      "emotional dimension, in their spatial and temporal structure, in their openings and",
+      "delimitations, in their history or in many other contexts.",
+      "Exhibited in the Künstlerhaus Bethanien under the name of “Sichtweisen”."
+    ],
+    "29": [
+      "Education: Seminars: Orte"
+    ],
+    "30": [
+      "Exhibition Design by Anisia Affek and Caroline Breidenbach.",
+      "Website about homeless-shelter in Berlin, where she worked on the weekly newspaper. By Bea Naomi Davies.",
+      "Exhibition View",
+      "Orte",
+      "The participants of the project chose a place to make the subject of their",
+      "investigation. This investigation could take place freely or according to previously",
+      "conceived methods. The places could be represented in themselves, in their",
+      "function, in their meaning as a possibility for social processes, in their poetic and",
+      "emotional dimension, in their spatial and temporal structure, in their openings and",
+      "delimitations, in their history or in many other contexts.",
+      "Exhibited in the Künstlerhaus Bethanien under the name of “Sichtweisen”.",
+      "Website about city strolls analyzed with various parameters by Caroline Breidenbach"
+    ]
+  }
 }

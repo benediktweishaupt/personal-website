@@ -19,50 +19,15 @@
     },
     {
       "filename": "portfolio-03.png",
-      "width": 617,
-      "height": 451,
-      "pdf_page": 41,
-      "portfolio_pages": "81-82"
-    },
-    {
-      "filename": "portfolio-04.png",
       "width": 453,
       "height": 274,
       "pdf_page": 41,
       "portfolio_pages": "81-82"
     },
     {
-      "filename": "portfolio-05.png",
-      "width": 360,
-      "height": 276,
-      "pdf_page": 41,
-      "portfolio_pages": "81-82"
-    },
-    {
-      "filename": "portfolio-06.png",
-      "width": 1110,
-      "height": 685,
-      "pdf_page": 42,
-      "portfolio_pages": "83-84"
-    },
-    {
-      "filename": "portfolio-07.png",
+      "filename": "portfolio-04.png",
       "width": 446,
       "height": 749,
-      "pdf_page": 42,
-      "portfolio_pages": "83-84"
-    },
-    {
-      "filename": "portfolio-08.png",
-      "width": 320,
-      "height": 451,
-      "pdf_page": 42,
-      "portfolio_pages": "83-84"
-    },
-    {
-      "filename": "portfolio-09.png",
-      "width": 318,
-      "height": 451,
       "pdf_page": 42,
       "portfolio_pages": "83-84"
     }
@@ -81,5 +46,22 @@
     "Teaching system graph for generative book design",
     "Book Combining SMB Collection with #regret.",
     "Education: Seminars: 3 × 3"
-  ]
+  ],
+  "captions_by_pdf_page": {
+    "42": [
+      "Don’t do it yourself",
+      "In this workshop we experimented with the perceptual phenomenon",
+      "that people recognize patterns in random combinations. With the help",
+      "of scripts that extract content to certain tags from Instagram and",
+      "Twitter, a convolute of text-image combinations was created.",
+      "Six books were created out of this convolute, which tell a story out",
+      "of selected 250 text-image combinations.",
+      "All books generated and produced during the workshop.",
+      "Wahlberlin book by Silvan Händeler.",
+      "Combining #berlin and #wahl",
+      "Teaching system graph for generative book design",
+      "Book Combining SMB Collection with #regret.",
+      "Education: Seminars: 3 × 3"
+    ]
+  }
 }

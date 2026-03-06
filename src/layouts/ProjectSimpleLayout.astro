@@ -4,6 +4,9 @@ import type { ImageMetadata } from 'astro';
 import BaseLayout from './BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import { AUTHOR_NAME } from '../consts';
+import ProjectDescription from '../components/project/ProjectDescription.astro';
+import ProjectSection from '../components/project/ProjectSection.astro';
+import ProjectTagList from '../components/project/ProjectTagList.astro';
 
 interface Props {
   title: string;
@@ -43,38 +46,37 @@ const metaItems = [
 <BaseLayout title={`${title} — ${AUTHOR_NAME}`} description={description ?? title}>
   <SiteHeader slot="header" pageTitle={title} />
 
-  <main class="max-w-screen-2xl mx-auto px-page pt-12 pb-20">
-    {/* Header */}
-    <div class="max-w-2xl">
-      <h1 class="text-2xl font-medium text-gray-800">{title}</h1>
-      <p class="text-sm text-gray-400 mt-2">{metaItems.join(' · ')}</p>
-    </div>
-
-    {/* Description */}
-    {description && (
-      <div class="max-w-2xl mt-8">
-        <p class="text-base text-gray-600 leading-relaxed">{description}</p>
-      </div>
-    )}
-
-    {/* Cover image */}
-    {cover?.image && (
-      <div class="mt-10">
+  {cover?.image && (
+    <div class="p-4">
+      <div class="w-full h-[75vh] overflow-hidden rounded">
         <Image
           src={cover.image}
           alt={cover.alt ?? ''}
-          class="w-full max-h-[60vh] object-cover rounded-sm"
+          class="w-full h-full object-cover"
           loading="eager"
           fetchpriority="high"
         />
-        {cover.caption && (
-          <p class="text-xs text-gray-400 mt-2">{cover.caption}</p>
-        )}
       </div>
+    </div>
+  )}
+
+
+
+  <main class="max-w-screen-2xl mx-auto px-page pt-12 pb-20">
+    {/* Header */}
+
+    <ProjectSection variant="full" gap="10">
+
+    {/* Description */}
+    {description && (
+        <ProjectDescription><span class="uppercase text-gray-400 mr-4">{title}</span>{description}</ProjectDescription>
     )}
+    <ProjectTagList tags={metaItems as string[]} />
+  </ProjectSection>
+
 
     {/* MDX body content (if any) */}
-    <div class="mt-10">
+    <div class="pt-8">
       <slot />
     </div>
   </main>

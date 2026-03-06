@@ -12,36 +12,8 @@
     },
     {
       "filename": "portfolio-02.png",
-      "width": 298,
-      "height": 228,
-      "pdf_page": 36,
-      "portfolio_pages": "71-72"
-    },
-    {
-      "filename": "portfolio-03.png",
-      "width": 362,
-      "height": 275,
-      "pdf_page": 36,
-      "portfolio_pages": "71-72"
-    },
-    {
-      "filename": "portfolio-04.png",
-      "width": 362,
-      "height": 273,
-      "pdf_page": 36,
-      "portfolio_pages": "71-72"
-    },
-    {
-      "filename": "portfolio-05.png",
       "width": 919,
       "height": 515,
-      "pdf_page": 36,
-      "portfolio_pages": "71-72"
-    },
-    {
-      "filename": "portfolio-06.png",
-      "width": 737,
-      "height": 414,
       "pdf_page": 36,
       "portfolio_pages": "71-72"
     }
@@ -63,5 +35,27 @@
     "first overview of your projects.",
     "Graph of Design Approach",
     "Education: Seminars: Open Day Campaign Kunsthochschule Weißensee"
-  ]
+  ],
+  "captions_by_pdf_page": {
+    "35": [
+      "Education: Seminars: weissensee.tv"
+    ],
+    "36": [
+      "Logo for weissensee.tv",
+      "Streaming schedule",
+      "Photographs of the empty school used",
+      "as backdrop by Heike Overberg",
+      "Schedule overview of the Website weissensee.tv",
+      "weissensee.tv",
+      "The semester project “weissensee.tv” from Visual Communication developed",
+      "strategies to enable a tour despite Corona. In several runs,",
+      "the needs from the different disciplines were examined and ideas developed,",
+      "which have now been bundled into a concept for a streaming festival. We are",
+      "pleased that the concept has met with the approval of",
+      "the university management and the departments - now we need your input for a",
+      "first overview of your projects.",
+      "Graph of Design Approach",
+      "Education: Seminars: Open Day Campaign Kunsthochschule Weißensee"
+    ]
+  }
 }

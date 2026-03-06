@@ -19,27 +19,6 @@
     },
     {
       "filename": "portfolio-03.png",
-      "width": 555,
-      "height": 354,
-      "pdf_page": 14,
-      "portfolio_pages": "27-28"
-    },
-    {
-      "filename": "portfolio-04.png",
-      "width": 555,
-      "height": 353,
-      "pdf_page": 14,
-      "portfolio_pages": "27-28"
-    },
-    {
-      "filename": "portfolio-05.png",
-      "width": 554,
-      "height": 354,
-      "pdf_page": 14,
-      "portfolio_pages": "27-28"
-    },
-    {
-      "filename": "portfolio-06.png",
       "width": 1110,
       "height": 685,
       "pdf_page": 14,
@@ -61,5 +40,25 @@
     "The website’s tags were sorted alphabetically and used as an organizing element for",
     "images and intermediate pages.",
     "Spread introducing one Department"
-  ]
+  ],
+  "captions_by_pdf_page": {
+    "12": [
+      "Sandberg Manifesto",
+      "The annual report of the Sandberg Institute presents past and future master programs.",
+      "The task this year was to create a link to the new website. The website’s “tags” were",
+      "sorted alphabetically and used as an organizing element for images and intermediate",
+      "pages."
+    ],
+    "14": [
+      "Overview Spread for the Temporary Departments",
+      "Cover Design",
+      "Spread explaining extracurricular activities",
+      "Sandberg Manifesto",
+      "The annual report of the Sandberg Institute presents past and future master programs.",
+      "The task this year was to create a link to the new website.",
+      "The website’s tags were sorted alphabetically and used as an organizing element for",
+      "images and intermediate pages.",
+      "Spread introducing one Department"
+    ]
+  }
 }

@@ -9,34 +9,6 @@
       "height": 683,
       "pdf_page": 50,
       "portfolio_pages": "99-100"
-    },
-    {
-      "filename": "portfolio-02.png",
-      "width": 306,
-      "height": 481,
-      "pdf_page": 50,
-      "portfolio_pages": "99-100"
-    },
-    {
-      "filename": "portfolio-03.png",
-      "width": 306,
-      "height": 481,
-      "pdf_page": 50,
-      "portfolio_pages": "99-100"
-    },
-    {
-      "filename": "portfolio-04.png",
-      "width": 306,
-      "height": 481,
-      "pdf_page": 50,
-      "portfolio_pages": "99-100"
-    },
-    {
-      "filename": "portfolio-05.png",
-      "width": 549,
-      "height": 345,
-      "pdf_page": 50,
-      "portfolio_pages": "99-100"
     }
   ],
   "captions": [
@@ -53,5 +25,22 @@
     "model) and visual experiments.",
     "Analytical feedback of the AI and design decision by Illustrator. By Sarah Schögler.",
     "Education: Graduation Works: MA(CHI)NE"
-  ]
+  ],
+  "captions_by_pdf_page": {
+    "50": [
+      "Illustrations drawn after feedback given by the AI. By Sarah Schögler.",
+      "Installation view of AI — Illustrator dialogue. By Sarah Schögler.",
+      "Open the Black Box",
+      "‘Open the Black Box’ asks how biases of image-datasets based on machine",
+      "learning can be made transparent. Through an artistic research dialogue, the",
+      "differences in perception between humans and machines are examined using the",
+      "example of the artificially intelligent image analysis consumer-tools.",
+      "The results of the artistic research methods show biases and prejudices of the",
+      "image analysis tool and are visualized in the form of a spatial installation. This",
+      "combines animated illustration, sculptures (bronze casting based on a 3D-printed",
+      "model) and visual experiments.",
+      "Analytical feedback of the AI and design decision by Illustrator. By Sarah Schögler.",
+      "Education: Graduation Works: MA(CHI)NE"
+    ]
+  }
 }

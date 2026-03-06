@@ -26,27 +26,13 @@
     },
     {
       "filename": "portfolio-04.png",
-      "width": 1110,
-      "height": 685,
-      "pdf_page": 52,
-      "portfolio_pages": "103-104"
-    },
-    {
-      "filename": "portfolio-05.png",
-      "width": 923,
-      "height": 1093,
-      "pdf_page": 53,
-      "portfolio_pages": "105-106"
-    },
-    {
-      "filename": "portfolio-06.png",
       "width": 455,
       "height": 341,
       "pdf_page": 53,
       "portfolio_pages": "105-106"
     },
     {
-      "filename": "portfolio-07.png",
+      "filename": "portfolio-05.png",
       "width": 455,
       "height": 341,
       "pdf_page": 53,
@@ -65,5 +51,22 @@
     "Spread of the book, showcasing various visual explorations",
     "Three books: thesis, documentation of field-studies and visual exploration.",
     "Education: Graduation Works: Water Stories"
-  ]
+  ],
+  "captions_by_pdf_page": {
+    "52": [
+      "Synästhetische Wahrnehmungsform im Gestaltunsgprozess",
+      "Kathleen Raasch’s project addresses the synaesthetic form of perception in the",
+      "design process. Based on an empirical research path, studies and workshops",
+      "were conducted that address the process and transfer in the context of",
+      "perception and design. The visual examination illustrates the phenomenon",
+      "of synaesthesia and refers to the topics of information and image as well as",
+      "association and intuition.",
+      "Spread of the book documenting the field studies",
+      "Spread of the book, showcasing various visual explorations",
+      "Three books: thesis, documentation of field-studies and visual exploration."
+    ],
+    "53": [
+      "Education: Graduation Works: Water Stories"
+    ]
+  }
 }

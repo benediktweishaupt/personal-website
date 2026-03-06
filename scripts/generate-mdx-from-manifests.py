@@ -116,41 +116,96 @@ def update_frontmatter(frontmatter, updates):
     return "\n".join(result)
 
 
-def filter_real_captions(captions):
-    """Filter caption lines to only keep actual image captions (short descriptive lines).
+def filter_page_captions(captions, project_name, all_project_names):
+    """Filter caption lines for a single PDF page to only keep image captions.
 
-    Removes: description paragraphs, project titles, section headers.
-    Keeps: short lines that describe specific images.
+    Removes: description paragraphs, project titles, section headers, metadata.
+    Keeps: short lines that describe specific images, joining multi-line captions.
     """
-    real_captions = []
     skip_patterns = [
         r"^Research:",
         r"^Education:",
         r"^Portfolio:",
+        r"^Art Direction:",
+        r"^Format:",
         r"^DESIGN$",
         r"^RESEARCH$",
         r"^EDUCATION",
     ]
 
-    for caption in captions:
-        # Skip section headers
-        if any(re.match(p, caption) for p in skip_patterns):
+    # First pass: remove metadata/headers/titles
+    filtered_lines = []
+    for line in captions:
+        if any(re.match(p, line) for p in skip_patterns):
             continue
-        # Skip very long lines (likely description paragraphs)
-        if len(caption) > 120:
+        if line.strip() in all_project_names:
             continue
-        # Keep shorter descriptive lines
-        real_captions.append(caption)
+        filtered_lines.append(line)
 
-    return real_captions
+    # Second pass: remove description blocks (3+ consecutive lines > 50 chars)
+    # Also consume trailing short line that ends the paragraph
+    result_lines = []
+    i = 0
+    while i < len(filtered_lines):
+        line = filtered_lines[i]
+
+        if len(line) > 50:
+            block = [line]
+            j = i + 1
+            while j < len(filtered_lines) and len(filtered_lines[j]) > 50:
+                block.append(filtered_lines[j])
+                j += 1
+            if len(block) >= 3:
+                # Consume trailing short line that ends the paragraph
+                if j < len(filtered_lines):
+                    tail = filtered_lines[j]
+                    if len(tail) < 50 and tail.rstrip().endswith(('.', '"', ')', '\u201d')):
+                        j += 1
+                i = j
+                continue
+
+        result_lines.append(line)
+        i += 1
+
+    # Third pass: join multi-line captions (next line starts with lowercase)
+    joined = []
+    i = 0
+    while i < len(result_lines):
+        caption = result_lines[i]
+        i += 1
+        while i < len(result_lines):
+            next_line = result_lines[i]
+            if next_line[0:1].islower():
+                caption = caption.rstrip() + " " + next_line.lstrip()
+                i += 1
+            else:
+                break
+        joined.append(caption)
+
+    return joined
 
 
-def generate_mdx_body(manifest, asset_slug, content_slug):
+def get_captions_for_page(manifest, pdf_page, project_name, all_project_names):
+    """Get filtered image captions for a specific PDF page."""
+    captions_by_pdf = manifest.get("captions_by_pdf_page", {})
+    page_captions = captions_by_pdf.get(str(pdf_page), [])
+    if not page_captions:
+        return []
+    return filter_page_captions(page_captions, project_name, all_project_names)
+
+
+def escape_mdx_string(s):
+    """Escape a string for use in MDX JSX attributes."""
+    return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", " ")
+
+
+def generate_mdx_body(manifest, asset_slug, content_slug, all_project_names):
     """Generate MDX body content with image imports and grids."""
     images = manifest["images"]
     if not images:
         return ""
 
+    project_name = manifest.get("project", "")
     rel_path = compute_relative_path(content_slug, asset_slug)
 
     # Generate imports
@@ -171,44 +226,43 @@ def generate_mdx_body(manifest, asset_slug, content_slug):
     grids = []
     for pdf_page in sorted(pages.keys()):
         page_images = pages[pdf_page]
+        page_captions = get_captions_for_page(manifest, pdf_page, project_name, all_project_names)
 
         if len(page_images) == 1:
             # Single image on this spread — full width
             idx, img = page_images[0]
             var_name = f"img{idx + 1:02d}"
             is_hero = img["width"] > 1500
+            # Use first caption if available
+            caption = page_captions[0] if page_captions else ""
+            caption_attr = f' caption="{escape_mdx_string(caption)}"' if caption else ""
+            alt_text = escape_mdx_string(caption) if caption else ""
             if is_hero:
                 grids.append(
-                    f'<ProjectFullWidthImage src={{{var_name}}} alt="" />'
+                    f'<ProjectFullWidthImage src={{{var_name}}} alt="{alt_text}"{caption_attr} />'
                 )
             else:
+                caption_part = f', caption: "{escape_mdx_string(caption)}"' if caption else ""
                 grids.append(
                     f'<ProjectMediaGrid columns={{1}} items={{[\n'
-                    f'  {{ type: "image", src: {var_name}, alt: "" }},\n'
+                    f'  {{ type: "image", src: {var_name}, alt: "{alt_text}"{caption_part} }},\n'
                     f']}} />'
                 )
-        elif len(page_images) <= 3:
-            # 2-3 images — use columns={2} or stack
+        else:
+            # Multiple images — match captions positionally
             items = []
-            for idx, img in page_images:
+            for img_idx_in_page, (idx, img) in enumerate(page_images):
                 var_name = f"img{idx + 1:02d}"
-                items.append(f'  {{ type: "image", src: {var_name}, alt: "" }}')
-            cols = 2 if len(page_images) == 2 else 1
+                caption = page_captions[img_idx_in_page] if img_idx_in_page < len(page_captions) else ""
+                alt_text = escape_mdx_string(caption) if caption else ""
+                caption_part = f', caption: "{escape_mdx_string(caption)}"' if caption else ""
+                items.append(f'  {{ type: "image", src: {var_name}, alt: "{alt_text}"{caption_part} }}')
+            cols = 2 if len(page_images) in (2, 4) else 1
+            if len(page_images) > 3:
+                cols = 2
             items_str = ",\n".join(items)
             grids.append(
                 f'<ProjectMediaGrid columns={{{cols}}} items={{[\n'
-                f'{items_str},\n'
-                f']}} />'
-            )
-        else:
-            # 4+ images — use columns={2}
-            items = []
-            for idx, img in page_images:
-                var_name = f"img{idx + 1:02d}"
-                items.append(f'  {{ type: "image", src: {var_name}, alt: "" }}')
-            items_str = ",\n".join(items)
-            grids.append(
-                f'<ProjectMediaGrid columns={{2}} items={{[\n'
                 f'{items_str},\n'
                 f']}} />'
             )
@@ -224,7 +278,7 @@ def generate_mdx_body(manifest, asset_slug, content_slug):
     return "\n".join(body_parts)
 
 
-def process_project(asset_slug, dry_run=False):
+def process_project(asset_slug, all_project_names, dry_run=False):
     """Process a single project: read manifest, generate MDX, write file."""
     manifest_path = os.path.join(ASSETS_DIR, asset_slug, "manifest.json")
     if not os.path.exists(manifest_path):
@@ -261,7 +315,7 @@ def process_project(asset_slug, dry_run=False):
     })
 
     # Generate new body
-    new_body = generate_mdx_body(manifest, asset_slug, content_slug)
+    new_body = generate_mdx_body(manifest, asset_slug, content_slug, all_project_names)
 
     # Combine
     new_content = f"---\n{new_frontmatter}\n---\n\n{new_body}\n"
@@ -300,10 +354,17 @@ def main():
 
     print(f"Found {len(manifests)} project manifests\n")
 
+    # Collect all project names for caption filtering (to skip neighboring project titles)
+    all_project_names = set()
+    for mp in manifests:
+        with open(mp, "r", encoding="utf-8") as f:
+            m = json.load(f)
+            all_project_names.add(m.get("project", ""))
+
     processed = 0
     for manifest_path in manifests:
         asset_slug = os.path.basename(os.path.dirname(manifest_path))
-        result = process_project(asset_slug, dry_run)
+        result = process_project(asset_slug, all_project_names, dry_run)
         if result:
             processed += 1
 

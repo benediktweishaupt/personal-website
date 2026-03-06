@@ -26,50 +26,15 @@
     },
     {
       "filename": "portfolio-04.png",
-      "width": 919,
-      "height": 515,
-      "pdf_page": 36,
-      "portfolio_pages": "71-72"
-    },
-    {
-      "filename": "portfolio-05.png",
       "width": 737,
       "height": 414,
       "pdf_page": 36,
       "portfolio_pages": "71-72"
     },
     {
-      "filename": "portfolio-06.png",
+      "filename": "portfolio-05.png",
       "width": 1111,
       "height": 684,
-      "pdf_page": 37,
-      "portfolio_pages": "73-74"
-    },
-    {
-      "filename": "portfolio-07.png",
-      "width": 451,
-      "height": 275,
-      "pdf_page": 37,
-      "portfolio_pages": "73-74"
-    },
-    {
-      "filename": "portfolio-08.png",
-      "width": 451,
-      "height": 277,
-      "pdf_page": 37,
-      "portfolio_pages": "73-74"
-    },
-    {
-      "filename": "portfolio-09.png",
-      "width": 369,
-      "height": 357,
-      "pdf_page": 37,
-      "portfolio_pages": "73-74"
-    },
-    {
-      "filename": "portfolio-10.png",
-      "width": 373,
-      "height": 345,
       "pdf_page": 37,
       "portfolio_pages": "73-74"
     }
@@ -79,5 +44,13 @@
     "Invitation, silk screen print with rub varnish, by Merle Dammhayn.",
     "Window Prints at the Kunsthochschule Berlin, by Merle Dammhayn.",
     "ALS"
-  ]
+  ],
+  "captions_by_pdf_page": {
+    "37": [
+      "Invitation, silk screen print with rub varnish, by Merle Dammhayn.",
+      "Invitation, silk screen print with rub varnish, by Merle Dammhayn.",
+      "Window Prints at the Kunsthochschule Berlin, by Merle Dammhayn.",
+      "ALS"
+    ]
+  }
 }

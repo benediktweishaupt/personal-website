@@ -62,5 +62,24 @@
     "Posters about US AID and AWMN Athens",
     "Installation View. Front: Poster about Ubiquity — one mayor Hardware supplier for mesh technology",
     "Research: More Free Wifi"
-  ]
+  ],
+  "captions_by_pdf_page": {
+    "68": [
+      "Research: Power of Mesh",
+      "Power of Mesh",
+      "Starting from the ideal of a decentralized alternative internet based on “wireless",
+      "networks”, “The Power of Mesh” deals with companies, states and NGOs that use",
+      "this infrastructure for their own programs.",
+      "During the “Festival du Graphisme Chaumont”, a local mesh network presented a",
+      "non-linear story that showed the interdependencies between DIY activists, data",
+      "collectors, cultural colonists, hardware providers and decentralization advocates.",
+      "Using a smart phone, people could log into various hotspots on the festival",
+      "grounds to do so. A poster installation provided additional information about the",
+      "five actors.",
+      "Poster detail and wifi range extender",
+      "Posters about US AID and AWMN Athens",
+      "Installation View. Front: Poster about Ubiquity — one mayor Hardware supplier for mesh technology",
+      "Research: More Free Wifi"
+    ]
+  }
 }

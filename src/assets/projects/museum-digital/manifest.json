@@ -16,16 +16,14 @@
       "height": 1405,
       "pdf_page": 19,
       "portfolio_pages": "37-38"
-    },
-    {
-      "filename": "portfolio-03.png",
-      "width": 2325,
-      "height": 1405,
-      "pdf_page": 20,
-      "portfolio_pages": "39-40"
     }
   ],
   "captions": [
     "Museum Utopie und Alltag Digital"
-  ]
+  ],
+  "captions_by_pdf_page": {
+    "18": [
+      "Museum Utopie und Alltag Digital"
+    ]
+  }
 }

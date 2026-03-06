@@ -128,30 +128,39 @@ const tableProjects = [...allProjects].sort((a, b) => {
     const rows = () => [...list.querySelectorAll<HTMLElement>('[data-row]')];
 
     // ── Sort ──
+    function doSort(key: string, dir: string) {
+      document.querySelectorAll<HTMLElement>('.sort-btn').forEach(b => {
+        delete b.dataset.dir;
+        const ind = b.querySelector('.sort-indicator');
+        if (ind) ind.textContent = '';
+      });
+      const btn = document.querySelector<HTMLElement>(`.sort-btn[data-sort="${key}"]`);
+      if (btn) {
+        btn.dataset.dir = dir;
+        const indicator = btn.querySelector('.sort-indicator');
+        if (indicator) indicator.textContent = dir === 'asc' ? '↑' : '↓';
+      }
+      const sorted = rows().sort((a, b) => {
+        const av = a.dataset[key] || '';
+        const bv = b.dataset[key] || '';
+        if (key === 'year') {
+          const na = parseInt(av.match(/\d{4}/)?.[0] ?? '0');
+          const nb = parseInt(bv.match(/\d{4}/)?.[0] ?? '0');
+          return dir === 'asc' ? na - nb : nb - na;
+        }
+        return dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+      });
+      sorted.forEach(r => list!.appendChild(r));
+      sessionStorage.setItem('workindex-sort', JSON.stringify({ key, dir }));
+    }
+
     document.querySelectorAll<HTMLElement>('.sort-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const key = btn.dataset.sort;
         if (!key) return;
-
         const prev = btn.dataset.dir;
-        document.querySelectorAll<HTMLElement>('.sort-btn').forEach(b => delete b.dataset.dir);
         const dir = prev === 'asc' ? 'desc' : 'asc';
-        btn.dataset.dir = dir;
-
-        const indicator = btn.querySelector('.sort-indicator');
-        if (indicator) indicator.textContent = dir === 'asc' ? '↑' : '↓';
-
-        const sorted = rows().sort((a, b) => {
-          const av = a.dataset[key] || '';
-          const bv = b.dataset[key] || '';
-          if (key === 'year') {
-            const na = parseInt(av.match(/\d{4}/)?.[0] ?? '0');
-            const nb = parseInt(bv.match(/\d{4}/)?.[0] ?? '0');
-            return dir === 'asc' ? na - nb : nb - na;
-          }
-          return dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
-        });
-        sorted.forEach(r => list.appendChild(r));
+        doSort(key, dir);
       });
     });
 
@@ -168,6 +177,12 @@ const tableProjects = [...allProjects].sort((a, b) => {
     });
 
     // ── Filter ──
+    function activateFilter(cat: string) {
+      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+      const target = document.querySelector<HTMLElement>(`.filter-pill[data-filter="${cat}"]`);
+      if (target) target.classList.add('active');
+    }
+
     function applyFilters() {
       const activePill = document.querySelector('.filter-pill.active') as HTMLElement | null;
       const cat = activePill?.dataset.filter || 'all';
@@ -179,15 +194,26 @@ const tableProjects = [...allProjects].sort((a, b) => {
         if (catMatch && audMatch) visible++;
       });
       if (countEl) countEl.textContent = `${visible} projects`;
+      sessionStorage.setItem('workindex-filter', cat);
     }
 
-    // Initial audience filter
+    // ── Restore saved state ──
+    const savedFilter = sessionStorage.getItem('workindex-filter');
+    if (savedFilter) activateFilter(savedFilter);
+
+    const savedSort = sessionStorage.getItem('workindex-sort');
+    if (savedSort) {
+      try {
+        const { key, dir } = JSON.parse(savedSort);
+        if (key && dir) doSort(key, dir);
+      } catch {}
+    }
+
     applyFilters();
 
     document.querySelectorAll<HTMLElement>('.filter-pill').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+        activateFilter(btn.dataset.filter || 'all');
         applyFilters();
       });
     });

@@ -18,23 +18,42 @@ collaborators: Anna Bierler
 credits_image: Anna Bierler
 ---
 
-import img01 from "../../../assets/projects/drei-drie-three/portfolio-01.png";
+import img01 from "../../../assets/projects/institute-for-human-activities/portfolio-01.png";
 import img02 from "../../../assets/projects/drei-drie-three/portfolio-02.png";
 import img03 from "../../../assets/projects/drei-drie-three/portfolio-03.png";
 import img04 from "../../../assets/projects/drei-drie-three/portfolio-04.png";
 import img05 from "../../../assets/projects/drei-drie-three/portfolio-05.png";
-import img06 from "../../../assets/projects/drei-drie-three/portfolio-06.png";
 
-<ProjectFullWidthImage src={img01} alt="" />
+<ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "image",
+      src: img02,
+      alt: "Detail window design",
+      caption: "Detail window design",
+    },
+    {
+      type: "image",
+      src: img03,
+      alt: "Cover 3rd issue of De Stijl magazine",
+      caption: "Outside view of window design, Dutch embassy Berlin",
+    },
+    {
+      type: "image",
+      src: img04,
+      alt: "",
+      caption: "Cover 3rd issue of De Stijl magazine",
+    },
+    {
+      type: "image",
+      src: img05,
+      alt: "Outside view of window design, Dutch embassy Berlin",
+    },
+  ]}
+/>
 
-<ProjectMediaGrid columns={2} items={[
-  { type: "image", src: img02, alt: "" },
-  { type: "image", src: img03, alt: "" },
-  { type: "image", src: img04, alt: "" },
-  { type: "image", src: img05, alt: "" },
-]} />
-
-<ProjectMediaGrid columns={1} items={[
-  { type: "image", src: img06, alt: "" },
-]} />
-
+<ProjectMediaGrid
+  columns={1}
+  items={[{ type: "image", src: img01, alt: "" }]}
+/>
