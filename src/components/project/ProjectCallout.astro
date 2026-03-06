@@ -6,7 +6,13 @@ interface Props {
 const { label } = Astro.props;
 ---
 
-<aside class="border-l-2 border-gray-300 pl-4 md:pl-6 text-base md:text-xl max-w-3xl space-y-4 text-gray-500">
-  {label && <p class="text-xs uppercase tracking-wide text-gray-400">{label}</p>}
+<aside class="callout bg-black rounded-lg p-6 text-base md:text-xl max-w-3xl text-white">
+  {label && <><span class="uppercase tracking-wide text-white">{label}</span><span class="mx-2">·</span></>}
   <slot />
 </aside>
+
+<style>
+  .callout :global(p) {
+    display: inline;
+  }
+</style>
