@@ -4,6 +4,131 @@ Development history of the portfolio site (benediktweishaupt.de und bewe.is form
 
 ---
 
+## Mar 7 — Museum Digital v14, image optimization, asset cleanup, video conversion
+
+**Museum Digital case study v14** (uncommitted → this commit)
+
+- Transferred complete v14 case study content from external portfolio document to `museum-digital.mdx`
+- Added 8 image imports: landing-page, object-detail-mobile, themenwelt-reise, contributor-reflection, backend-review-flow, frontend-contributor-flow, user-comment-flow, wireflow
+- Added 3 videos: platform-walkthrough.mp4 (6.1MB), early-prototype.mp4 (1.9MB), stern-radio-camping.mp4 (1.9MB)
+- Stern Radio Camping video created from 39 source JPGs at 6fps using ffmpeg concat
+- New text from v14: landing page design discussion (app-like vs dedicated start page, reveal-on-scroll, cached tutorial state), Themenwelten content structure, contributor email fallback
+- Media placed with column layouts matching v14: 2-column grid for themenwelt + contributor reflection, 1-column for all others
+- All captions transferred from v14 source document
+- Converted oversized media from external `CS 6 - museum digital/` folder: resized PNGs with sips, converted .mov to .mp4 with ffmpeg
+- Removed duplicate `algorithmic-film/demo.mp4` (same content as existing video)
+
+---
+
+## Mar 7 — Image optimization, asset cleanup, video conversion
+
+**Image optimization** (`fe9fb66`, `4d6f706`)
+
+- Added `widths`, `sizes`, `quality={80}`, `format="webp"` to all `<Image>` components:
+  - Hero images in `ProjectLayout.astro` and `ProjectSimpleLayout.astro`: `widths={[640, 1024, 1536, 2048]}`, `sizes="100vw"`
+  - Case study card thumbnails in `WorkIndex.astro`: `widths={[320, 640, 960]}`, `sizes="(min-width: 768px) 384px, 256px"`
+  - Table thumbnails in `WorkIndexRow.astro`: `width={216}`, `densities={[1, 2]}` (was 108px, now retina-ready)
+  - `ProjectFullWidthImage.astro`: `widths={[640, 1024, 1536, 2048]}`, `sizes="100vw"`
+  - `ProjectMediaGrid.astro`: `widths={[480, 768, 1024, 1536]}`, column-aware `sizes`
+- Astro now generates responsive WebP srcsets instead of serving raw source images
+- Build output: 36MB cover PNGs now serve as 4–31KB WebP at appropriate breakpoints
+- 708 optimized image variants generated in 27s build
+
+**Asset cleanup** (`fe9fb66`)
+
+- Created `scripts/cleanup-images.py` — deduplicates, renames, fixes imports:
+  - MD5-hashed all project images, moved 193 duplicates to per-project `duplicates/` subfolders (no images deleted)
+  - Renamed 215 images to `{project-slug}-NN.png` convention
+  - Fixed 47 broken MDX imports, removed 17 unresolvable ones
+  - Cleaned up empty `ProjectMediaGrid` components and stale JSX references
+- Created `scripts/add-unreferenced-images.py` — placed 45 previously unreferenced images into MDX files
+- Deleted 31 stale `.md` files that had `.mdx` counterparts
+- Deleted all `manifest.json` files from asset folders
+
+**Video conversion** (`4d6f706`)
+
+- Converted `algorithmic-film/Screen Recording 2021-10-25 at 18.02.37.mov` (153MB) to `no-exit-glasgow.mp4` (25MB) via ffmpeg
+- Removed `.mov` from git history using `git filter-branch` (file was in 4 unpushed commits)
+- Placed in `public/video/projects/algorithmic-film/`
+
+**Audience changes** (`fe9fb66`)
+
+- Set `projectAudience: none` on all 40 non-case-study projects (visible in table but not clickable)
+- 4 case studies remain `projectAudience: all`: Closed, Reteach Design System, Reteach AI Course, Reteach Compliance
+- 2 case studies remain `projectAudience: none`: Museum Digital, Algorithmic Film (in progress)
+
+---
+
+## Mar 5–6 — Portfolio image extraction, project page enrichment
+
+**PDF image extraction** (`bf530f7`)
+
+- Extracted images from portfolio PDF into `src/assets/projects/` folders for 40 non-case-study projects
+- Created MDX content with `ProjectMediaGrid` and `ProjectFullWidthImage` components for each project
+- Added cover images to project frontmatter where available
+
+**Project page enrichment** (`98a1052`)
+
+- Preserved table filter/sort state across page navigations via `sessionStorage`
+- Updated `ProjectSimpleLayout.astro`: added meta tag list, description with title prefix, collaborator display
+- Added descriptions and metadata to multiple project MDX files
+
+**Image boundaries and captions** (`271e028`)
+
+- Fixed image boundary issues across project pages
+- Added descriptive captions to project images
+- Reorganized portfolio assets into correct project folders
+
+---
+
+## Mar 4–5 — Case studies CS4 & CS5, About page
+
+**CS4: Closed E-Commerce** (`51067bc`)
+
+- Replaced all images and videos with v14 content
+- Rewrote text for fluency and precision
+- Added `ProjectCallout` component for highlighted quotes/stats
+- Added `span` support to `ProjectMediaGrid` for multi-column items
+
+**CS5: Algorithmic Film** (`51067bc`, `b394250`)
+
+- Replaced all images with updated content
+- Updated captions and section structure
+- Added missing installation image, adjusted crop ratios
+- Replaced Glasgow still image with video (`no-exit-glasgow.mp4`)
+
+**About page rewrite** (`96b3fa8`, `294e051`)
+
+- Rewrote About page with direct first-person text
+- Added audience-toggle (Product/Research pills) for tailored content
+- Added LinkedIn + GitHub social links
+- Expanded toggle sections for clients, research, and teaching lists
+- Removed static exhibition and teaching arrays (will migrate to collection-based views)
+
+**CS1–3 content fixes** (`96b3fa8`)
+
+- CS1 (Design System): added Git commit distribution metrics, implementation time improvements
+- CS2 (AI Course): replaced vague feedback with concrete adoption patterns
+- CS3 (Compliance): rewrote form testing section, removed empty video slot
+
+---
+
+## Mar 3 — Font cleanup, project content files
+
+**Font cleanup** (`96c458f`)
+
+- Kept only Relevant Normal 400 and SangBleu Empire Regular 400
+- Removed: Relevant Italic/Medium/Bold, SangBleu Empire Medium/Bold, SangBleu Republic (all), SangBleu Kingdom (all), Founders Grotesk (all)
+- Cleaned up `@font-face` declarations to match
+
+**17 project content files** (`555d9c9`)
+
+- Added content files for clients: Institute for Human Activities, Schwules Museum, Sandberg Graduation Show, Drei Drie Three, KABK Graduation Festival, Sandberg Open Day, Studium Generale, Voith
+- Added content files for research: False Colours, False Colours: An Image Reading, Item to Item, More Free Wifi, No Exit, Sanity is Something Better Outsourced, The Power of Mesh
+- Added content files for teaching: additional workshop and seminar projects
+
+---
+
 ## Mar 2 — Tab navigation, Swiss typography, table grid, layout refinements
 
 **Swiss typography system** (`13b202d`)
