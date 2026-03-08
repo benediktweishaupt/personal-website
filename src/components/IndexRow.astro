@@ -1,0 +1,78 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const GRID_COLS = 'grid-cols-[48px_1fr] sm:grid-cols-[48px_192px_384px_1fr]';
+
+const { project } = Astro.props;
+const d = project.data;
+
+const isClickable = d.projectAudience !== 'none';
+const href = `/projects/${project.id}`;
+
+// Major/minor: cover + description = major
+const isMajor = !!d.cover?.image && !!d.description;
+
+const copy = d.meta.copy || '';
+
+// For clients, show client name instead of project title in the CV
+const displayTitle = (d.meta.category === 'clients' && d.meta.client) ? d.meta.client : d.title;
+---
+
+<div
+  class:list={[
+    'cv-row group grid relative -mx-page gap-x-4 px-page py-1 pb-3 border-b border-gray-600 transition-colors',
+    isClickable && 'hover:bg-gray-100',
+    GRID_COLS,
+  ]}
+  data-row
+  data-category={d.meta.category}
+  data-year={d.meta.year ?? ''}
+  data-selected={isMajor ? 'true' : 'false'}
+  data-thumbnail-audience={d.thumbnailAudience ?? 'all'}
+  data-project-audience={d.projectAudience ?? 'all'}
+>
+  {/* Year — toggled client-side to show once per group */}
+  <div class="text-sm tabular-nums text-gray-900" data-year-label>
+    {d.meta.year ?? ''}
+  </div>
+
+  {/* Title */}
+  <div class="min-w-0">
+    {isClickable ? (
+      <a href={href} class:list={['stretched-link block truncate text-sm text-gray-900', isMajor && 'font-medium']}>
+        {displayTitle}
+      </a>
+    ) : (
+      <span class:list={['block truncate text-sm text-gray-900', isMajor && 'font-medium']}>
+        {displayTitle}
+      </span>
+    )}
+  </div>
+
+  {/* Copy sentence */}
+  <div class="text-sm hidden sm:block text-gray-900">
+    <span class="copy-clamp">{copy}</span>
+  </div>
+
+  {/* Spacer */}
+  <div class="hidden sm:block"></div>
+</div>
+
+<style>
+  .stretched-link::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    z-index: 1;
+  }
+  .copy-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+</style>

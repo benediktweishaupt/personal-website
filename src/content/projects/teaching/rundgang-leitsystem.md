@@ -9,4 +9,5 @@ meta:
   institution: Kunsthochschule Weißensee
   year: "2017"
   role: Lecturer
+  copy: "Foundation Project. Kunsthochschule Weißensee"
 ---

@@ -7,5 +7,6 @@ meta:
   category: clients
   format: Exhibition Graphics
   year: "2021"
-  role: Ausstellungsgrafik, Interaktion im Raum
+  role: Product Designer
+  copy: Designed exhibition graphics and wayfinding system
 ---

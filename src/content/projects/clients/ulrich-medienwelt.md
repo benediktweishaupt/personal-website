@@ -1,11 +1,12 @@
 ---
 title: Ulrich Medienwelt
-status: draft
+status: hidden
 projectAudience: none
 order: 99
 meta:
   category: clients
   format: Identity
   year: "2010"
-  role: Identity Design
+  role: Graphic Designer
+  copy: Designed corporate identity
 ---

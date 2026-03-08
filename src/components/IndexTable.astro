@@ -1,0 +1,137 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import IndexRow from './IndexRow.astro';
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+}
+
+const GRID_COLS = 'grid-cols-[48px_1fr] sm:grid-cols-[48px_192px_384px_1fr]';
+
+const { projects } = Astro.props;
+---
+
+{/* Filter pills */}
+<div class="flex gap-2 pb-6 flex-wrap items-center" id="cv-filter-pills">
+  <button data-filter="all" class="filter-pill active rounded-full px-3 py-1 text-sm transition-colors">All</button>
+  <button data-filter="clients" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Clients</button>
+  <button data-filter="research" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Research</button>
+  <button data-filter="teaching" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Teaching</button>
+  <span class="flex-1"></span>
+  <button id="selected-toggle" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Selected</button>
+</div>
+
+{/* Table header */}
+<div class:list={[
+  'grid -mx-page px-page gap-x-4 py-2 text-sm text-gray-900 border-b border-gray-900 sticky top-12 bg-white/90 backdrop-blur-sm z-10 select-none',
+  GRID_COLS,
+]}>
+  <div>Year</div>
+  <div>Title</div>
+  <div class="hidden sm:block">Details</div>
+  <div class="hidden sm:block"></div>
+</div>
+
+{/* Rows */}
+<div id="cv-list">
+  {projects.map((project) => <IndexRow project={project} />)}
+</div>
+
+<style>
+  .filter-pill {
+    @apply text-gray-400 bg-transparent border border-gray-400;
+  }
+  .filter-pill:hover {
+    @apply text-gray-900 border-gray-900;
+  }
+  .filter-pill.active {
+    @apply text-gray-900 bg-white border-gray-900;
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const list = document.getElementById('cv-list');
+    const pills = document.getElementById('cv-filter-pills');
+    if (!list || !pills) return;
+
+    const rows = () => [...list.querySelectorAll<HTMLElement>('[data-row]')];
+
+    // ── Audience ──
+    const audience = localStorage.getItem('portfolio-audience') || 'all';
+
+    function canSee(thumbAud: string) {
+      return audience === 'family' || thumbAud === 'all' || thumbAud === audience;
+    }
+
+    // ── Year labels + group borders ──
+    function updateYearLabels() {
+      const visible = rows().filter(r => r.style.display !== 'none');
+      visible.forEach((r, i) => {
+        const label = r.querySelector<HTMLElement>('[data-year-label]');
+        const year = r.dataset.year || '';
+        const prevYear = i > 0 ? (visible[i - 1].dataset.year || '') : '';
+        const nextYear = i < visible.length - 1 ? (visible[i + 1].dataset.year || '') : '';
+
+        // Show year only on first row of group
+        if (label) {
+          label.textContent = year === prevYear ? '' : year;
+        }
+
+        // Hide border if next visible row has same year
+        if (year === nextYear) {
+          r.classList.remove('border-gray-600');
+          r.classList.add('border-transparent');
+        } else {
+          r.classList.remove('border-transparent');
+          r.classList.add('border-gray-600');
+        }
+      });
+    }
+
+    // ── Selected toggle ──
+    const selectedToggle = document.getElementById('selected-toggle');
+    let selectedOnly = sessionStorage.getItem('cv-selected') === 'true';
+    if (selectedOnly && selectedToggle) selectedToggle.classList.add('active');
+
+    // ── Filter ──
+    function activateFilter(cat: string) {
+      pills.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+      const target = pills.querySelector<HTMLElement>(`.filter-pill[data-filter="${cat}"]`);
+      if (target) target.classList.add('active');
+    }
+
+    function applyFilters() {
+      const activePill = pills.querySelector('.filter-pill.active') as HTMLElement | null;
+      const cat = activePill?.dataset.filter || 'all';
+      rows().forEach(r => {
+        const catMatch = cat === 'all' || r.dataset.category === cat;
+        const audMatch = canSee(r.dataset.thumbnailAudience || 'all');
+        const selMatch = !selectedOnly || r.dataset.selected === 'true';
+        r.style.display = catMatch && audMatch && selMatch ? '' : 'none';
+      });
+      updateYearLabels();
+      sessionStorage.setItem('cv-filter', cat);
+      sessionStorage.setItem('cv-selected', String(selectedOnly));
+    }
+
+    // ── Restore saved state ──
+    const savedFilter = sessionStorage.getItem('cv-filter');
+    if (savedFilter) activateFilter(savedFilter);
+
+    applyFilters();
+
+    pills.querySelectorAll<HTMLElement>('.filter-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activateFilter(btn.dataset.filter || 'all');
+        applyFilters();
+      });
+    });
+
+    selectedToggle?.addEventListener('click', () => {
+      selectedOnly = !selectedOnly;
+      selectedToggle.classList.toggle('active', selectedOnly);
+      applyFilters();
+    });
+  });
+</script>

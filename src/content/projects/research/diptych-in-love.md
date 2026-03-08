@@ -1,6 +1,6 @@
 ---
 title: Diptych in Love
-status: public
+status: hidden
 projectAudience: none
 order: 99
 meta:

@@ -7,5 +7,6 @@ meta:
   category: clients
   format: App Design
   year: "2020"
-  role: UX/UI Design
+  role: Product Designer
+  copy: Designed mobile app interface for audio documentary project
 ---

@@ -8,5 +8,6 @@ meta:
   format: Sculpture
   institution: Dialogfelder
   year: "2018"
-  team: confusion of tongues
+  team: Confusion of Tongues
+  copy: "Dialogfelder, Chemnitz. Sculpture with Confusion of Tongues"
 ---

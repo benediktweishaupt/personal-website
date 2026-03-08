@@ -9,4 +9,5 @@ meta:
   institution: Servicegarage
   year: "2014"
   team: Design Displacement Group
+  copy: "Servicegarage, Amsterdam. Group exhibition with Design Displacement Group"
 ---

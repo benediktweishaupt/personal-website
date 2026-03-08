@@ -1,9 +1,64 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import WorkIndex from '../components/WorkIndex.astro';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import { AUTHOR_NAME } from '../consts';
+
+const allProjects = await getCollection('projects', (p) =>
+  p.data.status !== 'hidden' && !(import.meta.env.PROD && p.data.status === 'draft')
+);
+
+const caseStudies = allProjects
+  .filter((p) => p.data.template === 'case-study' && p.data.projectAudience !== 'none')
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout title={AUTHOR_NAME} description="Selected work across clients, research, and teaching.">
-    <WorkIndex />
+  <main class="max-w-screen-2xl mx-auto px-page pt-8 pb-32">
+    <h1 class="text-xl text-gray-900">Case Studies</h1>
+    <p class="text-xl text-gray-400 pb-6">Selected projects with detailed process documentation.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {caseStudies.map((project) => (
+        <article
+          class="rounded-md bg-white overflow-hidden group"
+          data-card
+          data-thumbnail-audience={project.data.thumbnailAudience ?? 'all'}
+        >
+          <a href={`/projects/${project.id}`}>
+            {project.data.cover?.image && (
+              <div class="aspect-[3/4] bg-gray-200 overflow-hidden">
+                <Image
+                  src={project.data.cover.image}
+                  alt={project.data.cover.alt ?? ''}
+                  class="w-full h-full object-cover transition-transform duration-300"
+                  loading="lazy"
+                  widths={[320, 640, 960]}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  quality={80}
+                  format="webp"
+                />
+              </div>
+            )}
+            <div class="px-2 py-1 pb-12 text-xl bg-gray-300">
+              <p class="text-white">{project.data.meta.year}</p>
+              <p class="text-gray-900">{project.data.title}</p>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </main>
 </BaseLayout>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const audience = localStorage.getItem('portfolio-audience') || 'all';
+    document.querySelectorAll<HTMLElement>('[data-card]').forEach(card => {
+      const thumbAud = card.dataset.thumbnailAudience || 'all';
+      if (audience !== 'family' && thumbAud !== 'all' && thumbAud !== audience) {
+        card.style.display = 'none';
+      }
+    });
+  });
+</script>

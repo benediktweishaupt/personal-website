@@ -6,5 +6,7 @@ order: 99
 meta:
   category: clients
   format: UX/UI Design
-  year: "2016–2017"
+  year: "2017–2016"
+  role: Product Designer
+  copy: UX/UI design for e-commerce eyewear platform
 ---

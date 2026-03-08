@@ -1,6 +1,6 @@
 ---
 title: DIPF
-status: draft
+status: hidden
 projectAudience: none
 order: 99
 meta:
@@ -8,5 +8,6 @@ meta:
   format: Poster Design
   institution: Deutsches Institut für Internationale Pädagogische Forschung
   year: "2009"
-  role: Graphic Design
+  role: Graphic Designer
+  copy: Designed research poster for Deutsches Institut für Internationale Pädagogische Forschung
 ---

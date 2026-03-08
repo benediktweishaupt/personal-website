@@ -8,4 +8,5 @@ meta:
   format: 2-Day Workshop
   institution: HTW Berlin School of Design and Culture
   year: "2021"
+  copy: "2-Day Workshop. HTW Berlin School of Design and Culture"
 ---

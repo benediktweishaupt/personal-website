@@ -9,4 +9,5 @@ meta:
   institution: Kunsthochschule Weißensee
   year: "2021"
   team: Holger Heismeyer, Prof. Barbara Junge
+  copy: "Foundation Project, Semester Project with Holger Heismeyer, Prof. Barbara Junge. Kunsthochschule Weißensee"
 ---

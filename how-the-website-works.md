@@ -43,15 +43,22 @@ const projects = defineCollection({
       format: z.string().optional(),
       team: z.string().optional(),
       institution: z.string().optional(),
-      year: z.string().optional(),
-      role: z.string().optional(),
+      client: z.string().optional(),       // CV display name (overrides title for clients)
+      funding: z.string().optional(),      // Research funding source
+      partner: z.string().optional(),      // Collaborating institution (teaching)
+      ongoing: z.boolean().optional(),     // Project is still active
+      year: z.string().optional(),         // "2024" or "2025–2022" (higher year first)
+      role: z.string().optional(),         // Job title (e.g. "Product Designer")
+      copy: z.string().optional(),         // CV copy sentence (hand-written, no algorithm)
     }),
     description: z.string().optional(),
     description_de: z.string().optional(),
     collaborators: z.string().optional(),
     curators: z.string().optional(),
     credits_image: z.string().optional(),
-    student: z.string().optional(),
+    credits_video: z.string().optional(),
+    student: z.string().optional(),        // If set, entry is a student graduation (filtered from CV)
+    cvHidden: z.boolean().optional(),      // Hide from CV but keep project page
   }),
 });
 ```
@@ -136,6 +143,78 @@ Conventions documented in `docs/conventions/media-assets.md`.
 
 - **Images:** `src/assets/projects/` — optimized at build time via sharp, served as WebP through `/_astro/` endpoint. Use Astro `<Image>` component.
 - **Videos:** `public/video/projects/` — MP4 (H.264, crf 28), not processed by Astro. Referenced as `/video/projects/...` paths.
+
+---
+
+## Components
+
+---
+
+## CV Table (About Page)
+
+The about page renders a CV table via `CVTable.astro` and `CVRow.astro`.
+
+### Grid layout
+
+```
+Mobile:   grid-cols-[48px_1fr_48px]           → Year | Title | Spacer
+Desktop:  grid-cols-[48px_1fr_2fr_72px_48px]  → Year | Title | Copy | Category | Spacer
+```
+
+Copy and category pill are hidden on mobile.
+
+### CV filtering (`about.astro`)
+
+Projects are excluded from the CV if any of these are true:
+- `status: hidden` — excluded everywhere
+- `status: draft` — excluded in production builds only
+- `student` field is set — graduation projects supervised, not own work
+- `cvHidden: true` — hidden from CV but project page still exists
+
+### Title display
+
+For client entries, `meta.client` overrides `title` in the CV title column. This allows the project page to keep its descriptive title (e.g. "Design System for e-commerce") while the CV shows the client name ("Closed"). Entries without `meta.client` fall back to `title` — used when the title IS the client name (e.g. "Amelie Losier").
+
+### Copy sentences (`meta.copy`)
+
+Every CV entry has a hand-written `meta.copy` string. There is no algorithmic generation — the copy column renders `meta.copy` directly. Each category follows its own CV convention:
+
+- **Clients (business/tech):** Action verbs, deliverables, impact. "Designed and developed...", "Led...", "Art directed..."
+- **Teaching (academic):** Structured, dry. "Format with co-teachers. Institution" — no articles, no prose.
+- **Research (artist CV):** "Venue, City. Medium with collaborators (curated by Curator)"
+
+### Major/minor signal
+
+Derived from data: `isMajor = !!cover?.image && !!description`. Major titles get `font-medium`. No new field needed.
+
+### Year format
+
+Year ranges use en-dash with the higher year first: "2025–2024", "2020–2018". Single years: "2019". Sorting extracts all 4-digit numbers and uses the maximum.
+
+### Category pill
+
+Tiny uppercase pill: `text-[10px] uppercase tracking-wider border border-gray-900 rounded`.
+
+### Consolidation decisions
+
+Multiple entries for the same employer/client are consolidated into one CV row. The sub-entries are hidden via `cvHidden: true` (project pages preserved).
+
+| Consolidated entry | Hidden entries | Reason |
+|---|---|---|
+| Reteach (design system) | AI course creation, compliance workflows | Same employer, one CV line listing all deliverables |
+| Sandberg Instituut (manifesto) | Announcements, graduation show, open day | Same client 2014–2015, all with David Ortiz Juan |
+| Wir Design (voith) | wir-design.md | Same agency, Voith was the end-client |
+| Institute for Human Activities | metahaven-renzo-martens.md | Same project (IHA website built for Renzo Martens with Metahaven) |
+| Algorithmic Film | — | Umbrella case study page; individual works (No Exit, etc.) appear separately |
+
+### Other CV decisions
+
+- **Roosje Klap / Jan van Eyck Academy** — deleted (file removed), too minor.
+- **ISEA 2016** — moved from `clients` to `research` category. It's a symposium, not client work.
+- **Diptych in Love, Knowledge Capital** — `status: hidden`. Removed from site entirely.
+- **Student graduation projects** — filtered via `student` field. Not own work.
+- **"Confusion of Tongues"** — capitalized as proper noun in all `team` fields.
+- **Role values** — converted from activity-nouns to job titles (e.g. "UX/UI Design" → "Product Designer").
 
 ---
 

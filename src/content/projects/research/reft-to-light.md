@@ -8,6 +8,7 @@ meta:
   format: Performance
   institution: Dialogfelder
   year: "2018"
-  team: confusion of tongues
+  team: Confusion of Tongues
+  copy: "Dialogfelder, Chemnitz. Performance with Confusion of Tongues and Daniel Schneider"
 collaborators: Daniel Schneider
 ---

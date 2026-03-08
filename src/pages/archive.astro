@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import IndexTable from '../components/IndexTable.astro';
+import { getCollection } from 'astro:content';
+import { AUTHOR_NAME } from '../consts';
+
+const allProjects = await getCollection('projects', (p) =>
+  p.data.status !== 'hidden' && !(import.meta.env.PROD && p.data.status === 'draft')
+);
+
+function yearNums(y?: string): number[] {
+  return (y?.match(/\d{4}/g) ?? []).map(Number);
+}
+
+function maxYear(y?: string): number {
+  const nums = yearNums(y);
+  return nums.length ? Math.max(...nums) : 0;
+}
+
+function spanLength(y?: string): number {
+  const nums = yearNums(y);
+  if (nums.length < 2) return nums.length - 1;
+  return Math.max(...nums) - Math.min(...nums);
+}
+
+const cvProjects = allProjects.filter(p => !p.data.student && !p.data.cvHidden);
+
+const sorted = [...cvProjects].sort((a, b) => {
+  const yearDiff = maxYear(b.data.meta.year) - maxYear(a.data.meta.year);
+  if (yearDiff !== 0) return yearDiff;
+  return spanLength(b.data.meta.year) - spanLength(a.data.meta.year);
+});
+---
+
+<BaseLayout title={`Index — ${AUTHOR_NAME}`} description="Complete project history across client work, research, and teaching.">
+  <main class="max-w-screen-2xl mx-auto px-page pt-8 pb-32">
+    <h1 class="text-xl text-gray-900">Index</h1>
+    <p class="text-xl text-gray-400 pb-3">Complete project history across client work, research, and teaching.</p>
+    <IndexTable projects={sorted} />
+  </main>
+</BaseLayout>

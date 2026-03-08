@@ -6,6 +6,7 @@ order: 99
 meta:
   category: research
   format: Book
-  year: "2012"
-  role: Book Design
+  year: "2013"
+  role: Graphic Designer
+  copy: "Artist book exploring spatial transitions and thresholds"
 ---

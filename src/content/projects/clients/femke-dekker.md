@@ -7,5 +7,6 @@ meta:
   category: clients
   format: Website
   year: "2015"
-  role: Webdesign, Webdevelopment
+  role: Product Designer and Developer
+  copy: Designed and developed portfolio website
 ---

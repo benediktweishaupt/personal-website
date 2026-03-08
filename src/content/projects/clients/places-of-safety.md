@@ -7,6 +7,7 @@ meta:
   category: clients
   format: Book Design
   year: "2015"
-  role: Art Direction, Book Design
+  role: Art Director
+  copy: Art directed photo book with Sandra Pointner
 collaborators: Sandra Pointner
 ---

@@ -1,6 +1,6 @@
 ---
 title: Essential Film Society
-status: draft
+status: hidden
 projectAudience: none
 order: 99
 meta:
@@ -8,5 +8,6 @@ meta:
   format: Identity, Website, Print
   institution: Essential Film Society
   year: "2011"
-  role: Art Direction, Webdesign, Print Design
+  role: Art Director
+  copy: Art directed identity, website, and print materials
 ---

@@ -37,8 +37,11 @@ const projects = defineCollection({
 			institution: z.string().optional(),
 			client: z.string().optional(),
 			funding: z.string().optional(),
+			partner: z.string().optional(),
+			ongoing: z.boolean().optional(),
 			year: z.string().optional(),
 			role: z.string().optional(),
+			copy: z.string().optional(),
 		}),
 		description: z.string().optional(),
 		description_de: z.string().optional(),
@@ -47,6 +50,7 @@ const projects = defineCollection({
 		credits_image: z.string().optional(),
 		credits_video: z.string().optional(),
 		student: z.string().optional(),
+		cvHidden: z.boolean().optional(),
 	}),
 });
 

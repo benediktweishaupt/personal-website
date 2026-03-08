@@ -1,6 +1,6 @@
 ---
 title: TraffiQ
-status: draft
+status: hidden
 projectAudience: none
 order: 99
 meta:
@@ -8,5 +8,6 @@ meta:
   format: Editorial Design, Illustration
   institution: TraffiQ Frankfurt
   year: "2009"
-  role: Illustration, Layout
+  role: Graphic Designer
+  copy: Designed editorial materials and illustrations for TraffiQ Frankfurt
 ---

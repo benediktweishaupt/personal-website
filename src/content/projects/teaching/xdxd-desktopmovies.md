@@ -8,4 +8,5 @@ meta:
   format: 2-Day Workshop
   institution: Kunsthochschule Weißensee
   year: "2019"
+  copy: "2-Day Workshop. Kunsthochschule Weißensee"
 ---

@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import WorkIndexTable from './WorkIndexTable.astro';
+
+const allProjects = await getCollection('projects', (p) =>
+  p.data.status !== 'hidden' && !(import.meta.env.PROD && p.data.status === 'draft')
+);
+
+// Cards: case-study template items (only if they have a linkable page)
+const cardProjects = allProjects
+  .filter((p) => p.data.template === 'case-study' && p.data.projectAudience !== 'none')
+  .sort((a, b) => a.data.order - b.data.order);
+
+// Sort weight: case-study first, then graduation, then rest
+function sortWeight(d: { template?: string; student?: string }): number {
+  if (d.template === 'case-study') return 0;
+  if (d.student) return 2;
+  return 1;
+}
+
+const tableProjects = [...allProjects].sort((a, b) => {
+  const yearA = a.data.meta.year ?? '0';
+  const yearB = b.data.meta.year ?? '0';
+  const numA = parseInt(yearA.match(/\d{4}/)?.[0] ?? '0');
+  const numB = parseInt(yearB.match(/\d{4}/)?.[0] ?? '0');
+  if (numB !== numA) return numB - numA;
+  return sortWeight(a.data) - sortWeight(b.data);
+});
+---
+
+<main class="max-w-screen-2xl mx-auto px-page pt-8 pb-32 bg-white/70 backdrop-blur-xl">
+
+  {/* ── Highlight Cards ── */}
+  <h1 class="text-xl text-gray-900">Case Studies</h1>
+  <p class="text-xl text-gray-400 pb-6">Selected client projects with detailed process documentation.</p>
+
+  <div class="flex gap-2 overflow-x-auto pb-8  -mx-page pl-page scroll-pl-page snap-x snap-mandatory">
+    {cardProjects.map((project) => (
+      <article class:list={["shrink-0 w-64 rounded-md sm:w-80 md:w-96 bg-white overflow-hidden group snap-start transition-all duration-200"]} data-card data-thumbnail-audience={project.data.thumbnailAudience ?? 'all'}>
+        <a href={`/projects/${project.id}`}>
+          {project.data.cover?.image && (
+            <div class="aspect-[3/4] bg-gray-200 overflow-hidden">
+              <Image
+                src={project.data.cover.image}
+                alt={project.data.cover.alt ?? ''}
+                class="w-full h-full object-cover transition-transform duration-300"
+                loading="lazy"
+                widths={[320, 640, 960]}
+                sizes="(min-width: 768px) 384px, 256px"
+                quality={80}
+                format="webp"
+              />
+            </div>
+          )}
+          <div class="px-2 py-1 pb-12 text-xl bg-gray-300">
+            <p class="text-white">{project.data.meta.year}</p>
+            <p class="text-gray-900">{project.data.title}</p>
+          </div>
+        </a>
+      </article>
+    ))}
+  </div>
+
+  {/* ── Project Table ── */}
+  <div class="mt-8">
+    <h1 class="text-xl text-gray-900">All Projects</h1>
+    <p class="text-xl text-gray-400 pb-3">Complete archive across client work, research, and teaching.</p>
+
+    <WorkIndexTable projects={tableProjects} />
+  </div>
+</main>

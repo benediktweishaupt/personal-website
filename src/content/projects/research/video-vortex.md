@@ -8,4 +8,5 @@ meta:
   format: Design Research
   institution: Institute for Network Cultures, Malta
   year: "2019"
+  copy: "Video Vortex 12, Institute for Network Cultures, Malta. Design research presentation"
 ---

@@ -1,0 +1,165 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import WorkIndexRow from './WorkIndexRow.astro';
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+}
+
+const GRID_COLS = 'grid-cols-[72px_1fr_48px] sm:grid-cols-[72px_1fr_1fr_1fr_48px]';
+
+const { projects } = Astro.props;
+---
+
+{/* Filter pills */}
+<div class="flex gap-2 pb-6 flex-wrap" id="filter-pills">
+  <button data-filter="all" class="filter-pill active rounded-full px-3 py-1 text-sm transition-colors">All</button>
+  <button data-filter="clients" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Clients</button>
+  <button data-filter="research" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Research</button>
+  <button data-filter="teaching" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Teaching</button>
+</div>
+
+{/* Table header */}
+<div class:list={[
+  'grid gap-x-4 px-page py-2 -mx-page text-sm text-gray-900 border-b border-gray-900 sticky top-12 bg-white/90 backdrop-blur-sm z-10 select-none',
+  GRID_COLS,
+]}>
+  <div></div>
+  <button data-sort="title" class="sort-btn text-left transition-colors">Title <span class="sort-indicator"></span></button>
+  <div class="hidden sm:block text-left text-gray-900">Description</div>
+  <button data-sort="institution" class="sort-btn text-left transition-colors hidden sm:block">Institution <span class="sort-indicator"></span></button>
+  <button data-sort="year" data-dir="desc" class="sort-btn text-left transition-colors">Year <span class="sort-indicator">↓</span></button>
+</div>
+
+{/* Table rows */}
+<div id="project-list">
+  {projects.map((project) => <WorkIndexRow project={project} />)}
+</div>
+
+{/* Count */}
+<!-- <p id="project-count" class="text-sm text-gray-400 mt-2 px-0">
+  {projects.length} projects
+</p> -->
+
+<style>
+  .filter-pill {
+    @apply text-gray-400 bg-transparent border border-gray-400;
+  }
+  .filter-pill:hover {
+    @apply text-gray-900 border-gray-900;
+  }
+  .filter-pill.active {
+    @apply text-gray-900 bg-white border-gray-900;
+  }
+
+  .sort-indicator {
+    @apply text-gray-400 ml-0.5;
+  }
+  .sort-btn[data-dir="asc"] .sort-indicator,
+  .sort-btn[data-dir="desc"] .sort-indicator {
+    @apply text-gray-900;
+  }
+  .sort-btn:not([data-dir]) .sort-indicator { display: none; }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const list = document.getElementById('project-list');
+    const countEl = document.getElementById('project-count');
+    if (!list) return;
+
+    const rows = () => [...list.querySelectorAll<HTMLElement>('[data-row]')];
+
+    // ── Sort ──
+    function doSort(key: string, dir: string) {
+      document.querySelectorAll<HTMLElement>('.sort-btn').forEach(b => {
+        delete b.dataset.dir;
+        const ind = b.querySelector('.sort-indicator');
+        if (ind) ind.textContent = '';
+      });
+      const btn = document.querySelector<HTMLElement>(`.sort-btn[data-sort="${key}"]`);
+      if (btn) {
+        btn.dataset.dir = dir;
+        const indicator = btn.querySelector('.sort-indicator');
+        if (indicator) indicator.textContent = dir === 'asc' ? '↑' : '↓';
+      }
+      const sorted = rows().sort((a, b) => {
+        const av = a.dataset[key] || '';
+        const bv = b.dataset[key] || '';
+        if (key === 'year') {
+          const na = parseInt(av.match(/\d{4}/)?.[0] ?? '0');
+          const nb = parseInt(bv.match(/\d{4}/)?.[0] ?? '0');
+          return dir === 'asc' ? na - nb : nb - na;
+        }
+        return dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+      });
+      sorted.forEach(r => list!.appendChild(r));
+      sessionStorage.setItem('workindex-sort', JSON.stringify({ key, dir }));
+    }
+
+    document.querySelectorAll<HTMLElement>('.sort-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.sort;
+        if (!key) return;
+        const prev = btn.dataset.dir;
+        const dir = prev === 'asc' ? 'desc' : 'asc';
+        doSort(key, dir);
+      });
+    });
+
+    // ── Audience ──
+    const audience = localStorage.getItem('portfolio-audience') || 'all';
+
+    function canSee(thumbAud: string) {
+      return audience === 'family' || thumbAud === 'all' || thumbAud === audience;
+    }
+
+    // Filter cards by audience
+    document.querySelectorAll<HTMLElement>('[data-card]').forEach(card => {
+      if (!canSee(card.dataset.thumbnailAudience || 'all')) card.style.display = 'none';
+    });
+
+    // ── Filter ──
+    function activateFilter(cat: string) {
+      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+      const target = document.querySelector<HTMLElement>(`.filter-pill[data-filter="${cat}"]`);
+      if (target) target.classList.add('active');
+    }
+
+    function applyFilters() {
+      const activePill = document.querySelector('.filter-pill.active') as HTMLElement | null;
+      const cat = activePill?.dataset.filter || 'all';
+      let visible = 0;
+      rows().forEach(r => {
+        const catMatch = cat === 'all' || r.dataset.category === cat;
+        const audMatch = canSee(r.dataset.thumbnailAudience || 'all');
+        r.style.display = catMatch && audMatch ? '' : 'none';
+        if (catMatch && audMatch) visible++;
+      });
+      if (countEl) countEl.textContent = `${visible} projects`;
+      sessionStorage.setItem('workindex-filter', cat);
+    }
+
+    // ── Restore saved state ──
+    const savedFilter = sessionStorage.getItem('workindex-filter');
+    if (savedFilter) activateFilter(savedFilter);
+
+    const savedSort = sessionStorage.getItem('workindex-sort');
+    if (savedSort) {
+      try {
+        const { key, dir } = JSON.parse(savedSort);
+        if (key && dir) doSort(key, dir);
+      } catch {}
+    }
+
+    applyFilters();
+
+    document.querySelectorAll<HTMLElement>('.filter-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activateFilter(btn.dataset.filter || 'all');
+        applyFilters();
+      });
+    });
+
+  });
+</script>

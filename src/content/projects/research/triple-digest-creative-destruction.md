@@ -9,7 +9,8 @@ meta:
   format: Installation, Performance
   institution: Dialogfelder
   year: "2018"
-  team: confusion of tongues
+  team: Confusion of Tongues
+  copy: "Dialogfelder, Chemnitz. Lecture-performance on creative destruction with Confusion of Tongues and Dr. Raphael Schwegmann"
 description: "Triple Digest: Creative Destruction is a short lecture-performance assembled from three youtube videos that reconstruct Alois Schumpeter's influential lecture on \"creative destruction\". Urbanism researcher Raphael Schweegmann performed this lecture three times a day at the classical times of main meals: morning, noon and evening. He was locked inside the gallery and drew an explanatory graphic on the window."
 collaborators: Dr. Raphael Schwegmann
 ---

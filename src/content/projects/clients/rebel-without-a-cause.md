@@ -7,5 +7,6 @@ meta:
   category: clients
   format: Album Cover Design
   year: "2018"
-  role: Graphic Design
+  role: Graphic Designer
+  copy: Designed album cover artwork
 ---
