@@ -4,6 +4,45 @@ Development history of the portfolio site (benediktweishaupt.de und bewe.is form
 
 ---
 
+## Mar 9 — Site restructure: CV copy, Index table, Case Studies page
+
+**Navigation restructure**
+
+- Split old index into Case Studies (`/`) and Index (`/archive`) with 3-tab nav: Case Studies | Index | About
+- Renamed CVTable/CVRow → IndexTable/IndexRow
+- Archived old WorkIndex components to `docs/_archive/`
+- About page: removed CV table, bio text only
+
+**CV copy system**
+
+- Added hand-written `meta.copy` to all ~93 project entries following 3 CV conventions: clients (action verbs), teaching (academic format), research (artist CV)
+- Added `meta.client` field for CV title display (project page titles stay descriptive)
+- Added `cvHidden` field for consolidation without losing project pages
+- Consolidated entries: Reteach (3→1), Sandberg (4→1), Wir Design + Voith, IHA + Metahaven
+- Removed dead buildCopy algorithm (~50 lines) — all entries now use meta.copy
+- Fixed "Confusion of Tongues" capitalization across all files
+- Flipped year ranges to higher-year-first format (2025–2022)
+
+**Index table**
+
+- 3-column grid: Year (48px) + Title (192px) + Details (384px) + spacer (1fr)
+- Full-width row borders via negative margin + spacer column
+- Category filter pills (All/Clients/Research/Teaching)
+- Highlights/All switch toggle (derived from cover image + description)
+- Mobile: title + copy inline with dot separator
+- Major/minor weight signal: `font-medium` on titles with cover + description
+
+**Content changes**
+
+- Hidden all entries before 2013 (7 files)
+- Deleted roosje-klap-jan-van-eyck-academy.md
+- Updated DOK Eisenhüttenstadt: client name, copy, role
+- Updated Hard Copy IV: added magazine name to copy
+- Updated Here to Support: client field, copy text
+- Fixed The Door Threshold year to 2013
+
+---
+
 ## Mar 7 — Museum Digital v14, image optimization, asset cleanup, video conversion
 
 **Museum Digital case study v14** (uncommitted → this commit)

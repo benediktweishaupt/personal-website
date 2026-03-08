@@ -40,8 +40,22 @@ const displayTitle = (d.meta.category === 'clients' && d.meta.client) ? d.meta.c
     {d.meta.year ?? ''}
   </div>
 
-  {/* Title */}
-  <div class="min-w-0">
+  {/* Title + inline copy on mobile */}
+  <div class="min-w-0 sm:hidden text-sm text-gray-900">
+    {isClickable ? (
+      <a href={href} class:list={['stretched-link', isMajor && 'font-medium']}>
+        {displayTitle}
+      </a>
+    ) : (
+      <span class:list={[isMajor && 'font-medium']}>
+        {displayTitle}
+      </span>
+    )}
+    {copy && <span class="text-gray-400"> · {copy}</span>}
+  </div>
+
+  {/* Title — desktop */}
+  <div class="min-w-0 hidden sm:block">
     {isClickable ? (
       <a href={href} class:list={['stretched-link block truncate text-sm text-gray-900', isMajor && 'font-medium']}>
         {displayTitle}
@@ -53,7 +67,7 @@ const displayTitle = (d.meta.category === 'clients' && d.meta.client) ? d.meta.c
     )}
   </div>
 
-  {/* Copy sentence */}
+  {/* Copy sentence — desktop */}
   <div class="text-sm hidden sm:block text-gray-900">
     <span class="copy-clamp">{copy}</span>
   </div>
