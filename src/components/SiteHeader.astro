@@ -1,6 +1,4 @@
 ---
-import { SITE_NAME } from '../consts';
-
 export interface Props {
 	pageTitle?: string;
 }
@@ -31,18 +29,28 @@ const activeTab = "tab-active text-gray-900 bg-white";
 				onAbout ? activeTab : inactiveTab
 			]}>About</a>
 			{onSubpage && pageTitle && (
-				<span class:list={[
-					"flex items-center h-full pl-4 pr-3 text-sm rounded-t-xl gap-2 max-w-[200px] sm:max-w-[300px]",
+				<a href="/" class:list={[
+					"flex items-center justify-center h-full px-3 sm:justify-start sm:pl-4 sm:pr-3 text-sm rounded-t-xl gap-2 sm:max-w-[300px]",
 					activeTab
-				]}>
-					<span class="truncate">{pageTitle}</span>
-					<a href="/" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="Close tab">&times;</a>
-				</span>
+				]} aria-label="Close tab">
+					<span class="truncate hidden sm:inline">{pageTitle}</span>
+					<span class="text-gray-400 hover:text-gray-900 transition-colors">&times;</span>
+				</a>
 			)}
 		</nav>
-		<span class="text-sm text-gray-400 truncate max-w-[200px] sm:max-w-[300px]">
-			{SITE_NAME}
-		</span>
+		{onSubpage ? (
+			<span class="text-sm text-gray-400 truncate">
+				<span class="hidden lg:inline">Benedikt Weishaupt</span>
+				<span class="hidden md:inline lg:hidden">Bndkt Wshpt</span>
+				<span class="hidden sm:inline md:hidden">BW</span>
+			</span>
+		) : (
+			<span class="text-sm text-gray-400 truncate">
+				<span class="hidden md:inline">Benedikt Weishaupt</span>
+				<span class="hidden sm:inline md:hidden">Bndkt Wshpt</span>
+				<span class="sm:hidden">BW</span>
+			</span>
+		)}
 	</header>
 	<div class="h-2 bg-white"></div>
 </div>
