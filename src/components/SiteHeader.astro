@@ -12,7 +12,7 @@ const onIndex = path.startsWith('/archive');
 const onAbout = path.startsWith('/about');
 const onSubpage = !onCaseStudies && !onIndex && !onAbout;
 const inactiveTab = "bg-gray-200 text-gray-400 hover:text-gray-900 shadow-[inset_0_-4px_8px_rgba(0,0,0,0.06)]";
-const activeTab = "text-gray-900 bg-white";
+const activeTab = "tab-active text-gray-900 bg-white";
 ---
 
 <div class="sticky top-0 z-50">
@@ -46,3 +46,26 @@ const activeTab = "text-gray-900 bg-white";
 	</header>
 	<div class="h-2 bg-white"></div>
 </div>
+
+<style>
+	.tab-active {
+		position: relative;
+		z-index: 1;
+	}
+	.tab-active::before,
+	.tab-active::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		width: 12px;
+		height: 12px;
+	}
+	.tab-active::before {
+		left: -12px;
+		background: radial-gradient(circle at 0 0, transparent 12px, white 12px);
+	}
+	.tab-active::after {
+		right: -12px;
+		background: radial-gradient(circle at 100% 0, transparent 12px, white 12px);
+	}
+</style>
