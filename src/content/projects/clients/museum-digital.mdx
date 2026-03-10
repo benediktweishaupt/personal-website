@@ -1,7 +1,7 @@
 ---
 title: Museum Digital
 status: public
-projectAudience: none
+projectAudience: all
 template: case-study
 order: 6
 cover:
@@ -30,13 +30,22 @@ import userCommentFlow from "../../../assets/projects/museum-digital/user-commen
 import wireflow from "../../../assets/projects/museum-digital/wireflow.png";
 
 <ProjectSection variant="full" gap="10">
-  <ProjectDescription>How a regional museum with entirely analogue infrastructure launched a digital platform for its everyday-object collection — on time, on budget, passing GDPR and accessibility audits, and leaving staff fully independent of outside help.</ProjectDescription>
-  <ProjectTag variant="large">Cultural Heritage · Federal Funding · WordPress + React</ProjectTag>
+  <ProjectDescription>
+    How a regional museum with entirely analogue infrastructure launched a
+    digital platform for its everyday-object collection — on time, on budget,
+    passing GDPR and accessibility audits, and leaving staff fully independent
+    of outside help.
+  </ProjectDescription>
+  <ProjectTag variant="large">
+    Cultural Heritage · Federal Funding · WordPress + React
+  </ProjectTag>
 </ProjectSection>
 
 <ProjectSection variant="simple" gap="2">
   <ProjectSectionHeading>My Role</ProjectSectionHeading>
-  <ProjectTagList tags={["Digital Consultant", "UX Design", "Technical Architecture"]} />
+  <ProjectTagList
+    tags={["Digital Consultant", "UX Design", "Technical Architecture"]}
+  />
 </ProjectSection>
 
 <ProjectSection variant="centered" gap="7">
@@ -45,21 +54,55 @@ import wireflow from "../../../assets/projects/museum-digital/wireflow.png";
 
     Rather than seeing bureaucracy as an obstacle, we used it as structure. The funding logic — reports, audits, deliverables — became the project rhythm. Each quarter required visible progress, so the plan focused on one measurable goal: make the museum capable of publishing independently by the end of the grant.
 
-    Whether the platform needed a landing page at all was a long discussion. The alternative was an app-like approach — dropping visitors straight into the collection, as close to posting their first image as possible. We decided in favour of a dedicated start page to introduce the project and set expectations, but compromised on friction: the page included a reveal-on-scroll animation, and after a timeout it redirected automatically into the main feed. Once a visitor had seen the tutorial, we cached that state — on their next visit, they skipped the landing page entirely and went straight to the collection. First-time visitors got context; returning users barely noticed the page existed.
   </ProjectTextBlock>
+
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "video",
+      src: "/video/projects/museum-digital/platform-walkthrough.mp4",
+      alt: "Platform walkthrough showing collection browsing and object interaction.",
+      caption:
+        "Platform walkthrough showing collection browsing and object interaction.",
+    },
+  ]}
+/>
+
+  <ProjectTextBlock>
+
+    Whether the platform needed a landing page at all was a long discussion. The alternative was an app-like approach — dropping visitors straight into the collection, as close to posting their first image as possible. We decided in favour of a dedicated start page to introduce the project and set expectations, but compromised on friction: the page included a reveal-on-scroll animation, and after a timeout it redirected automatically into the main feed. Once a visitor had seen the tutorial, we cached that state — on their next visit, they skipped the landing page entirely and went straight to the collection. First-time visitors got context; returning users barely noticed the page existed.
+
+  </ProjectTextBlock>
+
 </ProjectSection>
+{/* 
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: landingPage,
+      alt: "Landing page with inline object thumbnails, federal funding logos, and a split call-to-action.",
+      caption:
+        'Landing page with inline object thumbnails, federal funding logos (Kulturstiftung des Bundes, dive_in), and a split call-to-action: "Wie funktioniert\'s?" for first-time visitors, "Los geht\'s" for returning contributors.',
+    },
+  ]}
+/>
 
-<ProjectMediaGrid columns={1} items={[
-  { type: "image", src: landingPage, alt: "Landing page with inline object thumbnails, federal funding logos, and a split call-to-action.", caption: "Landing page with inline object thumbnails, federal funding logos (Kulturstiftung des Bundes, dive_in), and a split call-to-action: \"Wie funktioniert's?\" for first-time visitors, \"Los geht's\" for returning contributors." },
-]} />
-
-<ProjectMediaGrid columns={1} items={[
-  { type: "video", src: "/video/projects/museum-digital/platform-walkthrough.mp4", alt: "Platform walkthrough showing collection browsing and object interaction.", caption: "Platform walkthrough showing collection browsing and object interaction." },
-]} />
-
-<ProjectMediaGrid columns={1} items={[
-  { type: "image", src: objectDetailMobile, alt: "Object detail on mobile showing a Plaste-Trinkflasche with contributor icons.", caption: "Object detail on mobile: \"Plaste-Trinkflasche\" with contributor icons and a second object below. The vertical scroll rhythm on small screens." },
-]} />
+<ProjectMediaGrid
+  columns={3}
+  items={[
+    {
+      type: "image",
+      src: objectDetailMobile,
+      alt: "Object detail on mobile showing a Plaste-Trinkflasche with contributor icons.",
+      caption:
+        'Object detail on mobile: "Plaste-Trinkflasche" with contributor icons and a second object below. The vertical scroll rhythm on small screens.',
+    },
+  ]}
+/> 
+*/}
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>Process and Decisions</ProjectSectionHeading>
@@ -68,38 +111,104 @@ import wireflow from "../../../assets/projects/museum-digital/wireflow.png";
 
     Architecture followed the same logic of clarity. A WordPress CMS managed content and media; a React frontend handled presentation and filtering. This combination was simple enough for the museum team to maintain and modern enough for future integration into the federal collection network. Accessibility and GDPR compliance were non-negotiable, so both were built into every review.
 
+  </ProjectTextBlock>
+  <ProjectMediaGrid
+  columns={2}
+  items={[
+    {
+      type: "image",
+      src: themenweltReise,
+      alt: "Themenwelt Reise — thematic entry point with editorial context about GDR travel restrictions.",
+      caption:
+        'Themenwelt "Reise" — thematic entry point with editorial context about GDR travel restrictions and a link to the physical exhibition in Eisenhüttenstadt.',
+    },
+    {
+      type: "image",
+      src: contributorReflection,
+      alt: "A personal reflection by a contributor about growing up with songs on car trips.",
+      caption:
+        'A personal reflection by contributor "Vega Apokalypse" about growing up with songs on car trips to Poland, Czechia, and Hungary. The curated-voice format in action: object and personal memory side by side.',
+    },
+  ]}
+/>
+    <ProjectTextBlock>
+
     The content structure was built around Themenwelten — thematic worlds. Rather than digitising the entire collection at once, each Themenwelt covered one special exhibition topic. "Reise" (travel) was the first. This was a budget decision as much as a design decision: the museum could digitise one Sonderausstellung at a time, building the platform incrementally while each new theme gave the project a visible public milestone.
+
   </ProjectTextBlock>
 </ProjectSection>
 
-<ProjectMediaGrid columns={2} items={[
-  { type: "image", src: themenweltReise, alt: "Themenwelt Reise — thematic entry point with editorial context about GDR travel restrictions.", caption: "Themenwelt \"Reise\" — thematic entry point with editorial context about GDR travel restrictions and a link to the physical exhibition in Eisenhüttenstadt." },
-  { type: "image", src: contributorReflection, alt: "A personal reflection by a contributor about growing up with songs on car trips.", caption: "A personal reflection by contributor \"Vega Apokalypse\" about growing up with songs on car trips to Poland, Czechia, and Hungary. The curated-voice format in action: object and personal memory side by side." },
-]} />
-
-<ProjectMediaGrid columns={1} items={[
-  { type: "image", src: backendReviewFlow, alt: "Backend review flow: post submission, museum team review, approve or request changes.", caption: "Backend review flow: post submission → museum team review → approve, request changes, or reject → contributor notified via backend status, email, or account dashboard. Revision loop for requested changes." },
-]} />
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: backendReviewFlow,
+      alt: "Backend review flow: post submission, museum team review, approve or request changes.",
+      caption:
+        "Backend review flow: post submission → museum team review → approve, request changes, or reject → contributor notified via backend status, email, or account dashboard. Revision loop for requested changes.",
+    },
+  ]}
+/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectTextBlock>
     Open community features were ruled out early. Moderating thousands of potential comments would have exceeded staff capacity and legal responsibility. Instead, about forty invited contributors from the museum's extended network wrote short reflections on selected objects. Their voices represented different generations and professions, creating perspective without the unpredictability of an open forum. Contributors who were uncomfortable submitting through the platform directly could choose to receive their data as email instead — a low-barrier fallback that kept participation open without forcing everyone into the same workflow.
 
     To reach local audiences with limited online access, the project combined the digital launch with small printed catalogues and regional workshops. This hybrid approach extended the collection's reach while staying realistic for a regional museum.
+
   </ProjectTextBlock>
+  <ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: frontendContributorFlow,
+      alt: "Frontend contributor flow from sign up through object selection to submission.",
+      caption:
+        'Frontend contributor flow: sign up → browse collection → select object → write text reflection → optionally upload image → preview → confirm submission → "your post will be reviewed" dialog. Alternative path for contributors who decline: receive their data as email.',
+    },
+  ]}
+/>
+
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "image",
+      src: wireflow,
+      alt: "Detailed wireflow of the contributor posting flow with empty, filled, and error states.",
+      caption:
+        "Detailed wireflow of the contributor posting flow — text comment, personal image upload, review, and confirmation — with empty, filled, and error states per step.",
+    },
+  ]}
+/>
+
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "video",
+      src: "/video/projects/museum-digital/early-prototype.mp4",
+      alt: "Early platform recording showing a different interaction state during development.",
+      caption:
+        "Early platform recording showing a different interaction state during development.",
+    },
+  ]}
+/>
+<ProjectMediaGrid
+  columns={1}
+  items={[
+    {
+      type: "video",
+      src: "/video/projects/museum-digital/stern-radio-camping.mp4",
+      alt: "Stern Radio Camping — frame-by-frame documentation of everyday GDR objects",
+      caption:
+        "Key objects were digitised with slow, single-orbit camera passes — a rotation that conveys the physicality of everyday GDR artefacts. Delivering a sense of three-dimensionality within the MVP was a deliberate constraint: visitors needed to feel the material presence of objects they couldn't touch.",
+    },
+  ]}
+/>
 </ProjectSection>
-
-<ProjectMediaGrid columns={1} items={[
-  { type: "image", src: frontendContributorFlow, alt: "Frontend contributor flow from sign up through object selection to submission.", caption: "Frontend contributor flow: sign up → browse collection → select object → write text reflection → optionally upload image → preview → confirm submission → \"your post will be reviewed\" dialog. Alternative path for contributors who decline: receive their data as email." },
-]} />
-
-<ProjectMediaGrid columns={1} items={[
-  { type: "image", src: wireflow, alt: "Detailed wireflow of the contributor posting flow with empty, filled, and error states.", caption: "Detailed wireflow of the contributor posting flow — text comment, personal image upload, review, and confirmation — with empty, filled, and error states per step." },
-]} />
-
-<ProjectMediaGrid columns={1} items={[
-  { type: "video", src: "/video/projects/museum-digital/early-prototype.mp4", alt: "Early platform recording showing a different interaction state during development.", caption: "Early platform recording showing a different interaction state during development." },
-]} />
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>Impact</ProjectSectionHeading>
@@ -107,15 +216,17 @@ import wireflow from "../../../assets/projects/museum-digital/wireflow.png";
     By the project's end, the system had passed Brandenburg's GDPR and accessibility audits. The museum staff could upload, edit, and curate content without outside help. The WordPress / React stack ran reliably on the museum's existing servers and required no ongoing agency maintenance. All documentation — technical and editorial — was archived as part of the federal reporting package, ensuring continuity after the grant closed.
 
     The curated-voice model proved sustainable: contributors remained engaged, and content quality stayed consistent. Instead of chasing reach metrics, the museum gained editorial confidence and technical independence. Federal authorities accepted the final report without revision, completing the project on time and within budget.
+
   </ProjectTextBlock>
 </ProjectSection>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectTextBlock>
-    Digitising a museum collection under public-funding constraints demanded discipline more than innovation. Progress was measured not by features but by stability. The project succeeded because it aligned design decisions with administrative structure — turning requirements into framework instead of friction. The museum publishes independently now. The system runs on their own servers, maintained by their own staff.
+    Digitising a museum collection under public-funding constraints demanded
+    discipline more than innovation. Progress was measured not by features but
+    by stability. The project succeeded because it aligned design decisions with
+    administrative structure — turning requirements into framework instead of
+    friction. The museum publishes independently now. The system runs on their
+    own servers, maintained by their own staff.
   </ProjectTextBlock>
 </ProjectSection>
-
-<ProjectMediaGrid columns={1} items={[
-  { type: "video", src: "/video/projects/museum-digital/stern-radio-camping.mp4", alt: "Stern Radio Camping — frame-by-frame documentation of everyday GDR objects" },
-]} />

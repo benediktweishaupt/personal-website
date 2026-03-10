@@ -1,7 +1,7 @@
 ---
 title: Algorithmic Film
 status: public
-projectAudience: none
+projectAudience: all
 cvHidden: true
 template: case-study
 order: 5
@@ -73,11 +73,10 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>
-    1 — Item to Item (with Gilles de Brock)
+    1 — Item to Item
   </ProjectSectionHeading>
   <ProjectTextBlock>
-    The first experiments, developed together with Gilles de Brock, tested
-    whether public APIs could drive filmic sequence. We treated services like
+    The first experiments tested whether public APIs could drive filmic sequence. We treated services like
     Amazon and YouTube as narrative engines rather than data sources. Scripts
     followed their recommendation paths, pulling stills and clips to form
     associative chains — one item leading to the next. The result was less a
@@ -85,9 +84,7 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
     logic already performs montage at scale. That architecture — access →
     traversal → assembly → output — became the foundation for later systems.
   </ProjectTextBlock>
-</ProjectSection>
-
-<ProjectMediaGrid
+  <ProjectMediaGrid
   columns={2}
   items={[
     {
@@ -110,26 +107,7 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
 <ProjectMediaGrid
   columns={1}
   items={[
-    {
-      type: "image",
-      src: founderPortrait,
-      alt: "Working on the Item to Item prototype",
-      caption:
-        "Founder portrait. Working on the Item to Item prototype — laptops, cables, borrowed monitors, and not much sleep.",
-    },
-  ]}
-/>
 
-<ProjectMediaGrid
-  columns={2}
-  items={[
-    {
-      type: "image",
-      src: scraperInterface,
-      alt: "First setup combining multiple scrapers into one interface",
-      caption:
-        "First setup combining multiple scrapers into one interface. Zalando, Amazon, and image search results rendered as a Mondrian-like grid.",
-    },
     {
       type: "image",
       src: cardFilling,
@@ -137,38 +115,19 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
       caption:
         "Filling the cards with content that depends on each other — one API's output triggers the next query. Maps, product images, and text fragments side by side.",
     },
-  ]}
+
+]}
 />
 
 <ProjectMediaGrid
   columns={2}
   items={[
-    {
-      type: "image",
-      src: botMonitor,
-      alt: "Close-up of a monitor running the Item to Item bot",
-      caption:
-        'Close-up of a monitor running the Item to Item bot. The title bar reads the current traversal — "bot-1 — new interior added to collection."',
-    },
     {
       type: "image",
       src: itemToItemLandscape,
       alt: "Algorithmically generated characters from recommendation chains",
       caption:
         'Algorithmically generated "characters" — 3D collages assembled from recommendation chains across ArtRank, Capture, and others. No manual composition, only structural rules applied to found material.',
-    },
-  ]}
-/>
-
-<ProjectMediaGrid
-  columns={2}
-  items={[
-    {
-      type: "image",
-      src: installationOriginal,
-      alt: "Installation view, original",
-      caption:
-        "Installation view, original. Monitors on medical stands, tangled cables, 3D-printed collages on the wall. The mess was part of the show — but distracting enough that I Photoshopped it out in 2015.",
     },
     {
       type: "image",
@@ -179,32 +138,35 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
     },
   ]}
 />
+</ProjectSection>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>
     2 — Experiments in data-driven narratives
   </ProjectSectionHeading>
+  <ProjectTextBlock>
+    The early chain-traversals revealed algorithmic logic but stayed inside a single platform's associative grammar — one item leading to the next within the same recommendation graph. Two shorter experiments tested whether narrative could emerge from cross-domain mapping instead: forcing unrelated datasets into shared time. "Be the First Person to Like This" built word chains between YouTube videos with zero views, linking them through title or description overlaps — still accumulative, but selecting for obscurity rather than relevance. "Out in the Open" took the larger step, mapping live stock price movements onto animal footage. Here, the system no longer followed lateral associations. It produced meaning through disjunction — the gap between finance data and nature imagery became the narrative itself. That move — coherence through structural juxtaposition rather than semantic continuity — prefigured the core logic of No Exit.
+  </ProjectTextBlock>
+  <ProjectMediaGrid
+    columns={2}
+    items={[
+      {
+        type: "image",
+        src: beTheFirst,
+        alt: "Be the First Person to Like This — word chain from YouTube videos",
+        caption:
+          "Be the First Person to Like This — built a word chain from two YouTube videos with zero views but similarities in title or description.",
+      },
+      {
+        type: "image",
+        src: outInTheOpen,
+        alt: "Out in the Open — stock price changes with animal footage",
+        caption:
+          "Out in the Open — illustrated live stock price changes with animal footage.",
+      },
+    ]}
+  />
 </ProjectSection>
-
-<ProjectMediaGrid
-  columns={2}
-  items={[
-    {
-      type: "image",
-      src: beTheFirst,
-      alt: "Be the First Person to Like This — word chain from YouTube videos",
-      caption:
-        "Be the First Person to Like This — built a word chain from two YouTube videos with zero views but similarities in title or description.",
-    },
-    {
-      type: "image",
-      src: outInTheOpen,
-      alt: "Out in the Open — stock price changes with animal footage",
-      caption:
-        "Out in the Open — illustrated live stock price changes with animal footage.",
-    },
-  ]}
-/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>3 — No Exit (Design Displacement Group)</ProjectSectionHeading>
@@ -214,53 +176,39 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
     The system built new sequences by combining files across these acts, erasing stylistic continuity and authorship. What held the film together was timing and metadata, not narrative intent. The software was deliberately simple — written in JavaScript / Node, using lightweight HTML playback — but could run for days without restart. Each screening used a different dataset, creating a new cut every time. Versions of No Exit were shown in Glasgow, Brno, and other venues, always under changing conditions. The algorithm stayed constant; the material kept evolving.
 
   </ProjectTextBlock>
+  <ProjectMediaGrid
+    columns={1}
+    items={[
+      {
+        type: "video",
+        src: "/video/projects/algorithmic-film/no-exit-glasgow.mp4",
+        alt: "No Exit three-channel projection in Glasgow",
+        caption:
+          "No Exit — three-channel projection, Graphic Design Festival Scotland, Glasgow. Aerial cityscapes, scraped libretto subtitles, and found footage. Each screen runs independently, synchronised only by structural timing.",
+      },
+    ]}
+  />
+
+  <ProjectMediaGrid
+    columns={2}
+    items={[
+      {
+        type: "image",
+        src: dividerScreen,
+        alt: "Divider screen — RESURRECTION, part 5",
+        caption:
+          'Divider screen — "RESURRECTION, part 5." Generated title cards break the continuous feed into acts, giving the film a rhythm the algorithm doesn\'t otherwise provide.',
+      },
+      {
+        type: "image",
+        src: dialogueScreens,
+        alt: "Dialogue screens with scraped libretto fragments",
+        caption:
+          'Dialogue screens. Scraped libretto fragments layered over collaged landscapes: "So? Who are you thinking about?" — "I\'m thinking about the others."',
+      },
+    ]}
+  />
 </ProjectSection>
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "video",
-      src: "/video/projects/algorithmic-film/no-exit-glasgow.mp4",
-      alt: "No Exit three-channel projection in Glasgow",
-      caption:
-        "No Exit — three-channel projection, Graphic Design Festival Scotland, Glasgow. Aerial cityscapes, scraped libretto subtitles, and found footage. Each screen runs independently, synchronised only by structural timing.",
-    },
-  ]}
-/>
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "image",
-      src: brnoBiennale,
-      alt: "First installation at the Brno Design Biennale",
-      caption:
-        "First installation at the Brno Design Biennale, 2015. Quilts on mannequin stands, screens glowing in a vaulted hall — the physical and the algorithmic side by side.",
-    },
-  ]}
-/>
-
-<ProjectMediaGrid
-  columns={2}
-  items={[
-    {
-      type: "image",
-      src: dividerScreen,
-      alt: "Divider screen — RESURRECTION, part 5",
-      caption:
-        'Divider screen — "RESURRECTION, part 5." Generated title cards break the continuous feed into acts, giving the film a rhythm the algorithm doesn\'t otherwise provide.',
-    },
-    {
-      type: "image",
-      src: dialogueScreens,
-      alt: "Dialogue screens with scraped libretto fragments",
-      caption:
-        'Dialogue screens. Scraped libretto fragments layered over collaged landscapes: "So? Who are you thinking about?" — "I\'m thinking about the others."',
-    },
-  ]}
-/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>4 — Workshop System (DDG)</ProjectSectionHeading>
@@ -274,27 +222,19 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
     narrative simply through structural rhythm. The engine ran locally, without
     network dependencies, to remain robust in classroom conditions.
   </ProjectTextBlock>
+  <ProjectMediaGrid
+    columns={1}
+    items={[
+      {
+        type: "image",
+        src: workshopScreenshot,
+        alt: "Workshop interface with topic filters",
+        caption:
+          "Workshop interface. Topic filters — History, Camouflage, Propaganda, Provocation, Currencies — and quantity sliders let participants shape the input without controlling the output.",
+      },
+    ]}
+  />
 </ProjectSection>
-
-<ProjectMediaGrid
-  columns={2}
-  items={[
-    {
-      type: "image",
-      src: workshopScreenshot,
-      alt: "Workshop interface with topic filters",
-      caption:
-        "Workshop interface. Topic filters — History, Camouflage, Propaganda, Provocation, Currencies — and quantity sliders let participants shape the input without controlling the output.",
-    },
-    {
-      type: "image",
-      src: workshopScreenshot2,
-      alt: "Digital Campfire workshop",
-      caption:
-        "Digital Campfire workshop — 15 designers building one poster collaboratively in Google Sheets. Each cell is a design decision.",
-    },
-  ]}
-/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>
@@ -310,20 +250,19 @@ import shenzhenBiennale from "../../../assets/projects/algorithmic-film/shenzhen
     Exit, it blurred the boundary between contribution and authorship: content
     entered through human choice, structure through code.
   </ProjectTextBlock>
+  <ProjectMediaGrid
+    columns={1}
+    items={[
+      {
+        type: "image",
+        src: shenzhenBiennale,
+        alt: "Rise & Shine at Shenzhen Biennale",
+        caption:
+          "Rise & Shine News Channel — the website running at the Bi-City Biennale of Urbanism/Architecture, Shenzhen, 2015. A performative newsroom where DDG members acted as live reporters.",
+      },
+    ]}
+  />
 </ProjectSection>
-
-<ProjectMediaGrid
-  columns={1}
-  items={[
-    {
-      type: "image",
-      src: shenzhenBiennale,
-      alt: "Rise & Shine at Shenzhen Biennale",
-      caption:
-        "Rise & Shine News Channel — the website running at the Bi-City Biennale of Urbanism/Architecture, Shenzhen, 2015. A performative newsroom where DDG members acted as live reporters.",
-    },
-  ]}
-/>
 
 <ProjectSection variant="centered" gap="7">
   <ProjectSectionHeading>Process and Principles</ProjectSectionHeading>
