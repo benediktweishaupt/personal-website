@@ -4,7 +4,24 @@ Development history of the portfolio site (benediktweishaupt.de und bewe.is form
 
 ---
 
-## Mar 24 — Nav and Index table polish
+## Mar 24 — Fonts, card redesign, tag styles, nav polish
+
+**Typography**
+
+- Switched default sans font from "Relevant" to "Matter" (trial)
+- Added MatterMono (trial) as `font-mono`
+- Added `@font-face` declarations for Matter Regular, Matter Medium, MatterMono Regular
+
+**Case Studies cards**
+
+- Aspect ratio 3/4 → 1/1 (square covers)
+- Caption restyled: smaller text, title + year in a row; year and description fade in on hover
+- Removed bottom padding from card body
+
+**ProjectTag**
+
+- `large` variant: pill → rounded rect, `bg-white`, border `gray-900`
+- Default variant: inverted — `bg-gray-900`, white text, `rounded-md`
 
 **SiteHeader**
 
@@ -17,6 +34,10 @@ Development history of the portfolio site (benediktweishaupt.de und bewe.is form
 - Mobile: added `auto` third column to keep toggle in the same header row without wrapping
 - Renamed label "All" → "All projects" for clarity
 - Fixed missing `text-sm` on both toggle labels
+
+**About**
+
+- Removed "Jitsi Bitsi Spider" link from contact row
 
 ---
 
