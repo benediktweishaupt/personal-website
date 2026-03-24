@@ -15,6 +15,33 @@
   font-display: swap;
 }
 
+/* MatterMono — Regular trial */
+@font-face {
+  font-family: "MatterMono";
+  src: url("/fonts/MatterMono-TRIAL-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Matter — Regular trial */
+@font-face {
+  font-family: "Matter";
+  src: url("/fonts/Matter-TRIAL-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Matter — Medium trial */
+@font-face {
+  font-family: "Matter";
+  src: url("/fonts/Matter-TRIAL-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* SangBleu Empire — only Regular 400 available */
 @font-face {
   font-family: "SangBleu Empire";

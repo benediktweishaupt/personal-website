@@ -9,48 +9,35 @@ const onCaseStudies = path === '/' || path === '';
 const onIndex = path.startsWith('/archive');
 const onAbout = path.startsWith('/about');
 const onSubpage = !onCaseStudies && !onIndex && !onAbout;
-const inactiveTab = "bg-gray-200 text-gray-400 hover:text-gray-900 shadow-[inset_0_-4px_8px_rgba(0,0,0,0.06)]";
+const inactiveTab = "bg-gray-700 text-gray-200 hover:bg-gray-600 hover:text-gray-100 shadow-[inset_0_-4px_8px_rgba(0,0,0,0.06)]";
 const activeTab = "tab-active text-gray-900 bg-white";
 ---
 
 <div class="sticky top-0 z-50">
-	<header class="h-10 flex items-center justify-between px-page bg-gray-100 shadow-[inset_0_-4px_8px_rgba(0,0,0,0.06)]">
+	<header class="h-10 flex items-center justify-between px-page bg-gray-800 shadow-[inset_0_-4px_8px_rgba(0,0,0,0.06)]">
 		<nav transition:name="site-nav" transition:animate="morph" class="flex items-center h-full gap-0.5 pt-1">
 			<a href="/" class:list={[
-				"flex items-center h-full px-4 text-sm rounded-t-xl transition-colors",
+				"flex items-center h-full px-4 text-sm tracking-[0.0125em] rounded-t-xl transition-colors",
 				onCaseStudies ? activeTab : inactiveTab
 			]}>Case Studies</a>
 			<a href="/archive" class:list={[
-				"flex items-center h-full px-4 text-sm rounded-t-xl transition-colors",
+				"flex items-center h-full px-4 text-sm tracking-[0.0125em] rounded-t-xl transition-colors",
 				onIndex ? activeTab : inactiveTab
 			]}>Index</a>
 			<a href="/about" class:list={[
-				"flex items-center h-full px-4 text-sm rounded-t-xl transition-colors",
+				"flex items-center h-full px-4 text-sm tracking-[0.0125em] rounded-t-xl transition-colors",
 				onAbout ? activeTab : inactiveTab
 			]}>About</a>
 			{onSubpage && pageTitle && (
 				<a href="/" class:list={[
-					"flex items-center justify-center h-full px-3 sm:justify-start sm:pl-4 sm:pr-3 text-sm rounded-t-xl gap-2 sm:max-w-[300px]",
+					"group flex items-center justify-center h-full px-3 sm:justify-start sm:pl-4 sm:pr-3 text-sm tracking-[0.0125em] rounded-t-xl gap-2 sm:max-w-[300px]",
 					activeTab
 				]} aria-label="Close tab">
-					<span class="truncate hidden sm:inline">{pageTitle}</span>
-					<span class="text-gray-400 hover:text-gray-900 transition-colors">&times;</span>
+					<span class="truncate hidden sm:inline text-gray-700 group-hover:text-gray-900">{pageTitle}</span>
+					<div class="w-4 h-4 flex items-center justify-center text-gray-600 group-hover:text-gray-900 bg-gray-200 group-hover:bg-gray-300 rounded-full transition-colors leading-none">&times;</div>
 				</a>
 			)}
 		</nav>
-		{onSubpage ? (
-			<span class="text-sm text-gray-400 truncate">
-				<span class="hidden lg:inline">Benedikt Weishaupt</span>
-				<span class="hidden md:inline lg:hidden">Bndkt Wshpt</span>
-				<span class="hidden sm:inline md:hidden">BW</span>
-			</span>
-		) : (
-			<span class="text-sm text-gray-400 truncate">
-				<span class="hidden md:inline">Benedikt Weishaupt</span>
-				<span class="hidden sm:inline md:hidden">Bndkt Wshpt</span>
-				<span class="sm:hidden">BW</span>
-			</span>
-		)}
 	</header>
 	<div class="h-2 bg-white"></div>
 </div>

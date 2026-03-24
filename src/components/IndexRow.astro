@@ -43,11 +43,11 @@ const displayTitle = (d.meta.category === 'clients' && d.meta.client) ? d.meta.c
   {/* Title + inline copy on mobile */}
   <div class="min-w-0 sm:hidden text-sm text-gray-900">
     {isClickable ? (
-      <a href={href} class:list={['stretched-link', isMajor && 'font-medium']}>
+      <a href={href} class="stretched-link">
         {displayTitle}
       </a>
     ) : (
-      <span class:list={[isMajor && 'font-medium']}>
+      <span>
         {displayTitle}
       </span>
     )}
@@ -57,11 +57,11 @@ const displayTitle = (d.meta.category === 'clients' && d.meta.client) ? d.meta.c
   {/* Title — desktop */}
   <div class="min-w-0 hidden sm:block">
     {isClickable ? (
-      <a href={href} class:list={['stretched-link block truncate text-sm text-gray-900', isMajor && 'font-medium']}>
+      <a href={href} class="stretched-link block truncate text-sm text-gray-900">
         {displayTitle}
       </a>
     ) : (
-      <span class:list={['block truncate text-sm text-gray-900', isMajor && 'font-medium']}>
+      <span class="block truncate text-sm text-gray-900">
         {displayTitle}
       </span>
     )}

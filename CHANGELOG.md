@@ -4,6 +4,22 @@ Development history of the portfolio site (benediktweishaupt.de und bewe.is form
 
 ---
 
+## Mar 24 — Nav and Index table polish
+
+**SiteHeader**
+
+- Extracted responsive name display into `HeaderName.astro` (unused, kept for later)
+- Close tab button: hover state now triggers on full tab hover, not just the × icon (`group`/`group-hover`)
+
+**Index table toggle**
+
+- Moved Highlights/All projects toggle into the table header row (last column, `col-span-2` spanning Details + spacer)
+- Mobile: added `auto` third column to keep toggle in the same header row without wrapping
+- Renamed label "All" → "All projects" for clarity
+- Fixed missing `text-sm` on both toggle labels
+
+---
+
 ## Mar 9 — Site restructure: CV copy, Index table, Case Studies page
 
 **Navigation restructure**

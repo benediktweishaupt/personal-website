@@ -1,0 +1,21 @@
+---
+export interface Props {
+	onSubpage?: boolean;
+}
+
+const { onSubpage = false } = Astro.props;
+---
+
+{onSubpage ? (
+	<span class="text-sm text-gray-200 truncate">
+		<span class="hidden lg:inline">Benedikt Weishaupt</span>
+		<span class="hidden md:inline lg:hidden">Bndkt Wshpt</span>
+		<span class="hidden sm:inline md:hidden">BW</span>
+	</span>
+) : (
+	<span class="text-sm text-gray-200 truncate">
+		<span class="hidden md:inline">Benedikt Weishaupt</span>
+		<span class="hidden sm:inline md:hidden">Bndkt Wshpt</span>
+		<span class="sm:hidden">BW</span>
+	</span>
+)}

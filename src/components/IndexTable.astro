@@ -6,7 +6,7 @@ interface Props {
   projects: CollectionEntry<'projects'>[];
 }
 
-const GRID_COLS = 'grid-cols-[48px_1fr] sm:grid-cols-[48px_192px_384px_1fr]';
+const GRID_COLS = 'grid-cols-[48px_1fr_auto] sm:grid-cols-[48px_192px_384px_1fr]';
 
 const { projects } = Astro.props;
 ---
@@ -18,22 +18,7 @@ const { projects } = Astro.props;
     <button data-filter="clients" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Clients</button>
     <button data-filter="research" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Research</button>
     <button data-filter="teaching" class="filter-pill rounded-full px-3 py-1 text-sm transition-colors">Teaching</button>
-    <span class="hidden sm:inline flex-1"></span>
-    <label id="highlights-toggle" class="hidden sm:flex items-center gap-2 cursor-pointer select-none">
-      <span class="text-sm text-gray-400 toggle-label">Highlights</span>
-      <span class="toggle-track relative inline-block w-8 h-[18px] rounded-full border border-gray-400 transition-colors">
-        <span class="toggle-thumb absolute top-[2px] left-[2px] w-3 h-3 rounded-full bg-gray-400 transition-all"></span>
-      </span>
-      <span class="text-sm text-gray-900 toggle-label">All</span>
-    </label>
   </div>
-  <label id="highlights-toggle-mobile" class="flex sm:hidden items-center gap-2 cursor-pointer select-none self-end">
-    <span class="text-sm text-gray-400 toggle-label">Highlights</span>
-    <span class="toggle-track relative inline-block w-8 h-[18px] rounded-full border border-gray-400 transition-colors">
-      <span class="toggle-thumb absolute top-[2px] left-[2px] w-3 h-3 rounded-full bg-gray-400 transition-all"></span>
-    </span>
-    <span class="text-sm text-gray-900 toggle-label">All</span>
-  </label>
 </div>
 
 {/* Table header */}
@@ -43,8 +28,16 @@ const { projects } = Astro.props;
 ]}>
   <div>Year</div>
   <div>Title</div>
-  <div class="hidden sm:block">Details</div>
-  <div class="hidden sm:block"></div>
+  <div class="flex items-center justify-between col-span-1 sm:col-span-2">
+    <span class="hidden sm:block">Details</span>
+    <label id="highlights-toggle" class="flex items-center gap-2 cursor-pointer select-none">
+      <span class="text-sm toggle-label">Highlights</span>
+      <span class="toggle-track relative inline-block w-8 h-[18px] rounded-full border border-gray-400 transition-colors">
+        <span class="toggle-thumb absolute top-[2px] left-[2px] w-3 h-3 rounded-full bg-gray-400 transition-all"></span>
+      </span>
+      <span class="text-sm text-gray-400 toggle-label">All projects</span>
+    </label>
+  </div>
 </div>
 
 {/* Rows */}
@@ -79,20 +72,16 @@ const { projects } = Astro.props;
   .show-all .toggle-label:last-child {
     color: theme('colors.gray.900');
   }
-  #highlights-toggle:not(.show-all) .toggle-label:first-child,
-  #highlights-toggle-mobile:not(.show-all) .toggle-label:first-child {
+  #highlights-toggle:not(.show-all) .toggle-label:first-child {
     color: theme('colors.gray.900');
   }
-  #highlights-toggle:not(.show-all) .toggle-track,
-  #highlights-toggle-mobile:not(.show-all) .toggle-track {
+  #highlights-toggle:not(.show-all) .toggle-track {
     border-color: theme('colors.gray.900');
   }
-  #highlights-toggle:not(.show-all) .toggle-thumb,
-  #highlights-toggle-mobile:not(.show-all) .toggle-thumb {
+  #highlights-toggle:not(.show-all) .toggle-thumb {
     background: theme('colors.gray.900');
   }
-  #highlights-toggle:not(.show-all) .toggle-label:last-child,
-  #highlights-toggle-mobile:not(.show-all) .toggle-label:last-child {
+  #highlights-toggle:not(.show-all) .toggle-label:last-child {
     color: theme('colors.gray.400');
   }
 </style>
@@ -138,9 +127,8 @@ const { projects } = Astro.props;
     }
 
     // ── Highlights toggle ──
-    const toggle = document.getElementById('highlights-toggle');
-    const toggleMobile = document.getElementById('highlights-toggle-mobile');
-    const toggles = [toggle, toggleMobile].filter(Boolean) as HTMLElement[];
+    const toggle = document.getElementById('highlights-toggle') as HTMLElement | null;
+    const toggles = [toggle].filter(Boolean) as HTMLElement[];
     let showAll = sessionStorage.getItem('cv-selected') !== 'true';
     if (showAll) toggles.forEach(t => t.classList.add('show-all'));
 
