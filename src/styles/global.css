@@ -6,38 +6,15 @@
   --page-px: 1rem; /* 24px — global page side margin */
 }
 
-/* Relevant — only Normal 400 available */
-@font-face {
-  font-family: "Relevant";
-  src: url("/fonts/RelevantTrial-Normal.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+body {
+  font-feature-settings: "ss02" 1, "ss04" 1;
 }
 
-/* MatterMono — Regular trial */
-@font-face {
-  font-family: "MatterMono";
-  src: url("/fonts/MatterMono-TRIAL-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Matter — Regular trial */
+/* Matter — Regular */
 @font-face {
   font-family: "Matter";
-  src: url("/fonts/Matter-TRIAL-Regular.woff2") format("woff2");
+  src: url("/fonts/Matter-Regular.woff2") format("woff2");
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Matter — Medium trial */
-@font-face {
-  font-family: "Matter";
-  src: url("/fonts/Matter-TRIAL-Medium.woff2") format("woff2");
-  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }

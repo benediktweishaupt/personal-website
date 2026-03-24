@@ -29,21 +29,8 @@ export default {
       },
       fontFamily: {
         sans: ['"Matter"', "Arial", "system-ui", "sans-serif"],
-        serif: [
-          '"SangBleu Republic"',
-          '"Old Standard TT"',
-          "Georgia",
-          "Times",
-          "serif",
-        ],
-        mono: ['"MatterMono"', "ui-monospace", "monospace"],
-        "serif-display": [
-          '"SangBleu Empire"',
-          '"SangBleu Republic"',
-          "Georgia",
-          "Times",
-          "serif",
-        ],
+        serif: ['"Old Standard TT"', "Georgia", "Times", "serif"],
+        "serif-display": ['"SangBleu Empire"', "Georgia", "Times", "serif"],
       },
     },
   },
