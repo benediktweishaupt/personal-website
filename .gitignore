@@ -26,3 +26,14 @@ pnpm-debug.log*
 # image staging (large unprocessed files)
 docs/images-to-place/
 docs/reference-data/
+
+# fonts — licensed binaries, never commit
+# served on bewe.is under license, but not redistributable (Displaay §06/§10)
+# provided at build time from the private assets repo, see .github/workflows/deploy.yml
+public/fonts/*.woff
+public/fonts/*.woff2
+public/fonts/*.otf
+public/fonts/*.ttf
+
+# font purchases and foundry trials (licence docs, invoices, trial families)
+docs/DP_*/

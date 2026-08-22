@@ -21,6 +21,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # Font binaries are licensed but not redistributable (Displaay §06/§10),
+      # so they live in the private personal-website-fonts repo and are pulled
+      # in at build time with a read-only deploy key.
+      - name: Fetch licensed fonts
+        env:
+          FONTS_DEPLOY_KEY: ${{ secrets.FONTS_DEPLOY_KEY }}
+        run: |
+          if [ -z "$FONTS_DEPLOY_KEY" ]; then
+            echo "::error::FONTS_DEPLOY_KEY secret is missing — cannot fetch fonts."
+            exit 1
+          fi
+          mkdir -p ~/.ssh
+          printf '%s\n' "$FONTS_DEPLOY_KEY" > ~/.ssh/fonts_key
+          chmod 600 ~/.ssh/fonts_key
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/fonts_key -o IdentitiesOnly=yes" \
+            git clone --depth 1 --quiet \
+            git@github.com:benediktweishaupt/personal-website-fonts.git "$RUNNER_TEMP/fonts"
+          rm -f ~/.ssh/fonts_key
+          mkdir -p public/fonts
+          cp "$RUNNER_TEMP/fonts"/fonts/*.woff2 public/fonts/
+          echo "Fonts in place:"
+          ls -la public/fonts/
+
       - uses: withastro/action@v3
 
   deploy:
