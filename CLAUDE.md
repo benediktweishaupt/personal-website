@@ -30,5 +30,7 @@ npm run preview   # preview production build
 ## Stack
 
 Astro 5 · Tailwind 3.4 · MDX · sharp · TypeScript
-Custom fonts: Relevant (sans), SangBleu Empire (display), SangBleu Republic (body)
+Custom fonts: Matter (sans, licensed), SangBleu Empire (display, trial)
+Font binaries live in the private `personal-website-fonts` repo and are fetched at
+build time — they are not in this repo and must never be committed (see .gitignore)
 Deploy: GitHub Actions → GitHub Pages (bewe.is)

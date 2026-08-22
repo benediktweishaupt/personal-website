@@ -4,6 +4,30 @@ Development history of the portfolio site (benediktweishaupt.de und bewe.is form
 
 ---
 
+## Aug 22 — Site back online, fonts out of the public repo
+
+**Deployment**
+
+- Site had been down: GitHub Pages unpublishes private repos without a paid plan, which
+  dropped the custom domain and the published build. Repo is public again, `bewe.is`
+  serves 200.
+- Deploy workflow now fetches font binaries from the private `personal-website-fonts`
+  repo at build time via a read-only deploy key.
+
+**Font licensing**
+
+- Removed all font binaries from the repo and from git history (`git filter-repo`).
+  Displaay §06/§10 forbid distribution and third-party copying; a public repo serving
+  them as raw downloads is not covered by the licence.
+- `.gitignore` now blocks font binaries and `docs/DP_*` (trial families, invoice).
+- Open: SangBleu Empire is still a trial and still live; old objects remain reachable
+  at unreferenced SHAs pending GitHub GC. See `docs/conventions/font-licensing.md`.
+
+**Docs**
+
+- Font section in `how-the-website-works.md` and `CLAUDE.md` corrected — described
+  Relevant / SangBleu Republic / Kingdom, none of which are in use.
+
 ## Mar 24 — Fonts, card redesign, tag styles, nav polish
 
 **Typography**

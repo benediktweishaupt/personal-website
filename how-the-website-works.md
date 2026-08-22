@@ -248,10 +248,23 @@ Multiple entries for the same employer/client are consolidated into one CV row. 
 
 ### Fonts configured
 
-- **Relevant** — default sans-serif (`font-sans`)
-- **SangBleu Empire** — display headlines (`font-serif-display`)
-- **SangBleu Republic** — body serif (`font-serif`)
-- **SangBleu Kingdom** — available in `public/fonts/` but unused
+- **Matter** — default sans-serif (`font-sans`), licensed (Displaay, order 405097)
+- **SangBleu Empire** — display headlines (`font-serif-display`), ⚠️ still a trial
+- **Old Standard TT** — declared as `font-serif` in `tailwind.config.mjs` but never
+  loaded, so `font-serif` currently falls back to Georgia
+
+### Where the font files live
+
+Font binaries are **not** in this repo. They are licensed for self-hosting on bewe.is
+(Displaay §08 Web) but not for distribution or third-party copying (§06/§10), and this
+repo is public.
+
+They live in the private `benediktweishaupt/personal-website-fonts` repo and are pulled
+into `public/fonts/` at build time by the "Fetch licensed fonts" step in
+`.github/workflows/deploy.yml`, using the read-only `FONTS_DEPLOY_KEY` deploy key.
+
+For local development, keep the files in `public/fonts/` — `.gitignore` blocks them from
+being committed. To get them: clone the private fonts repo and copy `fonts/*.woff2` over.
 
 ### Type scale (approximate)
 
