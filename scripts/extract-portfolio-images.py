@@ -19,6 +19,9 @@ import fitz  # PyMuPDF
 # Paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+# NOTE: docs/reference-data/ is gitignored — it holds the CV and portfolio PDFs,
+# which must not live in this public repo. This one-off extraction has already run;
+# to re-run it, put the source PDFs back into docs/reference-data/ locally.
 PDF_PATH = os.path.join(PROJECT_ROOT, "docs", "reference-data", "HFBK-Hamburg_2023-Portfolio.pdf")
 CAPTIONS_PATH = os.path.join(PROJECT_ROOT, "docs", "reference-data", "HFBK-Portfolio_extracted-text.txt")
 ASSETS_DIR = os.path.join(PROJECT_ROOT, "src", "assets", "projects")

@@ -25,7 +25,16 @@ pnpm-debug.log*
 
 # image staging (large unprocessed files)
 docs/images-to-place/
+
+# personal and strategic documents — this repo is public
+# reference-data holds the CV (address, date of birth) and the portfolio PDF;
+# PRD and research notes are working documents, not portfolio content
 docs/reference-data/
+PRD.md
+docs/research-unterwegs.txt
+
+# local agent config (machine paths, permission settings)
+.claude/
 
 # fonts — licensed binaries, never commit
 # served on bewe.is under license, but not redistributable (Displaay §06/§10)
@@ -37,3 +46,9 @@ public/fonts/*.ttf
 
 # font purchases and foundry trials (licence docs, invoices, trial families)
 docs/DP_*/
+
+# video source files — only the converted .mp4 ships (see docs/conventions/media-assets.md)
+*.mov
+
+# editor/scratch leftovers
+*.bak

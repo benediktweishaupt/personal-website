@@ -6,7 +6,7 @@ Astro static site. Portfolio with case studies, project archive, about page, and
 
 **Key docs:**
 - `how-the-website-works.md` — architecture, components, conventions
-- `PRD.md` — planned work (next steps + backlog)
+- `PRD.md` — planned work; kept locally, not in this repo (public)
 - `CHANGELOG.md` — development history
 - `docs/conventions/` — content status system, media assets
 
