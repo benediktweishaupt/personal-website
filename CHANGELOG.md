@@ -4,6 +4,37 @@ Development history of the portfolio site (benediktweishaupt.de und bewe.is form
 
 ---
 
+## Aug 25 — Personal documents out of the repo, repo recreated
+
+**Removed from the repo and its history**
+
+- `docs/reference-data/` — the 2023 CV (date and place of birth, home address, mobile
+  number), the 28 MB HFBK portfolio PDF, and an invoice-backed client list 2012–2022.
+  The two PDFs also sat at the repo root in early history, before being moved into
+  `docs/reference-data/` — that earlier location needed a second purge pass.
+- `PRD.md`, `docs/research-unterwegs.txt` — job-search strategy and personal notes
+- `.claude/settings.local.json` — local machine paths and permission settings
+- `docs/images-to-place/` — 47 MB image staging
+- 5 `.mov` source files (285 MB); only converted `.mp4` ships
+
+751 → 718 tracked files, 809 → 505 MB. All files kept locally and now gitignored.
+
+**Repo deleted and recreated**
+
+Rewriting history does not remove anything from GitHub — unreachable objects stay
+fetchable by SHA, and old SHAs are listed publicly via the Actions API. For CV data that
+residual exposure was not acceptable, so the repo was deleted and recreated with only the
+purged history. Pages, the `bewe.is` domain and the fonts deploy key were set up again;
+the account-level domain verification and the TLS certificate carried over. `FTP_USERNAME`
+and `FTP_PASSWORD` are gone with the old repo.
+
+**Verified**
+
+All 1376 blobs checked by content signature, not filename: 0 PDFs, 0 QuickTime blobs, 0
+containing the address or phone number. Every old commit SHA now returns 422.
+
+---
+
 ## Aug 22 — Site back online, fonts out of the public repo
 
 **Deployment**

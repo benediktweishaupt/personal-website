@@ -48,30 +48,22 @@ already the case while the repo was private; going public did not create it.
 
 **Fix:** buy the licence from Swiss Typefaces, or replace the face.
 
-### 2. Old objects are still reachable on GitHub
+### 2. Old objects on GitHub — resolved 25 Aug 2026
 
-History was rewritten on 22 Aug 2026 (`git filter-repo`, purging `public/fonts/`), so
-`main` is clean. But GitHub does not immediately garbage-collect unreachable objects,
-and the old commit SHAs are publicly listed via the Actions runs and deployments API.
-Measured right after the rewrite, without any authentication:
+History was rewritten on 22 Aug (fonts) and 24 Aug (personal documents), but rewriting
+alone does not remove anything from GitHub: unreachable objects stay fetchable by SHA,
+and the old SHAs are listed publicly via the Actions runs and deployments API. Measured
+after the first rewrite, without authentication, `Matter-Regular.woff2` was still
+reachable at 1 old SHA and the SangBleu trial at 24.
 
-- `Matter-Regular.woff2` — reachable at 1 old SHA (`c8242383e6c0`)
-- `SangBleuEmpire-Regular-WebTrial.woff2` — reachable at 24 old SHAs
-- `RelevantTrial-Normal.otf` — reachable at 23 old SHAs
-
-At the time of the rewrite the repo had 0 forks, 0 clones and 0 views, so nothing is
-known to have been fetched.
-
-**Options, deliberately deferred:**
-- Delete the old Actions runs and deployments (removes SHA discoverability), and open a
-  GitHub Support ticket asking them to garbage-collect unreachable objects
-- Delete and recreate the repo (instant and total; Pages, the custom domain and the
-  deploy-key secret must be set up again)
-- Make the repo private again (needs GitHub Pro, otherwise Pages stops working)
+The repo was therefore deleted and recreated on 25 Aug with only the purged history.
+Every old commit now returns 422 from the API, every old blob 404, and the Actions and
+deployments history contains nothing but the new SHA. Nothing carried over.
 
 ### 3. Housekeeping
 
 - `RelevantTrial-Normal.otf` is untracked but still sits in `public/fonts/` locally.
   Unused — nothing references it.
-- `FTP_USERNAME` / `FTP_PASSWORD` still exist as Actions secrets from an earlier hosting
-  setup and are referenced nowhere. Dead credentials; worth deleting.
+- `FTP_USERNAME` / `FTP_PASSWORD` were deleted on 25 Aug. If the Hostinger account still
+  exists, rotate that password — the endpoint (`ftp.360degre.es`) was readable in the old
+  repo's history for as long as it was public.
